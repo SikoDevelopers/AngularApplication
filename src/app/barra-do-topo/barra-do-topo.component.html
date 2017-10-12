@@ -7,7 +7,7 @@
   </logo>
 
 
-  <links>
+  <links [hidden]="!(rota == '/')">
     <ul class="navbar-nav mr-auto">
       <form class="form-inline">
         <i class="fa fa-search prefix"></i>
@@ -31,13 +31,6 @@
         <mdb-select [ngStyle]="{'background-color':'#00695c'}" [options]="optionsSelect" placeholder="Choose your option"></mdb-select>
         <label [ngStyle]="{'background-color':'#00695c'}">Example label</label>
       </div>
-    <!--</div>-->
-    <!--<div class="navbar-nav">-->
-      <!--<a class="nav-item nav-link active waves-light" href="#" mdbRippleRadius>Home <span class="sr-only">(current)</span></a>-->
-      <!--<a class="nav-item nav-link waves-light" href="#" mdbRippleRadius>Features</a>-->
-      <!--<a class="nav-item nav-link waves-light" href="#" mdbRippleRadius>Pricing</a>-->
-      <!--<a class="nav-item nav-link disabled" href="#">Disabled</a>-->
-    <!--</div>-->
   </links>
 </mdb-navbar>
 
