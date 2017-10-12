@@ -7,6 +7,7 @@ import { PublicoGeralModule } from './publico-geral/publico-geral.module';
 import { AppRoutingModule } from './app-routing.module';
 import { EstudanteModule } from "./estudante/estudante.module";
 import {LoginModule} from "./publico-geral/login/login.module";
+import {SelectModule} from "./select/select.module";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {LoginModule} from "./publico-geral/login/login.module";
     LoginModule,
     PublicoGeralModule,
     EstudanteModule,
+    SelectModule
 
 
   ],
