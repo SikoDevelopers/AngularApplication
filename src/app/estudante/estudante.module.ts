@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PaginaComponent } from './pagina/pagina.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import {BarraDoTopoEstModule} from "./barra-do-topo-est/barra-do-topo-est.module";
+import { SubmeterTrabalhoComponent } from './submeter-trabalho/submeter-trabalho.component';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import {BarraDoTopoEstModule} from "./barra-do-topo-est/barra-do-topo-est.module
   ],
   declarations: [
     PaginaComponent,
-    SidenavComponent
+    SidenavComponent,
+    SubmeterTrabalhoComponent
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   exports: [ SidenavComponent ]
