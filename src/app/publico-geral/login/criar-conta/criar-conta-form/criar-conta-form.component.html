@@ -28,23 +28,25 @@
             <app-select [label]="label" [opcoes]="opcoes"></app-select>
 
             <div class="md-form">
+              <input type="email" id="email" class="form-control" mdbActive>
+              <label for="email">Email</label>
+            </div>
+
+            <div class="md-form">
               <input type="password" id="senha" class="form-control" mdbActive>
               <label for="senha">Senha</label>
             </div>
 
-            <div class="text-right">
-              <a class="btn btn-default waves-light" href="/estudante/pagina-inicial" mdbRippleRadius>Login</a>
-            </div>
-            <div class="text-right" [ngStyle]="{'margin-top':'15px','font-size':'14px'}">
-              <a href="/login">Esquecei a senha</a>
+            <div class="md-form">
+              <input type="password" id="confSenha" class="form-control" mdbActive>
+              <label for="confSenha">Confirnar Senha</label>
             </div>
 
+            <div class="text-right">
+              <a class="btn btn-default waves-light" href="/estudante/pagina-inicial" mdbRippleRadius>Registar</a>
+            </div>
           </form>
-          <hr>
-          <br>
-          <div class="text-center" [ngStyle]="{'margin-bottom':'15px'}" >
-            <span>Nao possui conta? </span><a href="/criar-conta">Crie aqui</a>
-          </div>
+
           <!-- Login form -->
         </div>
       </div>
