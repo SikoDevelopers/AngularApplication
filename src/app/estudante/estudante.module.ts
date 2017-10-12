@@ -2,12 +2,12 @@ import { NgModule,NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginaComponent } from './pagina/pagina.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import {BarraDoTopoModule} from "../barra-do-topo/barra-do-topo.module";
+import {BarraDoTopoEstModule} from "./barra-do-topo-est/barra-do-topo-est.module";
 
 @NgModule({
   imports: [
     CommonModule,
-    BarraDoTopoModule
+    BarraDoTopoEstModule
   ],
   declarations: [
     PaginaComponent,
