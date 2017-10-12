@@ -6,6 +6,7 @@ import { ListaDeTrabalhosComponent } from './lista-de-trabalhos/lista-de-trabalh
 import { TrabalhoComponent } from './lista-de-trabalhos/trabalho/trabalho.component';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
+import { CriarContaComponent } from './login/criar-conta/criar-conta.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
     ListaDeTrabalhosComponent,
     TrabalhoComponent,
     LoginComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    CriarContaComponent
   ]
 })
 export class PublicoGeralModule { }
