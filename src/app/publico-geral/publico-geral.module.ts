@@ -11,6 +11,11 @@ import { LoginComponent } from './login/login.component';
     CommonModule,
     BarraDoTopoModule
   ],
-  declarations: [PaginaInicialComponent, ListaDeTrabalhosComponent, TrabalhoComponent, LoginComponent]
+  declarations: [
+    PaginaInicialComponent,
+    ListaDeTrabalhosComponent,
+    TrabalhoComponent,
+    LoginComponent
+  ]
 })
 export class PublicoGeralModule { }

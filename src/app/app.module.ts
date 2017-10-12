@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {PublicoGeralModule} from './publico-geral/publico-geral.module';
 import {AppRoutingModule} from './app-routing.module';
+import {EstudanteModule} from "./estudante/estudante.module";
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {AppRoutingModule} from './app-routing.module';
     BrowserModule,
     MDBBootstrapModule.forRoot(),
     AppRoutingModule,
-    PublicoGeralModule
+    PublicoGeralModule,
+    EstudanteModule
 
   ],
   providers: [],

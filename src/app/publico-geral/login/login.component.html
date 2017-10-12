@@ -1,29 +1,40 @@
-<div class="container">
-  <div class="card">
-    <div class="card-body">
-      <!-- Login form -->
-      <form>
-        <p class="h5 text-center mb-4">Sign in</p>
+<div class="container align-middle">
+  <div class="row" id="wait-for-result-container" [ngStyle]="{'margin-top':'20%'}">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6 align-middle">
+      <div class="card">
+        <div class="card-body">
+          <!-- Login form -->
+          <form>
+            <p class="h5 text-center mb-4">Sign in</p>
 
-        <div class="md-form">
-          <i class="fa fa-envelope prefix grey-text"></i>
-          <input type="text" id="defaultForm-email" class="form-control" mdbActive>
-          <label for="defaultForm-email">Your email</label>
-        </div>
+            <div class="md-form">
+              <i class="fa fa-envelope prefix grey-text"></i>
+              <input type="text" id="defaultForm-email" class="form-control" mdbActive>
+              <label for="defaultForm-email">Seu email usado no SIGAUEM</label>
+            </div>
 
-        <div class="md-form">
-          <i class="fa fa-lock prefix grey-text"></i>
-          <input type="password" id="defaultForm-pass" class="form-control" mdbActive>
-          <label for="defaultForm-pass">Your password</label>
-        </div>
+            <div class="md-form">
+              <i class="fa fa-lock prefix grey-text"></i>
+              <input type="password" id="defaultForm-pass" class="form-control" mdbActive>
+              <label for="defaultForm-pass">Senha</label>
+            </div>
 
-        <div class="text-center">
-          <button class="btn btn-default waves-light" mdbRippleRadius>Login</button>
+            <div class="text-right">
+              <a class="btn btn-default waves-light" href="/estudante/pagina-inicial" mdbRippleRadius>Login</a>
+            </div>
+          </form>
+          <hr>
+          <br>
+          <span class="right" [ngStyle]="{'float':'right','margin-bottom':'15px'}">
+            <span>Esqueceu a senha? </span><a href="/login">Clique aqui</a>
+          </span>
+          <!-- Login form -->
         </div>
-      </form>
-      <!-- Login form -->
+      </div>
     </div>
   </div>
+
 
 
 </div>
