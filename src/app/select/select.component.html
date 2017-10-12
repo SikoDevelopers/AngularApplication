@@ -1,0 +1,10 @@
+<label>{{ label }}</label>
+<div class="mdl-selectfield">
+
+  <select class="browser-default">
+    <option value="" disabled selected>Selecione uma opcao</option>
+    <option *ngFor="let opcao of opcoes" value="{{ opcao.value }}">{{ opcao.option }}</option>
+
+  </select>
+</div>
+<br>
