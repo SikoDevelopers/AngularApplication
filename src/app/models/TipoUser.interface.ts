@@ -1,0 +1,3 @@
+interface TipoUser{
+    designacao:string;
+}
