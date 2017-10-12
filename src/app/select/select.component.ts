@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {SelectService} from "./select.service";
 
 @Component({
@@ -7,12 +7,12 @@ import {SelectService} from "./select.service";
   styleUrls: ['./select.component.scss']
 })
 export class SelectComponent implements OnInit {
-  label: string = "Provincias";
-  opcoes;
-  constructor(private _selectService: SelectService) { }
+  @Input() label: string ;
+  @Input() opcoes: any;
+  constructor() { }
 
   ngOnInit() {
-    this.opcoes = this._selectService.getOpcoes();
+
   }
 
 }
