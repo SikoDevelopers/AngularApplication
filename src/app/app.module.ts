@@ -3,9 +3,10 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import {PublicoGeralModule} from './publico-geral/publico-geral.module';
-import {AppRoutingModule} from './app-routing.module';
-import {EstudanteModule} from "./estudante/estudante.module";
+import { PublicoGeralModule } from './publico-geral/publico-geral.module';
+import { AppRoutingModule } from './app-routing.module';
+import { EstudanteModule } from "./estudante/estudante.module";
+import {LoginModule} from "./publico-geral/login/login.module";
 
 @NgModule({
   declarations: [
@@ -15,8 +16,10 @@ import {EstudanteModule} from "./estudante/estudante.module";
     BrowserModule,
     MDBBootstrapModule.forRoot(),
     AppRoutingModule,
+    LoginModule,
     PublicoGeralModule,
-    EstudanteModule
+    EstudanteModule,
+
 
   ],
   providers: [],
