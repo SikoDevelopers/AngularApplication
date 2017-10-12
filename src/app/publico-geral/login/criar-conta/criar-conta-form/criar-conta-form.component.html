@@ -1,12 +1,5 @@
-
-
-
-
-
-
-
 <div class="container align-middle">
-  <div class="row" id="wait-for-result-container" [ngStyle]="{'margin-top':'15%'}">
+  <div class="row" id="wait-for-result-container" [ngStyle]="{'margin-top':'10%'}">
     <div class="col-lg-3"></div>
     <div class="col-lg-6 align-middle">
       <div class="card">
@@ -23,6 +16,18 @@
             <div class="md-form">
               <input type="text" id="nome" class="form-control" mdbActive>
               <label for="nome">Nome</label>
+            </div>
+
+            <div class="btn-group" dropdown>
+              <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle waves-light">
+                Basic dropdown
+              </button>
+
+              <div class="dropdown-menu dropdown-primary">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
             </div>
 
             <div class="md-form">
