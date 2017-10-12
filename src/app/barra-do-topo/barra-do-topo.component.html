@@ -1,0 +1,45 @@
+
+
+
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo" [ngStyle]="{'background-color':'#00695c'}">
+  <logo [ngStyle]="{'width':'40%'}">
+    <a class="navbar-brand" href="#">{{ nomeDaApp }}</a>
+    <a class="white-text" routerLink="/" >Trabalho Cientificos</a>
+  </logo>
+
+
+  <links>
+    <ul class="navbar-nav mr-auto">
+      <form class="form-inline">
+        <i class="fa fa-search prefix"></i>
+        <input class="form-control" type="text" placeholder="Pesquisar">
+      </form>
+    </ul>
+    <span class="navbar-text white-text">
+      <a class="right" routerLink="/">
+      <i class="fa fa-sign-in" aria-hidden="true"></i>
+      <span>Login</span>
+      </a>
+    </span>
+  </links>
+</mdb-navbar>
+
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo" [ngStyle]="{'background-color':'#00695c'}">
+
+  <links>
+    <!--<div class="row">-->
+      <div class="col-lg-8">
+        <mdb-select [ngStyle]="{'background-color':'#00695c'}" [options]="optionsSelect" placeholder="Choose your option"></mdb-select>
+        <label [ngStyle]="{'background-color':'#00695c'}">Example label</label>
+      </div>
+    <!--</div>-->
+    <!--<div class="navbar-nav">-->
+      <!--<a class="nav-item nav-link active waves-light" href="#" mdbRippleRadius>Home <span class="sr-only">(current)</span></a>-->
+      <!--<a class="nav-item nav-link waves-light" href="#" mdbRippleRadius>Features</a>-->
+      <!--<a class="nav-item nav-link waves-light" href="#" mdbRippleRadius>Pricing</a>-->
+      <!--<a class="nav-item nav-link disabled" href="#">Disabled</a>-->
+    <!--</div>-->
+  </links>
+</mdb-navbar>
+
+
