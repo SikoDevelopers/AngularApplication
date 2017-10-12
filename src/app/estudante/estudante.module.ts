@@ -13,6 +13,7 @@ import {BarraDoTopoEstModule} from "./barra-do-topo-est/barra-do-topo-est.module
     PaginaComponent,
     SidenavComponent
   ],
-  schemas: [ NO_ERRORS_SCHEMA ]
+  schemas: [ NO_ERRORS_SCHEMA ],
+  exports: [ SidenavComponent ]
 })
 export class EstudanteModule { }

@@ -1,22 +1,10 @@
 mdb-navbar{
   background-color: #00695c !important;
   color: #fff;
+  z-index: -1;
 
 }
 
-.nome-da-app{
-  font-size: 24px;
-  font-weight: bold;
-}
-.pesquisa{
-  margin: 0 20px !important;
-}
-.pesquisa >input{
-  width: 100% !important;
-}
-.log{
-  float: right;
-}
 .lg-a{
   text-decoration: none;
   color: white;
