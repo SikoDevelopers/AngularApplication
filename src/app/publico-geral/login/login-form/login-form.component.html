@@ -24,12 +24,16 @@
             <div class="text-right">
               <a class="btn btn-default waves-light" href="/estudante/pagina-inicial" mdbRippleRadius>Login</a>
             </div>
+            <div class="text-right" [ngStyle]="{'margin-top':'15px','font-size':'14px'}">
+              <a href="/login">Esquecei a senha</a>
+            </div>
+
           </form>
           <hr>
           <br>
-          <span class="right" [ngStyle]="{'float':'right','margin-bottom':'15px'}">
-            <span>Esqueceu a senha? </span><a href="/login">Clique aqui</a>
-          </span>
+          <div class="text-center" [ngStyle]="{'margin-bottom':'15px'}" >
+            <span>Nao possui conta? </span><a href="/login">Crie aqui</a>
+          </div>
           <!-- Login form -->
         </div>
       </div>
