@@ -8,10 +8,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { EstudanteModule } from "./estudante/estudante.module";
 import {LoginModule} from "./publico-geral/login/login.module";
 import {SelectModule} from "./select/select.module";
+import { FileInputComponent } from './file-input/file-input.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FileInputComponent
   ],
   imports: [
     BrowserModule,
