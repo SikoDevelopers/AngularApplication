@@ -1,11 +1,10 @@
-<div class="col">
-  <div class='input-wrapper'>
-    <label class="btn btn-primary" for='input-file'>
-      {{ textoDaLabel }}
-    </label>
-    <input id='input-file' type='file' value='' (change)="onChangeSelectedFile(input.value)" #input />
-    <input id='no-id' type='text' value='{{ caminhoDoFile }}' />
-  </div>
-</div>
+ <div class='input-wrapper'>
+   <label class="btn btn-primary" for='input-file'>
+     {{ textoDaLabel }}
+   </label>
+   <input id='input-file' type='file' value='' (change)="onChangeSelectedFile(input.value)" #input />
+   <input id='no-id' type='text' value='{{ caminhoDoFile }}' />
+ </div>
+
 
 
