@@ -6,8 +6,8 @@ import {Component, Input, ElementRef, OnInit, ViewChild} from '@angular/core';
   styleUrls: ['./file-input.component.scss']
 })
 export class FileInputComponent implements OnInit {
-
-  nomeDoElemento: any;
+  @Input() textoDaLabel = "bla bla bla"
+  caminhoDoFile: any;
   constructor() { }
 
   ngOnInit() {
@@ -17,9 +17,9 @@ export class FileInputComponent implements OnInit {
     console.log("clicked");
   }
 
-  mudou(valor){
-    this.nomeDoElemento = valor;
-    console.log(valor);
-    this.ngOnInit();
+  onChangeSelectedFile(valor){
+    this.caminhoDoFile = valor;
+    console.log(this.caminhoDoFile);
   }
+  
 }
