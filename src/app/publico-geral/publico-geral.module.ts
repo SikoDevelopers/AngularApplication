@@ -14,7 +14,7 @@ import { TrabalhoComponent } from './lista-de-trabalhos/trabalho/trabalho.compon
   declarations: [
     PaginaInicialComponent,
     ListaDeTrabalhosComponent,
-    TrabalhoComponent,
+    TrabalhoComponent
 
   ]
 })

@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { EstudanteModule } from "./estudante/estudante.module";
 import {LoginModule} from "./publico-geral/login/login.module";
 import {SelectModule} from "./select/select.module";
+import { FileInputComponent } from './file-input/file-input.component';
 import {CursoService} from './service/curso.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, NgForm, NgModel} from '@angular/forms';
