@@ -1,8 +1,15 @@
-<div class='input-wrapper'>
-  <label for='input-file' #label>
-    Selecionar um arquivo
-  </label>
-  <input id='input-file' type='file' value='' (change)="mudou(input.value)" #input />
-  <!--<span id='file-name' >{{ nomeDoElemento }}</span>-->
-  <input id='no-id' type='text' value='{{ nomeDoElemento }}'/>
+<div class="row">
+  <div class="col-lg-3">
+    <div class='input-wrapper'>
+      <label class="btn btn-primary" for='input-file' #label>
+        Selecionar um arquivo
+      </label>
+      <input id='input-file' type='file' value='' (change)="mudou(input.value)" #input />
+    </div>
+  </div>
+
+  <div class="col-lg-3">
+    <input id='no-id' type='text' value='{{ nomeDoElemento }}'/>
+  </div>
 </div>
+

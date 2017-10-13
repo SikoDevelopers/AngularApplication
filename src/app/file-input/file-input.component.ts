@@ -7,7 +7,7 @@ import {Component, Input, ElementRef, OnInit, ViewChild} from '@angular/core';
 })
 export class FileInputComponent implements OnInit {
   @ViewChild('label') labelTeste: ElementRef;
-  nomeDoElemento: any = "teste";
+  nomeDoElemento: any;
   constructor() { }
 
   ngOnInit() {
