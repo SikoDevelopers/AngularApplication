@@ -1,7 +1,7 @@
 <app-barra-do-topo-est></app-barra-do-topo-est>
 <app-sidenav></app-sidenav>
-<app-trabalhos-submetidos></app-trabalhos-submetidos>
-<!--<app-submeter-trabalho></app-submeter-trabalho>-->
+<app-trabalhos-submetidos [hidden]="!(rota == '/estudante/pagina-inicial')"></app-trabalhos-submetidos>
+<app-submeter-trabalho [hidden]="!(rota == '/estudante/submeter-trabalho')"></app-submeter-trabalho>
 
 
 

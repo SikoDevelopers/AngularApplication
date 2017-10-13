@@ -9,6 +9,7 @@ const appRoutes: Routes = [
   {path: '',component: PaginaInicialComponent},
   {path:'login',component:LoginComponent},
   {path:'criar-conta',component:CriarContaComponent},
+  {path: 'estudante/submeter-trabalho', component: PaginaComponent},
   {path:'estudante/pagina-inicial',component: PaginaComponent}
 ];
 @NgModule({
