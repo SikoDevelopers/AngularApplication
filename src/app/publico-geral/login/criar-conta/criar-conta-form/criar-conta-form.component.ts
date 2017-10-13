@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {CursoService} from '../../../../service/curso.service';
+import {HttpErrorResponse} from '@angular/common/http';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-criar-conta-form',
@@ -7,27 +10,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CriarContaFormComponent implements OnInit {
   label: string = "Selecione o Curso";
-  opcoes: any = [
-    {
-      'value': 'INFORMATICA',
-      'option': 'INFORMATICA'
-    },
-    {
-      'value': 'ESTATISTICA',
-      'option': 'ESTATISTICA'
-    },
-    {
-      'value': 'MATEMATICA',
-      'option': 'MATEMATICA'
-    },
-    {
-      'value': 'MATEMATICA',
-      'option': 'MATEMATICA'
-    }
-  ];
-  constructor() { }
+  cursos: any  = [];
+  cursos_id: any;
+
+  constructor(private cursoService: CursoService) {
+
+  }
 
   ngOnInit() {
+    this.getCursos();
   }
+
+  getCursos(){
+    this.cursoService.getCurso().subscribe(
+        (resultado: Response) =>{
+            this.cursos = resultado['cursos'];
+        },
+        (erros: HttpErrorResponse) =>{
+            console.log(erros);
+        },
+        () => {
+          console.log('Cursos carregados com sucesso');
+        }
+    );
+  }
+
+
+  onSignUp(formulario: NgForm){
+    const user: any = {
+        'aplido' : formulario.value.apelido,
+        'nome': formulario.value.nome,
+        'cursos_id': this.cursos_id,
+        'email': formulario.value.email,
+        'password': formulario.value.password
+    };
+
+    console.log(user);
+  }
+
+
+  getCursoSelect(event){
+    console.log(event);
+  }
+
 
 }

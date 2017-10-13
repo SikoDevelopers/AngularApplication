@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, ViewChild, ElementRef, EventEmitter} from '@angular/core';
 import {SelectService} from "./select.service";
 
 @Component({
@@ -9,10 +9,20 @@ import {SelectService} from "./select.service";
 export class SelectComponent implements OnInit {
   @Input() label: string ;
   @Input() opcoes: any;
+
+  @Output() eventEmmiter = new EventEmitter();
+
   constructor() { }
+
 
   ngOnInit() {
 
   }
+
+    selecionarCurso(opcao){
+        this.eventEmmiter.emit({cursos_id: opcao.id});
+    }
+
+
 
 }
