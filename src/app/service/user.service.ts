@@ -9,6 +9,11 @@ export class UserService {
 
 
 
+    signUp(user): Observable<any>{
+        const headers: Headers = new Headers({'Content-Type': 'Application/json', 'X-Request-With': 'XMLHttpRequest'});
+        return this.http.post('http://127.0.0.1:8000/api/estudantes/signup', user, headers);
+    }
+
 
     login(user: User): Observable<any>{
         const headers = new HttpHeaders({'Content-Type': 'application/json'});

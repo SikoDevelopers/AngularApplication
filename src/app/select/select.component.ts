@@ -10,6 +10,7 @@ export class SelectComponent implements OnInit {
   @Input() label: string ;
   @Input() opcoes: any;
 
+
   @Output() eventEmmiter = new EventEmitter();
 
   constructor() { }
@@ -19,8 +20,8 @@ export class SelectComponent implements OnInit {
 
   }
 
-    selecionarCurso(opcao){
-        this.eventEmmiter.emit({cursos_id: opcao.id});
+    selecionarCurso(evento){
+      this.eventEmmiter.emit({cursos_id: evento.value})
     }
 
 

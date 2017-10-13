@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CursoService} from '../../../../service/curso.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {NgForm} from '@angular/forms';
+import {UserService} from '../../../../service/user.service';
 
 @Component({
   selector: 'app-criar-conta-form',
@@ -13,8 +14,8 @@ export class CriarContaFormComponent implements OnInit {
   cursos: any  = [];
   cursos_id: any;
 
-  constructor(private cursoService: CursoService) {
-
+  constructor(private cursoService: CursoService, private userService: UserService) {
+    this.cursos_id = 0;
   }
 
   ngOnInit() {
@@ -38,20 +39,37 @@ export class CriarContaFormComponent implements OnInit {
 
   onSignUp(formulario: NgForm){
     const user: any = {
-        'aplido' : formulario.value.apelido,
+        'apelido' : formulario.value.apelido,
         'nome': formulario.value.nome,
         'cursos_id': this.cursos_id,
         'email': formulario.value.email,
         'password': formulario.value.password
     };
 
-    console.log(user);
+    this.userService.signUp(user).subscribe(
+        (resultado: Response) => {
+            alert("Conta Criada com sucesso");
+            console.log(resultado);
+        },
+    (erro: HttpErrorResponse)=> {
+            alert("Ocorreu algum erro ao criar conta");
+            console.error(erro);
+    },
+    ()=>{
+            console.log("Processo de criacao de conta terminado");
+      }
+    );
   }
 
 
   getCursoSelect(event){
-    console.log(event);
+    this.cursos_id = event.cursos_id;
   }
+
+
+    validarFormulario(formulario: NgForm){
+      return (formulario.valid && this.cursos_id != 0);
+    }
 
 
 }

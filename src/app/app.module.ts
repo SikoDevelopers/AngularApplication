@@ -12,6 +12,7 @@ import { FileInputComponent } from './file-input/file-input.component';
 import {CursoService} from './service/curso.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, NgForm, NgModel} from '@angular/forms';
+import {UserService} from './service/user.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import {FormsModule, NgForm, NgModel} from '@angular/forms';
 
 
   ],
-  providers: [CursoService],
+  providers: [CursoService, UserService],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
