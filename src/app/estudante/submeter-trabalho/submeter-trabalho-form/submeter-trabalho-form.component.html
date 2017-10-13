@@ -1,3 +1,37 @@
-<p>
-  submeter-trabalho-form works!
-</p>
+<div class="row">
+  <div class="col-8">
+    <form>
+      <div class="md-form">
+        <input type="text" id="apelido" class="form-control" mdbActive>
+        <label for="apelido">Apelido</label>
+      </div>
+
+      <div class="md-form">
+        <input type="text" id="nome" class="form-control" mdbActive>
+        <label for="nome">Nome</label>
+      </div>
+
+      <app-select [label]="label" [opcoes]="opcoes"></app-select>
+
+      <div class="md-form">
+        <input type="email" id="email" class="form-control" mdbActive>
+        <label for="email">Email</label>
+      </div>
+
+      <div class="md-form">
+        <input type="password" id="senha" class="form-control" mdbActive>
+        <label for="senha">Senha</label>
+      </div>
+
+      <div class="md-form">
+        <input type="password" id="confSenha" class="form-control" mdbActive>
+        <label for="confSenha">Confirnar Senha</label>
+      </div>
+
+      <div class="text-right">
+        <a class="btn btn-default waves-light" href="/estudante/pagina-inicial" mdbRippleRadius>Registar</a>
+      </div>
+    </form>
+
+  </div>
+</div>
