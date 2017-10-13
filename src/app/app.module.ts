@@ -9,6 +9,7 @@ import { EstudanteModule } from "./estudante/estudante.module";
 import {LoginModule} from "./publico-geral/login/login.module";
 import {SelectModule} from "./select/select.module";
 import { FileInputComponent } from './file-input/file-input.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FileInputComponent } from './file-input/file-input.component';
     LoginModule,
     PublicoGeralModule,
     EstudanteModule,
-    SelectModule
+    SelectModule,
+    FormsModule
 
 
   ],

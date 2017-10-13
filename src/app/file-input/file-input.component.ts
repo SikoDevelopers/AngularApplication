@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-file-input',
@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./file-input.component.scss']
 })
 export class FileInputComponent implements OnInit {
-
+  @ViewChild('label') labelTeste: ElementRef;
+  nomeDoElemento: any = "teste";
   constructor() { }
 
   ngOnInit() {
+
+  }
+  clicked(){
+    console.log("clicked");
   }
 
+  mudou(valor){
+    this.nomeDoElemento = valor;
+    console.log(valor);
+    this.ngOnInit();
+  }
 }
