@@ -6,7 +6,7 @@ import {Component, Input, ElementRef, OnInit, ViewChild} from '@angular/core';
   styleUrls: ['./file-input.component.scss']
 })
 export class FileInputComponent implements OnInit {
-  @Input() textoDaLabel = "bla bla bla"
+  @Input() textoDaLabel;
   caminhoDoFile: any;
   constructor() { }
 
@@ -21,5 +21,5 @@ export class FileInputComponent implements OnInit {
     this.caminhoDoFile = valor;
     console.log(this.caminhoDoFile);
   }
-  
+
 }
