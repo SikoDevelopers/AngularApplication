@@ -1,7 +1,7 @@
 <div class="row">
-  <div class="col-8">
+  <div class="col-7">
     <form>
-      
+
       <app-select [label]="label" [opcoes]="opcoes"></app-select>
 
       <div class="md-form">
@@ -18,18 +18,24 @@
       <label>Documento</label>
       <app-file-input [textoDaLabel]="labelDoFileChooser"></app-file-input>
 
-      <div class="md-form">
-        <input type="password" id="senha" class="form-control" mdbActive>
-        <label for="senha">Senha</label>
+      <label>Supervisores</label>
+      <div class="text-left">
+        <a class="btn btn-primary waves-light" href="/estudante/pagina-inicial" mdbRippleRadius>
+          <i class="fa fa-plus"></i>
+          Addionar Supervisores
+        </a>
       </div>
 
-      <div class="md-form">
-        <input type="password" id="confSenha" class="form-control" mdbActive>
-        <label for="confSenha">Confirnar Senha</label>
+      <div class="left">
+        <input type="checkbox" id="checkbox">
+        <label for="checkbox">Eu Confirmo que as infomacoes fornecidas sao verdadeiras</label>
       </div>
 
       <div class="text-right">
-        <a class="btn btn-default waves-light" href="/estudante/pagina-inicial" mdbRippleRadius>Registar</a>
+        <a class="btn btn-primary waves-light" href="/estudante/pagina-inicial" mdbRippleRadius>
+          <i class="fa fa-upload"></i>
+          Submeter
+        </a>
       </div>
     </form>
 

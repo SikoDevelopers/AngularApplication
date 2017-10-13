@@ -10,7 +10,7 @@ const appRoutes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'criar-conta',component:CriarContaComponent},
   {path: 'estudante/submeter-trabalho', component: PaginaComponent},
-  {path:'estudante/pagina-inicial',component: PaginaComponent}
+  {path:'estudante/documentos-submetidos',component: PaginaComponent}
 ];
 @NgModule({
   imports: [

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubmeterTrabalhoFormComponent implements OnInit {
   label: string = "Seleccione a area tematica";
-  labelDoFileChooser = "Selecione o documento"
+  labelDoFileChooser = "Seleccionar Documento"
   opcoes: any = [
     {
       'value':'SAUDE',
