@@ -23,8 +23,7 @@ import {FormsModule} from "@angular/forms";
     LoginModule,
     PublicoGeralModule,
     EstudanteModule,
-    SelectModule,
-    FormsModule
+    SelectModule
 
 
   ],

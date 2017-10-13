@@ -6,7 +6,7 @@ import {Component, Input, ElementRef, OnInit, ViewChild} from '@angular/core';
   styleUrls: ['./file-input.component.scss']
 })
 export class FileInputComponent implements OnInit {
-  @ViewChild('label') labelTeste: ElementRef;
+
   nomeDoElemento: any;
   constructor() { }
 
