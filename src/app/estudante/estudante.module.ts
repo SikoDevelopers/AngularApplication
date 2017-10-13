@@ -7,12 +7,13 @@ import { SubmeterTrabalhoComponent } from './submeter-trabalho/submeter-trabalho
 import { TrabalhosSubmetidosComponent } from './trabalhos-submetidos/trabalhos-submetidos.component';
 import { SubmeterTrabalhoFormComponent } from './submeter-trabalho/submeter-trabalho-form/submeter-trabalho-form.component';
 import {SelectModule} from "../select/select.module";
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 @NgModule({
   imports: [
     CommonModule,
     BarraDoTopoEstModule,
-    SelectModule
+    SelectModule,
+    MDBBootstrapModule.forRoot()
   ],
   declarations: [
     PaginaComponent,
