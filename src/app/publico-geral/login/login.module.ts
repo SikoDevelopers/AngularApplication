@@ -7,18 +7,21 @@ import { CriarContaFormComponent } from './criar-conta/criar-conta-form/criar-co
 import { BarraDoTopoModule } from '../../barra-do-topo/barra-do-topo.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {SelectModule} from "../../select/select.module";
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     MDBBootstrapModule.forRoot(),
     BarraDoTopoModule,
-    SelectModule
+    SelectModule,
+      FormsModule,
   ],
   declarations: [
     LoginComponent,
     LoginFormComponent,
     CriarContaComponent,
+
     CriarContaFormComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })

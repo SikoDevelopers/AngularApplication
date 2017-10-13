@@ -1,27 +1,24 @@
-# AngularApplication
+# TrabalhoSemestral AngularApp
+Essa eh a aplicacao Front-end do projecto que tem a funcao de consumir os dados 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Configuracao Inicial
+1. Crie um directorio com o nome SikoSSP (pasta root do projecto) - a pasta que vai conter os dois projectos angular e laravel
+2. baixar ou clonar o Projecto para o directorio SikoSSP
+3. Entre no directorio root (SikoSSP) - `cd SikoSSP`
+4. Entre na pasta do projecto angular - `cd AngularApplication`
+5. Instale todos os pacotes e dependencias do projecto - `npm install`
+6. Instale o bootstrap material design - [Link de instalacao](https://mdbootstrap.com/angular/5min-quickstart/)
+7. Sirva a aplicacao e aceda as rotas disponibilizadas pela aplicacao LaravelAPI - `ng serve` ou `npm start` ou `ng serve --open`
+8. [Acesse no Navegador](http://localhost:4200/)
 
-## Code scaffolding
+Nota:Para usar a aplicacao Angular, antes devem-se assegurar que as todas as configuracoes da Aplicacao laravel foram bem Succedidas.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+                                                     # TEAM SIKO
