@@ -1,5 +1,5 @@
 <div [ngStyle]="{'margin-top':'10px'}">
-  <h1>Trabalhos submetidos</h1>
+  <h1>Submeter Trabalho</h1>
   <hr>
 
   <div class="row">
@@ -16,47 +16,67 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col">
-      <table class="table">
-        <thead>
-        <tr>
-          <th>#</th>
-          <th>Tiulo</th>
-          <th>Area</th>
-          <th>Estado</th>
-          <th></th>
-          <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td><a><i class="fa fa-info"></i></a></td>
-          <td><a><i class="fa fa-edit"></i></a></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td><a><i class="fa fa-info"></i></a></td>
-          <td><a><i class="fa fa-edit"></i></a></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-          <td><a><i class="fa fa-info"></i></a></td>
-          <td><a><i class="fa fa-edit"></i></a></td>
-        </tr>
-        </tbody>
-      </table>
+  <!-- Vertical Steppers -->
+  <div class="row m-t-1">
+    <div class="col-md-12">
+
+      <!-- Stepers Wrapper -->
+      <ul class="stepper stepper-vertical">
+
+        <!-- First Step -->
+        <li class="completed">
+          <a href="#">
+            <span class="circle">1</span>
+            <span class="label">First step</span>
+          </a>
+        </li>
+
+        <!-- Second Step -->
+        <li class="active">
+
+          <!--Section Title -->
+          <a href="#">
+            <span class="circle">2</span>
+            <span class="label">Second step</span>
+          </a>
+
+          <!-- Section Description -->
+          <div class="step-content grey lighten-3">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse cupiditate voluptate facere iusto quaerat vitae excepturi, accusantium ut aliquam repellat atque nesciunt nostrum similique. Inventore nostrum ut, nobis porro sapiente.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore error excepturi veniam nemo repellendus, distinctio soluta vitae at sit saepe. Optio eaque quia excepturi adipisci pariatur totam, atque odit fugiat.</p>
+            <p>Deserunt voluptatem illum quae nisi soluta eum perferendis nesciunt asperiores tempore saepe reiciendis, vero quod a dolor corporis natus qui magni quas fuga rem excepturi laboriosam. Quisquam expedita ab fugiat.</p>
+          </div>
+        </li>
+
+        <!-- Third Step -->
+        <li class="warning">
+          <a href="#">
+            <span class="circle"><i class="fa fa-warning"></i></span>
+            <span class="label">Third step</span>
+          </a>
+        </li>
+
+        <!-- Fourth Step -->
+        <li>
+          <a href="#">
+            <span class="circle">4</span>
+            <span class="label">Fourth step</span>
+          </a>
+        </li>
+
+      </ul>
+      <!-- /.Stepers Wrapper -->
+
     </div>
   </div>
+
+  <!-- Steppers Navigation -->
+  <div class="row m-t-1">
+    <div class="col-md-12 text-right">
+      <button class="btn-flat" mdbRippleRadius>Cancel</button>
+      <button class="btn btn-primary waves-light" mdbRippleRadius>Next</button>
+    </div>
+  </div>
+  <!-- /.Vertical Steppers -->
 
 </div>
