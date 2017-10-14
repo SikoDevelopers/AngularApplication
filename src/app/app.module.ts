@@ -14,6 +14,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, NgForm, NgModel} from '@angular/forms';
 import {UserService} from './service/user.service';
 import {AutenticacaoService} from './service/autenticacao.service';
+import {ComissaoCientificaModule} from "./comissao-cientifica/comissao-cientifica.module";
+import {DocenteModule} from "./docente/docente.module";
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import {AutenticacaoService} from './service/autenticacao.service';
     SelectModule,
     HttpClientModule,
       FormsModule,
+      ComissaoCientificaModule,
+      DocenteModule
 
 
   ],

@@ -56,6 +56,7 @@ export class CriarContaFormComponent implements OnInit {
     };
 
 
+
       if(formulario.value.password == formulario.value.confPassword) {
           this.autenticacaoService.criarContaEsudante(user,
               dados => {

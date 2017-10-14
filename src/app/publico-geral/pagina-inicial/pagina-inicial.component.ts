@@ -7,19 +7,31 @@ import {AutenticacaoService} from '../../service/autenticacao.service';
   styleUrls: ['./pagina-inicial.component.css']
 })
 export class PaginaInicialComponent implements OnInit {
+  opcoesAreas: any = [
+    {
+      'value':'todas',
+      'option':'TODAS AREAS'
+    }
+  ];
 
   userLogdo: any;
   context = this;
 
-  // @Output('user') emissor = new EventEmitter();
 
   constructor(private autenticacaoServie: AutenticacaoService) {
 
   }
 
+  opcoesCursos: any = [
+    {
+      'value':'TODOS-CURSOS',
+      'option':'TODOS CURSOS'
+    }
+  ];
+
+
   ngOnInit() {
       this.verificarUserLogado();
-      // this.emissor.emit({user: this.userLogdo});
   }
 
 
