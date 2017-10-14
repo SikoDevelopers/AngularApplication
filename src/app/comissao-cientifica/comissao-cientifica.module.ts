@@ -4,6 +4,7 @@ import { ComissaoCientificaComponent } from './comissao-cientifica.component';
 import {BarraDoTopoEstComponent} from "./barra-do-topo-est/barra-do-topo-est.component";
 import {SidenavComponent} from "./sidenav/sidenav.component";
 import {MDBBootstrapModule} from "angular-bootstrap-md";
+import { TabelaTrabalhoComponent } from './tabela-trabalho/tabela-trabalho.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {MDBBootstrapModule} from "angular-bootstrap-md";
   ],
   declarations: [ComissaoCientificaComponent,
       BarraDoTopoEstComponent,
-      SidenavComponent
+      SidenavComponent,
+      TabelaTrabalhoComponent
 
   ],
 
