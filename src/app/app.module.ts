@@ -32,8 +32,7 @@ import {DocenteModule} from "./docente/docente.module";
     EstudanteModule,
     SelectModule,
     HttpClientModule,
-    Costumizando-Pagina-Inicial,
-     FormsModule,
+    FormsModule,
      ComissaoCientificaModule,
       DocenteModule
 
