@@ -5,7 +5,7 @@ import {BarraDoTopoEstComponent} from "./barra-do-topo-est/barra-do-topo-est.com
 import {SidenavComponent} from "./sidenav/sidenav.component";
 import {MDBBootstrapModule} from "angular-bootstrap-md";
 import { TabelaTrabalhoComponent } from './tabela-trabalho/tabela-trabalho.component';
-
+import { TabTrabalhosComponent } from './tab-trabalhos/tab-trabalhos.component';
 
 @NgModule({
   imports: [
@@ -16,7 +16,8 @@ import { TabelaTrabalhoComponent } from './tabela-trabalho/tabela-trabalho.compo
   declarations: [ComissaoCientificaComponent,
       BarraDoTopoEstComponent,
       SidenavComponent,
-      TabelaTrabalhoComponent
+      TabelaTrabalhoComponent,
+      TabTrabalhosComponent
 
   ],
 
