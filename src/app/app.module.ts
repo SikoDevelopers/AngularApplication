@@ -14,6 +14,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, NgForm, NgModel} from '@angular/forms';
 import {UserService} from './service/user.service';
 import {AutenticacaoService} from './service/autenticacao.service';
+import {ComissaoCientificaModule} from "./comissao-cientifica/comissao-cientifica.module";
+import {DocenteModule} from "./docente/docente.module";
 
 
 @NgModule({
@@ -30,7 +32,11 @@ import {AutenticacaoService} from './service/autenticacao.service';
     EstudanteModule,
     SelectModule,
     HttpClientModule,
-    FormsModule
+    Costumizando-Pagina-Inicial,
+     FormsModule,
+     ComissaoCientificaModule,
+      DocenteModule
+
   ],
   providers: [CursoService, UserService, AutenticacaoService],
   bootstrap: [AppComponent],

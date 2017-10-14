@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {AutenticacaoService} from '../../service/autenticacao.service';
 
 @Component({
   selector: 'app-pagina-inicial',
@@ -13,15 +14,42 @@ export class PaginaInicialComponent implements OnInit {
     }
   ];
 
+  userLogdo: any;
+  context = this;
+
+
+  constructor(private autenticacaoServie: AutenticacaoService) {
+
+  }
+
   opcoesCursos: any = [
     {
       'value':'TODOS-CURSOS',
       'option':'TODOS CURSOS'
     }
   ];
-  constructor() { }
+
 
   ngOnInit() {
+      this.verificarUserLogado();
+  }
+
+
+
+  verificarUserLogado(){
+
+    this.autenticacaoServie.verificarUserLogado(this.mostrarUser, this.getErros, this);
+
+  }
+
+  mostrarUser (user, context){
+    context.userLogdo = user;
+    console.log(context.userLogdo);
+  }
+
+
+  getErros(erros){
+      console.log(erros);
   }
 
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {UserService} from './user.service';
 import {HttpErrorResponse} from '@angular/common/http';
+import {concatStatic} from 'rxjs/operator/concat';
 
 @Injectable()
 export class AutenticacaoService {
@@ -51,6 +52,7 @@ export class AutenticacaoService {
           (resultado: Response) => {
 
               if (resultado.status == 200){
+
                   this.podeLogar = true;
                   this.dadosRetornados = resultado;
               }
@@ -67,14 +69,44 @@ export class AutenticacaoService {
 
           }
       );
-
   }
-
 
 
   guardarToken(token){
       localStorage.setItem('token', token);
   }
+
+
+    verificarUserLogado(callback: (dado, context) => void, callbackError: (dado) => void, context){
+
+      let result;
+      this.userService.logoado(localStorage.getItem('token')).subscribe(
+          (resultado: Response) => {
+              result = resultado;
+          },
+          erros => callbackError(erros),
+          ()=>{
+              callback(result, context);
+          }
+      );
+     return ("Fora "+result);
+    }
+
+
+  // validarEmail(email, funcao: (dado) => void){
+  //         this.userService.validarEmail(email).subscribe(
+  //             (resultado: Response) => {
+  //                 console.log(resultado);
+  //             },
+  //                 (erros)=> {
+  //                     funcao(erros);
+  //                 },
+  //
+  //
+  //         );
+  //
+  // }
+
 
 
 }
