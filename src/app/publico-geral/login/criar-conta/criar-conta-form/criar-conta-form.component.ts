@@ -16,6 +16,8 @@ export class CriarContaFormComponent implements OnInit {
   label: string = "Selecione o Curso";
   cursos: any  = [];
   cursos_id: any;
+  mensagemErro: String = "";
+
 
   constructor(
       private cursoService: CursoService,
@@ -44,7 +46,8 @@ export class CriarContaFormComponent implements OnInit {
 
 
   onSignUp(formulario: NgForm){
-    const user: any = {
+
+      const user: any = {
         'apelido' : formulario.value.apelido,
         'nome': formulario.value.nome,
         'cursos_id': this.cursos_id,
@@ -53,19 +56,22 @@ export class CriarContaFormComponent implements OnInit {
     };
 
 
-    this.autenticacaoService.criarContaEsudante(user,
-            dados =>{
-        window.location.href = "estudante/submeter-trabalho";
-    },
-        negado => {
-        console.log(negado);
-            alert("Nao pode entrar no sistema com essas credenciais"+ negado);
-        },
-        function (erro) {
-            alert("Nao pode criar conta com essas credenciais "+ erro)
-        });
 
+      if(formulario.value.password == formulario.value.confPassword) {
+          this.autenticacaoService.criarContaEsudante(user,
+              dados => {
+                  window.location.href = "estudante/submeter-trabalho";
+              },
+              negado => {
+                  alert("Nao pode entrar no sistema com essas credenciais" + negado);
+              },
+              function (erro) {
+                  alert("Nao pode criar conta com essas credenciais " + erro)
+              });
 
+      }else{
+        alert("As credenciais nao conscidem");
+      }
 
   }
 
@@ -74,29 +80,47 @@ export class CriarContaFormComponent implements OnInit {
     this.cursos_id = event.cursos_id;
   }
 
-    validarEmail(formulario: NgForm){
-        // this.userService.validarEmail(formulario.value.email).subscribe(
-        //     (resultado: Response) => {
-        //         if (resultado['estado'] == 'valido') {
-        //             console.log(resultado);
-        //         };
-        //     },
-        //         (erros)=> {
-        //             console.log('O email nao eh valido');
-        //         },
-        //
-        //
-        // );
-    }
+
+
 
 
     validarFormulario(formulario: NgForm){
-
-      if (formulario.invalid || this.cursos_id == 0 )
-          return true;
-      else
-          return false;
+            return formulario.invalid;
     }
+
+    mostarMensagem(apelido, nome, email, password, confSenha): boolean{
+
+        if(apelido.invalid && (apelido.dirty || apelido.touched)){
+            this.mensagemErro = "Apelido eh obrigatorio";
+            return true;
+        }
+
+        if(nome.invalid && (nome.dirty || nome.touched)){
+            this.mensagemErro = "Nome eh obrigatorio";
+            return true;
+        }
+
+        if(email.invalid && (email.dirty || email.touched)){
+            this.mensagemErro = "Email eh obrigatorio";
+            return true;
+        }
+
+        if(password.invalid && (password.dirty || password.touched)){
+            this.mensagemErro = "Password eh obrigatorio";
+            return true;
+        }
+
+        if(confSenha.invalid && (confSenha.dirty || confSenha.touched)){
+            this.mensagemErro = "Confirmacao de senha Obrigatoria";
+            return true;
+        }
+            return false;
+    }
+
+
+
+
+
 
 
 }
