@@ -1,4 +1,4 @@
-
+<label>{{ label }}</label>
 <div class="mdl-selectfield">
   <select class="browser-default">
     <option *ngFor="let opcao of opcoes" value="{{ opcao.value }}" (click)="selecionarCurso(opcao)">{{ opcao.option }}</option>

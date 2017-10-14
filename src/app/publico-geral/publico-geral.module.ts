@@ -5,13 +5,14 @@ import { BarraDoTopoModule} from '../barra-do-topo/barra-do-topo.module';
 import { ListaDeTrabalhosComponent } from './lista-de-trabalhos/lista-de-trabalhos.component';
 import { TrabalhoComponent } from './lista-de-trabalhos/trabalho/trabalho.component';
 import {SelectModule} from "../select/select.module";
+import {SelectFiltroModule} from "../select-filtro/select-filtro.module";
 
 
 @NgModule({
   imports: [
     CommonModule,
     BarraDoTopoModule,
-    SelectModule
+    SelectFiltroModule
   ],
   declarations: [
     PaginaInicialComponent,

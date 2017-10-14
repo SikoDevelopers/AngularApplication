@@ -1,11 +1,25 @@
 <app-barra-do-topo></app-barra-do-topo>
-<div [ngStyle]="{'margin-top':60+'px','max-height':'70px'}">
-  <div class="container">
+ <div [ngStyle]="{'margin-top':50+'px','max-height':'70px','position':'fixed','display':'block','background-color':'#eee','width':'100%','z-index':'99','padding':'0'}">
+    <div class="container" >
+        <div class="col-lg-4" [ngStyle]="{'float':'left'}">
+          <app-select-filtro [opcoes]="opcoesAreas"></app-select-filtro>
+        </div>
 
-    <app-select-filtro></app-select-filtro>
+        <div class="col-lg-4" [ngStyle]="{'float':'left'}">
+          <app-select-filtro [opcoes]="opcoesCursos"></app-select-filtro>
+        </div>
+
+        <div class="col-lg-4" [ngStyle]="{'float':'left'}">
+
+        </div>
+
+    </div>
+ </div>
+
+<div class="row" [ngStyle]="{'margin-top':100+'px','position':'absolute','width':'100%'}">
+  <div class="container" >
+    <app-lista-de-trabalhos></app-lista-de-trabalhos>
   </div>
 </div>
-<!--<div class="container" >-->
-  <!--<app-lista-de-trabalhos></app-lista-de-trabalhos>-->
-<!--</div>-->
+
 

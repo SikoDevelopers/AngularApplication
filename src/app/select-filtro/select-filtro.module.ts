@@ -6,6 +6,7 @@ import { SelectFiltroComponent } from './select-filtro.component';
   imports: [
     CommonModule
   ],
-  declarations: [SelectFiltroComponent]
+  declarations: [SelectFiltroComponent],
+  exports:[SelectFiltroComponent]
 })
 export class SelectFiltroModule { }
