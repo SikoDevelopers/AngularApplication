@@ -3,6 +3,9 @@ import {CursoService} from '../../../../service/curso.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {NgForm} from '@angular/forms';
 import {UserService} from '../../../../service/user.service';
+import { Response } from '@angular/http';
+import {Router} from '@angular/router';
+import {AutenticacaoService} from '../../../../service/autenticacao.service';
 
 @Component({
   selector: 'app-criar-conta-form',
@@ -14,7 +17,10 @@ export class CriarContaFormComponent implements OnInit {
   cursos: any  = [];
   cursos_id: any;
 
-  constructor(private cursoService: CursoService, private userService: UserService) {
+  constructor(
+      private cursoService: CursoService,
+      private autenticacaoService: AutenticacaoService
+  ) {
     this.cursos_id = 0;
   }
 
@@ -46,19 +52,20 @@ export class CriarContaFormComponent implements OnInit {
         'password': formulario.value.password
     };
 
-    this.userService.signUp(user).subscribe(
-        (resultado: Response) => {
-            alert("Conta Criada com sucesso");
-            console.log(resultado);
-        },
-    (erro: HttpErrorResponse)=> {
-            alert("Ocorreu algum erro ao criar conta");
-            console.error(erro);
+
+    this.autenticacaoService.criarContaEsudante(user,
+            dados =>{
+        window.location.href = "estudante/submeter-trabalho";
     },
-    ()=>{
-            console.log("Processo de criacao de conta terminado");
-      }
-    );
+        negado => {
+            alert("Nao pode entrar no sistema com essas credenciais"+ negado);
+        },
+        function (erro) {
+            alert("Nao pode criar conta com essas credenciais "+ erro)
+        });
+
+
+
   }
 
 
@@ -66,9 +73,28 @@ export class CriarContaFormComponent implements OnInit {
     this.cursos_id = event.cursos_id;
   }
 
+    validarEmail(formulario: NgForm){
+        // this.userService.validarEmail(formulario.value.email).subscribe(
+        //     (resultado: Response) => {
+        //         if (resultado['estado'] == 'valido') {
+        //             console.log(resultado);
+        //         };
+        //     },
+        //         (erros)=> {
+        //             console.log('O email nao eh valido');
+        //         },
+        //
+        //
+        // );
+    }
+
 
     validarFormulario(formulario: NgForm){
-      return (formulario.valid && this.cursos_id != 0);
+
+      if (formulario.invalid || this.cursos_id == 0 )
+          return true;
+      else
+          return false;
     }
 
 
