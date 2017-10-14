@@ -6,13 +6,15 @@ import { ListaDeTrabalhosComponent } from './lista-de-trabalhos/lista-de-trabalh
 import { TrabalhoComponent } from './lista-de-trabalhos/trabalho/trabalho.component';
 import {SelectModule} from "../select/select.module";
 import {SelectFiltroModule} from "../select-filtro/select-filtro.module";
+import {SliderModule} from "../slider/slider.module";
 
 
 @NgModule({
   imports: [
     CommonModule,
     BarraDoTopoModule,
-    SelectFiltroModule
+    SelectFiltroModule,
+    SliderModule
   ],
   declarations: [
     PaginaInicialComponent,

@@ -14,7 +14,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, NgForm, NgModel} from '@angular/forms';
 import {UserService} from './service/user.service';
 import {AutenticacaoService} from './service/autenticacao.service';
-import {SliderModule} from "./slider/slider.module";
+
 
 @NgModule({
   declarations: [
@@ -30,10 +30,7 @@ import {SliderModule} from "./slider/slider.module";
     EstudanteModule,
     SelectModule,
     HttpClientModule,
-    FormsModule,
-    SliderModule
-
-
+    FormsModule
   ],
   providers: [CursoService, UserService, AutenticacaoService],
   bootstrap: [AppComponent],
