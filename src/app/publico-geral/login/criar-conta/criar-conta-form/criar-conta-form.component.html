@@ -28,7 +28,7 @@
             <app-select  [label]="label" [opcoes]="cursos" (eventEmmiter)="getCursoSelect($event)"></app-select>
 
             <div class="md-form">
-              <input type="email" id="email" name="email" class="form-control" mdbActive ngModel required/>
+              <input type="email" id="email" name="email" class="form-control" mdbActive ngModel required (blur)="validarEmail(f)"/>
               <label for="email">Email</label>
             </div>
 
@@ -44,7 +44,7 @@
 
             <div class="text-right">
               <input class="btn btn-default waves-light" href="#" mdbRippleRadius (click)="onSignUp(f, $event.preventDefault())"
-                [disabled]="!validarFormulario(f)" value="Registar" type="submit"
+                [disabled]="validarFormulario(f)" value="Registar" type="submit"
                >
             </div>
           </form>

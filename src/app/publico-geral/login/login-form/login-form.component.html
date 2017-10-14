@@ -5,23 +5,23 @@
       <div class="card">
         <div class="card-body">
           <!-- Login form -->
-          <form>
+          <form #f="ngForm">
             <p class="h5 text-center mb-4">Sign in</p>
 
             <div class="md-form">
               <i class="fa fa-envelope prefix grey-text"></i>
-              <input type="text" id="defaultForm-email" class="form-control" mdbActive>
-              <label for="defaultForm-email">Seu email usado no SIGAUEM</label>
+              <input type="email" id="email" name="email" class="form-control" mdbActive ngModel required/>
+              <label for="email">Email</label>
             </div>
 
             <div class="md-form">
               <i class="fa fa-lock prefix grey-text"></i>
-              <input type="password" id="defaultForm-pass" class="form-control" mdbActive>
-              <label for="defaultForm-pass">Senha</label>
+              <input type="password" id="password" name="password" class="form-control" mdbActive ngModel required/>
+              <label for="password">Senha</label>
             </div>
 
             <div class="text-right">
-              <a class="btn btn-primary waves-light" href="/estudante/documentos-submetidos" mdbRippleRadius>Login</a>
+              <input type="submit" class="btn btn-primary waves-light"  value="Entrar" mdbRippleRadius (click)="onLogin(f)"/>
             </div>
             <div class="text-right" [ngStyle]="{'margin-top':'15px','font-size':'14px'}">
               <a href="/login">Esquecei a senha</a>

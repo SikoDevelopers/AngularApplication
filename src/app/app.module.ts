@@ -13,6 +13,7 @@ import {CursoService} from './service/curso.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, NgForm, NgModel} from '@angular/forms';
 import {UserService} from './service/user.service';
+import {AutenticacaoService} from './service/autenticacao.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import {UserService} from './service/user.service';
 
 
   ],
-  providers: [CursoService, UserService],
+  providers: [CursoService, UserService, AutenticacaoService],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
