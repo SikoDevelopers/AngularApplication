@@ -14,6 +14,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, NgForm, NgModel} from '@angular/forms';
 import {UserService} from './service/user.service';
 import {AutenticacaoService} from './service/autenticacao.service';
+import {SliderModule} from "./slider/slider.module";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {AutenticacaoService} from './service/autenticacao.service';
     EstudanteModule,
     SelectModule,
     HttpClientModule,
-      FormsModule,
+    FormsModule,
+    SliderModule
 
 
   ],
