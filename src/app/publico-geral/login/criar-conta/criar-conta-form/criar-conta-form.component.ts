@@ -58,6 +58,7 @@ export class CriarContaFormComponent implements OnInit {
         window.location.href = "estudante/submeter-trabalho";
     },
         negado => {
+        console.log(negado);
             alert("Nao pode entrar no sistema com essas credenciais"+ negado);
         },
         function (erro) {
