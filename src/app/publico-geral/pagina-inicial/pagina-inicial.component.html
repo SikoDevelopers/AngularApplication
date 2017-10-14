@@ -4,6 +4,20 @@
   <app-slider></app-slider>
 </div>
 
+<div class="container">
+    <br>
+    <div class="text-center">
+        <i class="fa fa-search" [ngStyle]="{'font-size':'40px'}"></i>
+        <h3>Pesquise trabalhos publicados</h3>
+    </div>
+    <div class="md-form">
+        <input mdbActive type="text" id="form2" class="form-control" placeholder="Pesquise trabalho por titulo, autor, data de publicacao, numero de paginas....">
+        <!--<label for="form2">Example label</label>-->
+    </div>
+
+    <app-lista-de-trabalhos></app-lista-de-trabalhos>
+</div>
+
  <!--<div [ngStyle]="{'margin-top':50+'px','max-height':'70px','position':'fixed','display':'block','background-color':'#eee','width':'100%','z-index':'99','padding':'0'}">-->
     <!--<div class="container" >-->
         <!--<div class="col-lg-4" [ngStyle]="{'float':'left'}">-->
