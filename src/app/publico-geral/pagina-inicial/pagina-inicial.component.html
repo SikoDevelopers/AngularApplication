@@ -1,5 +1,11 @@
 <app-barra-do-topo></app-barra-do-topo>
-<div class="container" >
-  <app-lista-de-trabalhos></app-lista-de-trabalhos>
+<div [ngStyle]="{'margin-top':60+'px','max-height':'70px'}">
+  <div class="container">
+
+    <app-select-filtro></app-select-filtro>
+  </div>
 </div>
+<!--<div class="container" >-->
+  <!--<app-lista-de-trabalhos></app-lista-de-trabalhos>-->
+<!--</div>-->
 

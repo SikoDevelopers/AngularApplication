@@ -6,7 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pagina-inicial.component.css']
 })
 export class PaginaInicialComponent implements OnInit {
-
+  opcoes: any = [
+    {
+      'value':'todas',
+      'option':'TODAS AREAS'
+    }
+  ];
   constructor() { }
 
   ngOnInit() {
