@@ -66,7 +66,8 @@ export class CriarContaFormComponent implements OnInit {
                   alert("Nao pode entrar no sistema com essas credenciais" + negado);
               },
               function (erro) {
-                  alert("Nao pode criar conta com essas credenciais " + erro)
+                  alert("Nao pode criar conta com essas credenciais " + erro);
+                  alert(erro);
               });
 
       }else{

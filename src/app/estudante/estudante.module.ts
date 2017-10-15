@@ -9,12 +9,14 @@ import { SubmeterTrabalhoFormComponent } from './submeter-trabalho/submeter-trab
 import {SelectModule} from "../select/select.module";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {FileInputComponent} from "../file-input/file-input.component";
+import {FormsModule} from "@angular/forms";
 @NgModule({
   imports: [
     CommonModule,
     BarraDoTopoEstModule,
     SelectModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+      FormsModule
   ],
   declarations: [
     PaginaComponent,

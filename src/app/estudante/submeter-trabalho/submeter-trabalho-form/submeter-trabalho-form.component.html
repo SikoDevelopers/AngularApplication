@@ -1,16 +1,16 @@
 <div class="row">
   <div class="col-7">
-    <form>
+    <form #formulario="ngForm">
 
       <app-select [label]="label" [opcoes]="opcoes"></app-select>
 
       <div class="md-form">
-        <input type="text" id="tema" class="form-control" mdbActive>
+        <input type="text" id="tema" name="tema" ngModel required class="form-control" mdbActive>
         <label for="tema">Tema</label>
       </div>
 
       <div class="md-form">
-        <textarea mdbActive type="text" id="descricao" class="md-textarea"></textarea>
+        <textarea mdbActive type="text" id="descricao" name="descricao" ngModel required class="md-textarea"></textarea>
         <label for="descricao">Descricao</label>
       </div>
 
@@ -20,7 +20,7 @@
 
       <label>Supervisores</label>
       <div class="text-left">
-        <a class="btn btn-primary waves-light" href="/estudante/pagina-inicial" mdbRippleRadius>
+        <a class="btn btn-primary waves-light"  mdbRippleRadius>
           <i class="fa fa-plus"></i>
           Addionar Supervisores
         </a>
@@ -32,7 +32,7 @@
       </div>
 
       <div class="text-right">
-        <a class="btn btn-primary waves-light" href="/estudante/pagina-inicial" mdbRippleRadius>
+        <a class="btn btn-primary waves-light" (click)="submeterTrabalho(formulario)" mdbRippleRadius>
           <i class="fa fa-upload"></i>
           Submeter
         </a>

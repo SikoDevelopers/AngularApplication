@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-submeter-trabalho-form',
@@ -34,5 +35,14 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
 
   ngOnInit() {
   }
+
+    submeterTrabalho(formulario:NgForm){
+        alert("entramos na submissao");
+       if(!formulario){
+         alert("nao definido")
+       }else{
+           alert(formulario.value.file);
+       }
+    }
 
 }
