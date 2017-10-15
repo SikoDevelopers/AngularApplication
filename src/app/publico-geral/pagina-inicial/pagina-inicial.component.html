@@ -3,8 +3,9 @@
 <div [ngStyle]="{'margin-top':50+'px','position':'relative'}">
   <app-slider></app-slider>
 </div>
-
+<!--Search Area Start here -->
 <div class="container">
+    <br>
     <br>
     <div class="text-center">
         <i class="fa fa-search" [ngStyle]="{'font-size':'40px'}"></i>
@@ -14,12 +15,23 @@
         <input mdbActive type="text" id="form2" class="form-control" placeholder="Pesquise trabalho por titulo, autor, data de publicacao, numero de paginas....">
         <!--<label for="form2">Example label</label>-->
     </div>
-    <div class="text-left">
-        <h4>Trabalhos Recentes</h4>
-    </div>
-    <app-lista-de-trabalhos></app-lista-de-trabalhos>
 </div>
+<!--/Search Area end here -->
 
+<!--Trabalhos Area Start here -->
+<div>
+    <div class="container">
+        <br>
+        <br>
+        <!--<div class="text-center">-->
+            <!--<h5>Trabalhos Recentes</h5>-->
+        <!--</div>-->
+        <app-lista-de-trabalhos></app-lista-de-trabalhos>
+    </div>
+
+
+</div>
+<!--Trabalhos Area End here -->
  <!--<div [ngStyle]="{'margin-top':50+'px','max-height':'70px','position':'fixed','display':'block','background-color':'#eee','width':'100%','z-index':'99','padding':'0'}">-->
     <!--<div class="container" >-->
         <!--<div class="col-lg-4" [ngStyle]="{'float':'left'}">-->
