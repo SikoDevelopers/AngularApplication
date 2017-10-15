@@ -52,7 +52,7 @@ export class LoginFormComponent implements OnInit {
               if(JSON.parse(erros.error)['mensagem'] == 'Credencias Erradas') {
                   this.loginNegado = 'erro';
                   this.mensagemErro = "Email ou passsword invalidos";
-                  alert(this.mensagemErro);
+                  console.log(erros);
               }
           });
 
