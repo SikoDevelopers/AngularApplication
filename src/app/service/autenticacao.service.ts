@@ -89,7 +89,6 @@ export class AutenticacaoService {
               callback(result, context);
           }
       );
-     return ("Fora "+result);
     }
 
 
