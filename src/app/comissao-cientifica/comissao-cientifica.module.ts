@@ -16,12 +16,9 @@ import { TabTrabalhosComponent } from './tab-trabalhos/tab-trabalhos.component';
   declarations: [ComissaoCientificaComponent,
       BarraDoTopoEstComponent,
       SidenavComponent,
-<<<<<<< HEAD
       TabelaTrabalhoComponent,
       TabTrabalhosComponent
-=======
 
->>>>>>> master
 
   ],
 
