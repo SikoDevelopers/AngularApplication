@@ -26,7 +26,6 @@ import {AreaService} from "../service/area.service";
     FileInputComponent
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  exports: [ SidenavComponent ],
-  providers: [AreaService]
+  exports: [ SidenavComponent ]
 })
 export class EstudanteModule { }
