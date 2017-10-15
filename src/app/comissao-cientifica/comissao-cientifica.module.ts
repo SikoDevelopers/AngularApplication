@@ -7,11 +7,12 @@ import {MDBBootstrapModule} from "angular-bootstrap-md";
 import { TabelaTrabalhoComponent } from './tabela-trabalho/tabela-trabalho.component';
 import { TabTrabalhosComponent } from './tab-trabalhos/tab-trabalhos.component';
 import { ConteudoComponent } from './conteudo/conteudo.component';
-import { CardTrabalhosComponent } from './conteudo/card-trabalhos/card-trabalhos.component';
-import { CardGraficosComponent } from './conteudo/card-graficos/card-graficos.component';
+import { CardTrabalhosComponent } from './conteudo/over-view/card-trabalhos/card-trabalhos.component';
+import { CardGraficosComponent } from './conteudo/over-view/card-graficos/card-graficos.component';
 import {GraficosModule} from './graficos/graficos.module';
 import {GraficoBarrasComponent} from './graficos/grafico-barras/grafico-barras.component';
 import {GraficoCircularComponent} from './graficos/grafico-circular/grafico-circular.component';
+import { OverViewComponent } from './conteudo/over-view/over-view.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import {GraficoCircularComponent} from './graficos/grafico-circular/grafico-circ
       ConteudoComponent,
       CardTrabalhosComponent,
       CardGraficosComponent,
+      OverViewComponent,
 
   ],
 
