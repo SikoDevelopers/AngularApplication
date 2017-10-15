@@ -9,6 +9,7 @@ import { SubmeterTrabalhoFormComponent } from './submeter-trabalho/submeter-trab
 import {SelectModule} from "../select/select.module";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {FileInputComponent} from "../file-input/file-input.component";
+import {AreaService} from "../service/area.service";
 @NgModule({
   imports: [
     CommonModule,
@@ -25,6 +26,7 @@ import {FileInputComponent} from "../file-input/file-input.component";
     FileInputComponent
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  exports: [ SidenavComponent ]
+  exports: [ SidenavComponent ],
+  providers: [AreaService]
 })
 export class EstudanteModule { }

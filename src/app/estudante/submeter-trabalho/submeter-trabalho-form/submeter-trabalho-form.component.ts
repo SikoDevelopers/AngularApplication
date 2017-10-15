@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AreaService} from "../../../service/area.service";
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-submeter-trabalho-form',
@@ -7,32 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubmeterTrabalhoFormComponent implements OnInit {
   label: string = "Seleccione a area tematica";
-  labelDoFileChooser = "Seleccionar Documento"
-  opcoes: any = [
-    {
-      'designacao':'SAUDE',
-      'id':'OPTION'
-    },
-    {
-      'designacao':'RECURSOS HUMANOS',
-      'id':'RECURSOS HUMANOS'
-    },
-    {
-      'designacao':'ECONOMIA MUNDIAL',
-      'id':'ECONOMIA MUNDIAL'
-    },
-    {
-      'designacao':'DESENHO DE BASE DE DADOS',
-      'id':'DESENHO DE BASE DE DADOS'
-    },
-    {
-      'designacao':'SEGURANCA DE APLICACOES WEB',
-      'id':'SEGURANCA DE APLICACOES WEB'
-    }
-  ];
-  constructor() { }
+  labelDoFileChooser = "Seleccionar Documento";
+  areas: any = [{'id':1,'designacao':'TESTE'}];
+  constructor(private  _areaService: AreaService) {
 
-  ngOnInit() {
   }
 
+  ngOnInit() {
+    this.getAreas();
+  }
+
+
+
+
+  getAreas(){
+    let area : any;
+    return this._areaService.getArea().subscribe(
+
+        function (resultado: Response) {
+          area = resultado['areas'];
+        },
+
+        function (erros: HttpErrorResponse){
+          console.log(erros);
+        },
+        function () {
+          this.areas = area;
+          console.log(this.areas);
+        }
+    );
+  }
 }

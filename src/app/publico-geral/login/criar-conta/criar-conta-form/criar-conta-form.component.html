@@ -28,7 +28,9 @@
 
             <app-select  [label]="label" [opcoes]="cursos" (eventEmmiter)="getCursoSelect($event)"></app-select>
 
-
+            <ul>
+              <li *ngFor="let t of cursos">{{ t.designacao }}</li>
+            </ul>
             <div class="md-form">
               <input type="email" id="email" name="email" class="form-control" mdbActive ngModel required #email="ngModel"/>
               <label for="email">Email</label>

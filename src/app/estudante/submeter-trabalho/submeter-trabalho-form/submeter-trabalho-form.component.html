@@ -2,7 +2,9 @@
   <div class="col-7">
     <form>
 
-      <app-select [label]="label" [opcoes]="opcoes"></app-select>
+      <app-select [label]="label" [opcoes]="areas"></app-select>
+
+      <li *ngFor="let area of areas">{{area.designacao}}</li>
 
       <div class="md-form">
         <input type="text" id="tema" class="form-control" mdbActive>
