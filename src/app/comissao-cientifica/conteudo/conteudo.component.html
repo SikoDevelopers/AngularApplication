@@ -1,5 +1,9 @@
 
 
 <div class="mt-2 p-4">
-  <app-over-view></app-over-view>
+  <app-over-view [hidden]="!(rotas == '/comissao-cientifica/over-view' || rotas == '/comissao-cientifica')"></app-over-view>
+  <app-trabalhos [hidden]="!(rotas == '/comissao-cientifica/trabalhos')"></app-trabalhos>
+  <app-supervisores [hidden]="!(rotas == '/comissao-cientifica/supervisores')"></app-supervisores>
+  <app-eventos [hidden]="!(rotas == '/comissao-cientifica/eventos')"></app-eventos>
+  <app-estatisticas [hidden]="!(rotas == '/comissao-cientifica/estatisticas')"></app-estatisticas>
 </div>

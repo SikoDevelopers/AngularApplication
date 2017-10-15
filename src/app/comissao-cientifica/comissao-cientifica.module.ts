@@ -13,6 +13,10 @@ import {GraficosModule} from './graficos/graficos.module';
 import {GraficoBarrasComponent} from './graficos/grafico-barras/grafico-barras.component';
 import {GraficoCircularComponent} from './graficos/grafico-circular/grafico-circular.component';
 import { OverViewComponent } from './conteudo/over-view/over-view.component';
+import { TrabalhosComponent } from './conteudo/trabalhos/trabalhos.component';
+import { SupervisoresComponent } from './conteudo/supervisores/supervisores.component';
+import { EventosComponent } from './conteudo/eventos/eventos.component';
+import { EstatisticasComponent } from './conteudo/estatisticas/estatisticas.component';
 
 @NgModule({
   imports: [
@@ -30,6 +34,10 @@ import { OverViewComponent } from './conteudo/over-view/over-view.component';
       CardTrabalhosComponent,
       CardGraficosComponent,
       OverViewComponent,
+      TrabalhosComponent,
+      SupervisoresComponent,
+      EventosComponent,
+      EstatisticasComponent,
 
   ],
 
