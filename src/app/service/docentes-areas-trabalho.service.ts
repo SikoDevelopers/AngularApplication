@@ -10,7 +10,7 @@ export class DocentesAreasTrabalhoService {
 
 
     getDocentesAreasTrabalho(): Observable<any>{
-        return this.http.get('http://127.0.0.1:8000/api/areas');
+        return this.http.get('http://127.0.0.1:8000/api/docentes_areas_trabalhos');
 
     }
 

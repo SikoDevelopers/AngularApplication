@@ -7,6 +7,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./pagina.component.scss']
 })
 export class PaginaComponent implements OnInit {
+
   rota: string;
   constructor(private _route: Router ) { }
 
