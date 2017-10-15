@@ -10,25 +10,25 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
   labelDoFileChooser = "Seleccionar Documento"
   opcoes: any = [
     {
-      'value':'SAUDE',
-      'option':'OPTION'
+      'designacao':'SAUDE',
+      'id':'OPTION'
     },
     {
-      'value':'RECURSOS HUMANOS',
-      'option':'RECURSOS HUMANOS'
+      'designacao':'RECURSOS HUMANOS',
+      'id':'RECURSOS HUMANOS'
     },
     {
-      'value':'ECONOMIA MUNDIAL',
-      'option':'ECONOMIA MUNDIAL'
+      'designacao':'ECONOMIA MUNDIAL',
+      'id':'ECONOMIA MUNDIAL'
     },
     {
-      'value':'DESENHO DE BASE DE DADOS',
-      'option':'DESENHO DE BASE DE DADOS'
+      'designacao':'DESENHO DE BASE DE DADOS',
+      'id':'DESENHO DE BASE DE DADOS'
     },
     {
-      'value':'SEGURANCA DE APLICACOES WEB',
-      'option':'SEGURANCA DE APLICACOES WEB'
-    },
+      'designacao':'SEGURANCA DE APLICACOES WEB',
+      'id':'SEGURANCA DE APLICACOES WEB'
+    }
   ];
   constructor() { }
 
