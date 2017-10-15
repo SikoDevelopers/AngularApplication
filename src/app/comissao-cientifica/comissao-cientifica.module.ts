@@ -14,7 +14,8 @@ import {MDBBootstrapModule} from "angular-bootstrap-md";
   ],
   declarations: [ComissaoCientificaComponent,
       BarraDoTopoEstComponent,
-      SidenavComponent
+      SidenavComponent,
+
 
   ],
 
