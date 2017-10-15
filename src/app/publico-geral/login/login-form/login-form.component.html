@@ -10,22 +10,34 @@
 
             <div class="md-form">
               <i class="fa fa-envelope prefix grey-text"></i>
-              <input type="email" id="email" name="email" class="form-control" mdbActive ngModel required/>
+              <input type="email" id="email" name="email" class="form-control" mdbActive ngModel required #email="ngModel"/>
               <label for="email">Email</label>
             </div>
 
             <div class="md-form">
               <i class="fa fa-lock prefix grey-text"></i>
-              <input type="password" id="password" name="password" class="form-control" mdbActive ngModel required/>
+              <input type="password" id="password" name="password" class="form-control" mdbActive ngModel required #password="ngModel"/>
               <label for="password">Senha</label>
             </div>
 
             <div class="text-right">
-              <input type="submit" class="btn btn-primary waves-light"  value="Entrar" mdbRippleRadius (click)="onLogin(f)"/>
+              <input type="submit" class="btn btn-primary waves-light"  value="Entrar" mdbRippleRadius (click)="onLogin(f)" [disabled]="validarFormulario(f)"/>
             </div>
             <div class="text-right" [ngStyle]="{'margin-top':'15px','font-size':'14px'}">
               <a href="/login">Esquecei a senha</a>
             </div>
+
+            <div *ngIf="mostarMensagem(email, password)">
+              <div class="alert alert-danger">{{mensagemErro}}</div>
+            </div>
+          <!---->
+            <div [ngSwitch]="loginNegado">
+              <ng-template *ngSwitchCase="sucesso"> <div class="alert alert-success">{{mensagemSucesso}}</div> </ng-template>
+              <ng-template ngSwitchCase="erro"> <div class="alert alert-danger">{{mensagemErro}}</div> </ng-template>
+            </div>
+
+
+
 
           </form>
           <hr>
@@ -39,4 +51,4 @@
     </div>
   </div>
 
-</div>
+

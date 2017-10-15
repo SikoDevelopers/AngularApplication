@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {AutenticacaoService} from '../../../service/autenticacao.service';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-login-form',
@@ -8,6 +9,11 @@ import {AutenticacaoService} from '../../../service/autenticacao.service';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
+
+    mensagemErro: String = "";
+    mensagemSucesso: String = "";
+    loginNegado: String = "";
+
 
   constructor(private autenticacaoService: AutenticacaoService) { }
 
@@ -22,7 +28,9 @@ export class LoginFormComponent implements OnInit {
       };
 
       this.autenticacaoService.login(user, dados => {
-          alert("Login aceite com sucesso");
+
+          this.loginNegado = 'sucesso';
+          this.mensagemSucesso = "Credenciais validas! Aguarde...";
 
           if(dados['user']['docente'] != null)
                alert("Sera direcionado para Docente");
@@ -39,15 +47,34 @@ export class LoginFormComponent implements OnInit {
 
           console.log(dados['user']['docente']);
       },
-          erros => {
-            alert("Nao pode Fazer Login com essas credenciais");
-          });
+          (erros: HttpErrorResponse) => {
 
+              if(JSON.parse(erros.error)['mensagem'] == 'Credencias Erradas') {
+                  this.loginNegado = 'erro';
+                  this.mensagemErro = "Email ou passsword invalidos";
+                  alert(this.mensagemErro);
+              }
+          });
 
     }
 
 
 
+    validarFormulario(formulario: NgForm){
+        return formulario.invalid;
+    }
 
+    mostarMensagem(email, password): boolean {
+
+        if (email.invalid && (email.dirty || email.touched)) {
+            this.mensagemErro = "Email eh obrigatorio";
+            return true;
+        }
+
+        if (password.invalid && (password.dirty || password.touched)) {
+            this.mensagemErro = "Password eh obrigatorio";
+            return true;
+        }
+    }
 
 }
