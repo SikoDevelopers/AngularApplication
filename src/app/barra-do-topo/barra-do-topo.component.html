@@ -1,18 +1,18 @@
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo fixed-top scrolling-navbar" [ngStyle]="{'margin-bottom':'300px'}" >
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo fixed-top scrolling-navbar" [ngStyle]="{'margin-bottom':'300px'}" [containerInside]="false">
 
 
   <logo [ngStyle]="{'width':'40%'}">
     <a class="navbar-brand" href="#">{{ nomeDaApp }}</a>
-    <a class="white-text" routerLink="/" >Trabalho Cientificos</a>
+    <a class="white-text " id="texto-trabalho" routerLink="/" >Trabalho Cientificos</a>
   </logo>
 
 
   <links [hidden]="!(rota == '/')">
     <ul class="navbar-nav mr-auto">
-      <form class="form-inline">
-        <i class="fa fa-search prefix"></i>
-        <input class="form-control" type="text" placeholder="Pesquisar">
-      </form>
+      <!--<form class="form-inline">-->
+        <!--<i class="fa fa-search prefix"></i>-->
+        <!--<input class="form-control" type="text" placeholder="Pesquisar">-->
+      <!--</form>-->
     </ul>
 
     <div *ngIf="!user">

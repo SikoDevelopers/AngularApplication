@@ -17,6 +17,7 @@ import {AutenticacaoService} from './service/autenticacao.service';
 import {ComissaoCientificaModule} from "./comissao-cientifica/comissao-cientifica.module";
 import {DocenteModule} from "./docente/docente.module";
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,10 +32,9 @@ import {DocenteModule} from "./docente/docente.module";
     EstudanteModule,
     SelectModule,
     HttpClientModule,
-      FormsModule,
-      ComissaoCientificaModule,
+    FormsModule,
+     ComissaoCientificaModule,
       DocenteModule
-
 
   ],
   providers: [CursoService, UserService, AutenticacaoService],
