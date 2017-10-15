@@ -7,6 +7,8 @@ import { TrabalhoComponent } from './lista-de-trabalhos/trabalho/trabalho.compon
 import {SelectModule} from "../select/select.module";
 import {SelectFiltroModule} from "../select-filtro/select-filtro.module";
 import {SliderModule} from "../slider/slider.module";
+import { ListaDeEventosComponent } from './lista-de-eventos/lista-de-eventos.component';
+import { EventoComponent } from './lista-de-eventos/evento/evento.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import {SliderModule} from "../slider/slider.module";
   declarations: [
     PaginaInicialComponent,
     ListaDeTrabalhosComponent,
-    TrabalhoComponent
+    TrabalhoComponent,
+    ListaDeEventosComponent,
+    EventoComponent
 
   ]
 })
