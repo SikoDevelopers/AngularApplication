@@ -32,13 +32,16 @@ export class CriarContaFormComponent implements OnInit {
 
   getCursos(){
     this.cursoService.getCurso().subscribe(
-        (resultado: Response) =>{
+
+        function (resultado: Response) {
             this.cursos = resultado['cursos'];
         },
-        (erros: HttpErrorResponse) =>{
+
+
+        function (erros: HttpErrorResponse){
             console.log(erros);
         },
-        () => {
+        function () {
           console.log('Cursos carregados com sucesso');
         }
     );

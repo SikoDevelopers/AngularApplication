@@ -14,6 +14,4 @@ export class CardGraficosComponent implements OnInit {
 
 
 
-
-
 }
