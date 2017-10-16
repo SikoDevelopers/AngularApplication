@@ -14,8 +14,8 @@ const appRoutes: Routes = [
   {path:'criar-conta',component:CriarContaComponent},
   {path: 'estudante/submeter-trabalho', component: PaginaComponent},
   {path:'estudante/documentos-submetidos',component: PaginaComponent},
-    {path:'comissao-cientifica',component:ComissaoCientificaComponent},
-    {path:'docente',component:DocenteComponent},
+  {path:'comissao-cientifica',component:ComissaoCientificaComponent},
+  {path:'docente',component:DocenteComponent},
 ];
 @NgModule({
   imports: [
