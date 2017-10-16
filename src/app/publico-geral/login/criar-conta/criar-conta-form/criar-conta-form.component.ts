@@ -29,6 +29,12 @@ export class CriarContaFormComponent implements OnInit {
   ngOnInit() {
     this.getCursos();
   }
+  ngOnChanges(){
+      console.log("changed");
+  }
+  ngOnChange(){
+      console.log("Change")
+  }
 
   getCursos(){
     this.cursoService.getCurso().subscribe(
@@ -77,6 +83,7 @@ export class CriarContaFormComponent implements OnInit {
       }
 
   }
+
 
 
   getCursoSelect(event){
