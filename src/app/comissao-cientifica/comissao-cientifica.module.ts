@@ -5,31 +5,34 @@ import {BarraDoTopoEstComponent} from "./barra-do-topo-est/barra-do-topo-est.com
 import {SidenavComponent} from "./sidenav/sidenav.component";
 import {MDBBootstrapModule} from "angular-bootstrap-md";
 import { TabelaTrabalhoComponent } from './tabela-trabalho/tabela-trabalho.component';
-import { TabTrabalhosComponent } from './tab-trabalhos/tab-trabalhos.component';
 import { ConteudoComponent } from './conteudo/conteudo.component';
 import { CardTrabalhosComponent } from './conteudo/over-view/card-trabalhos/card-trabalhos.component';
 import { CardGraficosComponent } from './conteudo/over-view/card-graficos/card-graficos.component';
 import {GraficosModule} from './graficos/graficos.module';
-import {GraficoBarrasComponent} from './graficos/grafico-barras/grafico-barras.component';
-import {GraficoCircularComponent} from './graficos/grafico-circular/grafico-circular.component';
 import { OverViewComponent } from './conteudo/over-view/over-view.component';
 import { TrabalhosComponent } from './conteudo/trabalhos/trabalhos.component';
 import { SupervisoresComponent } from './conteudo/supervisores/supervisores.component';
 import { EventosComponent } from './conteudo/eventos/eventos.component';
 import { EstatisticasComponent } from './conteudo/estatisticas/estatisticas.component';
+import {ComissaoRotas} from './comissao-cientifica.routing';
+import {RouterModule} from '@angular/router';
+import {TrabalhoService} from '../service/trabalho.service';
+import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
       MDBBootstrapModule.forRoot(),
-      GraficosModule
+      GraficosModule,
+      ComissaoRotas,
+      NgProgressModule
 
   ],
   declarations: [ComissaoCientificaComponent,
       BarraDoTopoEstComponent,
       SidenavComponent,
       TabelaTrabalhoComponent,
-      TabTrabalhosComponent,
       ConteudoComponent,
       CardTrabalhosComponent,
       CardGraficosComponent,
@@ -41,6 +44,8 @@ import { EstatisticasComponent } from './conteudo/estatisticas/estatisticas.comp
 
   ],
 
-    schemas:[NO_ERRORS_SCHEMA]
+    providers: [TrabalhoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
+    schemas:[NO_ERRORS_SCHEMA],
+    exports:[RouterModule]
 })
 export class ComissaoCientificaModule { }

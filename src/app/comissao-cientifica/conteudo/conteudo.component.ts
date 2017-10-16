@@ -9,7 +9,9 @@ import {Router} from '@angular/router';
 export class ConteudoComponent implements OnInit {
 
   rotas: string;
-  constructor(private _rotas: Router) { }
+  constructor(private _rotas: Router) {
+
+  }
 
   ngOnInit() {
     this.rotas = this._rotas.url;

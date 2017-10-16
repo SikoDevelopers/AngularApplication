@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TrabalhosComponent } from './trabalhos.component';
+import { ShimmerEfectComponent } from './shimmer-efect.component';
 
-describe('TrabalhosComponent', () => {
-  let component: TrabalhosComponent;
-  let fixture: ComponentFixture<TrabalhosComponent>;
+describe('ShimmerEfectComponent', () => {
+  let component: ShimmerEfectComponent;
+  let fixture: ComponentFixture<ShimmerEfectComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TrabalhosComponent ]
+      declarations: [ ShimmerEfectComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TrabalhosComponent);
+    fixture = TestBed.createComponent(ShimmerEfectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

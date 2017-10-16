@@ -1,9 +1,21 @@
 
+<div class="pb-2 pl-4 pr-4 pt-3">
 
-<div class="mt-2 p-4">
-  <app-over-view [hidden]="!(rotas == '/comissao-cientifica/over-view' || rotas == '/comissao-cientifica')"></app-over-view>
-  <app-trabalhos [hidden]="!(rotas == '/comissao-cientifica/trabalhos')"></app-trabalhos>
-  <app-supervisores [hidden]="!(rotas == '/comissao-cientifica/supervisores')"></app-supervisores>
-  <app-eventos [hidden]="!(rotas == '/comissao-cientifica/eventos')"></app-eventos>
-  <app-estatisticas [hidden]="!(rotas == '/comissao-cientifica/estatisticas')"></app-estatisticas>
+  <!--<app-over-view  [hidden]="!(rotas == '/comissao-cientifica/over-view' || rotas == '/comissao-cientifica')"></app-over-view>-->
+  <!--<app-trabalhos [hidden]="!(rotas == '/comissao-cientifica/trabalhos')"></app-trabalhos>-->
+  <!--<app-supervisores [hidden]="!(rotas == '/comissao-cientifica/supervisores')"></app-supervisores>-->
+  <!--<app-eventos [hidden]="!(rotas == '/comissao-cientifica/eventos')"></app-eventos>-->
+  <!--<app-estatisticas [hidden]="!(rotas == '/comissao-cientifica/estatisticas')"></app-estatisticas>-->
+
+
+  <!--<app-over-view *ngSwitchCase="('/comissao-cientifica/over-view')"></app-over-view>-->
+  <!--<app-over-view *ngSwitchCase="('/comissao-cientifica')"></app-over-view>-->
+  <!--<app-trabalhos *ngSwitchCase="('/comissao-cientifica/trabalhos')"></app-trabalhos>-->
+  <!--<app-supervisores *ngSwitchCase="('/comissao-cientifica/supervisores')"></app-supervisores>-->
+  <!--<app-eventos *ngSwitchCase="('/comissao-cientifica/eventos')"></app-eventos>-->
+  <!--<app-estatisticas *ngSwitchCase="('/comissao-cientifica/estatisticas')"></app-estatisticas>-->
+
+
+  <router-outlet></router-outlet>
+
 </div>
