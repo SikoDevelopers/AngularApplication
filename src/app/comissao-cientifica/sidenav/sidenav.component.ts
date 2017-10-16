@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-sidenav',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
   }
+
+
+
+
+
+
+
 
 }

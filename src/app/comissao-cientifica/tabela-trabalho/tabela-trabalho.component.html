@@ -1,3 +1,6 @@
+
+
+
 <div class="row" [ngStyle]="{'margin-top':'10px'}">
   <!--Table-->
   <table class="table">
@@ -6,33 +9,24 @@
     <thead class="mdb-color darken-3">
     <tr class="text-white">
       <th>#</th>
-      <th>Titulo Trabalho</th>
-      <th>Last Name</th>
-      <th>Username</th>
+      <th>Tema</th>
+      <th>Estudante</th>
+      <th>Data Submissao</th>
+      <th>Estado</th>
     </tr>
     </thead>
     <!--Table head-->
 
     <!--Table body-->
-    <tbody>
+    <tbody *ngFor="let trabalho of trabalhos">
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row">{{trabalho.id}}</th>
+      <td>{{trabalho.titulo}}</td>
+      <td>{{trabalho.estudante.nome}}</td>
+      <td>{{trabalho.created_at}}</td>
+      <td>{{trabalho.is_aprovado}}</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+
     </tbody>
     <!--Table body-->
   </table>

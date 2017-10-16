@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GraficoCircularComponent } from './grafico-circular.component';
+import { ShimmerEfectComponent } from './shimmer-efect.component';
 
-describe('GraficoCircularComponent', () => {
-  let component: GraficoCircularComponent;
-  let fixture: ComponentFixture<GraficoCircularComponent>;
+describe('ShimmerEfectComponent', () => {
+  let component: ShimmerEfectComponent;
+  let fixture: ComponentFixture<ShimmerEfectComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GraficoCircularComponent ]
+      declarations: [ ShimmerEfectComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GraficoCircularComponent);
+    fixture = TestBed.createComponent(ShimmerEfectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

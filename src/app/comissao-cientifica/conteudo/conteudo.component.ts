@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-conteudo',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConteudoComponent implements OnInit {
 
-  constructor() { }
+  rotas: string;
+  constructor(private _rotas: Router) {
+
+  }
 
   ngOnInit() {
+    this.rotas = this._rotas.url;
   }
 
 }
