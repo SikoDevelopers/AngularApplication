@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare var $: any;
 
 @Component({
   selector: 'app-meus-supervisionandos',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./meus-supervisionandos.component.scss']
 })
 export class MeusSupervisionandosComponent implements OnInit {
-
-  constructor() { }
+    constructor() { }
 
   ngOnInit() {
+    $(document).ready(function(){
+      $('ul.tabs').tabs();
+    });
   }
 
 }

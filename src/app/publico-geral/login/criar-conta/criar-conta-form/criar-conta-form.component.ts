@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import {CursoService} from '../../../../service/curso.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {NgForm} from '@angular/forms';
@@ -29,7 +29,7 @@ export class CriarContaFormComponent implements OnInit {
   ngOnInit() {
     this.getCursos();
   }
-  ngOnChanges(){
+  ngOnChanges(s:any){
       console.log("changed");
   }
   ngOnChange(){
