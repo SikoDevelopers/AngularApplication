@@ -12,6 +12,9 @@ import { ActuaisComponent } from './conteudo/meus-supervisionandos/actuais/actua
 import { SolicitacoesComponent } from './conteudo/meus-supervisionandos/solicitacoes/solicitacoes.component';
 import { SupervisionadosComponent } from './conteudo/meus-supervisionandos/supervisionados/supervisionados.component';
 import { TabelaActuaisComponent } from './conteudo/meus-supervisionandos/actuais/tabela-actuais/tabela-actuais.component';
+import { OponenciaComponent } from './conteudo/oponencia/oponencia.component';
+import { EventosComponent } from './conteudo/eventos/eventos.component';
+import { TemasComponent } from './conteudo/temas/temas.component';
 
 @NgModule({
   imports: [
@@ -33,7 +36,10 @@ import { TabelaActuaisComponent } from './conteudo/meus-supervisionandos/actuais
       ActuaisComponent,
       SolicitacoesComponent,
       SupervisionadosComponent,
-      TabelaActuaisComponent
+      TabelaActuaisComponent,
+      OponenciaComponent,
+      EventosComponent,
+      TemasComponent
 
   ],
 
