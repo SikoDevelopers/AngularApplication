@@ -24,8 +24,7 @@ import { TemasComponent } from './conteudo/temas/temas.component';
       MatTabsModule,
       BrowserAnimationsModule,
       MatTableModule,
-      MatPaginatorModule,
-      DocenteModule
+      MatPaginatorModule
 
   ],
   declarations: [DocenteComponent,
