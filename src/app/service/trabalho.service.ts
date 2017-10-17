@@ -10,7 +10,7 @@ export class TrabalhoService {
 
 
     getTrabalho(): Observable<any>{
-        return this.http.get('http://127.0.0.1:8000/api/trabalhos');
+        return this.http.get('http://127.0.0.1:8000/api/trabalhos?completo=true');
 
     }
 

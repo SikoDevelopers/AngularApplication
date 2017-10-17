@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import {CursoService} from '../../../../service/curso.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {NgForm} from '@angular/forms';
@@ -12,7 +12,7 @@ import {AutenticacaoService} from '../../../../service/autenticacao.service';
   templateUrl: './criar-conta-form.component.html',
   styleUrls: ['./criar-conta-form.component.scss']
 })
-export class CriarContaFormComponent implements OnInit {
+export class CriarContaFormComponent implements OnInit, OnChanges{
   label: string = "Selecione o Curso";
   cursos: any  = [];
   cursos_id: any;
@@ -29,27 +29,17 @@ export class CriarContaFormComponent implements OnInit {
   ngOnInit() {
     this.getCursos();
   }
-  ngOnChanges(s:any){
-      console.log("changed");
-  }
-  ngOnChange(){
-      console.log("Change")
+  ngOnChanges(changes: SimpleChanges){
+      console.log("Mudou");
   }
 
   getCursos(){
     this.cursoService.getCurso().subscribe(
-
-        function (resultado: Response) {
-            this.cursos = resultado['cursos'];
-        },
-
-
-        function (erros: HttpErrorResponse){
-            console.log(erros);
-        },
-        function () {
-          console.log('Cursos carregados com sucesso');
-        }
+        resultado => { this.cursos = resultado['cursos'];},
+        error2 => {console.log(error2);},
+        () => {
+            console.log('Cursos carregados com sucesso ');
+      }
     );
   }
 

@@ -17,6 +17,7 @@ import {AutenticacaoService} from './service/autenticacao.service';
 import {ComissaoCientificaModule} from "./comissao-cientifica/comissao-cientifica.module";
 import {DocenteModule} from "./docente/docente.module";
 import {TrabalhoService} from "./service/trabalho.service";
+import {AreaService} from "./service/area.service";
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import {TrabalhoService} from "./service/trabalho.service";
       DocenteModule
 
   ],
-  providers: [CursoService, UserService, AutenticacaoService, TrabalhoService],
+  providers: [CursoService, UserService, AutenticacaoService, TrabalhoService, AreaService],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
