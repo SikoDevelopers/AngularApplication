@@ -22,6 +22,7 @@ export class TabelaActuaisComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator);
   }
 
 }
