@@ -18,7 +18,6 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
       BarraDoTopoModule,
       SelectFiltroModule,
       SliderModule,
-      NgProgressModule,
       NgProgressModule
   ],
   declarations: [

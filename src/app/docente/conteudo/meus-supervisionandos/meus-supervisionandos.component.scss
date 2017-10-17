@@ -16,21 +16,6 @@ $num-of-tabs: 4;
   }
 }
 
-html, body {
-  width: 100%;
-}
-
-h1 {
-  font-size: 26px;
-  background: $cyan;
-  color: white;
-  padding: 40px 0 100px 20%;
-  margin-bottom: 50px;
-}
-
-label, p, a, h1, div {
-  font-family: Roboto, sans-serif;
-}
 
 .tab-wrap {
   width: 100%;
@@ -98,9 +83,6 @@ label {
 }
 
 @media screen and (max-width: 800px) {
-  h1 {
-    padding: 40px 0 90px 10%;
-  }
   .tab-wrap {
    // width: 80%;
     margin-left: 10%;
