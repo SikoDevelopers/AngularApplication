@@ -82,17 +82,8 @@ getSupervisores(){
 
           },
           ()=>{
-              this.docentesAreaService.getDocenteArea().subscribe(
-                  resu => {
-                      this.supervisores=resu;
-                  },
-                  error2 => {
+             alert(this.supervisores);
 
-                  },
-                  ()=>{
-                      console.log('Supervisores carregados');
-                  }
-              )
           }
       )
 
