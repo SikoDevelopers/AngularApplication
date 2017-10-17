@@ -20,6 +20,8 @@ import {TrabalhoService} from "./service/trabalho.service";
 import {AreaService} from "./service/area.service";
 import {EventoService} from "./service/evento.service";
 import { ShimmerEfectComponent } from './shimmer-efect/shimmer-efect.component';
+import {SupervisorExternoService} from "./service/supervisor-externo.service";
+import {DocenteAreaService} from "./service/docente-area.service";
 
 
 
@@ -44,7 +46,7 @@ import { ShimmerEfectComponent } from './shimmer-efect/shimmer-efect.component';
 
 
   ],
-  providers: [CursoService, UserService, AutenticacaoService, TrabalhoService, AreaService, EventoService],
+  providers: [CursoService, UserService, AutenticacaoService, TrabalhoService, AreaService, EventoService,SupervisorExternoService,DocenteAreaService],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })

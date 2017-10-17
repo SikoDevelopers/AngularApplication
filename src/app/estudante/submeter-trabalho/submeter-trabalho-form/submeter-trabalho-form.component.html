@@ -18,12 +18,9 @@
       <label>Documento</label>
       <app-file-input [textoDaLabel]="labelDoFileChooser" (eventEmiter)="atribuirValor($event)"></app-file-input>
 
-      <label>Supervisores</label>
+      <!--<label>Supervisores</label>-->
       <div class="text-left">
-        <a class="btn btn-primary waves-light" href="/estudante/pagina-inicial" mdbRippleRadius>
-          <i class="fa fa-plus"></i>
-          Addionar Supervisores
-        </a>
+        <app-select-supervisor [label]="label2" [opcoes]="supervisores"></app-select-supervisor>
       </div>
 
       <div class="left">

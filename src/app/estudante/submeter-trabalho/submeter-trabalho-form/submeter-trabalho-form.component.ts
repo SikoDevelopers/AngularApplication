@@ -1,5 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AreaService} from "../../../service/area.service";
+import {UserService} from "../../../service/user.service";
+import {SupervisorExternoService} from "../../../service/supervisor-externo.service";
+import {DocenteService} from "../../../service/docente.service";
+import {DocenteAreaService} from "../../../service/docente-area.service";
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-submeter-trabalho-form',
@@ -9,7 +14,10 @@ import {AreaService} from "../../../service/area.service";
 export class SubmeterTrabalhoFormComponent implements OnInit {
   label: string = "Seleccione a area tematica";
   labelDoFileChooser = "Seleccionar Documento";
+  label2: string = "Selecione o supervisor";
+  supervisores : any;
   file;
+  user : User;
   opcoes: any = [
     {
       'id':'SAUDE',
@@ -32,10 +40,12 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
       'designacao':'SEGURANCA DE APLICACOES WEB'
     },
   ];
-  constructor(private _areas:AreaService) { }
+  constructor(private _areas:AreaService,private userService:UserService,private supervisorService: SupervisorExternoService,private docentesAreaService: DocenteAreaService) { }
 
   ngOnInit() {
     this.getCursos();
+    this.getUser();
+    this.getSupervisores();
   }
   getCursos(){
     this._areas.getArea().subscribe(
@@ -46,14 +56,57 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
         }
     );
   }
+  getUser(){
+      const token = localStorage.getItem('token');
+
+
+      this.userService.logoado(token).subscribe(
+          resultado=>{
+              this.user = resultado;
+          },
+          error2 => {
+
+          },
+          ()=>{
+            console.log('user retrivied');
+          }
+      );
+  }
+
+getSupervisores(){
+      this.supervisorService.getSupervisorExterno().subscribe(
+          resultado=>{
+              this.supervisores = resultado;
+          },
+          error2 => {
+
+          },
+          ()=>{
+              this.docentesAreaService.getDocenteArea().subscribe(
+                  resu => {
+                      this.supervisores=resu;
+                  },
+                  error2 => {
+
+                  },
+                  ()=>{
+                      console.log('Supervisores carregados');
+                  }
+              )
+          }
+      )
+
+
+}
+
 submeter(){
-    alert(this.file);
+    alert(this.user.email);
+
 }
 
     atribuirValor(evento){
 
       this.file = evento.file;
-      console.log(this.file);
     }
 
 }
