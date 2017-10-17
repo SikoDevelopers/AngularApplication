@@ -6,8 +6,16 @@ import {SidenavComponent} from "./sidenav/sidenav.component";
 import {MDBBootstrapModule} from "angular-bootstrap-md";
 import { ConteudoComponent } from './conteudo/conteudo.component';
 import { MeusSupervisionandosComponent } from './conteudo/meus-supervisionandos/meus-supervisionandos.component';
-import {MatTab, MatTabsModule} from "@angular/material";
+import {MatPaginatorModule, MatTab, MatTableModule, MatTabsModule} from "@angular/material";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ActuaisComponent } from './conteudo/meus-supervisionandos/actuais/actuais.component';
+import { SolicitacoesComponent } from './conteudo/meus-supervisionandos/solicitacoes/solicitacoes.component';
+import { SupervisionadosComponent } from './conteudo/meus-supervisionandos/supervisionados/supervisionados.component';
+import { TabelaActuaisComponent } from './conteudo/meus-supervisionandos/actuais/tabela-actuais/tabela-actuais.component';
+import { OponenciaComponent } from './conteudo/oponencia/oponencia.component';
+import { EventosComponent } from './conteudo/eventos/eventos.component';
+import { TemasComponent } from './conteudo/temas/temas.component';
+import {DocenteRotas} from "./docente.routing";
 
 @NgModule({
   imports: [
@@ -15,14 +23,24 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
       MDBBootstrapModule.forRoot(),
       MatTabsModule,
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
+      MatTableModule,
+      MatPaginatorModule,
+      DocenteRotas
 
   ],
   declarations: [DocenteComponent,
       BarraDoTopoEstComponent,
       SidenavComponent,
       ConteudoComponent,
-      MeusSupervisionandosComponent
+      MeusSupervisionandosComponent,
+      ActuaisComponent,
+      SolicitacoesComponent,
+      SupervisionadosComponent,
+      TabelaActuaisComponent,
+      OponenciaComponent,
+      EventosComponent,
+      TemasComponent
 
   ],
 
