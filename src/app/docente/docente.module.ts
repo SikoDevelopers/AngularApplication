@@ -16,6 +16,7 @@ import { OponenciaComponent } from './conteudo/oponencia/oponencia.component';
 import { EventosComponent } from './conteudo/eventos/eventos.component';
 import { TemasComponent } from './conteudo/temas/temas.component';
 import {DocenteRotas} from "./docente.routing";
+import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import {DocenteRotas} from "./docente.routing";
       BrowserAnimationsModule,
       MatTableModule,
       MatPaginatorModule,
-      DocenteRotas
+      DocenteRotas,
+      NgProgressModule
 
   ],
   declarations: [DocenteComponent,
