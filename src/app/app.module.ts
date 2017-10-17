@@ -24,6 +24,7 @@ import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
      ComissaoCientificaModule,
       DocenteModule,
     NgProgressModule
+
 
   ],
   providers: [CursoService, UserService, AutenticacaoService, TrabalhoService, AreaService, EventoService],
