@@ -8,13 +8,13 @@ export class EventoService {
     constructor(private http: HttpClient) { }
 
 
-    getEvento(): Observable<any>{
-        return this.http.get('http://127.0.0.1:8000/api/eventos?completo=true');
+    // getEvento(): Observable<any>{
+    //     return this.http.get('http://127.0.0.1:8000/api/eventos?completo=true');
+    //
+    // }
 
-    }
-
-    getTrabalhos(completo?: boolean, paginacao?: number): Observable<any>{
-        return this.http.get('http://127.0.0.1:8000/api/trabalhos?completo='+completo + '&paginacao='+paginacao);
+    getEvento(completo?: boolean, paginacao?: number): Observable<any>{
+        return this.http.get('http://127.0.0.1:8000/api/eventos?completo='+completo + '&paginacao='+paginacao);
     }
 
     saveEvento(evento: Evento): Observable<any>{

@@ -15,8 +15,8 @@ export class ListaDeEventosComponent implements OnInit {
     this.getEventos();
   }
   getEventos(){
-    this._eventosService.getEvento().subscribe(
-      resultado => { this.eventos = resultado['eventos'];},
+    this._eventosService.getEvento(true,6).subscribe(
+      resultado => { this.eventos = resultado['eventos'].data;},
       error2 => {console.log("Error")},
           () =>{
             console.log("Sucesso ao Carregar eventos");
