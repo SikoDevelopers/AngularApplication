@@ -14,10 +14,11 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
 @NgModule({
   imports: [
-    CommonModule,
-    BarraDoTopoModule,
-    SelectFiltroModule,
-    SliderModule,
+      CommonModule,
+      BarraDoTopoModule,
+      SelectFiltroModule,
+      SliderModule,
+      NgProgressModule,
       NgProgressModule
   ],
   declarations: [
