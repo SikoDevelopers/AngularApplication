@@ -10,6 +10,7 @@ import {MatTab, MatTabsModule} from "@angular/material";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ActuaisComponent } from './conteudo/meus-supervisionandos/actuais/actuais.component';
 import { SolicitacoesComponent } from './conteudo/meus-supervisionandos/solicitacoes/solicitacoes.component';
+import { SupervisionadosComponent } from './conteudo/meus-supervisionandos/supervisionados/supervisionados.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { SolicitacoesComponent } from './conteudo/meus-supervisionandos/solicita
       ConteudoComponent,
       MeusSupervisionandosComponent,
       ActuaisComponent,
-      SolicitacoesComponent
+      SolicitacoesComponent,
+      SupervisionadosComponent
 
   ],
 
