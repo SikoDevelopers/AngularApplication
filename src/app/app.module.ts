@@ -16,14 +16,19 @@ import {UserService} from './service/user.service';
 import {AutenticacaoService} from './service/autenticacao.service';
 import {ComissaoCientificaModule} from "./comissao-cientifica/comissao-cientifica.module";
 import {DocenteModule} from "./docente/docente.module";
+<<<<<<< HEAD
 import {TrabalhoService} from "./service/trabalho.service";
 import {AreaService} from "./service/area.service";
 import {EventoService} from "./service/evento.service";
+=======
+import { ShimmerEfectComponent } from './shimmer-efect/shimmer-efect.component';
+>>>>>>> master
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ShimmerEfectComponent,
 
   ],
   imports: [
@@ -37,7 +42,8 @@ import {EventoService} from "./service/evento.service";
     HttpClientModule,
     FormsModule,
      ComissaoCientificaModule,
-      DocenteModule
+      DocenteModule,
+
 
   ],
   providers: [CursoService, UserService, AutenticacaoService, TrabalhoService, AreaService, EventoService],

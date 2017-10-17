@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from "rxjs/Observable";
 
 @Injectable()
@@ -9,10 +9,16 @@ export class TrabalhoService {
     constructor(private http: HttpClient) { }
 
 
+<<<<<<< HEAD
     getTrabalho(): Observable<any>{
         return this.http.get('http://127.0.0.1:8000/api/trabalhos?completo=true');
 
+=======
+    getTrabalho(completo?: boolean, paginacao?: number): Observable<any>{
+        return this.http.get('http://127.0.0.1:8000/api/trabalhos?completo='+completo + '&paginacao='+paginacao);
+>>>>>>> master
     }
+
 
 
     saveTrabalho(trabalho: Trabalho): Observable<any>{
