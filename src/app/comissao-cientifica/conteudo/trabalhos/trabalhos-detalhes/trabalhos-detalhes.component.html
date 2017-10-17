@@ -1,0 +1,50 @@
+
+
+<div mdbModal #demoBasic="mdb-modal" class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Detalhes do Trabalho</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="demoBasic.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body d-flex justify-content-between">
+        <div>
+          <b>Titulo</b>
+          <a>Titulo do trabalho</a>
+        </div>
+
+        <div>
+          <b>Autores</b>
+          <a>Autores envolvidos</a>
+        </div>
+
+        <div>
+          <b>Data Submissao</b>
+          <a>Data de submissao do trabalhp</a>
+        </div>
+
+        <div>
+          <b>Area</b>
+          <a>Area do trabalhp</a>
+        </div>
+      </div>
+
+
+      <div>
+        <b>Ficheiros</b>
+        <div class="d-flex h-30 align-items-stretch">
+          <div class="p-2 success-color">Versao 1</div>
+          <div class="p-2 success-color">Versao 3</div>
+          <div class="p-2 warning-color">Versao 4</div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm waves-light" data-dismiss="modal" (click)="demoBasic.hide()" mdbRippleRadius>Fechar</button>
+        <button type="button" class="btn btn-primary btn-sm waves-light" mdbRippleRadius>Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

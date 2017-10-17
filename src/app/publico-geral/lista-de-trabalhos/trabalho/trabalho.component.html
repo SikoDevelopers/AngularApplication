@@ -42,7 +42,7 @@
         <div class="card-body">
             <p class="card-text" [ngStyle]="{'float':'right','font-size':'13px'}">ha 2 dias</p>
             <h5 class="card-title">{{ trabalho.titulo }}</h5>
-            <p class="card-text">
+            <p class="card-text" [ngStyle]="{'max-width':'300px','height':'4.0em','overflow':'hidden'}">
                 {{ trabalho.descricao }}
             </p>
             <ul class="trabalho-detathes" [ngStyle]="{'margin-lef':'0px'}">

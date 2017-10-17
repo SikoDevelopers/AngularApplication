@@ -19,15 +19,26 @@
 
     <!--Table body-->
     <tbody *ngFor="let trabalho of trabalhos">
-    <tr>
+    <tr class="hoverable">
       <th scope="row">{{trabalho.id}}</th>
       <td>{{trabalho.titulo}}</td>
       <td>{{trabalho.estudante.nome}}</td>
-      <td>{{trabalho.created_at}}</td>
-      <td>{{trabalho.is_aprovado}}</td>
+      <td>{{getDataSubmissao(trabalho.created_at)}}</td>
+      <td>
+          <a [class.alert-danger]="'Nao Aprovado' == getEstado(trabalho.is_aprovado)" class="p-1"
+              [class.alert-success]="'Aprovado' == getEstado(trabalho.is_aprovado)">
+              {{getEstado(trabalho.is_aprovado)}}
+          </a>
+      </td>
     </tr>
 
     </tbody>
     <!--Table body-->
   </table>
 </div>
+
+<app-trabalhos-detalhes (output)="modal"></app-trabalhos-detalhes>
+
+<button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#basicExample" (click)="modal.show()" mdbRippleRadius>
+    Small modal
+</button>
