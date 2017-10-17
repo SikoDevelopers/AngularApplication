@@ -1,4 +1,4 @@
-<div class="example-container mat-elevation-z8">
+<div class="example-container">
 
   <mat-table #table [dataSource]="dataSource">
 
@@ -29,6 +29,13 @@
       <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>
     </ng-container>
 
+    <!-- Name Column -->
+    <ng-container matColumnDef="icon">
+      <mat-header-cell *matHeaderCellDef> Icon </mat-header-cell>
+      <mat-cell *matCellDef="let row"> <span><i class="fa fa-info"></i></span> </mat-cell>
+    </ng-container>
+
+
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
@@ -36,7 +43,7 @@
   <mat-paginator #paginator
                  [length]="exampleDatabase.data.length"
                  [pageIndex]="0"
-                 [pageSize]="25"
+                 [pageSize]="9"
                  [pageSizeOptions]="[5, 10, 25, 100]">
   </mat-paginator>
 </div>
