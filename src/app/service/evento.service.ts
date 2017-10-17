@@ -13,6 +13,9 @@ export class EventoService {
 
     }
 
+    getTrabalhos(completo?: boolean, paginacao?: number): Observable<any>{
+        return this.http.get('http://127.0.0.1:8000/api/trabalhos?completo='+completo + '&paginacao='+paginacao);
+    }
 
     saveEvento(evento: Evento): Observable<any>{
         const headers = new HttpHeaders({'Content-Type': 'application/json'});
