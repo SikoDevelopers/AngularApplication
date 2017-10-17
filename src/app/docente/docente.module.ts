@@ -6,12 +6,13 @@ import {SidenavComponent} from "./sidenav/sidenav.component";
 import {MDBBootstrapModule} from "angular-bootstrap-md";
 import { ConteudoComponent } from './conteudo/conteudo.component';
 import { MeusSupervisionandosComponent } from './conteudo/meus-supervisionandos/meus-supervisionandos.component';
+import {MatTab, MatTabsModule} from "@angular/material";
 
 @NgModule({
   imports: [
     CommonModule,
 
-      MDBBootstrapModule.forRoot()
+      MDBBootstrapModule.forRoot(),
   ],
   declarations: [DocenteComponent,
       BarraDoTopoEstComponent,

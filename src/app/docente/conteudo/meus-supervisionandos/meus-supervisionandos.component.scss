@@ -1,92 +1,93 @@
-$cyan: #00bcd4;
-$yellow: #ffeb3b;
-$grey: #9e9e9e;
-
-$num-of-tabs: 4;
-
-@mixin tabs {
-  @for $i from 1 through $num-of-tabs {
-    &:nth-of-type(#{$i}) {
-      &:checked {
-        ~ .slide {
-          left: calc((100% / #{$num-of-tabs}) * #{$i - 1});
-        }
-      }
-    }
-  }
-}
-
-
-.tab-wrap {
-  width: 100%;
- // margin-left: 20%;
-  position: relative;
-  display: flex;
- // top: -106px;
-}
-
-input[type="radio"][name="tabs"] {
-  position: absolute;
-  z-index: -1;
-  &:checked {
-    + .tab-label-content {
-      label {
-        color: white;
-      }
-      .tab-content {
-        display: block;
-      }
-    }
-  }
-  @include tabs;
-  &:first-of-type {
-    &:checked {
-      ~ .slide {
-        left: 0;
-      }
-    }
-  }
-}
-
-label {
-  cursor: pointer;
-  color: rgba(255,255,255,0.8);
-  background-color: $cyan;
-  box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 56px;
-  transition: color 0.2s ease;
-  width: 100%;
-}
-
-.slide {
-  background: $yellow;
-  width: calc(100% / #{$num-of-tabs});
-  height: 4px;
-  position: absolute;
-  left: 0;
-  transition: left 0.3s ease-out;
-}
-
-.tab-label-content {
-  width: 100%;
-  .tab-content {
-    position: absolute;
-    top: 100px;
-    left: 16px;
-    line-height: 130%;
-    display: none;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .tab-wrap {
-   // width: 80%;
-    margin-left: 10%;
-   // top: -106px;
-  }
-}
-
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+//$cyan: #00bcd4;
+//$yellow: #ffeb3b;
+//$grey: #9e9e9e;
+//
+//$num-of-tabs: 4;
+//
+//@mixin tabs {
+//  @for $i from 1 through $num-of-tabs {
+//    &:nth-of-type(#{$i}) {
+//      &:checked {
+//        ~ .slide {
+//          left: calc((100% / #{$num-of-tabs}) * #{$i - 1});
+//        }
+//      }
+//    }
+//  }
+//}
+//
+//
+//.tab-wrap {
+//  width: 100%;
+// // margin-left: 20%;
+//  position: relative;
+//  display: flex;
+// // top: -106px;
+//}
+//
+//input[type="radio"][name="tabs"] {
+//  position: absolute;
+//  z-index: -1;
+//  &:checked {
+//    + .tab-label-content {
+//      label {
+//        color: white;
+//      }
+//      .tab-content {
+//        display: block;
+//      }
+//    }
+//  }
+//  @include tabs;
+//  &:first-of-type {
+//    &:checked {
+//      ~ .slide {
+//        left: 0;
+//      }
+//    }
+//  }
+//}
+//
+//label {
+//  cursor: pointer;
+//  color: rgba(255,255,255,0.8);
+//  background-color: $cyan;
+//  box-sizing: border-box;
+//  display: inline-flex;
+//  align-items: center;
+//  justify-content: center;
+//  text-align: center;
+//  height: 56px;
+//  transition: color 0.2s ease;
+//  width: 100%;
+//}
+//
+//.slide {
+//  background: $yellow;
+//  width: calc(100% / #{$num-of-tabs});
+//  height: 4px;
+//  position: absolute;
+//  left: 0;
+//  transition: left 0.3s ease-out;
+//}
+//
+//.tab-label-content {
+//  width: 100%;
+//  .tab-content {
+//    position: absolute;
+//    top: 100px;
+//    left: 16px;
+//    line-height: 130%;
+//    display: none;
+//  }
+//}
+//
+//@media screen and (max-width: 800px) {
+//  .tab-wrap {
+//   // width: 80%;
+//    margin-left: 10%;
+//   // top: -106px;
+//  }
+//}
+//
