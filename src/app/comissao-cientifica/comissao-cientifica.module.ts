@@ -20,6 +20,7 @@ import {TrabalhoService} from '../service/trabalho.service';
 import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { TrabalhosDetalhesComponent } from './conteudo/trabalhos/trabalhos-detalhes/trabalhos-detalhes.component';
+import {ProcessoSubmissaoService} from '../service/processo-submissao.service';
 
 @NgModule({
   imports: [
@@ -47,7 +48,7 @@ import { TrabalhosDetalhesComponent } from './conteudo/trabalhos/trabalhos-detal
 
   ],
 
-    providers: [TrabalhoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
+    providers: [TrabalhoService, ProcessoSubmissaoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
     schemas:[NO_ERRORS_SCHEMA],
     exports:[RouterModule]
 })
