@@ -16,7 +16,7 @@
 
 
       <label>Documento</label>
-      <app-file-input [textoDaLabel]="labelDoFileChooser"></app-file-input>
+      <app-file-input [textoDaLabel]="labelDoFileChooser" (eventEmiter)="atribuirValor($event)"></app-file-input>
 
       <label>Supervisores</label>
       <div class="text-left">
@@ -32,7 +32,7 @@
       </div>
 
       <div class="text-right">
-        <a class="btn btn-primary waves-light" href="/estudante/pagina-inicial" mdbRippleRadius>
+        <a class="btn btn-primary waves-light" (click)="submeter()" mdbRippleRadius>
           <i class="fa fa-upload"></i>
           Submeter
         </a>

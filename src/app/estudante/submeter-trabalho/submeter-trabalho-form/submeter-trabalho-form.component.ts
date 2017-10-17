@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AreaService} from "../../../service/area.service";
 
 @Component({
@@ -9,6 +9,7 @@ import {AreaService} from "../../../service/area.service";
 export class SubmeterTrabalhoFormComponent implements OnInit {
   label: string = "Seleccione a area tematica";
   labelDoFileChooser = "Seleccionar Documento";
+  file;
   opcoes: any = [
     {
       'id':'SAUDE',
@@ -45,4 +46,14 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
         }
     );
   }
+submeter(){
+    alert(this.file);
+}
+
+    atribuirValor(evento){
+
+      this.file = evento.file;
+      console.log(this.file);
+    }
+
 }
