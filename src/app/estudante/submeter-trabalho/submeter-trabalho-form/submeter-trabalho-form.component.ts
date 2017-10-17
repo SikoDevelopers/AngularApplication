@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
+import {TrabalhoService} from "../../../service/trabalho.service";
 
 @Component({
   selector: 'app-submeter-trabalho-form',
@@ -8,8 +9,11 @@ import {NgForm} from "@angular/forms";
 })
 export class SubmeterTrabalhoFormComponent implements OnInit {
   label: string = "Seleccione a area tematica";
-  labelDoFileChooser = "Seleccionar Documento"
-  opcoes: any = [
+  labelDoFileChooser = "Seleccionar Documento";
+    file1: any;
+    formData1: any;
+
+    opcoes: any = [
     {
       'value':'SAUDE',
       'option':'OPTION'
@@ -31,18 +35,40 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
       'option':'SEGURANCA DE APLICACOES WEB'
     },
   ];
-  constructor() { }
+  constructor(private trabalhoService: TrabalhoService) { }
 
   ngOnInit() {
   }
 
-    submeterTrabalho(formulario:NgForm){
-        alert("entramos na submissao");
-       if(!formulario){
-         alert("nao definido")
-       }else{
-           alert(formulario.value.file);
-       }
+
+    fileChange(event){
+        const fileList: FileList = event.target.files;
+        if (fileList.length > 0) {
+            this.file1 = fileList[0];
+            this.formData1 = new FormData();
+            this.formData1.append('uploadFile' , this.file1,  this.file1.name);
+
+
+        }
+    }
+
+    submeter(formulario: NgForm){
+
+        if (!formulario){
+            alert('empty form');
+        }else{
+            alert( this.file1);
+
+            this.formData1.append('uploadFile', this.file1, this.file1.name);
+            this.trabalhoService.saveTrabalho(this.formData1).subscribe(
+                resul => {
+                    // alert(resul['file']);
+                    alert(resul['estudantes']);
+                }
+            );
+
+        }
+
     }
 
 }

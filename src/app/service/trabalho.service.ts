@@ -15,11 +15,21 @@ export class TrabalhoService {
     }
 
 
-    saveTrabalho(trabalho: Trabalho): Observable<any>{
-        const headers = new HttpHeaders({'Content-Type': 'application/json'});
-        return this.http.post('http://127.0.0.1:8000/api/trabalhos', trabalho , {headers: headers})
-    }
+    // saveTrabalho(trabalho: Trabalho): Observable<any>{
+    //     const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    //     return this.http.post('http://127.0.0.1:8000/api/trabalhos', trabalho , {headers: headers})
+    // }
 
+
+    saveTrabalho(formData: FormData): Observable<any>{
+
+        const headers = new HttpHeaders({'Content-Type': 'multipart/form-data'});
+        // headers.append('Content-Type', 'multipart/form-data');
+        // headers.append('Accept', 'application/json');
+
+        // return this.http.post('http://127.0.0.1:8000/api/file', formData , {headers: headers});
+        return this.http.get('http://127.0.0.1:8000/api/estudantes');
+    }
 
     updateTrabalho(id: number, trabalho: Trabalho){
         const headers = new HttpHeaders({'Content-type': 'aplication/json'});
