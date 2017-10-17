@@ -59,11 +59,11 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
         }else{
             alert( this.file1);
 
-            this.formData1.append('uploadFile', this.file1, this.file1.name);
+            // this.formData1.append('uploadFile', this.file1, this.file1.name);
             this.trabalhoService.saveTrabalho(this.formData1).subscribe(
                 resul => {
-                    // alert(resul['file']);
-                    alert(resul['estudantes']);
+                    alert(resul['file']);
+                    // alert(resul['estudantes']);
                 }
             );
 

@@ -23,12 +23,11 @@ export class TrabalhoService {
 
     saveTrabalho(formData: FormData): Observable<any>{
 
-        const headers = new HttpHeaders({'Content-Type': 'multipart/form-data'});
-        // headers.append('Content-Type', 'multipart/form-data');
+        const headers = new HttpHeaders({'Content-Type': 'application/jsona'});
+        headers.append('Content-Type', 'multipart/form-data');
         // headers.append('Accept', 'application/json');
 
-        // return this.http.post('http://127.0.0.1:8000/api/file', formData , {headers: headers});
-        return this.http.get('http://127.0.0.1:8000/api/estudantes');
+        return this.http.post('http://127.0.0.1:8000/api/file', formData , {headers: headers});
     }
 
     updateTrabalho(id: number, trabalho: Trabalho){
