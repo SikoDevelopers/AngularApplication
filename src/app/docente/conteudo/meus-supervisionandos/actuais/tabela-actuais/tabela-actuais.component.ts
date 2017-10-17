@@ -13,7 +13,7 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./tabela-actuais.component.scss']
 })
 export class TabelaActuaisComponent implements OnInit {
-  displayedColumns = ['userId', 'userName', 'progress', 'color','icon'];
+  displayedColumns = ['userId', 'userName', 'progress', 'color','operacoes'];
   exampleDatabase = new ExampleDatabase();
   dataSource: ExampleDataSource | null;
 
@@ -38,7 +38,6 @@ export interface UserData {
   name: string;
   progress: string;
   color: string;
-  icon: string;
 }
 
 /** An example database that the data source uses to retrieve data for the table. */
@@ -69,8 +68,7 @@ export class ExampleDatabase {
       id: (this.data.length + 1).toString(),
       name: name,
       progress: Math.round(Math.random() * 100).toString(),
-      color: COLORS[Math.round(Math.random() * (COLORS.length - 1))],
-      icon: '<i class="fa fa-info"></i>'
+      color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
     };
   }
 }

@@ -30,9 +30,13 @@
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="icon">
-      <mat-header-cell *matHeaderCellDef> Icon </mat-header-cell>
-      <mat-cell *matCellDef="let row"> <span><i class="fa fa-info"></i></span> </mat-cell>
+    <ng-container matColumnDef="operacoes">
+      <mat-header-cell *matHeaderCellDef> Operacoes </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <a>
+          <span><i class="fa fa-info"></i></span>
+        </a>
+      </mat-cell>
     </ng-container>
 
 
