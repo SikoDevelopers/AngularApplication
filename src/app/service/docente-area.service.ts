@@ -10,9 +10,20 @@ export class DocenteAreaService {
 
 
     getDocenteArea(): Observable<any>{
-        return this.http.get('http://127.0.0.1:8000/api/docente_areas');
+        return this.http.get('http://127.0.0.1:8000/api/docentes');
 
     }
+
+    searchDocenteArea(docentes_id,areas_id): Observable<any>{
+
+        // const headers = new HttpHeaders({'Content-Type': 'application/json'});
+        // const formData = new FormData();
+        // formData.append('areas_id',area_id);
+        // formData.append('areas_id',docente_id);
+        return this.http.get('http://127.0.0.1:8000/api/search_docente_area/'+docentes_id,areas_id);
+
+    }
+
 
 
     saveDocenteArea(docenteArea: DocenteArea): Observable<any>{

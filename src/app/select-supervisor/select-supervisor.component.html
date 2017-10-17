@@ -1,7 +1,7 @@
 <label>{{ label }}</label>
 <div class="mdl-selectfield">
 
-  <select class="browser-default" (change)="selecionarSupervisor($event.target)" #opcaoSelecionada>
+  <select class="browser-default" (change)="selecionarSupervisor($event.target)"  #opcaoSelecionada>
     <option value="" disabled selected>Selecione uma opcao</option>
     <option *ngFor="let opcao of opcoes" value="{{ opcao.id }}">{{ opcao.nome+' '+opcao.apelido }}</option>
   </select>
