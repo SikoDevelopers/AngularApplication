@@ -17,7 +17,7 @@ export class ListaDeTrabalhosComponent implements OnInit {
   }
 
   getTrabalhos(){
-    this._trabalhoService.getTrabalho().subscribe(
+    this._trabalhoService.getTrabalho(true,6).subscribe(
         resultado => { this.trabalhos = resultado['trabalhos'];},
         error2 => {console.log("Error")},
         () =>{
