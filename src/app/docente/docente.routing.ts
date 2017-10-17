@@ -4,7 +4,7 @@ import {DocenteComponent} from './docente.component';
 import {EventosComponent} from "./conteudo/eventos/eventos.component";
 
 
-const COMISSAO_ROTAS: Routes = [
+const DOCENTE_ROTAS: Routes = [
     {path: '', component: DocenteComponent,
         children: [
             {path:'docente/eventos',component: EventosComponent}
@@ -16,4 +16,4 @@ const COMISSAO_ROTAS: Routes = [
 
 ];
 
-export const DocenteRotas: ModuleWithProviders = RouterModule.forChild(COMISSAO_ROTAS);
+export const DocenteRotas: ModuleWithProviders = RouterModule.forChild(DOCENTE_ROTAS);

@@ -15,6 +15,7 @@ import { TabelaActuaisComponent } from './conteudo/meus-supervisionandos/actuais
 import { OponenciaComponent } from './conteudo/oponencia/oponencia.component';
 import { EventosComponent } from './conteudo/eventos/eventos.component';
 import { TemasComponent } from './conteudo/temas/temas.component';
+import {DocenteRotas} from "./docente.routing";
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { TemasComponent } from './conteudo/temas/temas.component';
       MatTabsModule,
       BrowserAnimationsModule,
       MatTableModule,
-      MatPaginatorModule
+      MatPaginatorModule,
+      DocenteRotas
 
   ],
   declarations: [DocenteComponent,
