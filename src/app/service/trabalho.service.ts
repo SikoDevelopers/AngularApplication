@@ -9,8 +9,14 @@ export class TrabalhoService {
     constructor(private http: HttpClient) { }
 
 
+<<<<<<< HEAD
+    getTrabalho(): Observable<any>{
+        return this.http.get('http://127.0.0.1:8000/api/trabalhos?completo=true');
+
+=======
     getTrabalho(completo?: boolean, paginacao?: number): Observable<any>{
         return this.http.get('http://127.0.0.1:8000/api/trabalhos?completo='+completo + '&paginacao='+paginacao);
+>>>>>>> master
     }
 
 

@@ -21,10 +21,15 @@ const appRoutes: Routes = [
   {path:'criar-conta',component:CriarContaComponent},
   {path: 'estudante/submeter-trabalho', component: PaginaComponent},
   {path:'estudante/documentos-submetidos',component: PaginaComponent},
+<<<<<<< HEAD
+  {path:'comissao-cientifica',component:ComissaoCientificaComponent},
+  {path:'docente',component:DocenteComponent},
+=======
     {path:'comissao-cientifica',component:ComissaoCientificaComponent},
     {path:'docente',component:DocenteComponent},
     {path:'shemmer',component:ShimmerEfectComponent},
 
+>>>>>>> master
 ];
 @NgModule({
   imports: [
