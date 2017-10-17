@@ -11,6 +11,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ActuaisComponent } from './conteudo/meus-supervisionandos/actuais/actuais.component';
 import { SolicitacoesComponent } from './conteudo/meus-supervisionandos/solicitacoes/solicitacoes.component';
 import { SupervisionadosComponent } from './conteudo/meus-supervisionandos/supervisionados/supervisionados.component';
+import { TabelaActuaisComponent } from './conteudo/meus-supervisionandos/actuais/tabela-actuais/tabela-actuais.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { SupervisionadosComponent } from './conteudo/meus-supervisionandos/super
       MeusSupervisionandosComponent,
       ActuaisComponent,
       SolicitacoesComponent,
-      SupervisionadosComponent
+      SupervisionadosComponent,
+      TabelaActuaisComponent
 
   ],
 
