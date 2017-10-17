@@ -19,8 +19,6 @@ const COMISSAO_ROTAS: Routes = [
             {path:'comissao-cientifica/eventos',component:EventosComponent},
             {path:'comissao-cientifica/estatisticas',component:EstatisticasComponent},
         ],
-
-
     },
 
 ];

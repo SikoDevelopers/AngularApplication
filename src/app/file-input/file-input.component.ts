@@ -13,6 +13,7 @@ export class FileInputComponent implements OnInit {
   ngOnInit() {
 
   }
+  
   clicked(){
     console.log("clicked");
   }

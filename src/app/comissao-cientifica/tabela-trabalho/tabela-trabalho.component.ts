@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy, Input} from '@angular/core';
+import {Component, OnInit, OnDestroy, Input, ViewChild, Output, EventEmitter} from '@angular/core';
 import {TrabalhoService} from '../../service/trabalho.service';
 import {HttpErrorResponse} from '@angular/common/http';
 
@@ -56,5 +56,9 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
         return data.getDay() +" / "+data.getMonth()+ " / "+ data.getFullYear();
     }
 
+    getModal(evento){
+        console.log(evento);
+        this.modal = evento;
+    }
 
 }
