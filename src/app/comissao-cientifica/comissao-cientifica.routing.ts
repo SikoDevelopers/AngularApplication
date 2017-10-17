@@ -13,6 +13,7 @@ import {ComissaoCientificaComponent} from './comissao-cientifica.component';
 const COMISSAO_ROTAS: Routes = [
     {path: '', component: ComissaoCientificaComponent,
         children: [
+            {path:'', component:OverViewComponent},
             {path:'comissao-cientifica/over-view', component:OverViewComponent},
             {path:'comissao-cientifica/trabalhos',component:TrabalhosComponent},
             {path:'comissao-cientifica/supervisores',component:SupervisoresComponent},

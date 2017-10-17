@@ -19,6 +19,7 @@ import {RouterModule} from '@angular/router';
 import {TrabalhoService} from '../service/trabalho.service';
 import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import { TrabalhosDetalhesComponent } from './conteudo/trabalhos/trabalhos-detalhes/trabalhos-detalhes.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
       NgProgressModule
 
   ],
-  declarations: [ComissaoCientificaComponent,
+  declarations: [
+      ComissaoCientificaComponent,
       BarraDoTopoEstComponent,
       SidenavComponent,
       TabelaTrabalhoComponent,
@@ -41,6 +43,7 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
       SupervisoresComponent,
       EventosComponent,
       EstatisticasComponent,
+      TrabalhosDetalhesComponent,
 
   ],
 
