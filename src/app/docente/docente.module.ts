@@ -9,6 +9,7 @@ import { MeusSupervisionandosComponent } from './conteudo/meus-supervisionandos/
 import {MatTab, MatTabsModule} from "@angular/material";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ActuaisComponent } from './conteudo/meus-supervisionandos/actuais/actuais.component';
+import { SolicitacoesComponent } from './conteudo/meus-supervisionandos/solicitacoes/solicitacoes.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { ActuaisComponent } from './conteudo/meus-supervisionandos/actuais/actua
       SidenavComponent,
       ConteudoComponent,
       MeusSupervisionandosComponent,
-      ActuaisComponent
+      ActuaisComponent,
+      SolicitacoesComponent
 
   ],
 
