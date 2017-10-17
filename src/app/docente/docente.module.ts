@@ -21,7 +21,8 @@ import { TabelaActuaisComponent } from './conteudo/meus-supervisionandos/actuais
       MatTabsModule,
       BrowserAnimationsModule,
       MatTableModule,
-      MatPaginatorModule
+      MatPaginatorModule,
+      DocenteModule
 
   ],
   declarations: [DocenteComponent,
