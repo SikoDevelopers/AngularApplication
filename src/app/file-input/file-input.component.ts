@@ -1,4 +1,4 @@
-import {Component, Input, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, ElementRef, OnInit, ViewChild, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-file-input',
@@ -8,7 +8,11 @@ import {Component, Input, ElementRef, OnInit, ViewChild} from '@angular/core';
 export class FileInputComponent implements OnInit {
   @Input() textoDaLabel;
   caminhoDoFile: any;
+    file1: any;
   constructor() { }
+
+
+  @Output() eventEmiter = new EventEmitter();
 
   ngOnInit() {
 
@@ -18,9 +22,19 @@ export class FileInputComponent implements OnInit {
     console.log("clicked");
   }
 
-  onChangeSelectedFile(valor){
-    this.caminhoDoFile = valor;
-    console.log(this.caminhoDoFile);
-  }
+
+
+    fileChange(event,valor){
+        const fileList: FileList = event.target.files;
+        if (fileList.length > 0) {
+            this.file1 = fileList[0];
+            this.caminhoDoFile=valor;
+            alert(this.file1);
+            this.eventEmiter.emit({file:this.file1});
+        }
+
+    }
+
+
 
 }

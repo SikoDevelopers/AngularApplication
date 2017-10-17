@@ -20,6 +20,8 @@ import {TrabalhoService} from "./service/trabalho.service";
 import {AreaService} from "./service/area.service";
 import {EventoService} from "./service/evento.service";
 import { ShimmerEfectComponent } from './shimmer-efect/shimmer-efect.component';
+import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
+
 
 
 
@@ -41,6 +43,7 @@ import { ShimmerEfectComponent } from './shimmer-efect/shimmer-efect.component';
     FormsModule,
      ComissaoCientificaModule,
       DocenteModule,
+    NgProgressModule
 
 
   ],
