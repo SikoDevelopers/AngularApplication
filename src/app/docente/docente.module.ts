@@ -13,6 +13,11 @@ import {MatTab, MatTabsModule} from "@angular/material";
     CommonModule,
 
       MDBBootstrapModule.forRoot(),
+      MatTabsModule
+
+
+
+
   ],
   declarations: [DocenteComponent,
       BarraDoTopoEstComponent,
