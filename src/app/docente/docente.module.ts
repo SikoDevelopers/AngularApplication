@@ -8,6 +8,7 @@ import { ConteudoComponent } from './conteudo/conteudo.component';
 import { MeusSupervisionandosComponent } from './conteudo/meus-supervisionandos/meus-supervisionandos.component';
 import {MatTab, MatTabsModule} from "@angular/material";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ActuaisComponent } from './conteudo/meus-supervisionandos/actuais/actuais.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
       BarraDoTopoEstComponent,
       SidenavComponent,
       ConteudoComponent,
-      MeusSupervisionandosComponent
+      MeusSupervisionandosComponent,
+      ActuaisComponent
 
   ],
 
