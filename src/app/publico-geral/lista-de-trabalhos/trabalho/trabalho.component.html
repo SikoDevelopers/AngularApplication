@@ -38,12 +38,12 @@
 <!-- FIM DE UMA SUGESTAOO-->
 <!--<div class="col-lg-4" [ngStyle]="{'margin-top':'20px'}">-->
     <div class="card">
-        <h5 class="card-header primary-color white-text">Ercilio Marques</h5>
+        <h5 class="card-header primary-color white-text">{{ trabalho.estudante.nome + ' ' + trabalho.estudante.apelido  }}</h5>
         <div class="card-body">
             <p class="card-text" [ngStyle]="{'float':'right','font-size':'13px'}">ha 2 dias</p>
-            <h5 class="card-title">Sistema de Descoberta de truques</h5>
+            <h5 class="card-title">{{ trabalho.titulo }}</h5>
             <p class="card-text">
-                Quando os truques sao indispensaveis para o sucesso e isso obriga a criar um estimulo que sempre tentam...
+                {{ trabalho.descricao }}
             </p>
             <ul class="trabalho-detathes" [ngStyle]="{'margin-lef':'0px'}">
                 <li>

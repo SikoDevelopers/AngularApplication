@@ -1,6 +1,6 @@
 <div class="row" >
-    <div class="col-lg-4" *ngFor="let teste of testes" [ngStyle]="{'margin-top':'20px'}">
-        <app-trabalho></app-trabalho>
+    <div class="col-lg-4" *ngFor="let trabalho of trabalhos" [ngStyle]="{'margin-top':'20px'}">
+        <app-trabalho [trabalho]="trabalho"></app-trabalho>
     </div>
 </div>
 <div>
