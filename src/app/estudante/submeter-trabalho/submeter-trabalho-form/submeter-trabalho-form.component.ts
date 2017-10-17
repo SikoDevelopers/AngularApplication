@@ -40,7 +40,12 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
       'designacao':'SEGURANCA DE APLICACOES WEB'
     },
   ];
-  constructor(private _areas:AreaService,private userService:UserService,private supervisorService: SupervisorExternoService,private docentesAreaService: DocenteAreaService) { }
+  constructor(
+      private _areas:AreaService,
+      private userService:UserService,
+      private supervisorService: SupervisorExternoService,
+      private docentesAreaService: DocenteAreaService
+  ) { }
 
   ngOnInit() {
     this.getCursos();
@@ -76,23 +81,13 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
 getSupervisores(){
       this.supervisorService.getSupervisorExterno().subscribe(
           resultado=>{
-              this.supervisores = resultado;
+              this.supervisores = resultado['supervisorExternos'];
           },
           error2 => {
 
           },
           ()=>{
-              this.docentesAreaService.getDocenteArea().subscribe(
-                  resu => {
-                      this.supervisores=resu;
-                  },
-                  error2 => {
-
-                  },
-                  ()=>{
-                      console.log('Supervisores carregados');
-                  }
-              )
+              console.log('Supervisores carregados');
           }
       )
 
