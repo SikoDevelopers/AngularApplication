@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy, Input} from '@angular/core';
 import {TrabalhoService} from '../../service/trabalho.service';
 import {HttpErrorResponse} from '@angular/common/http';
 
@@ -11,12 +11,14 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
 
   trabalhos: Array<any> ;
     subcricao: any;
+    @Input('output') modal: any;
 
   constructor(private trabalhosService: TrabalhoService) {
-      this.getTrabalhos();
+
   }
 
   ngOnInit() {
+      this.getTrabalhos();
 
   }
 
@@ -37,6 +39,21 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.subcricao.unsubscribe();
+    }
+
+
+    getEstado(is_aprovado){
+        if(is_aprovado){
+            return "Aprovado";
+        }
+        else
+            return "Nao Aprovado";
+    }
+
+
+    getDataSubmissao(dataSubmissao){
+        let data = new Date(dataSubmissao);
+        return data.getDay() +" / "+data.getMonth()+ " / "+ data.getFullYear();
     }
 
 
