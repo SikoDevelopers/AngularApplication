@@ -17,6 +17,7 @@ import { EventosComponent } from './conteudo/eventos/eventos.component';
 import { TemasComponent } from './conteudo/temas/temas.component';
 import {DocenteRotas} from "./docente.routing";
 import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
+import {PublicoGeralModule} from "../publico-geral/publico-geral.module";
 
 @NgModule({
   imports: [
@@ -28,10 +29,11 @@ import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
       MatTableModule,
       MatPaginatorModule,
       DocenteRotas,
-      NgProgressModule
-
+      NgProgressModule,
+      PublicoGeralModule
   ],
-  declarations: [DocenteComponent,
+  declarations: [
+      DocenteComponent,
       BarraDoTopoEstComponent,
       SidenavComponent,
       ConteudoComponent,
