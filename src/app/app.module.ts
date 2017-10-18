@@ -55,7 +55,8 @@ import {DocenteService} from "./service/docente.service";
       EventoService,
       SupervisorExternoService,
       DocenteAreaService,
-      DocenteService],
+      DocenteService,
+      TrabalhoService],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })

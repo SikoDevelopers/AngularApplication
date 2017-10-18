@@ -6,6 +6,7 @@ import {DocenteService} from "../../../service/docente.service";
 import {DocenteAreaService} from "../../../service/docente-area.service";
 import {forEach} from "@angular/router/src/utils/collection";
 import {Data} from "@angular/router";
+import {TrabalhoService} from "../../../service/trabalho.service";
 
 @Component({
   selector: 'app-submeter-trabalho-form',
@@ -33,7 +34,8 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
       private supervisorService: SupervisorExternoService,
       private docenteService: DocenteService,
       private areaService : AreaService,
-      private docenteAreaService : DocenteAreaService
+      private docenteAreaService : DocenteAreaService,
+      private trabalhoService : TrabalhoService
   ) { }
 
   ngOnInit() {
@@ -114,18 +116,41 @@ getArea(){
 
 submeter(){
 alert("entramos");
-    const dadosTrabalho ={
-        'user':this.user.id,
-        'protocolo':this.file,
-        'tipoSup':this.tipoSuper,
-        'supervisor':this.supervisor_id,
-        'area':this.area_id,
-        'titulo':this.titulo,
-        'descricao':this.descricao,
-        'data':new Date(),
-        'timestamp':new Date().getUTCMilliseconds()
 
-    };
+    let formData= new FormData();
+    formData.append('protocolo',this.file, this.file.name);
+    formData.append( 'user',''+this.user.id);
+    formData.append('tipoSup',''+this.tipoSuper);
+    formData.append('supervisor',''+this.supervisor_id);
+    formData.append( 'area',''+this.area_id);
+    formData.append('titulo',''+this.titulo);
+    formData.append('descricao',''+this.descricao);
+    formData.append('data',''+new Date());
+    formData.append('timestamp',''+new Date().getTime());
+    //
+    // const dadosTrabalho ={
+    //     'user':this.user.id,
+    //     'tipoSup':this.tipoSuper,
+    //     'protocolo':formData,
+    //     'supervisor':this.supervisor_id,
+    //     'area':this.area_id,
+    //     'titulo':this.titulo,
+    //     'descricao':this.descricao,
+    //     'data':new Date(),
+    //     'timestamp':new Date().getTime()
+    // };
+
+    this.trabalhoService.saveTrabalho(formData).subscribe(
+        resultados=>{
+            console.log(resultados['trabalho']);
+        },
+        error2 => {
+            console.log(error2);
+        },
+        ()=>{
+            alert('processo completo')
+        }
+    )
 
 
 }
