@@ -18,6 +18,7 @@ import { TemasComponent } from './conteudo/temas/temas.component';
 import {DocenteRotas} from "./docente.routing";
 import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 import {PublicoGeralModule} from "../publico-geral/publico-geral.module";
+import { TemaComponent } from './conteudo/temas/tema/tema.component';
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import {PublicoGeralModule} from "../publico-geral/publico-geral.module";
       TabelaActuaisComponent,
       OponenciaComponent,
       EventosComponent,
-      TemasComponent
+      TemasComponent,
+      TemaComponent
 
   ],
 
