@@ -12,11 +12,17 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./tabela-oponencias.component.scss']
 })
 export class TabelaOponenciasComponent implements OnInit {
+    displayedColumns = ['userId', 'userName', 'progress', 'color','operacoes'];
+    exampleDatabase = new ExampleDatabase();
+    dataSource: ExampleDataSource | null;
 
-  constructor() { }
+    @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  ngOnInit() {
-  }
+    constructor() { }
+
+    ngOnInit() {
+        this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator);
+    }
 
 }
 
