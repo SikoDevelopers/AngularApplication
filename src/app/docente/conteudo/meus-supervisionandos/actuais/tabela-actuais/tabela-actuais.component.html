@@ -1,6 +1,6 @@
 <div class="example-container">
 
-  <mat-table #table [dataSource]="dataSource">
+  <mat-table #table [dataSource]="dataSource" [ngStyle]="{'min-height':'750px'}">
     <!-- ID Column -->
     <ng-container matColumnDef="userId">
       <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
@@ -43,7 +43,7 @@
   <mat-paginator #paginator
                  [length]="exampleDatabase.data.length"
                  [pageIndex]="0"
-                 [pageSize]="9"
+                 [pageSize]="14"
                  [pageSizeOptions]="[5, 10, 25, 100]">
   </mat-paginator>
 </div>
