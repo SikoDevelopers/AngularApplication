@@ -19,6 +19,7 @@ import {DocenteRotas} from "./docente.routing";
 import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 import {PublicoGeralModule} from "../publico-geral/publico-geral.module";
 import { TemaComponent } from './conteudo/temas/tema/tema.component';
+import { AvatarModule } from "ng2-avatar";
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { TemaComponent } from './conteudo/temas/tema/tema.component';
       MatPaginatorModule,
       DocenteRotas,
       NgProgressModule,
-      PublicoGeralModule
+      PublicoGeralModule,
+      AvatarModule.forRoot()
   ],
   declarations: [
       DocenteComponent,
