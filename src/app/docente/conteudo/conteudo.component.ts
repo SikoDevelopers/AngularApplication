@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConteudoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _route:Ro) { }
 
   ngOnInit() {
   }
