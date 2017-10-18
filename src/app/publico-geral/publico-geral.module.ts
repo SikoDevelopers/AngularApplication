@@ -18,7 +18,6 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
       BarraDoTopoModule,
       SelectFiltroModule,
       SliderModule,
-      NgProgressModule,
       NgProgressModule
   ],
   declarations: [
@@ -29,6 +28,7 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
     EventoComponent
 
   ],
-    providers: [{ provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }]
+    providers: [{ provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
+  exports:[ListaDeEventosComponent]
 })
 export class PublicoGeralModule { }

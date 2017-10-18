@@ -37,7 +37,7 @@
   </table>
 </div>
 
-<app-trabalhos-detalhes (output)="modal"></app-trabalhos-detalhes>
+<app-trabalhos-detalhes (output)="getModal($event)"></app-trabalhos-detalhes>
 
 <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#basicExample" (click)="modal.show()" mdbRippleRadius>
     Small modal

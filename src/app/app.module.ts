@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { PublicoGeralModule } from './publico-geral/publico-geral.module';
@@ -23,6 +22,9 @@ import { ShimmerEfectComponent } from './shimmer-efect/shimmer-efect.component';
 import {SupervisorExternoService} from "./service/supervisor-externo.service";
 import {DocenteAreaService} from "./service/docente-area.service";
 import {DocenteService} from "./service/docente.service";
+import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
+
+
 
 
 
@@ -44,6 +46,7 @@ import {DocenteService} from "./service/docente.service";
     FormsModule,
      ComissaoCientificaModule,
       DocenteModule,
+    NgProgressModule
 
 
   ],

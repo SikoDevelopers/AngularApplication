@@ -7,8 +7,9 @@ import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core'
 })
 export class TrabalhosDetalhesComponent implements OnInit {
 
-    @ViewChild('demoBasic') modal;
-    @Output() output: EventEmitter<any> = new EventEmitter();
+    @ViewChild('modal') modal;
+    @Output('output') output = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
