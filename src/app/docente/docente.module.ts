@@ -20,6 +20,7 @@ import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 import {PublicoGeralModule} from "../publico-geral/publico-geral.module";
 import { TemaComponent } from './conteudo/temas/tema/tema.component';
 import { AvatarModule } from "ng2-avatar";
+import { TabComponent } from './meus-supervisionandos/tab/tab.component';
 
 @NgModule({
   imports: [
@@ -48,7 +49,8 @@ import { AvatarModule } from "ng2-avatar";
       OponenciaComponent,
       EventosComponent,
       TemasComponent,
-      TemaComponent
+      TemaComponent,
+      TabComponent
 
   ],
 
