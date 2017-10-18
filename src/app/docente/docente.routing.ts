@@ -13,6 +13,7 @@ const DOCENTE_ROTAS: Routes = [
             {path:'docente/eventos',component: EventosComponent},
             {path:'docente/temas',component: TemasComponent},
             {path:'docente/oponencia',component: OponenciaComponent}
+
         ],
 
 
