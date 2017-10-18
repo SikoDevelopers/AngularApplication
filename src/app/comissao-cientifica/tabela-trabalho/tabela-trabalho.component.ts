@@ -10,8 +10,13 @@ import {HttpErrorResponse} from '@angular/common/http';
 export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
 
   trabalhos: Array<any> ;
+  // @Output() outputTrabalho = new EventEmitter();
+  trabalhoSelecionado: any;
+  
+    @ViewChild('modalDetalhes') modalDetalhes;
+
     subcricao: any;
-    @Input('output') modal: any;
+    @Input() modal: any;
 
   constructor(private trabalhosService: TrabalhoService) {
 
@@ -57,8 +62,15 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
     }
 
     getModal(evento){
-        console.log(evento);
         this.modal = evento;
+        console.log(evento);
+    }
+
+
+    onClickTrabalho(trabalho){
+        this.trabalhoSelecionado = trabalho;
+        // this.outputTrabalho.emit(trabalho);
+        this.modal.show();
     }
 
 }

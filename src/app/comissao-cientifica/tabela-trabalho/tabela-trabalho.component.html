@@ -1,5 +1,4 @@
-
-
+<app-trabalhos-detalhes  (output)="getModal($event)" [(trabalho)] = "trabalhoSelecionado" ></app-trabalhos-detalhes>
 
 <div class="row" [ngStyle]="{'margin-top':'10px'}">
   <!--Table-->
@@ -19,7 +18,7 @@
 
     <!--Table body-->
     <tbody *ngFor="let trabalho of trabalhos">
-    <tr class="hoverable">
+    <tr class="hoverable" (click)="onClickTrabalho(trabalho)" data-toggle="modal" data-target="#basicExample">
       <th scope="row">{{trabalho.id}}</th>
       <td>{{trabalho.titulo}}</td>
       <td>{{trabalho.estudante.nome}}</td>
@@ -32,13 +31,12 @@
       </td>
     </tr>
 
+
     </tbody>
     <!--Table body-->
   </table>
 </div>
 
-<app-trabalhos-detalhes (output)="getModal($event)"></app-trabalhos-detalhes>
 
-<button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#basicExample" (click)="modal.show()" mdbRippleRadius>
-    Small modal
-</button>
+
+

@@ -51,7 +51,7 @@ export class ComissaoCientificaComponent implements OnInit {
     }
 
     chamarDialog(){
-        alert("Chamando a dialog");
+        console.log("Chamando a dialog");
     }
 
 

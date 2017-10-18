@@ -21,6 +21,9 @@ import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { TrabalhosDetalhesComponent } from './conteudo/trabalhos/trabalhos-detalhes/trabalhos-detalhes.component';
 import {ProcessoSubmissaoService} from '../service/processo-submissao.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatPaginatorModule, MatTabsModule} from '@angular/material';
+import { CardFicheirosComponent } from './conteudo/trabalhos/card-ficheiros/card-ficheiros.component';
 
 @NgModule({
   imports: [
@@ -28,7 +31,10 @@ import {ProcessoSubmissaoService} from '../service/processo-submissao.service';
       MDBBootstrapModule.forRoot(),
       GraficosModule,
       ComissaoRotas,
-      NgProgressModule
+      NgProgressModule,
+      MatTabsModule,
+      BrowserAnimationsModule,
+      MatPaginatorModule,
 
   ],
   declarations: [
@@ -45,6 +51,7 @@ import {ProcessoSubmissaoService} from '../service/processo-submissao.service';
       EventosComponent,
       EstatisticasComponent,
       TrabalhosDetalhesComponent,
+      CardFicheirosComponent,
 
   ],
 
