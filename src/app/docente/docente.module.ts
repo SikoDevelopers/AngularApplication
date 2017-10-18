@@ -16,6 +16,13 @@ import { OponenciaComponent } from './conteudo/oponencia/oponencia.component';
 import { EventosComponent } from './conteudo/eventos/eventos.component';
 import { TemasComponent } from './conteudo/temas/temas.component';
 import {DocenteRotas} from "./docente.routing";
+import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
+import {PublicoGeralModule} from "../publico-geral/publico-geral.module";
+import { TemaComponent } from './conteudo/temas/tema/tema.component';
+import { AvatarModule } from "ng2-avatar";
+import { TabComponent } from './conteudo/meus-supervisionandos/tab/tab.component';
+import { ListaOponenciaComponent } from './conteudo/oponencia/lista-oponencia/lista-oponencia.component';
+import { TabelaOponenciasComponent } from './conteudo/oponencia/lista-oponencia/tabela-oponencias/tabela-oponencias.component';
 
 @NgModule({
   imports: [
@@ -26,10 +33,13 @@ import {DocenteRotas} from "./docente.routing";
       BrowserAnimationsModule,
       MatTableModule,
       MatPaginatorModule,
-      DocenteRotas
-
+      DocenteRotas,
+      NgProgressModule,
+      PublicoGeralModule,
+      AvatarModule.forRoot()
   ],
-  declarations: [DocenteComponent,
+  declarations: [
+      DocenteComponent,
       BarraDoTopoEstComponent,
       SidenavComponent,
       ConteudoComponent,
@@ -40,7 +50,11 @@ import {DocenteRotas} from "./docente.routing";
       TabelaActuaisComponent,
       OponenciaComponent,
       EventosComponent,
-      TemasComponent
+      TemasComponent,
+      TemaComponent,
+      TabComponent,
+      ListaOponenciaComponent,
+      TabelaOponenciasComponent
 
   ],
 
