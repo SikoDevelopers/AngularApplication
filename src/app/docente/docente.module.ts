@@ -21,6 +21,7 @@ import {PublicoGeralModule} from "../publico-geral/publico-geral.module";
 import { TemaComponent } from './conteudo/temas/tema/tema.component';
 import { AvatarModule } from "ng2-avatar";
 import { TabComponent } from './conteudo/meus-supervisionandos/tab/tab.component';
+import { ListaOponenciaComponent } from './conteudo/oponencia/lista-oponencia/lista-oponencia.component';
 
 @NgModule({
   imports: [
@@ -50,7 +51,8 @@ import { TabComponent } from './conteudo/meus-supervisionandos/tab/tab.component
       EventosComponent,
       TemasComponent,
       TemaComponent,
-      TabComponent
+      TabComponent,
+      ListaOponenciaComponent
 
   ],
 
