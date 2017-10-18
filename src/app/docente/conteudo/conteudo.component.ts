@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-conteudo',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./conteudo.component.scss']
 })
 export class ConteudoComponent implements OnInit {
-
-  constructor(private _route:Ro) { }
+  rota: string;
+  constructor(private _route:Router) { }
 
   ngOnInit() {
+    this.rota = this._route.url;
   }
 
 }
