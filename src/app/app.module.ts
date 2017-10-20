@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { PublicoGeralModule } from './publico-geral/publico-geral.module';
@@ -20,7 +19,11 @@ import {TrabalhoService} from "./service/trabalho.service";
 import {AreaService} from "./service/area.service";
 import {EventoService} from "./service/evento.service";
 import { ShimmerEfectComponent } from './shimmer-efect/shimmer-efect.component';
+import {SupervisorExternoService} from "./service/supervisor-externo.service";
+import {DocenteAreaService} from "./service/docente-area.service";
+import {DocenteService} from "./service/docente.service";
 import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
+
 
 
 
@@ -47,7 +50,16 @@ import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 
 
   ],
-  providers: [CursoService, UserService, AutenticacaoService, TrabalhoService, AreaService, EventoService],
+  providers: [CursoService,
+      UserService,
+      AutenticacaoService,
+      TrabalhoService,
+      AreaService,
+      EventoService,
+      SupervisorExternoService,
+      DocenteAreaService,
+      DocenteService,
+      TrabalhoService],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })

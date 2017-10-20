@@ -20,8 +20,8 @@ export class SelectComponent implements OnInit {
 
   }
 
-    selecionarCurso(evento){
-      this.eventEmmiter.emit({cursos_id: evento.value})
+    selecionarArea(evento){
+      this.eventEmmiter.emit({area_id: evento.value})
     }
 
 
