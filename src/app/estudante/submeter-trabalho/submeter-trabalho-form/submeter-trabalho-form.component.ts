@@ -27,7 +27,7 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
   docenteArea;
     titulo;
     descricao;
-
+     news;
   constructor(
       private _areas:AreaService,
       private userService:UserService,
@@ -36,7 +36,19 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
       private areaService : AreaService,
       private docenteAreaService : DocenteAreaService,
       private trabalhoService : TrabalhoService
-  ) { }
+  ) {
+
+
+      this.news={'protocolo':'eee',
+      'user':'Teste ',
+      'tipoSup':'Teste ',
+      'supervisor':'Teste ',
+      'area':'Teste ',
+      'titulo':'Teste ',
+      'descricao':'Teste ',
+      'data':'Teste ',
+      'timestamp':'Teste '};
+  }
 
   ngOnInit() {
 
@@ -49,6 +61,8 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
 
     setAreaId(evento){
       this.area_id = evento.area_id;
+      this.area_id = evento.area_id;
+      alert('area id : ' + evento.area_id);
     }
   getUser(){
       const token = localStorage.getItem('token');
@@ -117,6 +131,8 @@ getArea(){
 submeter(){
 alert("entramos");
 
+
+
     let formData= new FormData();
     formData.append('protocolo',this.file, this.file.name);
     formData.append( 'user',''+this.user.id);
@@ -127,22 +143,12 @@ alert("entramos");
     formData.append('descricao',''+this.descricao);
     formData.append('data',''+new Date());
     formData.append('timestamp',''+new Date().getTime());
-    //
-    // const dadosTrabalho ={
-    //     'user':this.user.id,
-    //     'tipoSup':this.tipoSuper,
-    //     'protocolo':formData,
-    //     'supervisor':this.supervisor_id,
-    //     'area':this.area_id,
-    //     'titulo':this.titulo,
-    //     'descricao':this.descricao,
-    //     'data':new Date(),
-    //     'timestamp':new Date().getTime()
-    // };
+
+
 
     this.trabalhoService.saveTrabalho(formData).subscribe(
         resultados=>{
-            console.log(resultados['trabalho']);
+            console.log(resultados);
         },
         error2 => {
             console.log(error2);
@@ -162,16 +168,8 @@ alert("entramos");
 
 
     atribuirSupervisor(evento){
-this.supervisor_id = null;
-        if(this.tipoSuper==1){
-            this.supervisor_id = evento.supervisor_id;
-        }
-        if(this.tipoSuper==2){
 
-            this.supervisor_id = evento.supervisor_id;
-        }
-
-
+        this.supervisor_id = evento.supervisor_id;
         this.getDocenteArea();
     }
 
@@ -179,6 +177,9 @@ this.supervisor_id = null;
     setTipoSup(tipo){
 
         this.tipoSuper=tipo;
+
+        this.news.tipoSup = tipo;
+        alert('supervisor id : ' + this.tipoSuper);
         this.getSupervisores();
     }
 
