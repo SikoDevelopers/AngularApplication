@@ -10,7 +10,7 @@ export class TemaService {
 
 
     getTema(): Observable<any>{
-        return this.http.get('http://127.0.0.1:8000/api/temas');
+        return this.http.get('http://127.0.0.1:8000/api/temas?completo=true');
 
     }
 

@@ -21,6 +21,7 @@ import {AreaService} from "./service/area.service";
 import {EventoService} from "./service/evento.service";
 import { ShimmerEfectComponent } from './shimmer-efect/shimmer-efect.component';
 import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
+import {TemaService} from "./service/tema.service";
 
 
 
@@ -47,7 +48,7 @@ import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 
 
   ],
-  providers: [CursoService, UserService, AutenticacaoService, TrabalhoService, AreaService, EventoService],
+  providers: [CursoService, UserService, AutenticacaoService, TrabalhoService, AreaService, EventoService, TemaService],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })

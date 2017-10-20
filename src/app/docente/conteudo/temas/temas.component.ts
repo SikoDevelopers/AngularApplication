@@ -16,7 +16,7 @@ export class TemasComponent implements OnInit {
 
   getTemas(){
     this._temaSevice.getTema().subscribe(
-        resultado => { this.temas = resultado['tema'].data;},
+        resultado => { this.temas = resultado['tema']},
         error2 => {console.log("Error ao carregar "+error2)},
         () =>{
           console.log("Sucesso ao Carregar Temas");

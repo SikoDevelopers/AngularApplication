@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TemaComponent implements OnInit {
   @Input() tema: any;
+  @Input() nome: any;
   constructor() { }
 
   ngOnInit() {

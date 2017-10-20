@@ -34,8 +34,8 @@
 
       <!--TEMAS AREA STARTS HERE-->
       <div class="row">
-        <div class="col-lg-12">
-          <app-tema></app-tema>
+        <div class="col-lg-12" *ngFor="let tema of temas">
+          <app-tema [tema]="tema" [nome]="tema.docente.nome"></app-tema>
         </div>
 
       </div>
