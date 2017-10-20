@@ -21,19 +21,19 @@
 
 <div class="media mb-1">
   <a class="media-left waves-light">
-    <avatar [email]="'Ercilio Marques'" [displayType]="'circle'"></avatar>
+    <avatar [email]="{{ tema.docente.nome }}" [displayType]="'circle'"></avatar>
     <!--<img class="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-7.jpg" alt="Generic placeholder image">-->
   </a>
   <div class="media-body">
     <p [ngStyle]="{'float':'right'}">Informatica</p>
-    <h5 class="media-heading">Dave Snow</h5>
-    <h4 class="media-heading">Tema Sugirido</h4>
+    <h5 class="media-heading">{{ tema.docente.nome + tema.docente.apelido }}</h5>
+    <h4 class="media-heading">{{ tema.designacao }}</h4>
 
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate temporibus iure soluta.
       Quasi mollitia maxime nemo quam accusamus possimus, voluptatum expedita assumenda. Earum sit id ullam eum vel delectus!
     </p>
-    <p>Saude Publica</p>
+    <p>{{ tema.area.designacao }}</p>
 
     <a href="#">Detalhes</a>
     <hr>
