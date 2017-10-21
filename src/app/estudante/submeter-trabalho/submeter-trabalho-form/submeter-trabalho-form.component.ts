@@ -62,7 +62,6 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
     setAreaId(evento){
       this.area_id = evento.area_id;
       this.area_id = evento.area_id;
-      alert('area id : ' + evento.area_id);
     }
   getUser(){
       const token = localStorage.getItem('token');
