@@ -25,7 +25,7 @@ import { ListaOponenciaComponent } from './conteudo/oponencia/lista-oponencia/li
 import { TabelaOponenciasComponent } from './conteudo/oponencia/lista-oponencia/tabela-oponencias/tabela-oponencias.component';
 import { SubmeterTemaComponent } from './conteudo/temas/submeter-tema/submeter-tema.component';
 import { SubmeterTemaFormComponent } from './conteudo/temas/submeter-tema/submeter-tema-form/submeter-tema-form.component';
-import {ModalModule} from "ngx-modal";
+
 @NgModule({
   imports: [
     CommonModule,
@@ -38,8 +38,7 @@ import {ModalModule} from "ngx-modal";
       DocenteRotas,
       NgProgressModule,
       PublicoGeralModule,
-      AvatarModule.forRoot(),
-      ModalModule
+      AvatarModule.forRoot()
   ],
   declarations: [
       DocenteComponent,
