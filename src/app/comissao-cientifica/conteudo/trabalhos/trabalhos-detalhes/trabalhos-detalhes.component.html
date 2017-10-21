@@ -12,7 +12,7 @@
 
         <mat-tab-group class="demo-tab-group pl-5">
 
-          <mat-tab label="Tab 1" class="bg-success">
+          <mat-tab label="Tab 1">
             <ng-template mat-tab-label class="bg-success">
               <div class="mt-3" >
                 <i class="material-icons">info_outline</i>
@@ -77,24 +77,16 @@
 
           <mat-tab label="Tab 3">
             <ng-template mat-tab-label class="bg-success">
-              <div class="mt-2">
+              <div class="mt-2"  *ngIf="trabalho" (click)="getParticipantesTrabalhos(trabalho.id)">
                 <i class="material-icons">people_outline</i>
                 <h5>Participantes</h5>
               </div>
             </ng-template>
-            <div class="demo-tab-content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
-              Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus.
-              In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec,
-              feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor,
-              orci enim rutrum enim, vel tempor sapien arcu a tellus.
-              <br />
-              <br />
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
-              Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus.
-              In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec,
-              feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor,
-              orci enim rutrum enim, vel tempor sapien arcu a tellus.
+            <div class="demo-tab-content" *ngIf="participantesTrabalhos">
+                <div class="mt-5">
+                    <app-participante [supervisores]="participantesTrabalhos"></app-participante>
+                </div>
+
             </div>
           </mat-tab>
 

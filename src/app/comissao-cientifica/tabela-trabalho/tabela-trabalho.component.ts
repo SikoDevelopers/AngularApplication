@@ -10,13 +10,14 @@ import {HttpErrorResponse} from '@angular/common/http';
 export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
 
   trabalhos: Array<any> ;
-  // @Output() outputTrabalho = new EventEmitter();
+  @Output() saidaDados = new EventEmitter();
   trabalhoSelecionado: any;
-  
-    @ViewChild('modalDetalhes') modalDetalhes;
+  @ViewChild('modalDetalhes') modalDetalhes;
 
     subcricao: any;
     @Input() modal: any;
+    docentes: any;
+    supervisorExterno: any;
 
   constructor(private trabalhosService: TrabalhoService) {
 
@@ -30,10 +31,10 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
 
     getTrabalhos(){
         this.subcricao = this.trabalhosService.getTrabalho(true,5).subscribe(
-            (resultado: Response) =>{
+            (resultado: Response) => {
                 this.trabalhos = resultado['trabalhos'].data;
             },
-            (erros: HttpErrorResponse)=> {
+            (erros: HttpErrorResponse) => {
                 console.error(erros);
             },
             ()=>{
@@ -68,9 +69,33 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
 
 
     onClickTrabalho(trabalho){
+        this.getParticipantesTrabalhos(trabalho.id);
         this.trabalhoSelecionado = trabalho;
-        // this.outputTrabalho.emit(trabalho);
+        this.saidaDados.emit({'docentes' : this.docentes, 'supervisorExterno': this.supervisorExterno});
         this.modal.show();
+    }
+
+
+    getParticipantesTrabalhos(idTrabalho){
+        let participantes;
+        let externo;
+        this.trabalhosService.getParticipantes(idTrabalho).subscribe(
+            (resultado: Response) =>{
+                console.log(resultado);
+                participantes = resultado;
+                externo = resultado;
+            },
+            (erros: HttpErrorResponse) => {
+                console.error(erros);
+            },
+            () => {
+                this.docentes = participantes;
+                this.supervisorExterno = externo;
+                console.log("Requisicao completada");
+            }
+
+
+        );
     }
 
 }
