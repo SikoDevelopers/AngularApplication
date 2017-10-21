@@ -76,7 +76,7 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
 
           },
           ()=>{
-              alert("user "+this.user.id);
+              alert("user "+this.user);
             console.log('user retrivied');
           }
       );
@@ -135,7 +135,7 @@ alert("entramos");
 
     let formData= new FormData();
     formData.append('protocolo',this.file, this.file.name);
-    formData.append( 'user',''+this.user.id);
+    formData.append( 'user',''+this.user);
     formData.append('tipoSup',''+this.tipoSuper);
     formData.append('supervisor',''+this.supervisor_id);
     formData.append( 'area',''+this.area_id);
