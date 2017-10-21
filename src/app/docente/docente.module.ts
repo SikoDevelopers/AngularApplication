@@ -23,7 +23,9 @@ import { AvatarModule } from "ng2-avatar";
 import { TabComponent } from './conteudo/meus-supervisionandos/tab/tab.component';
 import { ListaOponenciaComponent } from './conteudo/oponencia/lista-oponencia/lista-oponencia.component';
 import { TabelaOponenciasComponent } from './conteudo/oponencia/lista-oponencia/tabela-oponencias/tabela-oponencias.component';
-
+import { SubmeterTemaComponent } from './conteudo/temas/submeter-tema/submeter-tema.component';
+import { SubmeterTemaFormComponent } from './conteudo/temas/submeter-tema/submeter-tema-form/submeter-tema-form.component';
+import {ModalModule} from "ngx-modal";
 @NgModule({
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { TabelaOponenciasComponent } from './conteudo/oponencia/lista-oponencia/
       DocenteRotas,
       NgProgressModule,
       PublicoGeralModule,
-      AvatarModule.forRoot()
+      AvatarModule.forRoot(),
+      ModalModule
   ],
   declarations: [
       DocenteComponent,
@@ -54,7 +57,9 @@ import { TabelaOponenciasComponent } from './conteudo/oponencia/lista-oponencia/
       TemaComponent,
       TabComponent,
       ListaOponenciaComponent,
-      TabelaOponenciasComponent
+      TabelaOponenciasComponent,
+      SubmeterTemaComponent,
+      SubmeterTemaFormComponent
 
   ],
 

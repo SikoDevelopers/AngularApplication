@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input, ViewChild } from '@angular/core';
 import {TemaService} from "../../../service/tema.service";
 
 @Component({
@@ -8,6 +8,9 @@ import {TemaService} from "../../../service/tema.service";
 })
 export class TemasComponent implements OnInit {
   temas : any;
+  // @ViewChild('modalDetalhes')
+  modalDetalhes = true;
+  @Input() modal: any;
   constructor(private _temaSevice: TemaService) { }
 
   ngOnInit() {
@@ -24,4 +27,12 @@ export class TemasComponent implements OnInit {
     );
   }
 
+  getModal(evento){
+    this.modal = evento;
+    console.log(evento);
+  }
+
+  onMostrarModal(){
+    this.modal.show();
+  }
 }
