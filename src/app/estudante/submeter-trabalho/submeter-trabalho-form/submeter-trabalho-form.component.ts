@@ -129,10 +129,6 @@ getArea(){
 }
 
 submeter(){
-alert("entramos");
-
-
-
     let formData= new FormData();
     formData.append('protocolo',this.file, this.file.name);
     formData.append( 'user',''+this.user.id);
