@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {UserService} from './user.service';
 import {HttpErrorResponse} from '@angular/common/http';
-import {concatStatic} from 'rxjs/operator/concat';
 
 @Injectable()
 export class AutenticacaoService {
