@@ -76,7 +76,6 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
 
           },
           ()=>{
-              alert("user "+this.user.id);
             console.log('user retrivied');
           }
       );
