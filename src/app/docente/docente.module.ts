@@ -28,14 +28,6 @@ import { ListaOponenciaComponent } from './conteudo/oponencia/lista-oponencia/li
 import { TabelaOponenciasComponent } from './conteudo/oponencia/lista-oponencia/tabela-oponencias/tabela-oponencias.component';
 import { SubmeterTemaComponent } from './conteudo/temas/submeter-tema/submeter-tema.component';
 import { SubmeterTemaFormComponent } from './conteudo/temas/submeter-tema/submeter-tema-form/submeter-tema-form.component';
-<<<<<<< HEAD
-
-
-
-
-=======
-import {ModalModule} from "ngx-modal";
->>>>>>> parent of 99a23aa... Modal Stavel
 @NgModule({
   imports: [
       CommonModule,
@@ -48,11 +40,8 @@ import {ModalModule} from "ngx-modal";
       NgProgressModule,
       PublicoGeralModule,
       AvatarModule.forRoot(),
-<<<<<<< HEAD
+
       MatDialogModule
-=======
-      ModalModule
->>>>>>> parent of 99a23aa... Modal Stavel
   ],
   declarations: [
       DocenteComponent,
