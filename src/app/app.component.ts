@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Token} from './models/Token';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import {Token} from './models/Token';
 })
 export class AppComponent {
   title = 'app';
-
+  myControl: FormControl = new FormControl();
   constructor(){
   }
 

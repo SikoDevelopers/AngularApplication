@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter, Inject} from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-submeter-tema',
@@ -10,10 +11,18 @@ export class SubmeterTemaComponent implements OnInit {
   @ViewChild('modal') modal;
   @Output() output = new EventEmitter();
 
-  constructor() { }
+  constructor(
+  ) { }
+
 
   ngOnInit() {
     this.output.emit(this.modal);
+  }
+
+
+
+  onNoClick(): void {
+   // this.dialogRef.close();
   }
 
 }

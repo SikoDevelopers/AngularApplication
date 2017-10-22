@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-submeter-tema-form',
   templateUrl: './submeter-tema-form.component.html',
@@ -11,5 +12,12 @@ export class SubmeterTemaFormComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
+  options = [
+    'One',
+    'Two',
+    'Three'
+  ];
 
 }
