@@ -24,6 +24,8 @@ import {ProcessoSubmissaoService} from '../service/processo-submissao.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatPaginatorModule, MatTabsModule} from '@angular/material';
 import { CardFicheirosComponent } from './conteudo/trabalhos/card-ficheiros/card-ficheiros.component';
+import { ParticipanteComponent } from './conteudo/trabalhos/participante/participante.component';
+import {AvatarComponent, AvatarModule} from 'ng2-avatar';
 
 @NgModule({
   imports: [
@@ -35,6 +37,7 @@ import { CardFicheirosComponent } from './conteudo/trabalhos/card-ficheiros/card
       MatTabsModule,
       BrowserAnimationsModule,
       MatPaginatorModule,
+      AvatarModule.forRoot()
 
   ],
   declarations: [
@@ -52,10 +55,11 @@ import { CardFicheirosComponent } from './conteudo/trabalhos/card-ficheiros/card
       EstatisticasComponent,
       TrabalhosDetalhesComponent,
       CardFicheirosComponent,
+      ParticipanteComponent,
 
   ],
 
-    providers: [TrabalhoService, ProcessoSubmissaoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
+    providers: [AvatarComponent,TrabalhoService, ProcessoSubmissaoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
     schemas:[NO_ERRORS_SCHEMA],
     exports:[RouterModule]
 })

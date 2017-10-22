@@ -41,4 +41,9 @@ export class TrabalhoService {
         return this.http.delete('http://127.0.0.1:8000/api/trabalhos/'+id);
     }
 
+    getParticipantes($id: number){
+        return this.http.get('http://localhost:8000/api/trabalhos/participantes/' + $id);
+    }
+
 }
+
