@@ -1,5 +1,5 @@
 import {Component, OnInit, OnDestroy, Input, ViewChild, Output, EventEmitter} from '@angular/core';
-import {TrabalhoService} from '../../service/trabalho.service';
+import {TrabalhoService} from '../../../../service/trabalho.service';
 import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
@@ -17,6 +17,7 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
   subcricao: any;
   docentes: any;
 
+
   constructor(private trabalhosService: TrabalhoService) {
 
   }
@@ -27,7 +28,7 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
 
 
     getTrabalhos(){
-        this.subcricao = this.trabalhosService.getTrabalho(true,5).subscribe(
+        this.subcricao = this.trabalhosService.getTrabalho(true, 5).subscribe(
             (resultado: Response) =>{
                 console.log(resultado);
                 this.trabalhos = resultado['trabalhos'].data;
