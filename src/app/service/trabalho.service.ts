@@ -9,7 +9,7 @@ export class TrabalhoService {
     constructor(private http: HttpClient) { }
 
 
-    getTrabalho(completo?: boolean, paginacao?: number): Observable<any>{
+    getTrabalho(completo?: boolean, paginacao: number = 5): Observable<any>{
         return this.http.get('http://127.0.0.1:8000/api/trabalhos?completo='+completo + '&paginacao='+paginacao);
     }
 
@@ -41,4 +41,23 @@ export class TrabalhoService {
         return this.http.delete('http://127.0.0.1:8000/api/trabalhos/'+id);
     }
 
+    getParticipantes($id: number){
+        return this.http.get('http://localhost:8000/api/trabalhos/participantes/' + $id);
+    }
+
+
+
+    getProtocolo(completo?: boolean, paginacao: number = 5): Observable<any>{
+        return this.http.get('http://localhost:8000/api/apenas/protocolos');
+    }
+
+    getTrabalhosApenas(): Observable<any>{
+        return this.http.get('http://localhost:8000/api/apenas/trabalhos');
+    }
+
+
+    getSupervisores(){
+        return this.http.get('http://localhost:8000/supervisores');
+    }
 }
+

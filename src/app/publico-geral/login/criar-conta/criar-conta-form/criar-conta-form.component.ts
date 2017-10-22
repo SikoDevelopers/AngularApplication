@@ -55,7 +55,7 @@ export class CriarContaFormComponent implements OnInit, OnChanges{
     };
 
 
-
+        console.log(user);
       if(formulario.value.password == formulario.value.confPassword) {
           this.autenticacaoService.criarContaEsudante(user,
               dados => {
@@ -77,7 +77,7 @@ export class CriarContaFormComponent implements OnInit, OnChanges{
 
 
   getCursoSelect(event){
-    this.cursos_id = event.cursos_id;
+    this.cursos_id = event.area_id;
   }
 
 

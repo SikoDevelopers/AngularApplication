@@ -112,6 +112,7 @@ getArea(){
 submeter(){
     let formData= new FormData();
     formData.append('protocolo',this.file, this.file.name);
+
     formData.append( 'user',''+this.user.id);
     formData.append('supervisor',''+this.supervisor_id);
     formData.append( 'area',''+this.area_id);

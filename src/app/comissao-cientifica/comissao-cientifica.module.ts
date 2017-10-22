@@ -4,7 +4,7 @@ import { ComissaoCientificaComponent } from './comissao-cientifica.component';
 import {BarraDoTopoEstComponent} from "./barra-do-topo-est/barra-do-topo-est.component";
 import {SidenavComponent} from "./sidenav/sidenav.component";
 import {MDBBootstrapModule} from "angular-bootstrap-md";
-import { TabelaTrabalhoComponent } from './tabela-trabalho/tabela-trabalho.component';
+import { TabelaTrabalhoComponent } from './conteudo/over-view/tabela-trabalho/tabela-trabalho.component';
 import { ConteudoComponent } from './conteudo/conteudo.component';
 import { CardTrabalhosComponent } from './conteudo/over-view/card-trabalhos/card-trabalhos.component';
 import { CardGraficosComponent } from './conteudo/over-view/card-graficos/card-graficos.component';
@@ -21,6 +21,18 @@ import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { TrabalhosDetalhesComponent } from './conteudo/trabalhos/trabalhos-detalhes/trabalhos-detalhes.component';
 import {ProcessoSubmissaoService} from '../service/processo-submissao.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatPaginatorModule, MatTabsModule} from '@angular/material';
+import { CardFicheirosComponent } from './conteudo/trabalhos/card-ficheiros/card-ficheiros.component';
+import { ParticipanteComponent } from './conteudo/trabalhos/participante/participante.component';
+import {AvatarComponent, AvatarModule} from 'ng2-avatar';
+import { TabelaTrabalhosCompletoComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-trabalhos-completo/tabela-trabalhos-completo.component';
+import { TabsTrabalhosComponent } from './conteudo/trabalhos/tabs-trabalhos/tabs-trabalhos.component';
+import { TabelaProtocolosComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-protocolos/tabela-protocolos.component';
+import { TabelaTrabalhosApenasComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-trabalhos-apenas/tabela-trabalhos-apenas.component';
+import { ListaSupervisoresComponent } from './conteudo/supervisores/lista-supervisores/lista-supervisores.component';
+import { DocentesComponent } from './conteudo/docentes/docentes.component';
+import { ListaDocentesComponent } from './conteudo/docentes/lista-docentes/lista-docentes.component';
 
 @NgModule({
   imports: [
@@ -28,7 +40,11 @@ import {ProcessoSubmissaoService} from '../service/processo-submissao.service';
       MDBBootstrapModule.forRoot(),
       GraficosModule,
       ComissaoRotas,
-      NgProgressModule
+      NgProgressModule,
+      MatTabsModule,
+      BrowserAnimationsModule,
+      MatPaginatorModule,
+      AvatarModule.forRoot()
 
   ],
   declarations: [
@@ -45,10 +61,19 @@ import {ProcessoSubmissaoService} from '../service/processo-submissao.service';
       EventosComponent,
       EstatisticasComponent,
       TrabalhosDetalhesComponent,
+      CardFicheirosComponent,
+      ParticipanteComponent,
+      TabelaTrabalhosCompletoComponent,
+      TabsTrabalhosComponent,
+      TabelaProtocolosComponent,
+      TabelaTrabalhosApenasComponent,
+      ListaSupervisoresComponent,
+      DocentesComponent,
+      ListaDocentesComponent,
 
   ],
 
-    providers: [TrabalhoService, ProcessoSubmissaoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
+    providers: [AvatarComponent,TrabalhoService, ProcessoSubmissaoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
     schemas:[NO_ERRORS_SCHEMA],
     exports:[RouterModule]
 })
