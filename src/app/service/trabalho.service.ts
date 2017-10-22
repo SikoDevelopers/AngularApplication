@@ -45,5 +45,11 @@ export class TrabalhoService {
         return this.http.get('http://localhost:8000/api/trabalhos/participantes/' + $id);
     }
 
+
+
+    getProtocolo(completo?: boolean, paginacao: number = 5): Observable<any>{
+        return this.http.get('http://localhost:8000/api/protocolos');
+    }
+
 }
 
