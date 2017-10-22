@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {TrabalhoService} from '../../../../service/trabalho.service';
+import {TrabalhoService} from '../../../../../service/trabalho.service';
 import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({

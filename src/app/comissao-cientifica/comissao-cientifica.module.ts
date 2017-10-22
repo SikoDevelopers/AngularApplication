@@ -26,7 +26,8 @@ import {MatPaginatorModule, MatTabsModule} from '@angular/material';
 import { CardFicheirosComponent } from './conteudo/trabalhos/card-ficheiros/card-ficheiros.component';
 import { ParticipanteComponent } from './conteudo/trabalhos/participante/participante.component';
 import {AvatarComponent, AvatarModule} from 'ng2-avatar';
-import { TabelaTrabalhosCompletoComponent } from './conteudo/trabalhos/tabela-trabalhos-completo/tabela-trabalhos-completo.component';
+import { TabelaTrabalhosCompletoComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-trabalhos-completo/tabela-trabalhos-completo.component';
+import { TabsTrabalhosComponent } from './conteudo/trabalhos/tabs-trabalhos/tabs-trabalhos.component';
 
 @NgModule({
   imports: [
@@ -58,6 +59,7 @@ import { TabelaTrabalhosCompletoComponent } from './conteudo/trabalhos/tabela-tr
       CardFicheirosComponent,
       ParticipanteComponent,
       TabelaTrabalhosCompletoComponent,
+      TabsTrabalhosComponent,
 
   ],
 
