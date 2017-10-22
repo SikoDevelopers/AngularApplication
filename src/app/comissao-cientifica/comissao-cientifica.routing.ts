@@ -9,6 +9,7 @@ import {EstatisticasComponent} from './conteudo/estatisticas/estatisticas.compon
 import { RouterModule, Routes} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {ComissaoCientificaComponent} from './comissao-cientifica.component';
+import {DocentesComponent} from './conteudo/docentes/docentes.component';
 
 const COMISSAO_ROTAS: Routes = [
     {path: '', component: ComissaoCientificaComponent,
@@ -18,6 +19,7 @@ const COMISSAO_ROTAS: Routes = [
             {path:'comissao-cientifica/supervisores',component:SupervisoresComponent},
             {path:'comissao-cientifica/eventos',component:EventosComponent},
             {path:'comissao-cientifica/estatisticas',component:EstatisticasComponent},
+            {path:'comissao-cientifica/docentes',component:DocentesComponent},
         ],
     },
 

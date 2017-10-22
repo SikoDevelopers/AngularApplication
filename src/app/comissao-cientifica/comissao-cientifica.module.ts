@@ -28,6 +28,11 @@ import { ParticipanteComponent } from './conteudo/trabalhos/participante/partici
 import {AvatarComponent, AvatarModule} from 'ng2-avatar';
 import { TabelaTrabalhosCompletoComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-trabalhos-completo/tabela-trabalhos-completo.component';
 import { TabsTrabalhosComponent } from './conteudo/trabalhos/tabs-trabalhos/tabs-trabalhos.component';
+import { TabelaProtocolosComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-protocolos/tabela-protocolos.component';
+import { TabelaTrabalhosApenasComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-trabalhos-apenas/tabela-trabalhos-apenas.component';
+import { ListaSupervisoresComponent } from './conteudo/supervisores/lista-supervisores/lista-supervisores.component';
+import { DocentesComponent } from './conteudo/docentes/docentes.component';
+import { ListaDocentesComponent } from './conteudo/docentes/lista-docentes/lista-docentes.component';
 
 @NgModule({
   imports: [
@@ -60,6 +65,11 @@ import { TabsTrabalhosComponent } from './conteudo/trabalhos/tabs-trabalhos/tabs
       ParticipanteComponent,
       TabelaTrabalhosCompletoComponent,
       TabsTrabalhosComponent,
+      TabelaProtocolosComponent,
+      TabelaTrabalhosApenasComponent,
+      ListaSupervisoresComponent,
+      DocentesComponent,
+      ListaDocentesComponent,
 
   ],
 

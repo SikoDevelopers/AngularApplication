@@ -1,0 +1,19 @@
+<div *ngFor="let docente of docentes">
+  <div class="media mb-1 mr-5">
+    <a class="media-left waves-light">
+      <avatar [email]="docente.nome" [displayType]="'circle'" [size]="80"></avatar>
+      <!--<img class="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-7.jpg" alt="Generic placeholder image">-->
+    </a>
+
+    <div class="media-body ml-2">
+      <p [ngStyle]="{'float':'right', 'color': getFuncaoColor()}" class="p-3">funcao</p>
+      <h4 class="media-heading">{{docente.nome }}</h4>
+
+      <p>{{docente.areas.designacao}}</p>
+      <a class="">{{docente.funcao.docente}}</a>
+
+      <a href="#">Detalhes</a>
+      <hr>
+    </div>
+  </div>
+</div>

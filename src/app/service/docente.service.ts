@@ -33,4 +33,10 @@ export class DocenteService {
         return this.http.delete('http://127.0.0.1:8000/api/docentes/'+id);
     }
 
+
+    getDocentesEspecificacoes(completo: boolean, paginacao: number): Observable<any>{
+        return this.http.get('http://127.0.0.1:8000/api/docentes?completo='+completo + '&paginacao='+paginacao);
+        // return this.http.get('http://127.0.0.1:8000/api/docentes?completo=true&paginacao=3');
+    }
+
 }
