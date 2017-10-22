@@ -9,6 +9,8 @@ import {SubmeterTemaComponent} from "./submeter-tema/submeter-tema.component";
 })
 export class TemasComponent implements OnInit {
   temas : any;
+  // @ViewChild('modalDetalhes')
+  modalDetalhes = true;
   @Input() modal: any;
   animal: string;
   name: string;
@@ -30,7 +32,7 @@ export class TemasComponent implements OnInit {
 
   getModal(evento){
     this.modal = evento;
-
+    console.log(evento);
   }
 
   onMostrarModal(){
