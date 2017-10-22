@@ -4,7 +4,7 @@ import { ComissaoCientificaComponent } from './comissao-cientifica.component';
 import {BarraDoTopoEstComponent} from "./barra-do-topo-est/barra-do-topo-est.component";
 import {SidenavComponent} from "./sidenav/sidenav.component";
 import {MDBBootstrapModule} from "angular-bootstrap-md";
-import { TabelaTrabalhoComponent } from './tabela-trabalho/tabela-trabalho.component';
+import { TabelaTrabalhoComponent } from './conteudo/over-view/tabela-trabalho/tabela-trabalho.component';
 import { ConteudoComponent } from './conteudo/conteudo.component';
 import { CardTrabalhosComponent } from './conteudo/over-view/card-trabalhos/card-trabalhos.component';
 import { CardGraficosComponent } from './conteudo/over-view/card-graficos/card-graficos.component';
@@ -26,6 +26,7 @@ import {MatPaginatorModule, MatTabsModule} from '@angular/material';
 import { CardFicheirosComponent } from './conteudo/trabalhos/card-ficheiros/card-ficheiros.component';
 import { ParticipanteComponent } from './conteudo/trabalhos/participante/participante.component';
 import {AvatarComponent, AvatarModule} from 'ng2-avatar';
+import { TabelaTrabalhosCompletoComponent } from './conteudo/trabalhos/tabela-trabalhos-completo/tabela-trabalhos-completo.component';
 
 @NgModule({
   imports: [
@@ -56,6 +57,7 @@ import {AvatarComponent, AvatarModule} from 'ng2-avatar';
       TrabalhosDetalhesComponent,
       CardFicheirosComponent,
       ParticipanteComponent,
+      TabelaTrabalhosCompletoComponent,
 
   ],
 
