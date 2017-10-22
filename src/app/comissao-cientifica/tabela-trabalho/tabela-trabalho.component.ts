@@ -28,7 +28,8 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
 
     getTrabalhos(){
         this.subcricao = this.trabalhosService.getTrabalho(true,5).subscribe(
-            (resultado: Response) => {
+            (resultado: Response) =>{
+                console.log(resultado);
                 this.trabalhos = resultado['trabalhos'].data;
             },
             (erros: HttpErrorResponse) => {
