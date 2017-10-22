@@ -7,6 +7,7 @@
     <!--Table head-->
     <thead class="mdb-color darken-3">
     <tr class="text-white">
+      <th>    </th>
       <th>#</th>
       <th>Tema</th>
       <th>Estudante</th>
@@ -19,6 +20,7 @@
     <!--Table body-->
     <tbody *ngFor="let trabalho of trabalhos">
     <tr class="hoverable" (click)="onClickTrabalho(trabalho)" data-toggle="modal" data-target="#basicExample">
+      <td>    </td>
       <th scope="row">{{trabalho.id}}</th>
       <td>{{trabalho.titulo}}</td>
       <td>{{trabalho.estudante.nome}}</td>
