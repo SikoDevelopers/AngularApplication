@@ -1,4 +1,4 @@
-<app-trabalhos-detalhes  (output)="getModal($event)" [(trabalho)] = "trabalhoSelecionado" [(docentes)]="docentes" ></app-trabalhos-detalhes>
+<!--<app-trabalhos-detalhes  (output)="getModal($event)" [(trabalho)] = "trabalhoSelecionado" [(docentes)]="docentes" ></app-trabalhos-detalhes>-->
 
 <div class="row" [ngStyle]="{'margin-top':'10px'}">
   <!--Table-->
@@ -7,6 +7,7 @@
     <!--Table head-->
     <thead class="mdb-color darken-3">
     <tr class="text-white">
+      <th>    </th>
       <th>#</th>
       <th>Tema</th>
       <th>Estudante</th>
@@ -17,16 +18,17 @@
     <!--Table head-->
 
     <!--Table body-->
-    <tbody *ngFor="let trabalho of trabalhos">
-    <tr class="hoverable" (click)="onClickTrabalho(trabalho)" data-toggle="modal" data-target="#basicExample">
-      <th scope="row">{{trabalho.id}}</th>
-      <td>{{trabalho.titulo}}</td>
-      <td>{{trabalho.estudante.nome}}</td>
-      <td>{{getDataSubmissao(trabalho.created_at)}}</td>
+    <tbody *ngFor="let protocolo of protocolos">
+    <tr class="hoverable" (click)="onClickTrabalho(protocolo)" data-toggle="modal" data-target="#basicExample">
+      <td>    </td>
+      <td scope="row">{{protocolo.id}}</td>
+      <td>{{protocolo.titulo}}</td>
+      <td>{{protocolo.nome}}</td>
+      <td>{{getDataSubmissao(protocolo.data)}}</td>
       <td>
-        <a [class.alert-danger]="'Nao Aprovado' == getEstado(trabalho.is_aprovado)" class="p-1"
-           [class.alert-success]="'Aprovado' == getEstado(trabalho.is_aprovado)">
-          {{getEstado(trabalho.is_aprovado)}}
+        <a [class.alert-danger]="'Nao Aprovado' == getEstado(protocolo.ficheiros_reprovados_id)" class="p-1"
+           [class.alert-success]="'Aprovado' == getEstado(protocolo.ficheiros_reprovados_id)">
+          {{getEstado(protocolo.ficheiros_reprovados_id)}}
         </a>
       </td>
     </tr>
