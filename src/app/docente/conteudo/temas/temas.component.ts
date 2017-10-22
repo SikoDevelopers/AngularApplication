@@ -1,7 +1,5 @@
 import { Component, OnInit,Input, ViewChild } from '@angular/core';
 import {TemaService} from "../../../service/tema.service";
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {SubmeterTemaComponent} from "./submeter-tema/submeter-tema.component";
 @Component({
   selector: 'app-temas',
   templateUrl: './temas.component.html',
@@ -14,7 +12,7 @@ export class TemasComponent implements OnInit {
   @Input() modal: any;
   animal: string;
   name: string;
-  constructor(private _temaSevice: TemaService, public dialog: MatDialog) { }
+  constructor(private _temaSevice: TemaService) { }
 
   ngOnInit() {
     this.getTemas();
@@ -39,13 +37,4 @@ export class TemasComponent implements OnInit {
     this.modal.show();
   }
 
-  openDialog(): void {
-    let dialogRef = this.dialog.open(SubmeterTemaComponent, {
-      width: '250px'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-
-    });
-  }
 }
