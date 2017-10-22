@@ -110,29 +110,35 @@ getArea(){
 }
 
 submeter(){
-    let formData= new FormData();
-    formData.append('protocolo',this.file, this.file.name);
-    formData.append( 'user',''+this.user.id);
-    formData.append('supervisor',''+this.supervisor_id);
-    formData.append( 'area',''+this.area_id);
-    formData.append('titulo',''+this.titulo);
-    formData.append('descricao',''+this.descricao);
-    formData.append('data',''+new Date());
-    formData.append('timestamp',''+new Date().getTime());
+
+    if (this.file) {
 
 
+        let formData = new FormData();
+        formData.append('protocolo', this.file, this.file.name);
+        formData.append('user', '' + this.user.id);
+        formData.append('supervisor', '' + this.supervisor_id);
+        formData.append('area', '' + this.area_id);
+        formData.append('titulo', '' + this.titulo);
+        formData.append('descricao', '' + this.descricao);
+        formData.append('data', '' + new Date());
+        formData.append('timestamp', '' + new Date().getTime());
 
-    this.trabalhoService.saveTrabalho(formData).subscribe(
-        resultados=>{
-            console.log(resultados);
-        },
-        error2 => {
-            console.log(error2);
-        },
-        ()=>{
-            alert('processo completo')
-        }
-    )
+
+        this.trabalhoService.saveTrabalho(formData).subscribe(
+            resultados => {
+                console.log(resultados);
+            },
+            error2 => {
+                console.log(error2);
+            },
+            () => {
+                alert('processo completo')
+            }
+        )
+    }else{
+        alert('nao ha ficheiro submetido');
+    }
 
 
 }
@@ -140,6 +146,7 @@ submeter(){
     atribuirValor(evento){
 
       this.file = evento.file;
+
     }
 
 
