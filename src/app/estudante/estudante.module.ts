@@ -8,6 +8,7 @@ import { TrabalhosSubmetidosComponent } from './trabalhos-submetidos/trabalhos-s
 import { SubmeterTrabalhoFormComponent } from './submeter-trabalho/submeter-trabalho-form/submeter-trabalho-form.component';
 import {SelectModule} from "../select/select.module";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {FileInputComponent} from "../file-input/file-input.component";
 import {SelectSupervisorModule} from "../select-supervisor/select-supervisor.module";
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import {SelectSupervisorModule} from "../select-supervisor/select-supervisor.mod
     SubmeterTrabalhoComponent,
     TrabalhosSubmetidosComponent,
     SubmeterTrabalhoFormComponent,
+    FileInputComponent,
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   exports: [ SidenavComponent ]
