@@ -20,9 +20,6 @@
 
 
       <div class="text-left">
-
-        <input type="radio" checked (change)="setTipoSup(1)"  name="tipoSup" id="t1" value="1"><label for="t1">Supervisor Interno</label><br>
-        <input type="radio" (change)="setTipoSup(2)" name="tipoSup" id="t2" value="2"><label for="t2">Supervisor Externo</label>  <br>
         <app-select-supervisor [label]="label2" [opcoes]="supervisores" (eventEmmiter)="atribuirSupervisor($event)"></app-select-supervisor>
       </div>
 

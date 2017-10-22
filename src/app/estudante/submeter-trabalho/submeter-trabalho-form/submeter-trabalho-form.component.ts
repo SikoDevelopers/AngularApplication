@@ -21,7 +21,6 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
   file;
   user : User;
   @Input() supervisor_id: number;
-  tipoSuper=1;
     area_id;
   areas: any = [];
   docenteArea;
@@ -41,7 +40,6 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
 
       this.news={'protocolo':'eee',
       'user':'Teste ',
-      'tipoSup':'Teste ',
       'supervisor':'Teste ',
       'area':'Teste ',
       'titulo':'Teste ',
@@ -84,7 +82,7 @@ getSupervisores(){
 
       this.supervisores =[];
 
-      if(this.tipoSuper==1){
+
           this.docenteService.getDocente().subscribe(
               resultado=>{
                   this.supervisores = resultado['docentes'];
@@ -98,21 +96,6 @@ getSupervisores(){
 
               }
           )
-      };
-      if(this.tipoSuper==2){
-          this.supervisorService.getSupervisorExterno().subscribe(
-              resultado=>{
-                  this.supervisores = resultado['supervisorExternos'];
-              },
-              error2 => {
-
-              },
-              ()=>{
-                  console.log('Supervisores carregados');
-
-              }
-          )
-      }
 
 
 
@@ -130,7 +113,6 @@ submeter(){
     let formData= new FormData();
     formData.append('protocolo',this.file, this.file.name);
     formData.append( 'user',''+this.user.id);
-    formData.append('tipoSup',''+this.tipoSuper);
     formData.append('supervisor',''+this.supervisor_id);
     formData.append( 'area',''+this.area_id);
     formData.append('titulo',''+this.titulo);
@@ -168,14 +150,6 @@ submeter(){
     }
 
 
-    setTipoSup(tipo){
-
-        this.tipoSuper=tipo;
-
-        this.news.tipoSup = tipo;
-        alert('supervisor id : ' + this.tipoSuper);
-        this.getSupervisores();
-    }
 
 
     getDocenteArea(){
