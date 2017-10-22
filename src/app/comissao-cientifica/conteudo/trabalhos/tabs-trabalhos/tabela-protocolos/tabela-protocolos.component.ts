@@ -9,7 +9,7 @@ import {TrabalhoService} from '../../../../../service/trabalho.service';
 })
 export class TabelaProtocolosComponent implements OnInit {
 
-    trabalhos: Array<any>;
+    protocolos: Array<any>;
     @Input() modal: any;
     @Output() saidaDados = new EventEmitter();
     @ViewChild('modalDetalhes') modalDetalhes;
@@ -28,16 +28,16 @@ export class TabelaProtocolosComponent implements OnInit {
 
 
     getProtocolos(){
-        this.subcricao = this.trabalhosService.getProtocolo(true, 20).subscribe(
+        this.subcricao = this.trabalhosService.getProtocolo().subscribe(
             (resultado: Response) =>{
-                console.log(resultado);
-                this.trabalhos = resultado['protocolos'].data;
+                this.protocolos = resultado['protocolos'];
+                console.log(this.protocolos[0]);
             },
             (erros: HttpErrorResponse) => {
                 console.error(erros);
             },
             ()=>{
-                console.log(this.trabalhos);
+                console.log(this.protocolos);
             }
         );
     }
