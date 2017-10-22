@@ -9,15 +9,13 @@ import {HttpErrorResponse} from '@angular/common/http';
 })
 export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
 
-  trabalhos: Array<any> ;
+  trabalhos: Array<any>;
+  @Input() modal: any;
   @Output() saidaDados = new EventEmitter();
-  trabalhoSelecionado: any;
   @ViewChild('modalDetalhes') modalDetalhes;
-
-    subcricao: any;
-    @Input() modal: any;
-    docentes: any;
-    supervisorExterno: any;
+  trabalhoSelecionado: any;
+  subcricao: any;
+  docentes: any;
 
   constructor(private trabalhosService: TrabalhoService) {
 
@@ -25,7 +23,6 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
       this.getTrabalhos();
-
   }
 
 
@@ -42,11 +39,6 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
             }
         );
     }
-
-    ngOnDestroy(): void {
-        this.subcricao.unsubscribe();
-    }
-
 
     getEstado(is_aprovado){
         if(is_aprovado){
@@ -69,33 +61,34 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
 
 
     onClickTrabalho(trabalho){
-        this.getParticipantesTrabalhos(trabalho.id);
         this.trabalhoSelecionado = trabalho;
-        this.saidaDados.emit({'docentes' : this.docentes, 'supervisorExterno': this.supervisorExterno});
+        this.getParticipantesTrabalhos(trabalho.id);
         this.modal.show();
     }
 
 
     getParticipantesTrabalhos(idTrabalho){
         let participantes;
-        let externo;
+
         this.trabalhosService.getParticipantes(idTrabalho).subscribe(
             (resultado: Response) =>{
                 console.log(resultado);
-                participantes = resultado;
-                externo = resultado;
+                participantes = resultado['docentes'];
             },
             (erros: HttpErrorResponse) => {
                 console.error(erros);
             },
             () => {
                 this.docentes = participantes;
-                this.supervisorExterno = externo;
                 console.log("Requisicao completada");
             }
 
-
         );
     }
+
+    ngOnDestroy(): void {
+        this.subcricao.unsubscribe();
+    }
+
 
 }

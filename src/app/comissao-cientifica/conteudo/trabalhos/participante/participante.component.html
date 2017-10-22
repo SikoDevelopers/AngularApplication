@@ -1,17 +1,19 @@
-<div class="media mb-1 mr-5">
-  <a class="media-left waves-light">
-    <avatar [name]="supervisores.nome" [displayType]="'circle'" [size]="80"></avatar>
-    <!--<img class="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-7.jpg" alt="Generic placeholder image">-->
-  </a>
+<div *ngFor="let participante of docentes">
+  <div class="media mb-1 mr-5">
+    <a class="media-left waves-light">
+      <avatar [name]="participante.nome" [displayType]="'circle'" [size]="80"></avatar>
+      <!--<img class="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-7.jpg" alt="Generic placeholder image">-->
+    </a>
 
-  <div class="media-body ml-2">
-    <p [ngStyle]="{'float':'right', 'color': getFuncaoColor()}" class="p-3">{{supervisores.funcao.designacao}}</p>
-    <h4 class="media-heading">{{supervisores.nome }}</h4>
+    <div class="media-body ml-2">
+      <p [ngStyle]="{'float':'right', 'color': getFuncaoColor()}" class="p-3">{{participante.funcao.designacao}}</p>
+      <h4 class="media-heading">{{participante.nome }}</h4>
 
-    <p>{{supervisores.area_participacao.designacao}}</p>
-    <p>{{supervisores.funcao.descricao}}</p>
+      <p>{{participante.area_participacao.designacao}}</p>
+      <p>{{participante.funcao.descricao}}</p>
 
-    <a href="#">Detalhes</a>
-    <hr>
+      <a href="#">Detalhes</a>
+      <hr>
+    </div>
   </div>
 </div>

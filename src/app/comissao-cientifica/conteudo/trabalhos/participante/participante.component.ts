@@ -9,7 +9,7 @@ import {AvatarComponent} from 'ng2-avatar';
 export class ParticipanteComponent implements OnInit {
 
 
-    @Input()supervisores: any;
+    @Input()docentes: any;
 
 
 

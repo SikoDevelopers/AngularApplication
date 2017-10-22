@@ -77,14 +77,14 @@
 
           <mat-tab label="Tab 3">
             <ng-template mat-tab-label class="bg-success">
-              <div class="mt-2"  *ngIf="trabalho" (click)="getParticipantesTrabalhos(trabalho.id)">
+              <div class="mt-2">
                 <i class="material-icons">people_outline</i>
                 <h5>Participantes</h5>
               </div>
             </ng-template>
-            <div class="demo-tab-content" *ngIf="participantesTrabalhos">
+            <div class="demo-tab-content" *ngIf="docentes">
                 <div class="mt-5">
-                    <app-participante [supervisores]="participantesTrabalhos"></app-participante>
+                    <app-participante [docentes]="docentes"></app-participante>
                 </div>
 
             </div>
@@ -148,4 +148,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
