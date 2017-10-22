@@ -21,7 +21,6 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
   file;
   user : User;
   @Input() supervisor_id: number;
-  tipoSuper=1;
     area_id;
   areas: any = [];
   docenteArea;
@@ -41,7 +40,6 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
 
       this.news={'protocolo':'eee',
       'user':'Teste ',
-      'tipoSup':'Teste ',
       'supervisor':'Teste ',
       'area':'Teste ',
       'titulo':'Teste ',
@@ -62,7 +60,6 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
     setAreaId(evento){
       this.area_id = evento.area_id;
       this.area_id = evento.area_id;
-      alert('area id : ' + evento.area_id);
     }
   getUser(){
       const token = localStorage.getItem('token');
@@ -76,7 +73,6 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
 
           },
           ()=>{
-              alert("user "+this.user);
             console.log('user retrivied');
           }
       );
@@ -86,7 +82,7 @@ getSupervisores(){
 
       this.supervisores =[];
 
-      if(this.tipoSuper==1){
+
           this.docenteService.getDocente().subscribe(
               resultado=>{
                   this.supervisores = resultado['docentes'];
@@ -100,21 +96,6 @@ getSupervisores(){
 
               }
           )
-      };
-      if(this.tipoSuper==2){
-          this.supervisorService.getSupervisorExterno().subscribe(
-              resultado=>{
-                  this.supervisores = resultado['supervisorExternos'];
-              },
-              error2 => {
-
-              },
-              ()=>{
-                  console.log('Supervisores carregados');
-
-              }
-          )
-      }
 
 
 
@@ -129,14 +110,10 @@ getArea(){
 }
 
 submeter(){
-alert("entramos");
-
-
-
     let formData= new FormData();
     formData.append('protocolo',this.file, this.file.name);
-    formData.append( 'user',''+this.user);
-    formData.append('tipoSup',''+this.tipoSuper);
+
+    formData.append( 'user',''+this.user.id);
     formData.append('supervisor',''+this.supervisor_id);
     formData.append( 'area',''+this.area_id);
     formData.append('titulo',''+this.titulo);
@@ -174,14 +151,6 @@ alert("entramos");
     }
 
 
-    setTipoSup(tipo){
-
-        this.tipoSuper=tipo;
-
-        this.news.tipoSup = tipo;
-        alert('supervisor id : ' + this.tipoSuper);
-        this.getSupervisores();
-    }
 
 
     getDocenteArea(){
