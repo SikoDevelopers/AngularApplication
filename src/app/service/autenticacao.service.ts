@@ -91,6 +91,12 @@ export class AutenticacaoService {
     }
 
 
+
+    criarContaDocente(){
+
+    }
+
+
   // validarEmail(email, funcao: (dado) => void){
   //         this.userService.validarEmail(email).subscribe(
   //             (resultado: Response) => {
