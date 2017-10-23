@@ -14,24 +14,43 @@ export class AdicionarDocentesFormComponent implements OnInit {
   @ViewChild('modal') modal: any;
   @Output() output = new EventEmitter();
 
-  constructor(private docenteService: DocenteService, private userService: AutenticacaoService) { }
+  constructor(private docenteService: DocenteService, private autenticacaService: AutenticacaoService) { }
 
   ngOnInit() {
     this.output.emit(this.modal);
   }
 
-    salvarDocente(nome, apelido){
-      let docente = {
-        nome: nome.value,
-        apelido: apelido.value,
+    salvarDocente(nome, apelido, email){
+
+
+      let userDocente = {
+          email: email.value,
+          password: 12345,
+          nome: nome.value,
+          apelido: apelido.value,
       };
 
-      console.log(docente);
+      console.log(userDocente);
 
+      this.autenticacaService.criarContaDocente(userDocente, this.contaCriada, this.contaNaoCriada, this.erroCriarConta);
 
-      this.docenteService.
 
     }
 
+
+    contaCriada(resultado){
+      console.log("Conta Criada");
+      console.log(resultado);
+    }
+
+    contaNaoCriada(resultado){
+        console.log("Conta Nao Criada");
+        console.log(resultado);
+    }
+
+    erroCriarConta(resultado){
+        console.log("Erro ao criar conta");
+        console.error(resultado);
+    }
 
 }
