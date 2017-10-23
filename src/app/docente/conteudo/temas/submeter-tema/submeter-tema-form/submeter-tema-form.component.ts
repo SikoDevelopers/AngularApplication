@@ -3,7 +3,7 @@ import {AreaService} from "../../../../../service/area.service";
 import {CursoService} from "../../../../../service/curso.service";
 import {TemaService} from "../../../../../service/tema.service";
 import {NgForm} from "@angular/forms";
-import {NgFor} from "@angular/common";
+import {HttpErrorResponse} from '@angular/common/http';
 
 
 @Component({
@@ -56,8 +56,20 @@ export class SubmeterTemaFormComponent implements OnInit {
   }
 
   onSugerirTema(formulario: NgForm){
-    this.getTema(formulario);
-    //this._temaServie.saveTema();
+    let tema = this.getTema(formulario);
+
+    this._temaServie.saveTema(tema).subscribe(
+        (resultado: Response) => {
+            alert("Tema Submetido com sucesso");
+
+        },
+        (erro: HttpErrorResponse)=> {
+            console.error(erro);
+        },
+        ()=>{
+            console.log("We did it");
+        }
+    );
   }
 
   getTema(formulario: NgForm){
