@@ -32,20 +32,23 @@ export class LoginFormComponent implements OnInit {
           this.loginNegado = 'sucesso';
           this.mensagemSucesso = "Credenciais validas! Aguarde...";
 
-          if(dados['user']['docente'] != null)
-               alert("Sera direcionado para Docente");
+          if(dados) {
+              if (dados['user']['docente'] != null)
+                  window.location.href = "docente/supervisandos";
 
-           if(dados['user']['estudante'] != null)
-               window.location.href = "estudante/submeter-trabalho";
+              if (dados['user']['estudante'] != null)
+                  window.location.href = "estudante/submeter-trabalho";
 
-           if(dados['user']['director_curso'] != null)
-               alert("Sera direcionado para Director de Curso");
+              if (dados['user']['director_curso'] != null)
+                  alert("Sera direcionado para Director de Curso");
 
-           if(dados['user']['funcionario'] != null)
-               alert("Sera direcionado para Funcionario");
+              if (dados['user']['funcionario'] != null)
+                  alert("Sera direcionado para Funcionario");
 
 
-          console.log(dados['user']['docente']);
+              console.log(dados['user']['docente']);
+          }
+          console.log(dados);
       },
           (erros: HttpErrorResponse) => {
 
