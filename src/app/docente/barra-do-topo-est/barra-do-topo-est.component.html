@@ -13,7 +13,7 @@
 
     </ul>
     <span class="navbar-text white-text">
-      <a class="right lg-a" routerLink="/login" href="/login">
+      <a class="right lg-a" routerLink="/login" href="/login" (click)="terminarSessao($event.preventDefault())">
       <i class="fa fa-sign-out" aria-hidden="true"></i>
       <span>Sair</span>
       </a>

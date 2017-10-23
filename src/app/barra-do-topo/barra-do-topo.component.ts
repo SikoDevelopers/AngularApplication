@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./barra-do-topo.component.css']
 })
 export class BarraDoTopoComponent implements OnInit {
-  nomeDaApp : string = "SikoSSP"
+  nomeDaApp : string = "SikoSSP";
   rota: string;
 
   @Input() user: any;
@@ -18,4 +18,26 @@ export class BarraDoTopoComponent implements OnInit {
   ngOnInit() {
     this.rota = this._route.url;
   }
+
+
+
+    redirecionarUser(evento, user){
+        if(user.estudante){
+            window.location.href = 'estudante/submeter-trabalho';
+        }
+        if(user.docente){
+            window.location.href = 'docente/supervisandos';
+        }
+        if(user.director_curso){
+            window.location.href = 'director-curso';
+        }
+        if(user.funcionario){
+            window.location.href = 'comissao-cientifica/over-view';
+        }
+    }
+
+
+
+
+
 }

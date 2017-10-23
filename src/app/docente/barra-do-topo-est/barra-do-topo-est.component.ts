@@ -12,4 +12,13 @@ export class BarraDoTopoEstComponent implements OnInit {
   ngOnInit() {
   }
 
+
+
+    terminarSessao(){
+        localStorage.setItem('isLoggedin', 'false');
+        localStorage.removeItem('token');
+        window.location.href = "login";
+    }
+
+
 }
