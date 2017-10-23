@@ -34,7 +34,7 @@ export class AdicionarDocentesFormComponent implements OnInit {
 
       this.autenticacaService.criarContaDocente(userDocente, this.contaCriada, this.contaNaoCriada, this.erroCriarConta);
 
-
+        this.modal.hide();
     }
 
 
