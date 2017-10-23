@@ -51,12 +51,15 @@ export class LoginFormComponent implements OnInit {
           console.log(dados);
       },
           (erros: HttpErrorResponse) => {
-
-              if(JSON.parse(erros.error)['mensagem'] == 'Credencias Erradas') {
-                  this.loginNegado = 'erro';
-                  this.mensagemErro = "Email ou passsword invalidos";
-                  console.log(erros);
+                if(erros.status == 401){
+                    this.loginNegado = 'erro';
+                    this.mensagemErro = "Email ou passsword invalidos";
               }
+              if(erros.status == 500){
+                  this.loginNegado = 'erro';
+                  this.mensagemErro = "Ocoreu um erro interno";
+              }
+              console.log(erros)
           });
 
     }
