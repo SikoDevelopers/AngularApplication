@@ -92,8 +92,27 @@ export class AutenticacaoService {
 
 
 
-    criarContaDocente(){
-
+    criarContaDocente(userDocente, funcaoAceite: (data) => void, funcaoNegado: (data) => void, funcaoErro: (data) => void ){
+        let contaCriada = false;
+        let result: any;
+        this.userService.signUpDocente(userDocente).subscribe(
+            (resultado: Response) => {
+                alert("Conta Criada com sucesso");
+                contaCriada = true;
+                result = resultado;
+                console.log(resultado);
+            },
+            (erro: HttpErrorResponse)=> {
+                funcaoErro(erro);
+                console.error(erro);
+            },
+            ()=>{
+                if(contaCriada == true)
+                    funcaoAceite(result);
+                else
+                    funcaoNegado(result);
+            }
+        );
     }
 
 
