@@ -5,10 +5,15 @@
 
         <app-select  [label]="labelArea" [opcoes]="areas" (eventEmmiter)="getCursoSelect($event)"></app-select>
 
-        <!--<div class="md-form">-->
-            <!--<input type="text" id="apelido" name="apelido" class="form-control" mdbActive ngModel required #apelido="ngModel"/>-->
-            <!--<label for="apelido">Apelido</label>-->
-        <!--</div>-->
+        <div class="md-form">
+            <input type="text" id="titulo" name="titulo" class="form-control" mdbActive ngModel required />
+            <label for="titulo">Titulo</label>
+        </div>
+
+        <div class="md-form">
+            <input type="text" id="descricao" name="descricao" class="form-control" mdbActive ngModel required />
+            <label for="descricao">Descricao</label>
+        </div>
 
         <!--<div class="md-form">-->
             <!--<input type="text" id="nome" name="nome" class="form-control" mdbActive ngModel required #nome="ngModel"/>-->
