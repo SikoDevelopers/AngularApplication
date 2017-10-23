@@ -28,6 +28,7 @@ import { ListaOponenciaComponent } from './conteudo/oponencia/lista-oponencia/li
 import { TabelaOponenciasComponent } from './conteudo/oponencia/lista-oponencia/tabela-oponencias/tabela-oponencias.component';
 import { SubmeterTemaComponent } from './conteudo/temas/submeter-tema/submeter-tema.component';
 import { SubmeterTemaFormComponent } from './conteudo/temas/submeter-tema/submeter-tema-form/submeter-tema-form.component';
+import {SelectModule} from "./conteudo/temas/submeter-tema/submeter-tema-form/select/select.module";
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { SubmeterTemaFormComponent } from './conteudo/temas/submeter-tema/submet
       NgProgressModule,
       PublicoGeralModule,
       AvatarModule.forRoot(),
+      SelectModule
   ],
   declarations: [
       DocenteComponent,
