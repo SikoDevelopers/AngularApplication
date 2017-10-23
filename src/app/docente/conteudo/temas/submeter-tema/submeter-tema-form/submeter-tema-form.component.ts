@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {AreaService} from "../../../../../service/area.service";
 import {CursoService} from "../../../../../service/curso.service";
+import {TemaService} from "../../../../../service/tema.service";
+import {NgForm} from "@angular/forms";
+import {NgFor} from "@angular/common";
 
 
 @Component({
@@ -12,11 +15,12 @@ export class SubmeterTemaFormComponent implements OnInit {
   labelArea: string = "Seleccione a Area de estudo ";
 
   labelCurso: string = "Seleccione o Curso ";
-
+  curso_id: any;
+  area_id: any;
   cursos : any;
   areas: any;
 
-  constructor(private _areaService: AreaService, private _cursoService: CursoService) { }
+  constructor(private _areaService: AreaService, private _cursoService: CursoService, private _temaServie: TemaService) { }
 
   ngOnInit() {
     this.getAreas();
@@ -43,5 +47,25 @@ export class SubmeterTemaFormComponent implements OnInit {
     );
   }
 
+  getCursoSelect(event){
+    this.curso_id = event.curso_id;
+  }
 
+  getAreaSelect(event){
+    this.area_id = event.area_id;
+  }
+
+  onSugerirTema(formulario: NgForm){
+    this.getTema(formulario);
+    //this._temaServie.saveTema();
+  }
+
+  getTema(formulario: NgForm){
+    const tema: any = {
+      'designacao' : formulario.value.titulo,
+      'areas_id': this.area_id,
+      'docentes_id': 12
+    };
+    return tema;
+  }
 }

@@ -1,24 +1,16 @@
 <div class="col-lg-12">
-    <form class="ngForm">
 
-        <app-select  [label]="labelCurso" [opcoes]="cursos" (eventEmmiter)="getCursoSelect($event)"></app-select>
+    <app-select  [label]="labelCurso" [opcoes]="cursos" (eventEmmiter)="getCursoSelect($event)"></app-select>
 
-        <app-select  [label]="labelArea" [opcoes]="areas" (eventEmmiter)="getCursoSelect($event)"></app-select>
+    <app-select  [label]="labelArea" [opcoes]="areas" (eventEmmiter)="getAreaSelect($event)"></app-select>
 
-        <div class="md-form">
-            <input type="text" id="titulo" name="titulo" class="form-control" mdbActive ngModel required />
-            <label for="titulo">Titulo</label>
-        </div>
+    <div class="md-form">
+        <input type="text" id="titulo" name="titulo" class="form-control" mdbActive ngModel required />
+        <label for="titulo">Titulo</label>
+    </div>
 
-        <div class="md-form">
-            <input type="text" id="descricao" name="descricao" class="form-control" mdbActive ngModel required />
-            <label for="descricao">Descricao</label>
-        </div>
-
-        <!--<div class="md-form">-->
-            <!--<input type="text" id="nome" name="nome" class="form-control" mdbActive ngModel required #nome="ngModel"/>-->
-            <!--<label for="nome">Nome</label>-->
-        <!--</div>-->
-
-    </form>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm waves-light" data-dismiss="modal" (click)="modal.hide()" mdbRippleRadius>Fechar</button>
+        <button type="button" class="btn btn-primary btn-sm waves-light" mdbRippleRadius (click)="onSugerirTema()">Sugerir</button>
+    </div>
 </div>

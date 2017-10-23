@@ -8,11 +8,10 @@
         <h3>Sugerir Tema</h3>
       </div>
       <div class="modal-body">
-        <app-submeter-tema-form></app-submeter-tema-form>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary btn-sm waves-light" data-dismiss="modal" (click)="modal.hide()" mdbRippleRadius>Fechar</button>
-          <button type="button" class="btn btn-primary btn-sm waves-light" mdbRippleRadius>Sugerir</button>
-        </div>
+        <form #formulario="ngForm">
+          <app-submeter-tema-form></app-submeter-tema-form>
+
+        </form>
       </div>
     </div>
 
