@@ -33,6 +33,8 @@ import { TabelaTrabalhosApenasComponent } from './conteudo/trabalhos/tabs-trabal
 import { ListaSupervisoresComponent } from './conteudo/supervisores/lista-supervisores/lista-supervisores.component';
 import { DocentesComponent } from './conteudo/docentes/docentes.component';
 import { ListaDocentesComponent } from './conteudo/docentes/lista-docentes/lista-docentes.component';
+import { DetalhesDocentesComponent } from './conteudo/docentes/detalhes-docentes/detalhes-docentes.component';
+import { AdicionarDocentesFormComponent } from './conteudo/docentes/adicionar-docentes-form/adicionar-docentes-form.component';
 
 @NgModule({
   imports: [
@@ -70,6 +72,8 @@ import { ListaDocentesComponent } from './conteudo/docentes/lista-docentes/lista
       ListaSupervisoresComponent,
       DocentesComponent,
       ListaDocentesComponent,
+      DetalhesDocentesComponent,
+      AdicionarDocentesFormComponent,
 
   ],
 
