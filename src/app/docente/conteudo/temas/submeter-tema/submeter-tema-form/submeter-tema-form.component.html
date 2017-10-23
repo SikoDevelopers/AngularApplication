@@ -9,7 +9,7 @@
 
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary btn-sm waves-light" data-dismiss="modal" (click)="modal.hide()" mdbRippleRadius>Fechar</button>
-            <button type="button" class="btn btn-primary btn-sm waves-light" mdbRippleRadius (click)="onSugerirTema(formulario)">Sugerir</button>
+            <input type="submit" class="btn btn-primary btn-sm waves-light" mdbRippleRadius (click)="onSugerirTema(formulario,$event.preventDefault())" value="Registar">
         </div>
     </form>
 </div>

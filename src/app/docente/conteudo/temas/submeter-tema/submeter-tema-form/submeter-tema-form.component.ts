@@ -4,6 +4,8 @@ import {CursoService} from "../../../../../service/curso.service";
 import {TemaService} from "../../../../../service/tema.service";
 import {NgForm} from "@angular/forms";
 import {HttpErrorResponse} from '@angular/common/http';
+import {UserService} from "../../../../../service/user.service";
+import {DocenteService} from "../../../../../service/docente.service";
 
 
 @Component({
@@ -19,43 +21,48 @@ export class SubmeterTemaFormComponent implements OnInit {
   area_id: any;
   cursos : any;
   areas: any;
-
-  constructor(private _areaService: AreaService, private _cursoService: CursoService, private _temaServie: TemaService) { }
+  user: any;
+  docente: any;
+  constructor(private _areaService: AreaService,
+              private _temaServie: TemaService,
+              private _userService: UserService,
+              private _docenteService: DocenteService
+  ) { }
 
   ngOnInit() {
     this.getAreas();
-    this.getCursos();
+    this.getUser();
+    // console.log("THE USER"+this.user.id);
   }
 
   getAreas(){
     this._areaService.getArea().subscribe(
         resultado => { this.areas = resultado['areas']},
-        error2 => {console.log("Error ao carregar "+error2)},
+        error2 => {console.log("Error ao carregar Areas "+error2)},
         () =>{
           console.log("Sucesso ao Carregar Areas");
         }
     );
   }
 
-  getCursos(){
-    this._cursoService.getCurso().subscribe(
-        resultado => { this.cursos = resultado['cursos']},
-        error2 => {console.log("Error ao carregar "+error2)},
-        () =>{
-          console.log("Sucesso ao Carregar Cursos");
-        }
-    );
-  }
+  // getCursos(){
+  //   this._cursoService.getCurso().subscribe(
+  //       resultado => { this.cursos = resultado['cursos']},
+  //       error2 => {console.log("Error ao carregar "+error2)},
+  //       () =>{
+  //         console.log("Sucesso ao Carregar Cursos");
+  //       }
+  //   );
+  // }
 
-  getCursoSelect(event){
-    this.curso_id = event.curso_id;
-  }
+
 
   getAreaSelect(event){
     this.area_id = event.area_id;
   }
 
   onSugerirTema(formulario: NgForm){
+
     let tema = this.getTema(formulario);
 
     this._temaServie.saveTema(tema).subscribe(
@@ -64,7 +71,7 @@ export class SubmeterTemaFormComponent implements OnInit {
 
         },
         (erro: HttpErrorResponse)=> {
-            console.error(erro);
+            console.error("Ocorreu um erro: "+erro);
         },
         ()=>{
             console.log("We did it");
@@ -73,11 +80,38 @@ export class SubmeterTemaFormComponent implements OnInit {
   }
 
   getTema(formulario: NgForm){
-    const tema: any = {
+    this.getUser();
+    this.getDocente(this.user.id);
+    let tema: any = {
       'designacao' : formulario.value.titulo,
-      'areas_id': this.area_id,
-      'docentes_id': 12
+      'docentes_id': this.docente.id,
+      'areas_id': this.area_id
     };
     return tema;
+  }
+
+  getUser(){
+    let token = localStorage.getItem('token');
+
+    this._userService.logoado(token).subscribe(
+        resultado=>{this.user = resultado;},
+        error2 => {},
+        ()=>{
+          console.log('user retrivied ');
+          this.gravarTema();
+        }
+    );
+
+
+  }
+
+  gravarTema(){}
+
+  getDocente(id){
+      this._docenteService.getDocentePorId(id).subscribe(
+          resultado => {this.docente = resultado},
+          error2 => {console.log('Ocorreu um erro: '+error2)},
+          () => {}
+      );
   }
 }

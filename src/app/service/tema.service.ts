@@ -16,8 +16,9 @@ export class TemaService {
 
 
     saveTema(tema: Tema): Observable<any>{
-        const headers = new HttpHeaders({'Content-Type': 'application/json'});
-        return this.http.post('http://127.0.0.1:8000/api/temas', tema , {headers: headers})
+       // const headers = new HttpHeaders({'Content-Type': 'application/json'});
+        const headers: Headers = new Headers({'Content-Type': 'Application/json', 'X-Request-With': 'XMLHttpRequest'});
+        return this.http.post('http://127.0.0.1:8000/api/temas', tema , headers)
     }
 
 

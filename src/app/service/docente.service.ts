@@ -14,6 +14,11 @@ export class DocenteService {
 
     }
 
+    getDocentePorId(id:number): Observable<any>{
+        return this.http.get('http://127.0.0.1:8000/api/docentes/'+id);
+
+    }
+
 
     saveDocente(docente: Docente): Observable<any>{
         const headers = new HttpHeaders({'Content-Type': 'application/json'});

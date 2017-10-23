@@ -30,7 +30,6 @@ export class TemasComponent implements OnInit {
 
   getModal(evento){
     this.modal = evento;
-
   }
 
   onMostrarModal(){
