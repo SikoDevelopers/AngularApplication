@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-docentes',
@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocentesComponent implements OnInit {
 
+  @Input() modalAdicionarDocente: any;
   constructor() { }
 
   ngOnInit() {
   }
+
+
+
+  getModal(evento){
+    console.log(evento);
+    this.modalAdicionarDocente = evento;
+  }
+
+    chamarModal(){
+      this.modalAdicionarDocente.show();
+    }
 
 }
