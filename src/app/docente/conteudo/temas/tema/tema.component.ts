@@ -13,4 +13,7 @@ export class TemaComponent implements OnInit {
   ngOnInit() {
   }
 
+  getData(){
+    // let dataSeparada = tema.spp
+  }
 }

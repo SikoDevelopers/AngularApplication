@@ -1,10 +1,23 @@
 
 <div class="media mb-1">
   <div class="media-body">
-    <p [ngStyle]="{'float':'right'}">Informatica</p>
-    <h4 class="media-heading">{{ tema.designacao }}</h4>
+    <!--<p [ngStyle]="{'float':'right'}">Informatica</p>-->
+    <h5 class="media-heading">{{ tema.designacao }}</h5>
+
+    <!--<a href="#">Detalhes</a>-->
     <p>{{ tema.area.designacao }}</p>
-    <a href="#">Detalhes</a>
+
+    <ul class="list-inline" [ngStyle]="{'float':'right'}">
+      <li class=" list-inline-item">
+        <a href="#"><i class="fa fa-pencil"></i></a>
+      </li>
+
+      <li class=" list-inline-item">
+        <a href="#"><i class="fa fa-trash"></i></a>
+      </li>
+    </ul>
+
+    <p>{{ tema.created_at | date : 'dd/MM/yyyy' }}</p>
     <hr>
   </div>
 </div>
