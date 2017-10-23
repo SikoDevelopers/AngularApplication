@@ -55,6 +55,7 @@ export class AutenticacaoService {
                   this.podeLogar = true;
                   this.dadosRetornados = resultado;
               }
+              console.log(resultado);
           },
           (error)=>{
             funcaoNegada(error);
@@ -104,13 +105,12 @@ export class AutenticacaoService {
             },
             (erro: HttpErrorResponse)=> {
                 funcaoErro(erro);
-                console.error(erro);
             },
             ()=>{
                 if(contaCriada == true)
                     funcaoAceite(result);
                 else
-                    funcaoNegado(result);
+                    funcaoNegado(result)
             }
         );
     }
