@@ -1,5 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AreaService} from "../../../service/area.service";
+import {UserService} from "../../../service/user.service";
+import {SupervisorExternoService} from "../../../service/supervisor-externo.service";
+import {DocenteService} from "../../../service/docente.service";
+import {DocenteAreaService} from "../../../service/docente-area.service";
+import {forEach} from "@angular/router/src/utils/collection";
+import {Data} from "@angular/router";
+import {TrabalhoService} from "../../../service/trabalho.service";
 
 @Component({
   selector: 'app-submeter-trabalho-form',
@@ -9,51 +16,188 @@ import {AreaService} from "../../../service/area.service";
 export class SubmeterTrabalhoFormComponent implements OnInit {
   label: string = "Seleccione a area tematica";
   labelDoFileChooser = "Seleccionar Documento";
+  label2: string = "Selecione o supervisor";
+  supervisores : any;
   file;
-  opcoes: any = [
-    {
-      'id':'SAUDE',
-      'designacao':'OPTION'
-    },
-    {
-      'id':'RECURSOS HUMANOS',
-      'designacao':'RECURSOS HUMANOS'
-    },
-    {
-      'id':'ECONOMIA MUNDIAL',
-      'designacao':'ECONOMIA MUNDIAL'
-    },
-    {
-      'id':'DESENHO DE BASE DE DADOS',
-      'designacao':'DESENHO DE BASE DE DADOS'
-    },
-    {
-      'id':'SEGURANCA DE APLICACOES WEB',
-      'designacao':'SEGURANCA DE APLICACOES WEB'
-    },
-  ];
-  constructor(private _areas:AreaService) { }
+  user : User;
+  @Input() supervisor_id: number;
+  tipoSuper=1;
+    area_id;
+  areas: any = [];
+  docenteArea;
+    titulo;
+    descricao;
+     news;
+  constructor(
+      private _areas:AreaService,
+      private userService:UserService,
+      private supervisorService: SupervisorExternoService,
+      private docenteService: DocenteService,
+      private areaService : AreaService,
+      private docenteAreaService : DocenteAreaService,
+      private trabalhoService : TrabalhoService
+  ) {
+
+
+      this.news={'protocolo':'eee',
+      'user':'Teste ',
+      'tipoSup':'Teste ',
+      'supervisor':'Teste ',
+      'area':'Teste ',
+      'titulo':'Teste ',
+      'descricao':'Teste ',
+      'data':'Teste ',
+      'timestamp':'Teste '};
+  }
 
   ngOnInit() {
-    this.getCursos();
+
+    this.getUser();
+    this.getSupervisores();
+      this.getArea();
+
+
   }
-  getCursos(){
-    this._areas.getArea().subscribe(
-        resultado => { this.opcoes = resultado['areas'];},
-        error2 => {console.log("Error")},
-        () =>{
-          console.log("Sucesso");
+
+    setAreaId(evento){
+      this.area_id = evento.area_id;
+      this.area_id = evento.area_id;
+      alert('area id : ' + evento.area_id);
+    }
+  getUser(){
+      const token = localStorage.getItem('token');
+
+
+      this.userService.logoado(token).subscribe(
+          resultado=>{
+              this.user = resultado;
+          },
+          error2 => {
+
+          },
+          ()=>{
+              alert("user "+this.user);
+            console.log('user retrivied');
+          }
+      );
+  }
+
+getSupervisores(){
+
+      this.supervisores =[];
+
+      if(this.tipoSuper==1){
+          this.docenteService.getDocente().subscribe(
+              resultado=>{
+                  this.supervisores = resultado['docentes'];
+              },
+              error2 => {
+
+              },
+              ()=>{
+                  this.getDocenteArea();
+                  console.log('Supervisores carregados');
+
+              }
+          )
+      };
+      if(this.tipoSuper==2){
+          this.supervisorService.getSupervisorExterno().subscribe(
+              resultado=>{
+                  this.supervisores = resultado['supervisorExternos'];
+              },
+              error2 => {
+
+              },
+              ()=>{
+                  console.log('Supervisores carregados');
+
+              }
+          )
+      }
+
+
+
+
+}
+getArea(){
+    this.areaService.getArea().subscribe(
+        resultados => {
+            this.areas = resultados['areas'];
         }
-    );
-  }
+    )
+}
+
 submeter(){
-    alert(this.file);
+alert("entramos");
+
+
+
+    let formData= new FormData();
+    formData.append('protocolo',this.file, this.file.name);
+    formData.append( 'user',''+this.user);
+    formData.append('tipoSup',''+this.tipoSuper);
+    formData.append('supervisor',''+this.supervisor_id);
+    formData.append( 'area',''+this.area_id);
+    formData.append('titulo',''+this.titulo);
+    formData.append('descricao',''+this.descricao);
+    formData.append('data',''+new Date());
+    formData.append('timestamp',''+new Date().getTime());
+
+
+
+    this.trabalhoService.saveTrabalho(formData).subscribe(
+        resultados=>{
+            console.log(resultados);
+        },
+        error2 => {
+            console.log(error2);
+        },
+        ()=>{
+            alert('processo completo')
+        }
+    )
+
+
 }
 
     atribuirValor(evento){
 
       this.file = evento.file;
-      console.log(this.file);
+    }
+
+
+    atribuirSupervisor(evento){
+
+        this.supervisor_id = evento.supervisor_id;
+        this.getDocenteArea();
+    }
+
+
+    setTipoSup(tipo){
+
+        this.tipoSuper=tipo;
+
+        this.news.tipoSup = tipo;
+        alert('supervisor id : ' + this.tipoSuper);
+        this.getSupervisores();
+    }
+
+
+    getDocenteArea(){
+        // const arrayDoce=[];
+        this.docenteAreaService.searchDocenteArea(this.area_id,this.supervisor_id).subscribe(
+            resultado =>{
+                this.docenteArea = resultado;
+            },
+            error2 => {
+                ("erro "+error2);
+            },
+            ()=>{
+                alert(" docente area "+this.docenteArea);
+            }
+        )
+
     }
 
 }

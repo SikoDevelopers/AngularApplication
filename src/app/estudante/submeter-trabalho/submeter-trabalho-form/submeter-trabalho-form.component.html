@@ -2,15 +2,15 @@
   <div class="col-7">
     <form>
 
-      <app-select [label]="label" [opcoes]="opcoes"></app-select>
+      <app-select [label]="label" [opcoes]="areas" (eventEmmiter)="setAreaId($event)"></app-select>
 
       <div class="md-form">
-        <input type="text" id="tema" class="form-control" mdbActive>
+        <input type="text" id="tema" (input)="titulo=$event.target.value" class="form-control" mdbActive>
         <label for="tema">Tema</label>
       </div>
 
       <div class="md-form">
-        <textarea mdbActive type="text" id="descricao" class="md-textarea"></textarea>
+        <textarea mdbActive type="text" id="descricao" (input)="descricao= $event.target.value" class="md-textarea"></textarea>
         <label for="descricao">Descricao</label>
       </div>
 
@@ -18,12 +18,12 @@
       <label>Documento</label>
       <app-file-input [textoDaLabel]="labelDoFileChooser" (eventEmiter)="atribuirValor($event)"></app-file-input>
 
-      <label>Supervisores</label>
+
       <div class="text-left">
-        <a class="btn btn-primary waves-light" href="/estudante/pagina-inicial" mdbRippleRadius>
-          <i class="fa fa-plus"></i>
-          Addionar Supervisores
-        </a>
+
+        <input type="radio" checked (change)="setTipoSup(1)"  name="tipoSup" id="t1" value="1"><label for="t1">Supervisor Interno</label><br>
+        <input type="radio" (change)="setTipoSup(2)" name="tipoSup" id="t2" value="2"><label for="t2">Supervisor Externo</label>  <br>
+        <app-select-supervisor [label]="label2" [opcoes]="supervisores" (eventEmmiter)="atribuirSupervisor($event)"></app-select-supervisor>
       </div>
 
       <div class="left">

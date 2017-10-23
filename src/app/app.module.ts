@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { PublicoGeralModule } from './publico-geral/publico-geral.module';
@@ -19,10 +18,14 @@ import {TrabalhoService} from "./service/trabalho.service";
 import {AreaService} from "./service/area.service";
 import {EventoService} from "./service/evento.service";
 import { ShimmerEfectComponent } from './shimmer-efect/shimmer-efect.component';
+import {SupervisorExternoService} from "./service/supervisor-externo.service";
+import {DocenteAreaService} from "./service/docente-area.service";
+import {DocenteService} from "./service/docente.service";
 import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 import {TemaService} from "./service/tema.service";
 import {MatAutocompleteModule, MatFormFieldControl, MatInputModule} from "@angular/material";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +49,18 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
   ],
-  providers: [CursoService, UserService, AutenticacaoService, TrabalhoService, AreaService, EventoService, TemaService],
+  providers: [CursoService,
+      UserService,
+      AutenticacaoService,
+      TrabalhoService,
+      AreaService,
+      EventoService,
+      SupervisorExternoService,
+      DocenteAreaService,
+      DocenteService,
+      TrabalhoService,
+    TemaService
+    ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
