@@ -11,6 +11,7 @@ import {AvatarComponent} from 'ng2-avatar';
 export class ListaDocentesComponent implements OnInit {
 
   docentes: Array<any>;
+  docenteSelecionado: any;
   modal: any;
 
   constructor(private docenetesService: DocenteService, private avatar: AvatarComponent) { }
@@ -23,10 +24,10 @@ export class ListaDocentesComponent implements OnInit {
   getDocentes(){
     let result: any;
 
-    this.docenetesService.getDocentesEspecificacoes(true, 20 ).subscribe(
+    this.docenetesService.getDocentesEspecificacoes(true, 6 ).subscribe(
         (resultado: Response) => {
           result = resultado['docentes']['data'];
-          console.log(result);
+          console.log(resultado);
         },
     (erros: HttpErrorResponse) => {
           console.log(erros);
@@ -54,5 +55,15 @@ export class ListaDocentesComponent implements OnInit {
 
     getFuncaoColor(){
         return this.avatar.background;
+    }
+
+
+    chamarDialog($evento, docente){
+
+        this.docenteSelecionado = docente;
+        console.log(this.modal);
+
+        this.modal.show();
+        console.log("Chamando a dialog");
     }
 }
