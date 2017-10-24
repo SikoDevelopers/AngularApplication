@@ -37,7 +37,8 @@ export class LoginFormComponent implements OnInit {
                   window.location.href = "docente/supervisandos";
 
               if (dados['user']['estudante'] != null)
-                  window.location.href = "estudante/submeter-trabalho";
+                  // window.location.href = "estudante/submeter-trabalho";
+                  window.location.href = "estudante/";
 
               if (dados['user']['director_curso'] != null)
                   alert("Sera direcionado para Director de Curso");
@@ -65,6 +66,9 @@ export class LoginFormComponent implements OnInit {
     }
 
 
+    verificarJob(user: User){
+
+    }
 
     validarFormulario(formulario: NgForm){
         return formulario.invalid;
