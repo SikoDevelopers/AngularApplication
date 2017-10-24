@@ -17,10 +17,10 @@ export class TemaService {
 
     }
 
-    getTemasDoDocente(): Observable<any>{
+    getTemasDoDocente(id: number): Observable<any>{
 
        // this.docente = this.getUser();
-        return this.http.get('http://127.0.0.1:8000/api/temas_docente/20');
+        return this.http.get('http://127.0.0.1:8000/api/temas_docente/'+id);
     }
 
 
