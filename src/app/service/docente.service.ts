@@ -15,7 +15,8 @@ export class DocenteService {
     }
 
     getDocentePorId(id:number): Observable<any>{
-        return this.http.get('http://127.0.0.1:8000/api/docentes/'+id);
+        alert(id);
+        return this.http.get('http://127.0.0.1:8000/api/docentes_user/'+id);
 
     }
 

@@ -24,7 +24,7 @@ export class SubmeterTemaFormComponent implements OnInit {
   user: any;
   docente: any;
   constructor(private _areaService: AreaService,
-              private _temaServie: TemaService,
+              private _temaService: TemaService,
               private _userService: UserService,
               private _docenteService: DocenteService
   ) { }
@@ -40,80 +40,68 @@ export class SubmeterTemaFormComponent implements OnInit {
         resultado => { this.areas = resultado['areas']},
         error2 => {console.log("Error ao carregar Areas "+error2)},
         () =>{
-          console.log("Sucesso ao Carregar Areas");
+          // console.log("Sucesso ao Carregar Areas");
         }
     );
   }
-
-  // getCursos(){
-  //   this._cursoService.getCurso().subscribe(
-  //       resultado => { this.cursos = resultado['cursos']},
-  //       error2 => {console.log("Error ao carregar "+error2)},
-  //       () =>{
-  //         console.log("Sucesso ao Carregar Cursos");
-  //       }
-  //   );
-  // }
-
-
 
   getAreaSelect(event){
     this.area_id = event.area_id;
   }
 
   onSugerirTema(formulario: NgForm){
-
-    let tema = this.getTema(formulario);
-
-    this._temaServie.saveTema(tema).subscribe(
-        (resultado: Response) => {
-            alert("Tema Submetido com sucesso");
-
-        },
-        (erro: HttpErrorResponse)=> {
-            console.error("Ocorreu um erro: "+erro);
-        },
-        ()=>{
-            console.log("We did it");
-        }
-    );
+      this.getUser();
+      this.getDocente(this.user.id,formulario);
   }
 
-  getTema(formulario: NgForm){
-    this.getUser();
-    this.getDocente(this.user.id);
-    let tema: any = {
-      'designacao' : formulario.value.titulo,
-      'docentes_id': this.docente.id,
-      'areas_id': this.area_id
-    };
-    return tema;
-  }
 
   getUser(){
     let token = localStorage.getItem('token');
 
     this._userService.logoado(token).subscribe(
-        resultado=>{this.user = resultado;},
+        resultado=>{this.user = resultado},
         error2 => {},
         ()=>{
           console.log('user retrivied ');
-          this.gravarTema();
+          // this.gravarTema();
         }
     );
 
 
   }
 
-  gravarTema(){}
 
-  getDocente(id){
+  getDocente(id, formulario: NgForm){
       this._docenteService.getDocentePorId(id).subscribe(
-          resultado => {this.docente = resultado},
-          error2 => {console.log('Ocorreu um erro: '+error2)},
-          () => {}
+          resultado => { this.docente = resultado['docente']},
+          error2 => {console.log("Error ao carregar Docente "+error2)},
+          () =>{
+              this.criarTema(formulario);
+          }
       );
   }
 
+  criarTema(formulario: NgForm){
+      let tema: any = {
+          'designacao' : formulario.value.titulo,
+          'docentes_id': this.docente.id,
+          'areas_id': this.area_id
+      };
+      this.gravarTema(tema);
+  }
+  gravarTema(tema){
+      this._temaService.saveTema(tema).subscribe(
+          (resultado: Response) => {
+              alert("Tema Submetido com sucesso");
+
+          },
+          (erro: HttpErrorResponse)=> {
+              console.error("Ocorreu um erro: "+erro);
+          },
+          ()=>{
+
+          }
+      );
+  }
 
 }
