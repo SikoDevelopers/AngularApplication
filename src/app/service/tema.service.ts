@@ -1,17 +1,26 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
+import {UserService} from "./user.service";
+import {DocenteService} from "./docente.service";
 
 @Injectable()
 export class TemaService {
 
-
-    constructor(private http: HttpClient) { }
+    docente: any;
+    user: any;
+    constructor(private http: HttpClient, private _userService: UserService, private _docenteService: DocenteService) { }
 
 
     getTema(): Observable<any>{
         return this.http.get('http://127.0.0.1:8000/api/temas?completo=true');
 
+    }
+
+    getTemasDoDocente(): Observable<any>{
+
+       // this.docente = this.getUser();
+        return this.http.get('http://127.0.0.1:8000/api/temas_docente/20');
     }
 
 
@@ -33,5 +42,31 @@ export class TemaService {
         const headers = new HttpHeaders({'content-type': 'aplication/json'});
         return this.http.delete('http://127.0.0.1:8000/api/temas/'+id);
     }
+
+    // getUser(){
+    //     let token = localStorage.getItem('token');
+    //
+    //     this._userService.logoado(token).subscribe(
+    //         resultado=>{this.user = resultado},
+    //         error2 => {},
+    //         ()=>{
+    //            this.getDocente(this.user.id);
+    //         }
+    //     );
+    //
+    //
+    // }
+
+
+    // getDocente(id){
+    //     this._docenteService.getDocentePorId(id).subscribe(
+    //         resultado => { this.docente = resultado['docente']},
+    //         error2 => {console.log("Error ao carregar Docente "+error2)},
+    //         () =>{
+    //             this.getTemasDoDocente(this.docente.id);
+    //             // return this.docente;
+    //         }
+    //     );
+    // }
 
 }
