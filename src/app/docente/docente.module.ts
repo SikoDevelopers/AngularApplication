@@ -44,6 +44,7 @@ import {FormsModule} from "@angular/forms";
       PublicoGeralModule,
       AvatarModule.forRoot(),
       SelectModule,
+      FormsModule,
       FormsModule
   ],
   declarations: [
