@@ -10,6 +10,7 @@ import {SelectModule} from "../select/select.module";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {FileInputComponent} from "../file-input/file-input.component";
 import {SelectSupervisorModule} from "../select-supervisor/select-supervisor.module";
+import { EstudanteComponent } from './estudante.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -25,6 +26,7 @@ import {SelectSupervisorModule} from "../select-supervisor/select-supervisor.mod
     TrabalhosSubmetidosComponent,
     SubmeterTrabalhoFormComponent,
     FileInputComponent,
+    EstudanteComponent,
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   exports: [ SidenavComponent ]
