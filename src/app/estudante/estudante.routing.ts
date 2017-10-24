@@ -6,10 +6,10 @@ import {TrabalhosSubmetidosComponent} from "./trabalhos-submetidos/trabalhos-sub
 import {EstudanteComponent} from "./estudante.component";
 
 const ESTUDANTE_ROTAS: Routes = [
-    {path: '', component:EstudanteComponent,
+    {path: 'estudante', component:EstudanteComponent,
         children: [
-            {path:'estudante/app-submeter-trabalho', component:SubmeterTrabalhoComponent},
-            {path:'estudante/app-trabalhos-submetidos', component:TrabalhosSubmetidosComponent},
+            {path:'estudante/submeter-trabalho', component:SubmeterTrabalhoComponent},
+            {path:'estudante/trabalhos-submetidos', component:TrabalhosSubmetidosComponent},
 
         ],
     },
