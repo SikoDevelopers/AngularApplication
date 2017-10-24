@@ -8,7 +8,7 @@ import {TemaService} from "../../../service/tema.service";
 export class TemasComponent implements OnInit {
   temas : any;
   // @ViewChild('modalDetalhes')
-  modalDetalhes = true;
+  //modalDetalhes = true;
   @Input() modal: any;
   animal: string;
   name: string;

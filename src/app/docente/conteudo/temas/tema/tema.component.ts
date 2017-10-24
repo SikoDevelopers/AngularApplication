@@ -8,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TemaComponent implements OnInit {
   @Input() tema: any;
   @Input() nome: any;
+
+  @Input() modal: any;
   constructor() { }
 
   ngOnInit() {
@@ -15,5 +17,12 @@ export class TemaComponent implements OnInit {
 
   getData(){
     // let dataSeparada = tema.spp
+  }
+
+  getModal(evento){
+    this.modal = evento;
+  }
+  onMostrarModal(){
+    this.modal.show();
   }
 }

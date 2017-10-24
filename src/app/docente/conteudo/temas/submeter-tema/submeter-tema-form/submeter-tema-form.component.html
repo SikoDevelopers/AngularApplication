@@ -1,10 +1,10 @@
 <div class="col-lg-12">
     <form #formulario="ngForm">
-        <app-select  [label]="labelArea" [opcoes]="areas" (eventEmmiter)="getAreaSelect($event)"></app-select>
+        <app-select  [label]="labelArea" [opcoes]="areas"   (eventEmmiter)="getAreaSelect($event)"  [idArea] = "1"></app-select>
 
-        <div class="md-form">
-            <input type="text" id="titulo" name="titulo" class="form-control" mdbActive ngModel required />
-            <label for="titulo">Titulo</label>
+        <div class="md-form" *ngIf="tema">
+            <input type="text" id="titulo" name="titulo" class="form-control" mdbActive ngModel required [ngModel]="tema.designacao"/>
+            <label for="titulo"  [ngClass]="{'active': tema.designacao}" >Titulo</label>
         </div>
 
         <div class="modal-footer">

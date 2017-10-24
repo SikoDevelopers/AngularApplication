@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import {AreaService} from "../../../../../service/area.service";
-import {CursoService} from "../../../../../service/curso.service";
 import {TemaService} from "../../../../../service/tema.service";
 import {NgForm} from "@angular/forms";
 import {HttpErrorResponse} from '@angular/common/http';
@@ -14,6 +13,7 @@ import {DocenteService} from "../../../../../service/docente.service";
   styleUrls: ['./submeter-tema-form.component.scss']
 })
 export class SubmeterTemaFormComponent implements OnInit {
+  @Input() tema:any;
   labelArea: string = "Seleccione a Area de estudo ";
 
   labelCurso: string = "Seleccione o Curso ";
@@ -114,4 +114,6 @@ export class SubmeterTemaFormComponent implements OnInit {
           () => {}
       );
   }
+
+
 }

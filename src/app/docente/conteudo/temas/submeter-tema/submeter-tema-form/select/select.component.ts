@@ -9,6 +9,9 @@ import {SelectService} from "./select.service";
 export class SelectComponent implements OnInit {
   @Input() label: string ;
   @Input() opcoes: any;
+  @Input() idArea: number;
+
+
 
 
   @Output() eventEmmiter = new EventEmitter();

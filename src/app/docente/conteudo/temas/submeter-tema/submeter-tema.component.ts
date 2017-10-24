@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter, Inject} from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter, Inject, Input} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
@@ -10,6 +10,7 @@ export class SubmeterTemaComponent implements OnInit {
 
   @ViewChild('modal') modal;
   @Output() output = new EventEmitter();
+  @Input() tema: any;
 
   constructor(
   ) { }
@@ -18,6 +19,7 @@ export class SubmeterTemaComponent implements OnInit {
   ngOnInit() {
     this.output.emit(this.modal);
   }
+
 
 
 
