@@ -11,13 +11,15 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {FileInputComponent} from "../file-input/file-input.component";
 import {SelectSupervisorModule} from "../select-supervisor/select-supervisor.module";
 import { EstudanteComponent } from './estudante.component';
+import {EstudanteRotas} from "./estudante.routing";
 @NgModule({
   imports: [
     CommonModule,
     BarraDoTopoEstModule,
     SelectModule,
     MDBBootstrapModule.forRoot(),
-      SelectSupervisorModule
+      SelectSupervisorModule,
+      EstudanteRotas
   ],
   declarations: [
     PaginaComponent,
