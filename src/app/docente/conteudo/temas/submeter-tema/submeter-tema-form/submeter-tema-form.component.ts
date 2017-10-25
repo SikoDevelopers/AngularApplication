@@ -52,6 +52,7 @@ export class SubmeterTemaFormComponent implements OnInit {
   onSugerirTema(formulario: NgForm){
       this.getUser();
       this.getDocente(this.user.id,formulario);
+      // window.location.href = "http//localhost:4200/docente/temas";
   }
 
 
@@ -93,6 +94,8 @@ export class SubmeterTemaFormComponent implements OnInit {
       this._temaService.saveTema(tema).subscribe(
           (resultado: Response) => {
               alert("Tema Submetido com sucesso");
+
+              window.location.href = "docente/temas";
 
           },
           (erro: HttpErrorResponse)=> {
