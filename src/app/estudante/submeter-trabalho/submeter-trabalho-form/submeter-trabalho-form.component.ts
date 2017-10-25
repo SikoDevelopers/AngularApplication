@@ -65,7 +65,7 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
       const token = localStorage.getItem('token');
 
 
-      this.userService.logoado(token).subscribe(
+      this.userService.logado(token).subscribe(
           resultado=>{
               this.user = resultado;
           },
@@ -131,7 +131,8 @@ submeter(){
             console.log(error2);
         },
         ()=>{
-            alert('processo completo')
+            alert('processo completo');
+            window.location.href = "estudante/trabalhos-submetidos";
         }
     )
 
