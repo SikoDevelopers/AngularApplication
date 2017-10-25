@@ -105,6 +105,14 @@ export class TabelaActuaisComponent implements OnInit {
       return this.estudantes;
   }
 
+    getEstado(is_aprovado){
+        if(is_aprovado){
+            return "Aprovado";
+        }
+        else
+            return "Nao Aprovado";
+    }
+
   createData(dados:any){
       dados = [
           {
