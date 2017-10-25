@@ -86,7 +86,9 @@
                 <div class="mt-5">
                     <app-participante [docentes]="docentes"></app-participante>
                 </div>
-
+                <div class="text-center">
+                    <button class="btn btn-primary btn-sm" (click)="adicionarParticipante()">Adicionar</button>
+                </div>
             </div>
           </mat-tab>
 
@@ -118,3 +120,5 @@
   </div>
 </div>
 </div>
+
+<app-adicionar-participantes (output)="getModalParticipantes($event)" (reabrirDialog)="reabrirDialog($event)"></app-adicionar-participantes>

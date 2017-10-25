@@ -27,6 +27,7 @@ export class TabelaProtocolosComponent implements OnInit {
     }
 
 
+
     getProtocolos(){
         this.subcricao = this.trabalhosService.getProtocolo().subscribe(
             (resultado: Response) =>{

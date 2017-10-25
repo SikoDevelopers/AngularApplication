@@ -35,6 +35,8 @@ import { DocentesComponent } from './conteudo/docentes/docentes.component';
 import { ListaDocentesComponent } from './conteudo/docentes/lista-docentes/lista-docentes.component';
 import { DetalhesDocentesComponent } from './conteudo/docentes/detalhes-docentes/detalhes-docentes.component';
 import { AdicionarDocentesFormComponent } from './conteudo/docentes/adicionar-docentes-form/adicionar-docentes-form.component';
+import { AdicionarParticipantesComponent } from './conteudo/trabalhos/adicionar-participantes/adicionar-participantes.component';
+import {NgAutoCompleteModule} from 'ng-auto-complete';
 
 @NgModule({
   imports: [
@@ -46,7 +48,8 @@ import { AdicionarDocentesFormComponent } from './conteudo/docentes/adicionar-do
       MatTabsModule,
       BrowserAnimationsModule,
       MatPaginatorModule,
-      AvatarModule.forRoot()
+      AvatarModule.forRoot(),
+      NgAutoCompleteModule,
 
   ],
   declarations: [
@@ -74,6 +77,7 @@ import { AdicionarDocentesFormComponent } from './conteudo/docentes/adicionar-do
       ListaDocentesComponent,
       DetalhesDocentesComponent,
       AdicionarDocentesFormComponent,
+      AdicionarParticipantesComponent,
 
   ],
 

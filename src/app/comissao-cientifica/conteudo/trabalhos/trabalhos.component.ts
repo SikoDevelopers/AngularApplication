@@ -8,10 +8,11 @@ import {Subscribable} from 'rxjs/Observable';
   templateUrl: './trabalhos.component.html',
   styleUrls: ['./trabalhos.component.scss']
 })
-export class TrabalhosComponent implements OnInit, OnDestroy {
+export class TrabalhosComponent implements OnInit {
 
 
     subcricao: any;
+
 
 
   trabalhos: any = [];
@@ -19,7 +20,7 @@ export class TrabalhosComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-      this.getTrabalhos();
+      // this.getTrabalhos();
   }
 
     getTrabalhos(){
@@ -36,9 +37,9 @@ export class TrabalhosComponent implements OnInit, OnDestroy {
         );
     }
 
-    ngOnDestroy(): void {
-        this.subcricao.unsubscribe();
-    }
+    // ngOnDestroy(): void {
+    //     this.subcricao.unsubscribe();
+    // }
 
 
 }

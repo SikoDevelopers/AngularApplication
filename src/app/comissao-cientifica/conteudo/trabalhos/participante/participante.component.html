@@ -1,7 +1,7 @@
 <div *ngFor="let participante of docentes">
   <div class="media mb-1 mr-5">
     <a class="media-left waves-light">
-      <avatar [name]="participante.nome" [displayType]="'circle'" [size]="80"></avatar>
+      <avatar [name]="participante.nome" [displayType]="'circle'" [size]="70"></avatar>
       <!--<img class="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-7.jpg" alt="Generic placeholder image">-->
     </a>
 
@@ -10,9 +10,7 @@
       <h4 class="media-heading">{{participante.nome }}</h4>
 
       <p>{{participante.area_participacao.designacao}}</p>
-      <p>{{participante.funcao.descricao}}</p>
 
-      <a href="#">Detalhes</a>
       <hr>
     </div>
   </div>

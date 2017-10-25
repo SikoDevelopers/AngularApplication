@@ -14,6 +14,7 @@ export class TrabalhosDetalhesComponent implements OnInit {
     @Output() output = new EventEmitter();
     @Input() trabalho: any;
     @Input() docentes: any;
+    @Input() modalParticipantes: any;
 
   constructor() {
 
@@ -41,8 +42,22 @@ export class TrabalhosDetalhesComponent implements OnInit {
     }
 
 
+    adicionarParticipante(){
+        this.modal.hide();
+        this.modalParticipantes.show();
+    }
 
 
+
+    getModalParticipantes(evento){
+        this.modalParticipantes = evento;
+    }
+
+    reabrirDialog(){
+        this.modalParticipantes.hide();
+        this.modal.show();
+
+    }
 
 
 
