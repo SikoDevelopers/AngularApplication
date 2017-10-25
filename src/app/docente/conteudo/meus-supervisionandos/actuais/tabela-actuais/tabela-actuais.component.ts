@@ -25,13 +25,20 @@ export class TabelaActuaisComponent implements OnInit {
 
   constructor(private _userService:UserService,
               private _docenteService:DocenteService
-  ) { }
+  ) {
+    //  this.getUser();
+      //this.dataSource = new ExampleDataSource(this.estudantes, this.paginator);
+  }
 
   ngOnInit() {
-    this.getUser();
 
-     this.dataSource = new ExampleDataSource(this.estudantes, this.paginator);
-      alert("depois de correr way users"+this.dataSource.length);
+        this.getUser();
+
+     //let e = this.getEsudantes();
+    //console.log(this.getEsudantes());
+    // alert("tamanho:"+this.getEsudantes().length);
+    // this.dataSource = new ExampleDataSource(this.estudantes, this.paginator);
+
   }
 
   getUser() {
@@ -62,6 +69,7 @@ export class TabelaActuaisComponent implements OnInit {
         },
         () => {
           this.getEstudantes(this.docente.id);
+          console.log(this.docente);
         }
     );
   }
@@ -70,16 +78,45 @@ export class TabelaActuaisComponent implements OnInit {
     this._docenteService.getSupervisonandos(id).subscribe(
         resultado => {
           this.estudantes = resultado['estudantes_do_docente'];
-            this.dataSource = new ExampleDataSource(this.estudantes, this.paginator);
+
         },
         error2 => {
           console.log("Error ao carregar Docente " + error2)
         },
         () => {
-            alert(this.estudantes.length);
+           // alert(this.estudantes.apelido);
+           // this.setEstudantes(this.estudantes);
+          //  alert(this.estudantes.length);
+           // this.dataSource = new ExampleDataSource(this.estudantes, this.paginator);
+            console.log(this.estudantes[0][0].nome);
+            //this.dataSource = new ExampleDataSource(this.estudantes, this.paginator);
 
         }
     );
+  }
+  dados:any[];
+
+  setEstudantes(estudantes:any){
+      this.estudantes = estudantes;
+      this.ngOnInit();
+  }
+
+  getEsudantes(){
+      return this.estudantes;
+  }
+
+  createData(dados:any){
+      dados = [
+          {
+            'apelido':dados.apelido,
+            'nome':dados.nome
+          }
+      ];
+      this.dados = dados;
+  }
+
+  getDados(){
+      return this.dados;
   }
 
 }
@@ -97,6 +134,12 @@ export interface UserData {
   color: string;
 }
 
+
+export interface Estudante {
+    apelido: string;
+    nome: string;
+
+}
 /** An example database that the data source uses to retrieve data for the table. */
 export class ExampleDatabase {
   /** Stream that emits whenever the data has been modified. */
@@ -137,13 +180,13 @@ export class ExampleDatabase {
  * the underlying data. Instead, it only needs to take the data and send the table exactly what
  * should be rendered.
  */
-export class ExampleDataSource extends DataSource<any> {
+export class ExampleDataSource extends DataSource<Estudante> {
   constructor(private _estudantes: any, private _paginator: MatPaginator) {
     super();
   }
 
   /** Connect function called by the table to retrieve one stream containing the data to render. */
-  connect(): Observable<UserData[]> {
+  connect(): Observable<Estudante[]> {
     const displayDataChanges = [
       this._estudantes,
       this._paginator.page,

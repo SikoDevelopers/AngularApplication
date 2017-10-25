@@ -1,54 +1,36 @@
-<div class="example-container">
+<div class="example-container" >
+  <!--<p>dataS:{{ }}</p>-->
+  <table class="table">
 
-  <mat-table #table [dataSource]="dataSource" [ngStyle]="{'min-height':'750px'}">
-    <!-- ID Column -->
-    <ng-container matColumnDef="apelido">
-      <mat-header-cell *matHeaderCellDef> Apelido </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.apelido}} </mat-cell>
-    </ng-container>
+    <!--Table head-->
+    <thead class="mdb-color darken-3">
+    <tr class="text-white">
+      <th>#</th>
+      <th>Tema</th>
+      <th>Estudante</th>
+      <th>Data Submissao</th>
+      <th>Estado</th>
+    </tr>
+    </thead>
+    <!--Table head-->
 
-    <!-- Progress Column -->
-    <ng-container matColumnDef="nome">
-      <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.nome}}% </mat-cell>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="titulo_do_trabalho">
-      <mat-header-cell *matHeaderCellDef> Titulo do Trabalho</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.titulo}} </mat-cell>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="data">
-      <mat-header-cell *matHeaderCellDef> Supervisionando desde </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.created_ad}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="estado">
-      <mat-header-cell *matHeaderCellDef> Supervisionando desde </mat-header-cell>
-      <mat-cell *matCellDef="let row" [style.color]="row.red"> {{ row.is_aprovado }} </mat-cell>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="operacoes">
-      <mat-header-cell *matHeaderCellDef> Detalhes </mat-header-cell>
-      <mat-cell *matCellDef="let row" >
-        <a>
-          <span><i class="fa fa-info"></i></span>
-        </a>
-      </mat-cell>
-    </ng-container>
+    <!--Table body-->
+    <tbody *ngFor="let estudante of estudantes">
+    <tr>
+      <th scope="row">{{estudante[0].apelido}}</th>
+      <td>{{estudante[0].nome}}</td>
+      <td>{{estudante[0].nome}}</td>
+      <td>{{estudante[0].created_at}}</td>
+      <!--<td>-->
+        <!--<a [class.alert-danger]="'Nao Aprovado' == getEstado(e.is_aprovado)" class="p-1"-->
+           <!--[class.alert-success]="'Aprovado' == getEstado(trabalho.is_aprovado)">-->
+          <!--{{getEstado(trabalho.is_aprovado)}}-->
+        <!--</a>-->
+      <!--</td>-->
+    </tr>
 
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-
-  <mat-paginator #paginator
-                 [length]="exampleDatabase.data.length"
-                 [pageIndex]="0"
-                 [pageSize]="14"
-                 [pageSizeOptions]="[5, 10, 25, 100]">
-  </mat-paginator>
+    </tbody>
+    <!--Table body-->
+  </table>
 </div>
