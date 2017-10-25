@@ -1,3 +1,12 @@
 <app-barra-do-topo-est></app-barra-do-topo-est>
 <app-sidenav></app-sidenav>
-<router-outlet></router-outlet>
+<div *ngIf="rotas == '/estudante/submeter-trabalho'; then submeterTrabalhos else trabalhosSubmetidos ">
+</div>
+   <ng-template #trabalhosSubmetidos>
+       <app-trabalhos-submetidos></app-trabalhos-submetidos>
+   </ng-template>
+
+    <ng-template #submeterTrabalhos>
+        <app-submeter-trabalho></app-submeter-trabalho>
+    </ng-template>
+
