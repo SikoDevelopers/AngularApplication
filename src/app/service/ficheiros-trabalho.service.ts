@@ -14,6 +14,11 @@ export class FicheirosTrabalhoService {
 
     }
 
+    getFicheirosTra(id): Observable<any>{
+        return this.http.get('http://127.0.0.1:8000/api/ficheiros_de_trabalho/id');
+
+    }
+
 
     saveFicheirosTrabalho(ficheirosTrabalho: FicheirosTrabalho): Observable<any>{
         const headers = new HttpHeaders({'Content-Type': 'application/json'});
