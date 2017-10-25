@@ -11,7 +11,11 @@ export class EstudanteComponent implements OnInit {
   constructor(private _router: Router) { }
     rotas: string;
   ngOnInit() {
+    this.rotas="";
     this.rotas=this._router.url;
+    alert(this.rotas);
   }
+
+
 
 }
