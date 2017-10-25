@@ -61,6 +61,10 @@ export class TrabalhoService {
         return this.http.get('http://localhost:8000/api/apenas/trabalhos');
     }
 
+    getTrabalhosEstudante(id): Observable<any>{
+        return this.http.get('http://localhost:8000/api/trabalho_estudante/'+id);
+    }
+
 
     getSupervisores(){
         return this.http.get('http://localhost:8000/supervisores');
