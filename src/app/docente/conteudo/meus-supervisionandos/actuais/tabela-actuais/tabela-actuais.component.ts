@@ -6,6 +6,8 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
+import {UserService} from "../../../../../service/user.service";
+import {DocenteService} from "../../../../../service/docente.service";
 
 @Component({
   selector: 'app-tabela-actuais',
@@ -13,16 +15,71 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./tabela-actuais.component.scss']
 })
 export class TabelaActuaisComponent implements OnInit {
-  displayedColumns = ['userId', 'userName', 'progress', 'color','operacoes'];
+  displayedColumns = ['apelido','nome',  'titulo_do_trabalho', 'data','estado','operacoes'];
   exampleDatabase = new ExampleDatabase();
   dataSource: ExampleDataSource | null;
-
+  estudantes : any;
+  user:any;
+  docente:any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor() { }
+  constructor(private _userService:UserService,
+              private _docenteService:DocenteService
+  ) { }
 
   ngOnInit() {
-    this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator);
+    this.getUser();
+
+     this.dataSource = new ExampleDataSource(this.estudantes, this.paginator);
+      alert("depois de correr way users"+this.dataSource.length);
+  }
+
+  getUser() {
+    let token = localStorage.getItem('token');
+
+    this._userService.logoado(token).subscribe(
+        resultado => {
+          this.user = resultado
+        },
+        error2 => {
+        },
+        () => {
+          this.getDocente(this.user.id);
+          // return this.user;
+        }
+    );
+
+
+  }
+
+  getDocente(id) {
+    this._docenteService.getDocentePorId(id).subscribe(
+        resultado => {
+          this.docente = resultado['docente']
+        },
+        error2 => {
+          console.log("Error ao carregar Docente " + error2)
+        },
+        () => {
+          this.getEstudantes(this.docente.id);
+        }
+    );
+  }
+
+  getEstudantes(id:number){
+    this._docenteService.getSupervisonandos(id).subscribe(
+        resultado => {
+          this.estudantes = resultado['estudantes_do_docente'];
+            this.dataSource = new ExampleDataSource(this.estudantes, this.paginator);
+        },
+        error2 => {
+          console.log("Error ao carregar Docente " + error2)
+        },
+        () => {
+            alert(this.estudantes.length);
+
+        }
+    );
   }
 
 }
@@ -43,7 +100,7 @@ export interface UserData {
 /** An example database that the data source uses to retrieve data for the table. */
 export class ExampleDatabase {
   /** Stream that emits whenever the data has been modified. */
-  dataChange: BehaviorSubject<UserData[]> = new BehaviorSubject<UserData[]>([]);
+  dataChange: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   get data(): UserData[] { return this.dataChange.value; }
 
   constructor() {
@@ -81,19 +138,19 @@ export class ExampleDatabase {
  * should be rendered.
  */
 export class ExampleDataSource extends DataSource<any> {
-  constructor(private _exampleDatabase: ExampleDatabase, private _paginator: MatPaginator) {
+  constructor(private _estudantes: any, private _paginator: MatPaginator) {
     super();
   }
 
   /** Connect function called by the table to retrieve one stream containing the data to render. */
   connect(): Observable<UserData[]> {
     const displayDataChanges = [
-      this._exampleDatabase.dataChange,
+      this._estudantes,
       this._paginator.page,
     ];
 
     return Observable.merge(...displayDataChanges).map(() => {
-      const data = this._exampleDatabase.data.slice();
+      const data = this._estudantes;
 
       // Grab the page's slice of data.
       const startIndex = this._paginator.pageIndex * this._paginator.pageSize;

@@ -2,27 +2,32 @@
 
   <mat-table #table [dataSource]="dataSource" [ngStyle]="{'min-height':'750px'}">
     <!-- ID Column -->
-    <ng-container matColumnDef="userId">
-      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+    <ng-container matColumnDef="apelido">
+      <mat-header-cell *matHeaderCellDef> Apelido </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.apelido}} </mat-cell>
     </ng-container>
 
     <!-- Progress Column -->
-    <ng-container matColumnDef="progress">
-      <mat-header-cell *matHeaderCellDef> Progress </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
+    <ng-container matColumnDef="nome">
+      <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.nome}}% </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="userName">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+    <ng-container matColumnDef="titulo_do_trabalho">
+      <mat-header-cell *matHeaderCellDef> Titulo do Trabalho</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.titulo}} </mat-cell>
     </ng-container>
 
-    <!-- Color Column -->
-    <ng-container matColumnDef="color">
-      <mat-header-cell *matHeaderCellDef> Color </mat-header-cell>
-      <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>
+    <!-- Name Column -->
+    <ng-container matColumnDef="data">
+      <mat-header-cell *matHeaderCellDef> Supervisionando desde </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.created_ad}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="estado">
+      <mat-header-cell *matHeaderCellDef> Supervisionando desde </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.red"> {{ row.is_aprovado }} </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
