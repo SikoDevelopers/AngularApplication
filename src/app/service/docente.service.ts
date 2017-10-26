@@ -31,7 +31,7 @@ export class DocenteService {
      * @returns {Observable<Object>} - dados do estudante retornados
      */
     getSupervisonandos(id:number): Observable<any>{
-        return this.http.get('http://127.0.0.1:8000/api/docentes/'+4+'/estudantes');
+        return this.http.get('http://127.0.0.1:8000/api/docentes/'+id+'/estudantes');
     }
     saveDocente(docente: Docente): Observable<any>{
         const headers = new HttpHeaders({'Content-Type': 'application/json'});
