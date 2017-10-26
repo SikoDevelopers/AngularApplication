@@ -6,7 +6,10 @@ import {SidenavComponent} from "./sidenav/sidenav.component";
 import {MDBBootstrapModule} from "angular-bootstrap-md";
 import { ConteudoComponent } from './conteudo/conteudo.component';
 import { MeusSupervisionandosComponent } from './conteudo/meus-supervisionandos/meus-supervisionandos.component';
-import {MatPaginatorModule, MatTab, MatTableModule, MatTabsModule} from "@angular/material";
+import {
+    MatPaginatorModule,MatTableModule,
+    MatTabsModule, MatDialogModule,MatDialogRef
+} from "@angular/material";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ActuaisComponent } from './conteudo/meus-supervisionandos/actuais/actuais.component';
 import { SolicitacoesComponent } from './conteudo/meus-supervisionandos/solicitacoes/solicitacoes.component';
@@ -23,11 +26,14 @@ import { AvatarModule } from "ng2-avatar";
 import { TabComponent } from './conteudo/meus-supervisionandos/tab/tab.component';
 import { ListaOponenciaComponent } from './conteudo/oponencia/lista-oponencia/lista-oponencia.component';
 import { TabelaOponenciasComponent } from './conteudo/oponencia/lista-oponencia/tabela-oponencias/tabela-oponencias.component';
+import { SubmeterTemaComponent } from './conteudo/temas/submeter-tema/submeter-tema.component';
+import { SubmeterTemaFormComponent } from './conteudo/temas/submeter-tema/submeter-tema-form/submeter-tema-form.component';
+import {SelectModule} from "./conteudo/temas/submeter-tema/submeter-tema-form/select/select.module";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
-    CommonModule,
-
+      CommonModule,
       MDBBootstrapModule.forRoot(),
       MatTabsModule,
       BrowserAnimationsModule,
@@ -36,7 +42,10 @@ import { TabelaOponenciasComponent } from './conteudo/oponencia/lista-oponencia/
       DocenteRotas,
       NgProgressModule,
       PublicoGeralModule,
-      AvatarModule.forRoot()
+      AvatarModule.forRoot(),
+      SelectModule,
+      FormsModule,
+      FormsModule
   ],
   declarations: [
       DocenteComponent,
@@ -54,10 +63,12 @@ import { TabelaOponenciasComponent } from './conteudo/oponencia/lista-oponencia/
       TemaComponent,
       TabComponent,
       ListaOponenciaComponent,
-      TabelaOponenciasComponent
+      TabelaOponenciasComponent,
+      SubmeterTemaComponent,
+      SubmeterTemaFormComponent
 
   ],
-
-    schemas:[NO_ERRORS_SCHEMA]
+    schemas:[NO_ERRORS_SCHEMA],
+    providers : []
 })
 export class DocenteModule { }
