@@ -2,6 +2,8 @@
 <app-sidenav></app-sidenav>
 <div *ngIf="rotas == '/estudante/submeter-trabalho'; then submeterTrabalhos else trabalhosSubmetidos ">
 </div>
+
+
    <ng-template #trabalhosSubmetidos>
        <app-trabalhos-submetidos></app-trabalhos-submetidos>
    </ng-template>
