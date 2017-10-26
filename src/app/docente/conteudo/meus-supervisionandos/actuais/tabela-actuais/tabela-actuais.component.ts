@@ -1,8 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatPaginator} from '@angular/material';
-import 'rxjs/add/operator/startWith';
-import 'rxjs/add/observable/merge';
-import 'rxjs/add/operator/map';
+import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../../../../service/user.service";
 import {DocenteService} from "../../../../../service/docente.service";
 
@@ -15,7 +11,7 @@ export class TabelaActuaisComponent implements OnInit {
   estudantes : any;
   user:any;
   docente:any;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+
 
   constructor(private _userService:UserService,
               private _docenteService:DocenteService
@@ -38,7 +34,6 @@ export class TabelaActuaisComponent implements OnInit {
           this.getDocente(this.user.id);
         }
     );
-
 
   }
 
@@ -64,7 +59,7 @@ export class TabelaActuaisComponent implements OnInit {
 
         },
         error2 => {
-          console.log("Error ao carregar Docente " + error2)
+          console.log("Error ao carregar Estudantes " + error2)
         },
         () => {
 
