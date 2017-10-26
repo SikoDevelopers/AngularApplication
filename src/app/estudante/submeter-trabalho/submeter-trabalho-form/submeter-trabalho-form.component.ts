@@ -36,16 +36,6 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
       private docenteAreaService : DocenteAreaService,
       private trabalhoService : TrabalhoService
   ) {
-
-
-      this.news={'protocolo':'eee',
-      'user':'Teste ',
-      'supervisor':'Teste ',
-      'area':'Teste ',
-      'titulo':'Teste ',
-      'descricao':'Teste ',
-      'data':'Teste ',
-      'timestamp':'Teste '};
   }
 
   ngOnInit() {
@@ -70,7 +60,6 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
               this.user = resultado;
           },
           error2 => {
-
           },
           ()=>{
             console.log('user retrivied');
