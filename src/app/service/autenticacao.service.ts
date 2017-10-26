@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {UserService} from './user.service';
 import {HttpErrorResponse} from '@angular/common/http';
-import {concatStatic} from 'rxjs/operator/concat';
 
 @Injectable()
 export class AutenticacaoService {
@@ -56,6 +55,7 @@ export class AutenticacaoService {
                   this.podeLogar = true;
                   this.dadosRetornados = resultado;
               }
+              console.log(resultado);
           },
           (error)=>{
             funcaoNegada(error);
@@ -89,6 +89,30 @@ export class AutenticacaoService {
               callback(result, context);
           }
       );
+    }
+
+
+
+    criarContaDocente(userDocente, funcaoAceite: (data) => void, funcaoNegado: (data) => void, funcaoErro: (data) => void ){
+        let contaCriada = false;
+        let result: any;
+        this.userService.signUpDocente(userDocente).subscribe(
+            (resultado: Response) => {
+                alert("Conta Criada com sucesso");
+                contaCriada = true;
+                result = resultado;
+                console.log(resultado);
+            },
+            (erro: HttpErrorResponse)=> {
+                funcaoErro(erro);
+            },
+            ()=>{
+                if(contaCriada == true)
+                    funcaoAceite(result);
+                else
+                    funcaoNegado(result)
+            }
+        );
     }
 
 

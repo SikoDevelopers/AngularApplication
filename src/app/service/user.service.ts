@@ -31,6 +31,10 @@ export class UserService {
         return this.http.get('http://127.0.0.1:8000/api/users/email/validar', email);
     }
 
+    signUpDocente(userDocente): Observable<any>{
+       const headers = new Headers({'Content-Type': 'Application/json', 'X-Request-With': 'XMLHttpRequest'});
+       return this.http.post('http://127.0.0.1:8000/api/docentes/signup', userDocente, headers);
+    }
 
 
 

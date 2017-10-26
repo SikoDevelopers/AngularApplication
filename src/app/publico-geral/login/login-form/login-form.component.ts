@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {AutenticacaoService} from '../../../service/autenticacao.service';
 import {HttpErrorResponse} from '@angular/common/http';
+import {TrabalhoService} from "../../../service/trabalho.service";
 
 @Component({
   selector: 'app-login-form',
@@ -13,15 +14,17 @@ export class LoginFormComponent implements OnInit {
     mensagemErro: String = "";
     mensagemSucesso: String = "";
     loginNegado: String = "";
+    hasjob : boolean;
 
 
-  constructor(private autenticacaoService: AutenticacaoService) { }
+  constructor(private autenticacaoService: AutenticacaoService, private trabalhoService: TrabalhoService) { }
 
   ngOnInit() {
   }
 
 
     onLogin(formulario: NgForm){
+
       let user = {
           'email': formulario.value.email,
           'password': formulario.value.password
@@ -32,31 +35,61 @@ export class LoginFormComponent implements OnInit {
           this.loginNegado = 'sucesso';
           this.mensagemSucesso = "Credenciais validas! Aguarde...";
 
-          if(dados['user']['docente'] != null)
-               alert("Sera direcionado para Docente");
+          if(dados) {
 
-           if(dados['user']['estudante'] != null)
-               window.location.href = "estudante/submeter-trabalho";
+              if (dados['user']['docente'] != null)
+                  window.location.href = "docente/supervisandos";
 
-           if(dados['user']['director_curso'] != null)
-               alert("Sera direcionado para Director de Curso");
+              if (dados['user']['estudante'] != null) {
+                  // alert(this.hasJob(dados['user'].id));
+                  let resultado;
+                  this.trabalhoService.hasJob(dados['user'].id).subscribe(
+                      resul=>{
+                          resultado = resul['resultado'];
+                          console.log(resul['resultado']);
+                      },
+                      (erros)=>{
+                          console.error(erros);
+                      },
+                      ()=>{
+                          if (resultado) {
+                              alert('Possui trabalhos');
+                              window.location.href = "estudante/trabalhos-submetidos";
+                          }
+                          else {
+                              window.location.href = "estudante/submeter-trabalho";
+                          }
+                      }
 
-           if(dados['user']['funcionario'] != null)
-               alert("Sera direcionado para Funcionario");
+                  );
+
+              }
+
+              if (dados['user']['director_curso'] != null)
+                  alert("Sera direcionado para Director de Curso");
+
+              if (dados['user']['funcionario'] != null)
+                  alert("Sera direcionado para Funcionario");
 
 
-          console.log(dados['user']['docente']);
+              console.log(dados['user']['docente']);
+          }
+          console.log(dados);
       },
           (erros: HttpErrorResponse) => {
-
-              if(JSON.parse(erros.error)['mensagem'] == 'Credencias Erradas') {
-                  this.loginNegado = 'erro';
-                  this.mensagemErro = "Email ou passsword invalidos";
-                  console.log(erros);
+                if(erros.status == 401){
+                    this.loginNegado = 'erro';
+                    this.mensagemErro = "Email ou passsword invalidos";
               }
+              if(erros.status == 500){
+                  this.loginNegado = 'erro';
+                  this.mensagemErro = "Ocoreu um erro interno";
+              }
+              console.log(erros)
           });
 
     }
+
 
 
 
@@ -75,6 +108,14 @@ export class LoginFormComponent implements OnInit {
             this.mensagemErro = "Password eh obrigatorio";
             return true;
         }
+    }
+
+    hasJob(id:number){
+        this.trabalhoService.hasJob(id).subscribe(
+            resul=>{
+                return resul['resultado'];
+            }
+        )
     }
 
 }

@@ -1,4 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {TrabalhoService} from '../../../../service/trabalho.service';
+import {HttpErrorResponse} from '@angular/common/http';
+
 
 @Component({
   selector: 'app-trabalhos-detalhes',
@@ -9,13 +12,18 @@ export class TrabalhosDetalhesComponent implements OnInit {
 
     @ViewChild('modal') modal;
     @Output() output = new EventEmitter();
-    @Input() trabalho;
+    @Input() trabalho: any;
+    @Input() docentes: any;
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
     this.output.emit(this.modal);
   }
+
+
 
 
     getEstado(is_aprovado){
@@ -24,7 +32,6 @@ export class TrabalhosDetalhesComponent implements OnInit {
         }
         else
             return "Nao Aprovado";
-
     }
 
 
@@ -32,6 +39,10 @@ export class TrabalhosDetalhesComponent implements OnInit {
         let data = new Date(dataSubmissao);
         return data.getDay() +" / "+data.getMonth()+ " / "+ data.getFullYear();
     }
+
+
+
+
 
 
 

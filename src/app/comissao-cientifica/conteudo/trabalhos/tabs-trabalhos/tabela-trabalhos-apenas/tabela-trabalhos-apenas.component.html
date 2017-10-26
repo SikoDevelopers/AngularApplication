@@ -1,0 +1,40 @@
+<app-trabalhos-detalhes  (output)="getModal($event)" [(trabalho)] = "trabalhoSelecionado" [(docentes)]="docentes" ></app-trabalhos-detalhes>
+
+<div class="row" [ngStyle]="{'margin-top':'10px'}">
+  <!--Table-->
+  <table class="table">
+
+    <!--Table head-->
+    <thead class="mdb-color darken-3">
+    <tr class="text-white">
+      <th>    </th>
+      <th>#</th>
+      <th>Tema</th>
+      <th>Estudante</th>
+      <th>Data Submissao</th>
+      <th>Estado</th>
+    </tr>
+    </thead>
+    <!--Table head-->
+
+    <!--Table body-->
+    <tbody *ngFor="let trabalho of trabalhos">
+    <tr class="hoverable" (click)="onClickTrabalho(trabalho)" data-toggle="modal" data-target="#basicExample">
+      <td>    </td>
+      <td scope="row">{{trabalho.id}}</td>
+      <td>{{trabalho.titulo}}</td>
+      <td>{{trabalho.nome}}</td>
+      <td>{{getDataSubmissao(trabalho.data)}}</td>
+      <td>
+        <a [class.alert-danger]="'Nao Aprovado' == getEstado(trabalho.ficheiros_reprovados_id)" class="p-1"
+           [class.alert-success]="'Aprovado' == getEstado(trabalho.ficheiros_reprovados_id)">
+          {{getEstado(trabalho.ficheiros_reprovados_id)}}
+        </a>
+      </td>
+    </tr>
+
+
+    </tbody>
+    <!--Table body-->
+  </table>
+</div>

@@ -12,7 +12,7 @@
 
         <mat-tab-group class="demo-tab-group pl-5">
 
-          <mat-tab label="Tab 1" class="bg-success">
+          <mat-tab label="Tab 1">
             <ng-template mat-tab-label class="bg-success">
               <div class="mt-3" >
                 <i class="material-icons">info_outline</i>
@@ -82,19 +82,11 @@
                 <h5>Participantes</h5>
               </div>
             </ng-template>
-            <div class="demo-tab-content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
-              Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus.
-              In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec,
-              feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor,
-              orci enim rutrum enim, vel tempor sapien arcu a tellus.
-              <br />
-              <br />
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
-              Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus.
-              In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec,
-              feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor,
-              orci enim rutrum enim, vel tempor sapien arcu a tellus.
+            <div class="demo-tab-content" *ngIf="docentes">
+                <div class="mt-5">
+                    <app-participante [docentes]="docentes"></app-participante>
+                </div>
+
             </div>
           </mat-tab>
 
@@ -118,42 +110,11 @@
         </mat-tab-group>
 
 
-
-        <!--<div>-->
-          <!--<b class="">Titulo</b>-->
-          <!--<a>Titulo do trabalho</a>-->
-        <!--</div>-->
-
-        <!--<div>-->
-          <!--<b>Autores</b>-->
-          <!--<a>Autores envolvidos</a>-->
-        <!--</div>-->
-
-        <!--<div>-->
-          <!--<b>Data Submissao</b>-->
-          <!--<a>Data de submissao do trabalhp</a>-->
-        <!--</div>-->
-
-        <!--<div>-->
-          <!--<b>Area</b>-->
-          <!--<a>Area do trabalhp</a>-->
-        <!--</div>-->
-      <!--</div>-->
-
-
-      <!--<div>-->
-        <!--<b>Ficheiros</b>-->
-        <!--<div class="d-flex h-30 align-items-stretch">-->
-          <!--<div class="p-2 success-color">Versao 1</div>-->
-          <!--<div class="p-2 success-color">Versao 3</div>-->
-          <!--<div class="p-2 warning-color">Versao 4</div>-->
-        <!--</div>-->
-      <!--</div>-->
-
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm waves-light" data-dismiss="modal" (click)="modal.hide()" mdbRippleRadius>Fechar</button>
         <button type="button" class="btn btn-primary btn-sm waves-light" mdbRippleRadius>Save changes</button>
       </div>
     </div>
   </div>
+</div>
 </div>

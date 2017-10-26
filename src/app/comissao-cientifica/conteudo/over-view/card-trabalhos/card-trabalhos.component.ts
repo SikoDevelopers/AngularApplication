@@ -9,9 +9,12 @@ export class CardTrabalhosComponent implements OnInit {
 
    @Input() mostrarDetalhes: boolean;
 
+
   constructor() { }
 
   ngOnInit() {
   }
+
+
 
 }

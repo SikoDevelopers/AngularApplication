@@ -1,0 +1,29 @@
+
+<app-detalhes-docentes [(docente)]="docenteSelecionado" (output)="getModal($event)"></app-detalhes-docentes>
+
+<div class="pl-4 pr-4">
+<div *ngFor="let docente of docentes">
+    <div class="media mb-1 mr-5 mt-3">
+      <a class="media-left waves-light">
+        <avatar [email]="docente.nome" [displayType]="'circle'" [size]="70"></avatar>
+      </a>
+
+
+      <div class="media-body ml-2">
+        <a>
+          <p [ngStyle]="{'float':'right', 'color': getFuncaoColor()}" class="p-3">10</p>
+          <p [ngStyle]="{'float':'right'}" class="p-3">Supervisandos:</p>
+        </a>
+        <h4></h4>
+        <!--<h4></h4>-->
+        <h5 class="media-heading">{{docente.nome +' '+ docente.apelido}}</h5>
+
+        <!--<p>{{docente.areas.designacao}}</p>-->
+        <!--<a class="">{{docente.funcao.docente}}</a>-->
+
+        <a  href="#" (click)="chamarDialog($event.preventDefault(), docente)">Detalhes</a>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

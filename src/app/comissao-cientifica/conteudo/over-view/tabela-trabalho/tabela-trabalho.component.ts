@@ -1,5 +1,5 @@
 import {Component, OnInit, OnDestroy, Input, ViewChild, Output, EventEmitter} from '@angular/core';
-import {TrabalhoService} from '../../service/trabalho.service';
+import {TrabalhoService} from '../../../../service/trabalho.service';
 import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
@@ -9,14 +9,14 @@ import {HttpErrorResponse} from '@angular/common/http';
 })
 export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
 
-  trabalhos: Array<any> ;
-  // @Output() outputTrabalho = new EventEmitter();
+  trabalhos: Array<any>;
+  @Input() modal: any;
+  @Output() saidaDados = new EventEmitter();
+  @ViewChild('modalDetalhes') modalDetalhes;
   trabalhoSelecionado: any;
-  
-    @ViewChild('modalDetalhes') modalDetalhes;
+  subcricao: any;
+  docentes: any;
 
-    subcricao: any;
-    @Input() modal: any;
 
   constructor(private trabalhosService: TrabalhoService) {
 
@@ -24,17 +24,16 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
       this.getTrabalhos();
-
   }
 
 
     getTrabalhos(){
-        this.subcricao = this.trabalhosService.getTrabalho(true,5).subscribe(
+        this.subcricao = this.trabalhosService.getTrabalho(true, 5).subscribe(
             (resultado: Response) =>{
                 console.log(resultado);
                 this.trabalhos = resultado['trabalhos'].data;
             },
-            (erros: HttpErrorResponse)=> {
+            (erros: HttpErrorResponse) => {
                 console.error(erros);
             },
             ()=>{
@@ -42,11 +41,6 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
             }
         );
     }
-
-    ngOnDestroy(): void {
-        this.subcricao.unsubscribe();
-    }
-
 
     getEstado(is_aprovado){
         if(is_aprovado){
@@ -70,8 +64,33 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
 
     onClickTrabalho(trabalho){
         this.trabalhoSelecionado = trabalho;
-        // this.outputTrabalho.emit(trabalho);
+        this.getParticipantesTrabalhos(trabalho.id);
         this.modal.show();
     }
+
+
+    getParticipantesTrabalhos(idTrabalho){
+        let participantes;
+
+        this.trabalhosService.getParticipantes(idTrabalho).subscribe(
+            (resultado: Response) =>{
+                console.log(resultado);
+                participantes = resultado['docentes'];
+            },
+            (erros: HttpErrorResponse) => {
+                console.error(erros);
+            },
+            () => {
+                this.docentes = participantes;
+                console.log("Requisicao completada");
+            }
+
+        );
+    }
+
+    ngOnDestroy(): void {
+        this.subcricao.unsubscribe();
+    }
+
 
 }

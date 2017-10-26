@@ -1,12 +1,19 @@
 
-
-<div class="card p-2">
+<div class="card p-1 mt-3">
     <!--Card content-->
     <div class="card-body">
         <!--Title-->
         <!--<h4 class="card-title text-center">Trabalhos submetidos</h4>-->
 
-        <app-tabela-trabalho></app-tabela-trabalho>
+        <div *ngIf="mostrarDetalhes; then trabalhoSimples else trabalhoComleto"></div>
+
+        <ng-template #trabalhoSimples>
+            <app-tabela-trabalho ></app-tabela-trabalho>
+        </ng-template>
+
+        <ng-template #trabalhoComleto>
+            <app-tabs-trabalhos ></app-tabs-trabalhos>
+        </ng-template>
 
         <div *ngIf="mostrarDetalhes" class="col-md-12 text-center" >
             <a class="btn btn-primary waves-light center-block" routerLink="/comissao-cientifica/trabalhos">Ver Todos</a>

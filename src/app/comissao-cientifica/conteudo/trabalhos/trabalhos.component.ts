@@ -13,9 +13,9 @@ export class TrabalhosComponent implements OnInit, OnDestroy {
 
     subcricao: any;
 
+
   trabalhos: any = [];
   constructor(private  trabalhosService: TrabalhoService) {
-
   }
 
   ngOnInit() {
