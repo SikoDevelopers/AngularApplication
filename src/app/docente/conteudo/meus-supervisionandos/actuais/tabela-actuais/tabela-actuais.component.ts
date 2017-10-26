@@ -62,15 +62,8 @@ export class TabelaActuaisComponent implements OnInit {
           console.log("Error ao carregar Estudantes " + error2)
         },
         () => {
-<<<<<<< HEAD
-=======
-           // alert(this.estudantes.apelido);
-           // this.setEstudantes(this.estudantes);
-          //  alert(this.estudantes.length);
-           // this.dataSource = new ExampleDataSource(this.estudantes, this.paginator);
             console.log(this.estudantes[0][0].nome);
-            //this.dataSource = new ExampleDataSource(this.estudantes, this.paginator);
->>>>>>> parent of fbc46c9... Mostrando mensagem caso nao tenha nenhum supervisionando
+
 
         }
     );
