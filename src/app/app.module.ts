@@ -23,6 +23,8 @@ import {SupervisorExternoService} from "./service/supervisor-externo.service";
 import {DocenteAreaService} from "./service/docente-area.service";
 import {DocenteService} from "./service/docente.service";
 import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
+import {FicheirosTrabalhoService} from "./service/ficheiros-trabalho.service";
+import {EstudanteService} from "./service/estudante.service";
 
 
 
@@ -59,7 +61,11 @@ import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
       SupervisorExternoService,
       DocenteAreaService,
       DocenteService,
-      TrabalhoService],
+      TrabalhoService,
+      FicheirosTrabalhoService,
+      EstudanteService
+
+  ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
