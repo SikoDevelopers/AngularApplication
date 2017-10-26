@@ -1,6 +1,7 @@
 <div class="example-container" >
-  <h1 class="text-center text-info text-uppercase" *ngIf="!estudantes">Nenhum Supervisionando Actual</h1>
-  <table class="table" *ngIf="estudantes">
+  <h1 class="text-center text-info text-uppercase" [hidden]="!(estudantes.length == 0)">Nenhum Supervisionando Actual</h1>
+
+  <table class="table" [hidden]="estudantes.length == 0">
 
     <!--Table head-->
     <thead >

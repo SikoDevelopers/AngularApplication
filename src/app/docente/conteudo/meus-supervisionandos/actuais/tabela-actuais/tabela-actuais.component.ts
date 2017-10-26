@@ -88,7 +88,7 @@ export class TabelaActuaisComponent implements OnInit {
            // this.setEstudantes(this.estudantes);
           //  alert(this.estudantes.length);
            // this.dataSource = new ExampleDataSource(this.estudantes, this.paginator);
-            console.log(this.estudantes[0][0].nome);
+            //console.log(this.estudantes[0][0].nome);
             //this.dataSource = new ExampleDataSource(this.estudantes, this.paginator);
 
         }
