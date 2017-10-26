@@ -3,60 +3,55 @@
   <hr>
 
   <div class="row">
-    <div class="col">
-      <a href="estudante/submeter-trabalho"  class="btn btn-primary waves-light" mdbRippleRadius>
-        <i class="fa fa-upload"></i>
-        Iniciar Submissao de Trabalho
-      </a>
 
       <button type="button" class="btn btn-info waves-light" mdbRippleRadius>
         <i class="fa fa-file"></i>
         Regras de Submissao
       </button>
     </div>
-  </div>
 
+
+  <div class="card" style="margin-top: 10px">
   <div class="row">
     <div class="col">
       <table class="table">
         <thead>
         <tr>
           <th>#</th>
-          <th>Tiulo</th>
-          <th>Area</th>
+          <th>Ficheiro</th>
+          <th>Data de submissao</th>
           <th>Estado</th>
           <th></th>
           <th></th>
         </tr>
         </thead>
-        <tbody>
-        <tr ngForm="let file of ficheiros">
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td><a><i class="fa fa-info"></i></a></td>
-          <td><a><i class="fa fa-edit"></i></a></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td><a><i class="fa fa-info"></i></a></td>
-          <td><a><i class="fa fa-edit"></i></a></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-          <td><a><i class="fa fa-info"></i></a></td>
-          <td><a><i class="fa fa-edit"></i></a></td>
+        <tbody *ngFor="let file of ficheiros">
+        <tr  class="hoverable" >
+          <th scope="row">{{file.id}}</th>
+          <td>{{file.caminho}}</td>
+          <td>{{file.created_at}}</td>
+          <td>acertar o relacionamento</td>
+          <td><a href="http://127.0.0.1:8000/api/display/{{file.caminho}}" target="_blank"><i class="fa fa-download"></i></a></td>
+          <td><a><i class="fa fa-trash-o"></i></a></td>
         </tr>
         </tbody>
       </table>
+      <div class="row">
+        <div class="col-md-3">
+          <a href="estudante/submeter-trabalho" disabled="true"  class="btn btn-primary waves-light" mdbRippleRadius>
+            <i class="fa fa-upload"></i>
+            Submeter protocolo
+          </a>
+      </div>
+        <div class="col-md-3">
+          <a href="estudante/submeter-trabalho" disabled="true"  class="btn btn-primary waves-light" mdbRippleRadius>
+            <i class="fa fa-upload"></i>
+            Submeter relatorio final
+          </a>
+      </div>
     </div>
   </div>
 
+</div>
+  </div>
 </div>
