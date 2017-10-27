@@ -63,7 +63,7 @@ export class TrabalhoService {
 
     getTrabalhosEstudante(id:number): Observable<any>{
         // return this.http.get('http://localhost:8000/api/trabalho_estudante/'+ id);
-        return this.http.get('http://localhost:8000/api/trabalho_estudante/'+ 14);
+        return this.http.get('http://localhost:8000/api/trabalho_estudante/'+id);
     }
 
 
