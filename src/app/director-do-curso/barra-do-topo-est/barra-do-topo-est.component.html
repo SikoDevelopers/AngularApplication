@@ -1,0 +1,26 @@
+
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo" [ngStyle]="{'z-index':'-1'}" [containerInside]="false" >
+
+
+  <logo [ngStyle]="{'width':'40%'}">
+    <a class="navbar-brand" href="#">{{ nomeDaApp }}</a>
+    <a class="white-text" routerLink="/" >Docente</a>
+  </logo>
+
+
+  <links>
+    <ul class="navbar-nav mr-auto">
+
+    </ul>
+    <span class="navbar-text white-text">
+      <a class="right lg-a" routerLink="/login" href="/login" (click)="terminarSessao($event.preventDefault())">
+      <i class="fa fa-sign-out" aria-hidden="true"></i>
+      <span>Sair</span>
+      </a>
+    </span>
+  </links>
+</mdb-navbar>
+
+
+
+
