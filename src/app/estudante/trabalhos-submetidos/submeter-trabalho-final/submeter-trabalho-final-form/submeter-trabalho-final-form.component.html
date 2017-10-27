@@ -1,3 +1,15 @@
-<p>
-  submeter-trabalho-final-form works!
-</p>
+<form>
+
+
+  <label>Selecione o Documento</label>
+  <app-file-input [textoDaLabel]="labelDoFileChooser" (eventEmiter)="atribuirValor($event)"></app-file-input>
+
+
+
+  <div class="text-right">
+    <a class="btn btn-primary waves-light" (click)="submeter()" mdbRippleRadius>
+      <i class="fa fa-upload"></i>
+      Submeter
+    </a>
+  </div>
+</form>
