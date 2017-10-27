@@ -8,7 +8,7 @@ import { ConteudoComponent } from './conteudo/conteudo.component';
 import { MeusSupervisionandosComponent } from './conteudo/meus-supervisionandos/meus-supervisionandos.component';
 import {
     MatPaginatorModule,MatTableModule,
-    MatTabsModule, MatDialogModule,MatDialogRef
+    MatTabsModule
 } from "@angular/material";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ActuaisComponent } from './conteudo/meus-supervisionandos/actuais/actuais.component';
@@ -19,7 +19,7 @@ import { OponenciaComponent } from './conteudo/oponencia/oponencia.component';
 import { EventosComponent } from './conteudo/eventos/eventos.component';
 import { TemasComponent } from './conteudo/temas/temas.component';
 import {DocenteRotas} from "./docente.routing";
-import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
+import {NgProgressModule} from 'ngx-progressbar';
 import {PublicoGeralModule} from "../publico-geral/publico-geral.module";
 import { TemaComponent } from './conteudo/temas/tema/tema.component';
 import { AvatarModule } from "ng2-avatar";
