@@ -1,41 +1,25 @@
-<div class="media mb-1">
-  <a class="media-left waves-light">
-    <avatar [email]="'Alfredo'" [displayType]="'circle'"></avatar>
-    <!--<img class="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-7.jpg" alt="Generic placeholder image">-->
-  </a>
-  <div class="media-body">
-    <p [ngStyle]="{'float':'right'}">Informatica</p>
-    <h5 class="media-heading">Dave Snow</h5>
-    <h4 class="media-heading">Tema Sugirido</h4>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate temporibus iure soluta.
-      Quasi mollitia maxime nemo quam accusamus possimus, voluptatum expedita assumenda. Earum sit id ullam eum vel delectus!
-    </p>
-    <p>Saude Publica</p>
-
-    <a href="#">Detalhes</a>
-    <hr>
-  </div>
-</div>
+<app-submeter-tema (output)="getModal($event)" [tema]="tema"  [idArea]="tema.area.id"></app-submeter-tema>
 
 <div class="media mb-1">
-  <a class="media-left waves-light">
-    <avatar [email]="'Ercilio Marques'" [displayType]="'circle'"></avatar>
-    <!--<img class="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-7.jpg" alt="Generic placeholder image">-->
-  </a>
   <div class="media-body">
-    <p [ngStyle]="{'float':'right'}">Informatica</p>
-    <h5 class="media-heading">Dave Snow</h5>
-    <h4 class="media-heading">Tema Sugirido</h4>
+    <!--<p [ngStyle]="{'float':'right'}">{{ tema.area.id }}</p>-->
+    <h5 class="media-heading">{{ tema.designacao }}</h5>
 
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate temporibus iure soluta.
-      Quasi mollitia maxime nemo quam accusamus possimus, voluptatum expedita assumenda. Earum sit id ullam eum vel delectus!
+    <!--<a href="#">Detalhes</a>-->
+    <p>{{ tema.area.designacao }}</p>
+
+    <ul class="list-inline" [ngStyle]="{'float':'right'}">
+      <li class=" list-inline-item">
+        <a (click)="onMostrarModal()"><i class="fa fa-pencil"></i>  Editar</a>
+      </li>
+
+      <li class=" list-inline-item">
+        <a href="#"><i class="fa fa-trash"></i>Eliminar</a>
+      </li>
+    </ul>
+
+    <p>{{ tema.created_at | date : 'dd/MM/yyyy' }} {{ tema.created_at | date : 'hh:mm'}}
     </p>
-    <p>Saude Publica</p>
-
-    <a href="#">Detalhes</a>
     <hr>
   </div>
 </div>

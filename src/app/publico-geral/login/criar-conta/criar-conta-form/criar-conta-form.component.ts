@@ -13,49 +13,46 @@ import {AutenticacaoService} from '../../../../service/autenticacao.service';
   styleUrls: ['./criar-conta-form.component.scss']
 })
 export class CriarContaFormComponent implements OnInit, OnChanges{
-  label: string = "Selecione o Curso";
-  cursos: any  = [];
-  cursos_id: any;
-  mensagemErro: String = "";
+    label: string = "Selecione o Curso";
+    cursos: any  = [];
+    cursos_id: any;
+    mensagemErro: String = "";
 
 
-  constructor(
-      private cursoService: CursoService,
-      private autenticacaoService: AutenticacaoService
-  ) {
-    this.cursos_id = 0;
-  }
+    constructor(
+          private cursoService: CursoService,
+         private autenticacaoService: AutenticacaoService
+    ) {
+        this.cursos_id = 0;
+    }
 
-  ngOnInit() {
-    this.getCursos();
-  }
-  ngOnChanges(changes: SimpleChanges){
-      console.log("Mudou");
-  }
+    ngOnInit() {
+        this.getCursos();
+    }
+    ngOnChanges(changes: SimpleChanges){
+          console.log("Mudou");
+    }
 
-  getCursos(){
-    this.cursoService.getCurso().subscribe(
+    getCursos(){
+        this.cursoService.getCurso().subscribe(
         resultado => { this.cursos = resultado['cursos'];},
         error2 => {console.log(error2);},
         () => {
             console.log('Cursos carregados com sucesso ');
-      }
-    );
-  }
+          }
+        );
+     }
 
 
-  onSignUp(formulario: NgForm){
-
+    onSignUp(formulario: NgForm){
       const user: any = {
         'apelido' : formulario.value.apelido,
         'nome': formulario.value.nome,
         'cursos_id': this.cursos_id,
         'email': formulario.value.email,
         'password': formulario.value.password
-    };
+      };
 
-
-        console.log(user);
       if(formulario.value.password == formulario.value.confPassword) {
           this.autenticacaoService.criarContaEsudante(user,
               dados => {
@@ -72,17 +69,13 @@ export class CriarContaFormComponent implements OnInit, OnChanges{
         alert("As credenciais nao conscidem");
       }
 
-  }
+    }
 
 
 
-  getCursoSelect(event){
-    this.cursos_id = event.area_id;
-  }
-
-
-
-
+    getCursoSelect(event){
+      this.cursos_id = event.area_id;
+    }
 
     validarFormulario(formulario: NgForm){
             return formulario.invalid;
