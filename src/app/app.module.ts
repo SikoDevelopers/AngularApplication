@@ -25,6 +25,7 @@ import {DocenteService} from "./service/docente.service";
 import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 import {FicheirosTrabalhoService} from "./service/ficheiros-trabalho.service";
 import {EstudanteService} from "./service/estudante.service";
+import {FicheiroTrabalhoEstadoFicheiroService} from "./service/ficheiro-trabalho-estado-ficheiro.service";
 
 
 
@@ -63,7 +64,8 @@ import {EstudanteService} from "./service/estudante.service";
       DocenteService,
       TrabalhoService,
       FicheirosTrabalhoService,
-      EstudanteService
+      EstudanteService,
+      FicheiroTrabalhoEstadoFicheiroService
 
   ],
   bootstrap: [AppComponent],
