@@ -9,6 +9,7 @@ import {ComissaoCientificaComponent} from "./comissao-cientifica/comissao-cienti
 import {DocenteComponent} from "./docente/docente.component";
 import {ShimmerEfectComponent} from './shimmer-efect/shimmer-efect.component';
 import {EstudanteComponent} from "./estudante/estudante.component";
+import {DirectorDoCursoComponent} from "./director-do-curso/director-do-curso.component"
 
 
 const appRoutes: Routes = [
@@ -18,9 +19,10 @@ const appRoutes: Routes = [
   {path: 'estudante/:hasJob', component: EstudanteComponent},
   {path:'estudante/documentos-submetidos',component: PaginaComponent},
   {path:'docente',component:DocenteComponent},
-    {path:'comissao-cientifica',component:ComissaoCientificaComponent},
-    {path:'docente',component:DocenteComponent},
-    {path:'shemmer',component:ShimmerEfectComponent},
+  {path:'comissao-cientifica',component:ComissaoCientificaComponent},
+  {path:'docente',component:DocenteComponent},
+  {path:'shemmer',component:ShimmerEfectComponent},
+  {path:'director-do-curso',component:DirectorDoCursoComponent}
 ];
 @NgModule({
   imports: [
