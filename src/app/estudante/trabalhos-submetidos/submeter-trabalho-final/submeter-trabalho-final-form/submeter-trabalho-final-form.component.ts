@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./submeter-trabalho-final-form.component.scss']
 })
 export class SubmeterTrabalhoFinalFormComponent implements OnInit {
-
+  labelDoFileChooser:string = "Selecione o documento"
   constructor() { }
 
   ngOnInit() {

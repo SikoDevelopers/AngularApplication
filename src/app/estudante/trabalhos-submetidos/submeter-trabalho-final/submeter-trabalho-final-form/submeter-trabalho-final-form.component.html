@@ -1,10 +1,6 @@
 <form>
-
-
-  <label>Selecione o Documento</label>
+  <label>Documento</label>
   <app-file-input [textoDaLabel]="labelDoFileChooser" (eventEmiter)="atribuirValor($event)"></app-file-input>
-
-
 
   <div class="text-right">
     <a class="btn btn-primary waves-light" (click)="submeter()" mdbRippleRadius>
