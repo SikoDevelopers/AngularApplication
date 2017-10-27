@@ -3,6 +3,7 @@ import {UserService} from "../../service/user.service";
 import {TrabalhoService} from "../../service/trabalho.service";
 import {FicheirosTrabalhoService} from "../../service/ficheiros-trabalho.service";
 import {EstudanteService} from "../../service/estudante.service";
+import {FicheiroTrabalhoEstadoFicheiroService} from "../../service/ficheiro-trabalho-estado-ficheiro.service";
 
 @Component({
   selector: 'app-trabalhos-submetidos',
@@ -20,6 +21,7 @@ export class TrabalhosSubmetidosComponent implements OnInit {
               private trabalhoService: TrabalhoService,
               private ficheiroService: FicheirosTrabalhoService,
               private estudanteService: EstudanteService,
+              private estadoFicheiroService : FicheiroTrabalhoEstadoFicheiroService
 
               ) { }
 
@@ -52,29 +54,34 @@ export class TrabalhosSubmetidosComponent implements OnInit {
 
 
     getEstudante(){
+                let estudante: any = 'hhhh';
 
                 this.estudanteService.getEstudantesByIdUser(this.user.id).subscribe(
                     result=>{
-                        this.estudante = result['estudante'];
+                        estudante = result['estudante'][0];
 
+                        console.log(estudante);
                     },
                     (error)=>{
                         console.log(error)
                     },
                     ()=>{
-                        this.getTrabalhoEstudante();
+                        this.estudante = estudante;
+                        console.log(estudante);
+                        this.getTrabalhoEstudante(estudante.id);
 
                     }
                 )
             }
 
 
-            getTrabalhoEstudante(){
+            getTrabalhoEstudante(id){
 
-                this.trabalhoService.getTrabalhosEstudante(4).subscribe(
+                this.trabalhoService.getTrabalhosEstudante(id).subscribe(
                     resul=>{
                         this.trabalho = resul['trabalho'];
 
+                        console.log(this.trabalho);
 
 
 
@@ -85,9 +92,29 @@ export class TrabalhosSubmetidosComponent implements OnInit {
                     ()=>{
                         this.ficheiros= this.trabalho.ficheiros_trabalhos;
                         console.log('files '+this.ficheiros);
+                        this.getEstadoFicheiro(this.trabalho.id);
 
                     }
                 )
             }
+
+            getEstadoFicheiro(id){
+                this.estadoFicheiroService.getEstadoFicheiro(id).subscribe(
+                    resultado=>{
+                        this.estado = resultado.estado;
+                    },
+                    (error)=>{
+                        console.log(error);
+                    },
+                    ()=>{
+                        console.log('state retrieved');
+                    }
+                )
+            }
+
+    verFicheiro(caminho){
+                // window.location.href="http://127.0.0.1:8000/api/display/"+caminho;
+        window.open("http://127.0.0.1:8000/api/display/"+caminho,'_blank');
+    }
 
 }
