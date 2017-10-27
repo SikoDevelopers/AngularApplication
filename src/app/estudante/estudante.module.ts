@@ -12,6 +12,7 @@ import {FileInputComponent} from "../file-input/file-input.component";
 import {SelectSupervisorModule} from "../select-supervisor/select-supervisor.module";
 import { EstudanteComponent } from './estudante.component';
 import {EstudanteRotas} from "./estudante.routing";
+import { SubmeterTrabalhoFinalComponent } from './trabalhos-submetidos/submeter-trabalho-final/submeter-trabalho-final.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -29,6 +30,7 @@ import {EstudanteRotas} from "./estudante.routing";
     SubmeterTrabalhoFormComponent,
     FileInputComponent,
     EstudanteComponent,
+    SubmeterTrabalhoFinalComponent,
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   exports: [ SidenavComponent ]
