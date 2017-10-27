@@ -19,7 +19,7 @@ export class TabelaOponenciasComponent implements OnInit {
   ){}
 
   ngOnInit() {
-   // this.getUser();
+    this.getUser();
   }
 
   getUser() {
@@ -63,7 +63,7 @@ export class TabelaOponenciasComponent implements OnInit {
           console.log("Error ao carregar OPonencias" + error2)
         },
         () => {
-
+            console.log(this.oponencias[1][0].titulo);
         }
     );
   }
