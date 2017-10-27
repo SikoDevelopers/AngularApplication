@@ -26,28 +26,24 @@
         </tr>
         </thead>
         <tbody *ngFor="let file of ficheiros">
-        <tr  class="hoverable" >
+        <tr  class="hoverable" (click)="verFicheiro(file.caminho)" >
           <th scope="row">{{file.id}}</th>
           <td>{{file.caminho}}</td>
           <td>{{file.created_at}}</td>
-          <td>acertar o relacionamento</td>
-          <td><a href="http://127.0.0.1:8000/api/display/{{file.caminho}}" target="_blank"><i class="fa fa-download"></i></a></td>
-          <td><a><i class="fa fa-trash-o"></i></a></td>
+          <td>{{estado}}</td>
+          <td><a href="http://127.0.0.1:8000/api/display/{{file.caminho}}" target="_blank"><i class="fa fa-eye"></i></a></td>
+
         </tr>
         </tbody>
       </table>
       <div class="row">
-        <div class="col-md-3">
-          <a href="estudante/submeter-trabalho" disabled="true"  class="btn btn-primary waves-light" mdbRippleRadius>
-            <i class="fa fa-upload"></i>
-            Submeter protocolo
-          </a>
-      </div>
-        <div class="col-md-3">
-          <a href="estudante/submeter-trabalho" disabled="true"  class="btn btn-primary waves-light" mdbRippleRadius>
+
+
+        <div class="col">
+          <button disabled="true"  class="btn btn-primary waves-light" mdbRippleRadius>
             <i class="fa fa-upload"></i>
             Submeter relatorio final
-          </a>
+          </button>
       </div>
     </div>
   </div>
