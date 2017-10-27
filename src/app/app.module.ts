@@ -25,6 +25,7 @@ import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 import {TemaService} from "./service/tema.service";
 import {MatAutocompleteModule, MatFormFieldControl, MatInputModule} from "@angular/material";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {DirectorDoCursoModule} from "./director-do-curso/director-do-curso.module";
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FormsModule,
      ComissaoCientificaModule,
       DocenteModule,
-    NgProgressModule
+    NgProgressModule,
+      DirectorDoCursoModule
 
 
 
