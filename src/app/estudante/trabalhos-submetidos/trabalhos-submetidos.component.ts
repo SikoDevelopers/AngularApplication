@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {UserService} from "../../service/user.service";
 import {TrabalhoService} from "../../service/trabalho.service";
 import {FicheirosTrabalhoService} from "../../service/ficheiros-trabalho.service";
@@ -17,6 +17,7 @@ export class TrabalhosSubmetidosComponent implements OnInit {
     estado;
     estudante;
     trabalho;
+    @Input() modal: any;
   constructor(private userService: UserService,
               private trabalhoService: TrabalhoService,
               private ficheiroService: FicheirosTrabalhoService,
@@ -26,6 +27,7 @@ export class TrabalhosSubmetidosComponent implements OnInit {
               ) { }
 
   ngOnInit() {
+
       this.getUser();
 
       // alert(this.user.id);
@@ -117,4 +119,10 @@ export class TrabalhosSubmetidosComponent implements OnInit {
         window.open("http://127.0.0.1:8000/api/display/"+caminho,'_blank');
     }
 
+    getModal(event){
+        this.modal= event;
+    }
+    onMostrarModal(){
+        this.modal.show();
+    }
 }

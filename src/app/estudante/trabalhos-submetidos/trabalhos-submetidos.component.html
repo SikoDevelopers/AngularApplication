@@ -1,3 +1,4 @@
+<app-submeter-trabalho-final (output)="getModal($event)"></app-submeter-trabalho-final>
 <div [ngStyle]="{'margin-top':'10px'}">
   <h2>Documentos submetidos</h2>
   <hr>
@@ -40,7 +41,7 @@
 
 
         <div class="col">
-          <button disabled="true"  class="btn btn-primary waves-light" mdbRippleRadius>
+          <button   class="btn btn-primary waves-light" mdbRippleRadius (click)="onMostrarModal()">
             <i class="fa fa-upload"></i>
             Submeter relatorio final
           </button>

@@ -8,9 +8,12 @@ import { Component, OnInit, ViewChild, Output,EventEmitter } from '@angular/core
 export class SubmeterTrabalhoFinalComponent implements OnInit {
   @ViewChild('modal') modal;
   @Output() output = new EventEmitter();
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
+    this.output.emit(this.modal);
   }
 
 }
