@@ -14,6 +14,11 @@ export class FicheiroTrabalhoEstadoFicheiroService {
 
     }
 
+getEstadoFicheiro(id): Observable<any>{
+        return this.http.get('http://127.0.0.1:8000/api/estado_ficheiros/'+id);
+
+    }
+
 
     saveFicheiroTrabalhoEstadoFicheiro(ficheiroTrabalhoEstadoFicheiro: FicheiroTrabalho_EstadoFicheiro): Observable<any>{
         const headers = new HttpHeaders({'Content-Type': 'application/json'});
