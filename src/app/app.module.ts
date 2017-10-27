@@ -22,9 +22,13 @@ import {SupervisorExternoService} from "./service/supervisor-externo.service";
 import {DocenteAreaService} from "./service/docente-area.service";
 import {DocenteService} from "./service/docente.service";
 import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
+import {FicheirosTrabalhoService} from "./service/ficheiros-trabalho.service";
+import {EstudanteService} from "./service/estudante.service";
+import {FicheiroTrabalhoEstadoFicheiroService} from "./service/ficheiro-trabalho-estado-ficheiro.service";
 import {TemaService} from "./service/tema.service";
 import {MatAutocompleteModule, MatFormFieldControl, MatInputModule} from "@angular/material";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -59,8 +63,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
       DocenteAreaService,
       DocenteService,
       TrabalhoService,
-    TemaService
+      FicheirosTrabalhoService,
+      EstudanteService,
+      FicheiroTrabalhoEstadoFicheiroService,
+      TemaService
     ],
+
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
