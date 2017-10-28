@@ -9,18 +9,8 @@ export class FicheirosTrabalhoService {
     constructor(private http: HttpClient) { }
 
 
-    getFicheirosTrabalho(id): Observable<any>{
-        return this.http.get('http://127.0.0.1:8000/api/ficheiros_trabalhos/'+id);
-
-    }
-
-    getFicheirosTra(id): Observable<any>{
-        return this.http.get('http://127.0.0.1:8000/api/ficheiros_de_trabalho/'+id);
-
-    }
-
-    getFicheirosEstado(caminho): Observable<any>{
-        return this.http.get('http://127.0.0.1:8000/api/ficheiros_estado/'+caminho);
+    getFicheirosTrabalho(): Observable<any>{
+        return this.http.get('http://127.0.0.1:8000/api/ficheiros_trabalhos');
 
     }
 
