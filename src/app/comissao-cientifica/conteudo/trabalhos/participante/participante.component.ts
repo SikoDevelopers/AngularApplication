@@ -9,7 +9,8 @@ import {AvatarComponent} from 'ng2-avatar';
 export class ParticipanteComponent implements OnInit {
 
 
-    @Input()docentes: any;
+    @Input() docentes: any;
+    @Input() docentesAdicionais = [];
 
 
 

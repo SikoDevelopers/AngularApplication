@@ -18,6 +18,7 @@ export class TabelaProtocolosComponent implements OnInit {
     docentes: any;
 
 
+
     constructor(private trabalhosService: TrabalhoService) {
 
     }

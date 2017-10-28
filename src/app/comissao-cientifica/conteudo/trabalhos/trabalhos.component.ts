@@ -8,7 +8,7 @@ import {Subscribable} from 'rxjs/Observable';
   templateUrl: './trabalhos.component.html',
   styleUrls: ['./trabalhos.component.scss']
 })
-export class TrabalhosComponent implements OnInit {
+export class TrabalhosComponent implements OnInit, OnDestroy {
 
 
     subcricao: any;
@@ -24,7 +24,7 @@ export class TrabalhosComponent implements OnInit {
   }
 
     getTrabalhos(){
-        this.subcricao = this.trabalhosService.getTrabalho(false,5).subscribe(
+        this.trabalhosService.getTrabalho(false,5).subscribe(
             (resultado: Response) =>{
                 this.trabalhos = resultado['trabalhos'].data;
             },
@@ -37,9 +37,9 @@ export class TrabalhosComponent implements OnInit {
         );
     }
 
-    // ngOnDestroy(): void {
-    //     this.subcricao.unsubscribe();
-    // }
+    ngOnDestroy(): void {
+        // this.subcricao.unsubscribe();
+    }
 
 
 }

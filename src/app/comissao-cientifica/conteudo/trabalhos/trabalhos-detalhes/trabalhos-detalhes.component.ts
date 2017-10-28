@@ -15,6 +15,7 @@ export class TrabalhosDetalhesComponent implements OnInit {
     @Input() trabalho: any;
     @Input() docentes: any;
     @Input() modalParticipantes: any;
+    @Input() docentesdicionados = [];
 
   constructor() {
 
@@ -53,9 +54,22 @@ export class TrabalhosDetalhesComponent implements OnInit {
         this.modalParticipantes = evento;
     }
 
-    reabrirDialog(){
+    reabrirDialog(evento){
+
+        console.log(evento);
+        this.docentesdicionados.push(evento);
+
+
         this.modalParticipantes.hide();
         this.modal.show();
+
+    }
+
+    salvarAlteracoes(){
+        console.log("Devem ser adicionados os seguintes docentes");
+        console.log(this.docentesdicionados);
+        console.log("Para este trabalho");
+        console.log(this.trabalho);
 
     }
 
