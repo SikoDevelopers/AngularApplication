@@ -2,14 +2,48 @@
   <div class="media mb-1 mr-5">
     <a class="media-left waves-light">
       <avatar [name]="participante.nome" [displayType]="'circle'" [size]="70"></avatar>
-      <!--<img class="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-7.jpg" alt="Generic placeholder image">-->
     </a>
 
     <div class="media-body ml-2">
       <p [ngStyle]="{'float':'right', 'color': getFuncaoColor()}" class="p-3">{{participante.funcao.designacao}}</p>
       <h4 class="media-heading">{{participante.nome }}</h4>
 
-      <p>{{participante.area_participacao.designacao}}</p>
+      <div *ngIf="participante.area_participacao; then comArea else semArea"></div>
+
+      <ng-template #comArea>
+        <p>{{participante.area_participacao.designacao}}</p>
+      </ng-template>
+
+      <ng-template #semArea>
+        <p>Sem area</p>
+      </ng-template>
+
+
+      <hr>
+    </div>
+  </div>
+</div>
+
+<div *ngFor="let participante of docentesAdicionais">
+  <div class="media mb-1 mr-5">
+    <a class="media-left waves-light">
+      <avatar [name]="participante.nome" [displayType]="'circle'" [size]="70"></avatar>
+    </a>
+
+    <div class="media-body ml-2">
+      <p [ngStyle]="{'float':'right', 'color': getFuncaoColor()}" class="p-3">{{participante.funcao.designacao}}</p>
+      <h4 class="media-heading">{{participante.nome }}</h4>
+
+      <div *ngIf="participante.area_participacao; then comArea else semArea"></div>
+
+      <ng-template #comArea>
+        <p>{{participante.area_participacao.designacao}}</p>
+      </ng-template>
+
+      <ng-template #semArea>
+        <p>Sem area</p>
+      </ng-template>
+
 
       <hr>
     </div>
