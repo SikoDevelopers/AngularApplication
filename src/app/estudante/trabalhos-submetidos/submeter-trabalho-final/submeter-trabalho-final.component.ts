@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Output,EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'app-submeter-trabalho-final',
-    templateUrl: './submeter-trabalho-final.component.html',
-    styleUrls: ['./submeter-trabalho-final.component.scss']
+  selector: 'app-submeter-trabalho-final',
+  templateUrl: './submeter-trabalho-final.component.html',
+  styleUrls: ['./submeter-trabalho-final.component.scss']
 })
 export class SubmeterTrabalhoFinalComponent implements OnInit {
-    labelDoFileChooser:string = "Selecione o documento"
-    constructor() { }
+  @ViewChild('modal') modal;
+  @Output() output = new EventEmitter();
+  constructor() {
 
-    ngOnInit() {
-    }
+  }
+
+  ngOnInit() {
+    this.output.emit(this.modal);
+  }
 
 }
