@@ -8,16 +8,29 @@
       </div>
       <div class="modal-body">
 
+        <div class="container">
+          <div class="row">
+            <div class=" col-md-6 d-flex" style="margin-left: auto; margin-right: auto">
+              <div class="m-3">
+                <h4>Docentes</h4>
+                <ng2-completer #selectDocente (selected)="selecionarDocente($event)" [openOnFocus]="true" [datasource]="dataServiceParticipante" [minSearchLength]="0" [placeholder]="'Selecione um docente'"></ng2-completer>
+              </div>
 
-        <div class="form-group">
-          <input type="text" name="participante" id="participante" placeholder="Adicionar Paricipantes"/>
-          <label for="participante">Participantes</label>
-          <ng-autocomplete (selected)="Selected($event)" [classes]="['']" [group]="group"></ng-autocomplete>
+              <div class="m-3">
+                <h4>Funcoes</h4>
+                <ng2-completer (selected)="selecionarFuncao($event)" [disableInput]="isEnabledFuncao()" [openOnFocus]="true"  [datasource]="dataServiceFuncao" [minSearchLength]="0" [placeholder]="'Selecione uma funcao'"></ng2-completer>
+              </div>
+            </div>
+          </div>
         </div>
 
 
+
+
+
+
         <div class="text-center">
-          <button class="btn btn-primary" (click)="salvarParticipantes()">Salvar Participantes</button>
+          <button class="btn btn-primary" (click)="salvarParticipantes(selectDocente)" [disabled]="isEnabledButton()">Salvar Participantes</button>
         </div>
       </div>
     </div>
