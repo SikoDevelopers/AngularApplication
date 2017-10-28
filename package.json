@@ -31,6 +31,7 @@
     "material-design-icons": "^3.0.1",
     "ng-auto-complete": "^1.7.12",
     "ng2-avatar": "^2.1.1",
+    "ng2-completer": "^1.6.3",
     "ng2-file-upload": "^1.2.1",
     "ng2-pdf-viewer": "^2.0.2",
     "ngx-progressbar": "^2.0.8",

@@ -23,8 +23,9 @@ import {SupervisorExternoService} from "./service/supervisor-externo.service";
 import {DocenteAreaService} from "./service/docente-area.service";
 import {DocenteService} from "./service/docente.service";
 import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
-
-
+import {NgAutoCompleteModule} from 'ng-auto-complete';
+import {FuncaoService} from './service/funcao.service';
+import {Ng2CompleterModule} from 'ng2-completer';
 
 
 
@@ -46,7 +47,9 @@ import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
     FormsModule,
      ComissaoCientificaModule,
       DocenteModule,
-    NgProgressModule
+    NgProgressModule,
+      Ng2CompleterModule,
+
 
 
   ],
@@ -59,7 +62,8 @@ import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
       SupervisorExternoService,
       DocenteAreaService,
       DocenteService,
-      TrabalhoService],
+      TrabalhoService,
+      FuncaoService],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
