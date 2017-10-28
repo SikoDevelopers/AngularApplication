@@ -25,7 +25,7 @@ export class TabelaOponenciasComponent implements OnInit {
   getUser() {
     let token = localStorage.getItem('token');
 
-    this._userService.logado(token).subscribe(
+    this._userService.logoado(token).subscribe(
         resultado => {
           this.user = resultado
         },
