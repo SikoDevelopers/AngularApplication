@@ -13,10 +13,6 @@ export class EstudanteService {
         return this.http.get('http://127.0.0.1:8000/api/estudantes');
 
     }
-    getEstudantesByIdUser(id): Observable<any>{
-        return this.http.get('http://127.0.0.1:8000/api/estudantes_byuser/'+id);
-
-    }
 
 
     saveEstudante(estudante: Estudante): Observable<any>{
