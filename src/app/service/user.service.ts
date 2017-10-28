@@ -21,7 +21,7 @@ export class UserService {
     }
 
 
-    logado(token:string): Observable<any>{
+    logoado(token:string): Observable<any>{
         return this.http.get('http://127.0.0.1:8000/api/user?token='+token);
     }
 
