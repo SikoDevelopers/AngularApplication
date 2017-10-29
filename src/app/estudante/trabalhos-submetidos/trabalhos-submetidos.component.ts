@@ -105,18 +105,21 @@ export class TrabalhosSubmetidosComponent implements OnInit {
                 this.estadoFicheiroService.getEstadoFicheiro(id).subscribe(
                     resultado=>{
                         this.estado = resultado.estado;
+                        if ( this.estado!=='Aprovado'){
+
+                            this.bloquear = true;
+                        }else {
+                            this.bloquear = false;
+                        }
+
+                        alert(this.bloquear);
                     },
                     (error)=>{
                         console.log(error);
                     },
                     ()=>{
                         console.log('state retrieved');
-                        if ( this.estado!== 'Aprovado'){
 
-                            this.bloquear = true;
-                        }else {
-                            this.bloquear = false;
-                        }
                     }
                 )
             }
