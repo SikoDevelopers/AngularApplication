@@ -4,9 +4,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="demoBasic.hide()">-->
-          <!--<span aria-hidden="true">×</span>-->
-        <!--</button>-->
+
       </div>
       <div class="modal-body">
 
@@ -113,8 +111,8 @@
 
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-sm waves-light" data-dismiss="modal" (click)="modal.hide()" mdbRippleRadius>Fechar</button>
-        <button type="button" class="btn btn-primary btn-sm waves-light" mdbRippleRadius (click)="salvarAlteracoes($event)">Save changes</button>
+        <button type="button" class="btn btn-secondary btn-sm waves-light" data-dismiss="modal" (click)="fecharModal($event)" mdbRippleRadius>Fechar</button>
+        <button type="button" class="btn btn-primary btn-sm waves-light" mdbRippleRadius (click)="salvarAlteracoes($event)">Salvar</button>
       </div>
     </div>
   </div>
