@@ -72,14 +72,16 @@ export class TrabalhosDetalhesComponent implements OnInit {
         // console.log("Para este trabalho");
         // console.log(this.trabalho);
 
-        if(this.verificarDuplicacoes() && this.verificarElementosDuplicados(this.docentesdicionados))
-            if(this.verificarFuncoesDuplicadas(this.docentes, this.docentesdicionados))
-                this.salvarParticipantes();
+        if(!(this.docentesdicionados.length == 0))
+            if(this.verificarDuplicacoes() && this.verificarElementosDuplicados(this.docentesdicionados))
+                if(this.verificarFuncoesDuplicadas(this.docentes, this.docentesdicionados))
+                    this.salvarParticipantes();
+                else
+                    alert('Existem participantes com a mesma funcao');
             else
-                alert('Existem participantes com a mesma funcao');
-        else
-            alert('Existem docentes duplicados');
+                alert('Existem docentes duplicados');
 
+        this.modal.hide();
     }
 
 
@@ -96,7 +98,6 @@ export class TrabalhosDetalhesComponent implements OnInit {
             },
             ()=> {
                 alert("Participantes adicionados com  sucesso");
-                this.modal.hide();
                 this.docentesdicionados = [];
             }
         );
