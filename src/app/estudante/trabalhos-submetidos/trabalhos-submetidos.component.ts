@@ -17,6 +17,7 @@ export class TrabalhosSubmetidosComponent implements OnInit {
     estado;
     estudante;
     trabalho;
+    bloquear:boolean =true;
     @Input() modal: any;
   constructor(private userService: UserService,
               private trabalhoService: TrabalhoService,
@@ -110,6 +111,12 @@ export class TrabalhosSubmetidosComponent implements OnInit {
                     },
                     ()=>{
                         console.log('state retrieved');
+                        if ( this.estado!== 'Aprovado'){
+
+                            this.bloquear = true;
+                        }else {
+                            this.bloquear = false;
+                        }
                     }
                 )
             }
@@ -125,4 +132,5 @@ export class TrabalhosSubmetidosComponent implements OnInit {
     onMostrarModal(){
         this.modal.show();
     }
+
 }
