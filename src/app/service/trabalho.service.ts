@@ -59,5 +59,12 @@ export class TrabalhoService {
     getSupervisores(){
         return this.http.get('http://localhost:8000/supervisores');
     }
+
+
+
+    adicinarParticipantes(trabalho, participantes){
+        const headers = new HttpHeaders({'Content-Type': 'application/json'});
+        return this.http.post('http://localhost:8000/api/trabalho/participantes', {trabalho: trabalho, participantes: participantes},{headers: headers});
+    }
 }
 
