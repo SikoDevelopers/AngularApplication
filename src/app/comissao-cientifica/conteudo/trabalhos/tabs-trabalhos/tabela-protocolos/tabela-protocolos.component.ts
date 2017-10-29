@@ -18,6 +18,7 @@ export class TabelaProtocolosComponent implements OnInit {
     docentes: any;
 
 
+
     constructor(private trabalhosService: TrabalhoService) {
 
     }
@@ -25,6 +26,7 @@ export class TabelaProtocolosComponent implements OnInit {
     ngOnInit() {
         this.getProtocolos();
     }
+
 
 
     getProtocolos(){
