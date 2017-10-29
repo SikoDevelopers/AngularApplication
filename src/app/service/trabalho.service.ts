@@ -46,6 +46,12 @@ export class TrabalhoService {
     }
 
 
+    hasJob($id: number){
+        alert($id);
+        return this.http.get('http://localhost:8000/api/estudante_job/'+$id);
+    }
+
+
 
     getProtocolo(completo?: boolean, paginacao: number = 5): Observable<any>{
         return this.http.get('http://localhost:8000/api/apenas/protocolos');
@@ -53,6 +59,11 @@ export class TrabalhoService {
 
     getTrabalhosApenas(): Observable<any>{
         return this.http.get('http://localhost:8000/api/apenas/trabalhos');
+    }
+
+    getTrabalhosEstudante(id:number): Observable<any>{
+        // return this.http.get('http://localhost:8000/api/trabalho_estudante/'+ id);
+        return this.http.get('http://localhost:8000/api/trabalho_estudante/'+id);
     }
 
 

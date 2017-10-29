@@ -1,0 +1,11 @@
+<label>{{ label }}</label>
+<div class="mdl-selectfield">
+
+  <select class="browser-default" (change)="selecionarCurso($event.target)" #opcaoSelecionada>
+      <option value="" disabled selected *ngIf="!idArea">Selecione uma opcao</option>
+      <option *ngFor="let opcao of opcoes" [selected]="idArea == opcao.id" value="{{ opcao.id }}">{{ opcao.designacao }}</option>
+  </select>
+</div>
+<br>
+
+

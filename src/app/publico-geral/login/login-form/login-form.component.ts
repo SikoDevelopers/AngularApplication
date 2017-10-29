@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {AutenticacaoService} from '../../../service/autenticacao.service';
 import {HttpErrorResponse} from '@angular/common/http';
+import {TrabalhoService} from "../../../service/trabalho.service";
 
 @Component({
   selector: 'app-login-form',
@@ -13,15 +14,17 @@ export class LoginFormComponent implements OnInit {
     mensagemErro: String = "";
     mensagemSucesso: String = "";
     loginNegado: String = "";
+    hasjob : boolean;
 
 
-  constructor(private autenticacaoService: AutenticacaoService) { }
+  constructor(private autenticacaoService: AutenticacaoService, private trabalhoService: TrabalhoService) { }
 
   ngOnInit() {
   }
 
 
     onLogin(formulario: NgForm){
+
       let user = {
           'email': formulario.value.email,
           'password': formulario.value.password
@@ -33,11 +36,34 @@ export class LoginFormComponent implements OnInit {
           this.mensagemSucesso = "Credenciais validas! Aguarde...";
 
           if(dados) {
+
               if (dados['user']['docente'] != null)
                   window.location.href = "docente/supervisandos";
 
-              if (dados['user']['estudante'] != null)
-                  window.location.href = "estudante/submeter-trabalho";
+              if (dados['user']['estudante'] != null) {
+                  // alert(this.hasJob(dados['user'].id));
+                  let resultado;
+                  this.trabalhoService.hasJob(dados['user'].id).subscribe(
+                      resul=>{
+                          resultado = resul['resultado'];
+                          console.log(resul['resultado']);
+                      },
+                      (erros)=>{
+                          console.error(erros);
+                      },
+                      ()=>{
+                          if (resultado) {
+                              alert('Possui trabalhos');
+                              window.location.href = "estudante/trabalhos-submetidos";
+                          }
+                          else {
+                              window.location.href = "estudante/submeter-trabalho";
+                          }
+                      }
+
+                  );
+
+              }
 
               if (dados['user']['director_curso'] != null)
                   alert("Sera direcionado para Director de Curso");
@@ -66,6 +92,7 @@ export class LoginFormComponent implements OnInit {
 
 
 
+
     validarFormulario(formulario: NgForm){
         return formulario.invalid;
     }
@@ -81,6 +108,14 @@ export class LoginFormComponent implements OnInit {
             this.mensagemErro = "Password eh obrigatorio";
             return true;
         }
+    }
+
+    hasJob(id:number){
+        this.trabalhoService.hasJob(id).subscribe(
+            resul=>{
+                return resul['resultado'];
+            }
+        )
     }
 
 }
