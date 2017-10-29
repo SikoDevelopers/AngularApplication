@@ -14,17 +14,16 @@ export class TrabalhosComponent implements OnInit, OnDestroy {
     subcricao: any;
 
 
-
   trabalhos: any = [];
   constructor(private  trabalhosService: TrabalhoService) {
   }
 
   ngOnInit() {
-      // this.getTrabalhos();
+      this.getTrabalhos();
   }
 
     getTrabalhos(){
-        this.trabalhosService.getTrabalho(false,5).subscribe(
+        this.subcricao = this.trabalhosService.getTrabalho(false,5).subscribe(
             (resultado: Response) =>{
                 this.trabalhos = resultado['trabalhos'].data;
             },
@@ -38,7 +37,7 @@ export class TrabalhosComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        // this.subcricao.unsubscribe();
+        this.subcricao.unsubscribe();
     }
 
 

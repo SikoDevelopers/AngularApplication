@@ -22,9 +22,6 @@ import {SupervisorExternoService} from "./service/supervisor-externo.service";
 import {DocenteAreaService} from "./service/docente-area.service";
 import {DocenteService} from "./service/docente.service";
 import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
-import {NgAutoCompleteModule} from 'ng-auto-complete';
-import {FuncaoService} from './service/funcao.service';
-import {Ng2CompleterModule} from 'ng2-completer';
 import {FicheirosTrabalhoService} from "./service/ficheiros-trabalho.service";
 import {EstudanteService} from "./service/estudante.service";
 import {FicheiroTrabalhoEstadoFicheiroService} from "./service/ficheiro-trabalho-estado-ficheiro.service";
@@ -34,11 +31,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
-    ShimmerEfectComponent,
+    ShimmerEfectComponent
   ],
   imports: [
     BrowserModule,
@@ -52,13 +48,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FormsModule,
      ComissaoCientificaModule,
       DocenteModule,
-    NgProgressModule,
-      Ng2CompleterModule
+    NgProgressModule
+
+
 
   ],
-
-  providers: [
-      CursoService,
+  providers: [CursoService,
       UserService,
       AutenticacaoService,
       TrabalhoService,
@@ -68,7 +63,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
       DocenteAreaService,
       DocenteService,
       TrabalhoService,
-      FuncaoService,
       FicheirosTrabalhoService,
       EstudanteService,
       FicheiroTrabalhoEstadoFicheiroService,
