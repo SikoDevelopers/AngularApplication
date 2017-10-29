@@ -25,6 +25,9 @@ export class ParticipanteComponent implements OnInit {
     return this.avatar.background;
   }
 
+    removerParticipante(participante){
+      this.docentesAdicionais.splice(this.docentesAdicionais.indexOf(participante), 1);
+    }
 
 
 }
