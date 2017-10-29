@@ -12,7 +12,7 @@ export class TabelaTrabalhosApenasComponent implements OnInit {
 
     trabalhos: Array<any>;
     @Input() modal: any;
-    @Output() saidaDados = new EventEmitter();
+    // @Output() saidaDados = new EventEmitter();
     @ViewChild('modalDetalhes') modalDetalhes;
     trabalhoSelecionado: any;
     subcricao: any;
