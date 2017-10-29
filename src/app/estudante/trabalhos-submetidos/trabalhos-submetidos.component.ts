@@ -17,6 +17,7 @@ export class TrabalhosSubmetidosComponent implements OnInit {
     estado;
     estudante;
     trabalho;
+    bloquear:boolean =true;
     @Input() modal: any;
   constructor(private userService: UserService,
               private trabalhoService: TrabalhoService,
@@ -104,12 +105,21 @@ export class TrabalhosSubmetidosComponent implements OnInit {
                 this.estadoFicheiroService.getEstadoFicheiro(id).subscribe(
                     resultado=>{
                         this.estado = resultado.estado;
+                        if ( this.estado!=='Aprovado'){
+
+                            this.bloquear = true;
+                        }else {
+                            this.bloquear = false;
+                        }
+
+                        alert(this.bloquear);
                     },
                     (error)=>{
                         console.log(error);
                     },
                     ()=>{
                         console.log('state retrieved');
+
                     }
                 )
             }
@@ -125,4 +135,5 @@ export class TrabalhosSubmetidosComponent implements OnInit {
     onMostrarModal(){
         this.modal.show();
     }
+
 }
