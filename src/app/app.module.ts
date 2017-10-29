@@ -38,7 +38,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    ShimmerEfectComponent
+    ShimmerEfectComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,13 +53,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
      ComissaoCientificaModule,
       DocenteModule,
     NgProgressModule,
-      Ng2CompleterModule,
-
-
-
+      Ng2CompleterModule
 
   ],
-  providers: [CursoService,
+
+  providers: [
+      CursoService,
       UserService,
       AutenticacaoService,
       TrabalhoService,
@@ -69,7 +68,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
       DocenteAreaService,
       DocenteService,
       TrabalhoService,
-      FuncaoService],
+      FuncaoService,
       FicheirosTrabalhoService,
       EstudanteService,
       FicheiroTrabalhoEstadoFicheiroService,
