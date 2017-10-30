@@ -105,7 +105,7 @@ export class TrabalhosSubmetidosComponent implements OnInit {
                 this.estadoFicheiroService.getEstadoFicheiro(id).subscribe(
                     resultado=>{
                         this.estado = resultado.estado;
-                      
+
                     },
                     (error)=>{
                         console.log(error);
