@@ -29,6 +29,8 @@ export class SubmeterTrabalhoFinalFormComponent implements OnInit {
     estudante;
     trabalho;
   ngOnInit() {
+      this.getUser();
+
   }
 
 
@@ -41,15 +43,16 @@ export class SubmeterTrabalhoFinalFormComponent implements OnInit {
 
     submeter(){
 
+
         let formData= new FormData();
         formData.append('trabalho',this.file, this.file.name);
-        formData.append( 'estudante',''+this.user.id);
+        formData.append( 'estudante_id',''+this.estudante.id);
         formData.append('data',''+new Date());
         formData.append('timestamp',''+new Date().getTime());
 
 
 
-        this.trabalhoService.saveTrabalho(formData).subscribe(
+        this.trabalhoService.saveTrabalhoFinal(formData).subscribe(
             resultados=>{
                 console.log(resultados);
             },
