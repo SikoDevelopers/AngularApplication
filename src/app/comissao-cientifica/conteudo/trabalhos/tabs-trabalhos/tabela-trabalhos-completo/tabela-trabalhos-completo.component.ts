@@ -61,7 +61,6 @@ export class TabelaTrabalhosCompletoComponent implements OnInit {
 
 
     onClickTrabalho(trabalho){
-        this.saidaDados.emit(this.trabalhoSelecionado);
         this.trabalhoSelecionado = trabalho;
         this.getParticipantesTrabalhos(trabalho.id);
         this.modal.show();
