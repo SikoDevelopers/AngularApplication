@@ -77,8 +77,8 @@ export class TrabalhoService {
      * @param id - id do trabalho a retornar
      * @returns {Observable<Object>}
      */
-    getDetalhesTrabalho(id:number){
-        return this.http.get('http://localhost:8000/api/trabalho'+id);
+    getDetalhesTrabalho(id:number) : Observable<any>{
+        return this.http.get('http://localhost:8000/api/trabalho/'+id);
     }
 }
 

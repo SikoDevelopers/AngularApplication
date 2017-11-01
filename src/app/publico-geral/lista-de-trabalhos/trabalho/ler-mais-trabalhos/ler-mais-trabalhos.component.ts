@@ -19,7 +19,7 @@ export class LerMaisTrabalhosComponent implements OnInit {
       this.subscription = this._routerActived.params.subscribe(
           (params: any) =>{
               this.id = params['id-trabalho'];
-
+              console.log(this.id);
               this.getTrabalho(this.id);
 
           }
@@ -31,7 +31,15 @@ export class LerMaisTrabalhosComponent implements OnInit {
 
 
   getTrabalho(id:number){
-      this._trabalhoService.getDetalhesTrabalho(id);
+      this._trabalhoService.getDetalhesTrabalho(id).subscribe(
+          resultado => {
+              this.trabalho = resultado['trabalho'];
+          },
+          error2 => {console.log("Error"+error2)},
+          () =>{
+
+          }
+      );
   }
 
 }
