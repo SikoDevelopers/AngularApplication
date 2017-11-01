@@ -11,6 +11,7 @@ import { EventoComponent } from './lista-de-eventos/evento/evento.component';
 import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { LerMaisTrabalhosComponent } from './lista-de-trabalhos/trabalho/ler-mais-trabalhos/ler-mais-trabalhos.component';
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { LerMaisTrabalhosComponent } from './lista-de-trabalhos/trabalho/ler-mai
       BarraDoTopoModule,
       SelectFiltroModule,
       SliderModule,
-      NgProgressModule
+      NgProgressModule,
+      RouterModule
   ],
   declarations: [
     PaginaInicialComponent,

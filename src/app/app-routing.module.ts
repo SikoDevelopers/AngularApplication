@@ -22,7 +22,7 @@ const appRoutes: Routes = [
   {path:'comissao-cientifica',component:ComissaoCientificaComponent},
   {path:'docente',component:DocenteComponent},
   {path:'shemmer',component:ShimmerEfectComponent},
-  {path:'detalhes-trabalho/:id-trabalho', component: LerMaisTrabalhosComponent}
+  {path:'trabalho-detalhes/:id-trabalho', component: LerMaisTrabalhosComponent}
 ];
 @NgModule({
   imports: [
