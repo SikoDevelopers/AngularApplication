@@ -1,7 +1,5 @@
 
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {CompleterData, CompleterService} from 'ng2-completer';
-import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -11,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShimmerEfectComponent implements OnInit {
 
-  constructor() { }
+
 
     constructor(){}
     dataActual = new Date();

@@ -13,11 +13,11 @@ export class TabsTrabalhosComponent implements OnInit {
   }
 
     receberDados(evento){
-      this.entradaDados = evento;
+      // this.entradaDados = evento;
     }
 
     getModal(evento){
-        this.modal = evento;
+        // this.modal = evento;
         // console.log(evento);
     }
 }

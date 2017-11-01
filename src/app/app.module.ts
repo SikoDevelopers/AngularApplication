@@ -21,7 +21,7 @@ import { ShimmerEfectComponent } from './shimmer-efect/shimmer-efect.component';
 import {SupervisorExternoService} from "./service/supervisor-externo.service";
 import {DocenteAreaService} from "./service/docente-area.service";
 import {DocenteService} from "./service/docente.service";
-import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
+import {NgProgressModule} from 'ngx-progressbar';
 import {FicheirosTrabalhoService} from "./service/ficheiros-trabalho.service";
 import {EstudanteService} from "./service/estudante.service";
 import {FicheiroTrabalhoEstadoFicheiroService} from "./service/ficheiro-trabalho-estado-ficheiro.service";
@@ -49,7 +49,7 @@ import { DatepickerModule } from 'angular2-material-datepicker'
      ComissaoCientificaModule,
       DocenteModule,
     NgProgressModule,
-      Ng2CompleterModule,
+      // Ng2CompleterModule,
       DatepickerModule
 
 

@@ -22,8 +22,8 @@
               <form id="pre-defesa" class="p-3">
 
                 <div class="form-group mt-3">
-                  <label for="trabalho">Trabalho</label>
-                  <ng2-completer #selectDocente (selected)="selecionarTrabalho($event)" [id]="trabalho"  [openOnFocus]="true" [datasource]="dataServiceTrabalho" [minSearchLength]="0" [placeholder]="'Selecione Trabalhos pelo Tema'"></ng2-completer>
+                  <label>Trabalho</label>
+                  <ng2-completer #selectDocente (selected)="selecionarTrabalho($event)" [openOnFocus]="true" [datasource]="dataServiceTrabalho" [minSearchLength]="0" [placeholder]="'Selecione Trabalhos pelo Tema'"></ng2-completer>
                 </div>
 
                 <div class="row mt-4">
@@ -81,11 +81,11 @@
             </ng-template>
             <div class="demo-tab-content">
 
-                <form id="pre-defesa" class="p-3">
+                <form id="defesa" class="p-3">
                     
                                     <div class="form-group mt-3">
-                                      <label for="trabalho">Trabalho</label>
-                                      <ng2-completer #selectDocente (selected)="selecionarTrabalho($event)" [id]="trabalho"  [openOnFocus]="true" [datasource]="dataServiceTrabalho" [minSearchLength]="0" [placeholder]="'Selecione Trabalhos pelo Tema'"></ng2-completer>
+                                      <label>Trabalho</label>
+                                      <ng2-completer #selectDocente (selected)="selecionarTrabalho($event)"  [openOnFocus]="true" [datasource]="dataServiceTrabalho" [minSearchLength]="0" [placeholder]="'Selecione Trabalhos pelo Tema'"></ng2-completer>
                                     </div>
                     
                                     <div class="row mt-4">
