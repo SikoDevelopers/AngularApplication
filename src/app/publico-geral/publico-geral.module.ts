@@ -12,6 +12,7 @@ import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { LerMaisTrabalhosComponent } from './lista-de-trabalhos/trabalho/ler-mais-trabalhos/ler-mais-trabalhos.component';
 import {RouterModule} from "@angular/router";
+import { DetalhesTrabalhoComponent } from './lista-de-trabalhos/trabalho/ler-mais-trabalhos/detalhes-trabalho/detalhes-trabalho.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {RouterModule} from "@angular/router";
     TrabalhoComponent,
     ListaDeEventosComponent,
     EventoComponent,
-    LerMaisTrabalhosComponent
+    LerMaisTrabalhosComponent,
+    DetalhesTrabalhoComponent
 
   ],
     providers: [{ provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
