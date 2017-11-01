@@ -30,7 +30,7 @@ export class TabsTrabalhosComponent implements OnInit {
 
     getModal(evento){
         this.modal = evento;
-        console.log(evento);
+        // console.log(evento);
     }
 
 }
