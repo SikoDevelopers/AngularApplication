@@ -75,15 +75,11 @@ export class TrabalhoService {
     getSupervisores(){
         return this.http.get('http://127.0.0.1:8000/supervisores');
     }
-<<<<<<< HEAD
-
-
 
     adicinarParticipantes(trabalho, participantes){
         const headers = new HttpHeaders({'Content-Type': 'application/json'});
         return this.http.post('http://127.0.0.1:8000/api/trabalho/participantes', {trabalho: trabalho, participantes: participantes},{headers: headers});
     }
-=======
->>>>>>> master
+
 }
 
