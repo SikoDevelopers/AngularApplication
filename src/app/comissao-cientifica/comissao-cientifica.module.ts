@@ -44,8 +44,6 @@ import { ListaEventosComponent } from './conteudo/eventos/lista-eventos/lista-ev
 import { EditarEventosComponent } from './conteudo/eventos/editar-eventos/editar-eventos.component';
 import { EventoComponent } from './conteudo/eventos/evento/evento.component';
 import { DatepickerModule } from 'angular2-material-datepicker';
-import { ListaEventosDefesaComponent } from './conteudo/eventos/lista-eventos-defesa/lista-eventos-defesa.component'
-
 
 @NgModule({
   imports: [
@@ -61,7 +59,6 @@ import { ListaEventosDefesaComponent } from './conteudo/eventos/lista-eventos-de
       FormsModule,
       Ng2CompleterModule,
       DatepickerModule,
-
   ],
   declarations: [
       ComissaoCientificaComponent,

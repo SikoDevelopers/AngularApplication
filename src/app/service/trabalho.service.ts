@@ -23,9 +23,14 @@ export class TrabalhoService {
 
         const headers = new HttpHeaders();
         headers.append('Content-Type', 'Application/x-www-form-urlencoded');
-        // const headers = new HttpHeaders({'Content-Type': 'multipart/form-data'});
-        // headers.append('Content-Type', 'boundary');
         return this.http.post('http://127.0.0.1:8000/api/trabalhos', formData , {headers: headers});
+    }
+
+    saveTrabalhoFinal(formData: FormData): Observable<any>{
+
+        const headers = new HttpHeaders();
+        headers.append('Content-Type', 'Application/x-www-form-urlencoded');
+        return this.http.post('http://127.0.0.1:8000/api/trabalhos_final', formData , {headers: headers});
     }
 
 
@@ -69,13 +74,6 @@ export class TrabalhoService {
 
     getSupervisores(){
         return this.http.get('http://localhost:8000/supervisores');
-    }
-
-
-
-    adicinarParticipantes(trabalho, participantes){
-        const headers = new HttpHeaders({'Content-Type': 'application/json'});
-        return this.http.post('http://localhost:8000/api/trabalho/participantes', {trabalho: trabalho, participantes: participantes},{headers: headers});
     }
 }
 

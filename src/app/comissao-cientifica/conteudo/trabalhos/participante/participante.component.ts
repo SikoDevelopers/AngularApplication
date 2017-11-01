@@ -9,8 +9,7 @@ import {AvatarComponent} from 'ng2-avatar';
 export class ParticipanteComponent implements OnInit {
 
 
-    @Input() docentes: any;
-    @Input() docentesAdicionais = [];
+    @Input()docentes: any;
 
 
 
@@ -25,9 +24,6 @@ export class ParticipanteComponent implements OnInit {
     return this.avatar.background;
   }
 
-    removerParticipante(participante){
-      this.docentesAdicionais.splice(this.docentesAdicionais.indexOf(participante), 1);
-    }
 
 
 }
