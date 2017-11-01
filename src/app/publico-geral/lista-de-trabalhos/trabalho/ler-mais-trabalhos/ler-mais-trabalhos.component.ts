@@ -31,7 +31,7 @@ export class LerMaisTrabalhosComponent implements OnInit {
 
 
   getTrabalho(id:number){
-      this._trabalhoService
+      this._trabalhoService.getDetalhesTrabalho(id);
   }
 
 }
