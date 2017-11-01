@@ -1,0 +1,12 @@
+<div class="row" >
+  <div class="col-lg-4" *ngFor="let evento of eventos" [ngStyle]="{'margin-top':'20px'}">
+    <app-evento [evento]="evento"></app-evento>
+  </div>
+</div>
+<div>
+  <br>
+  <br>
+  <div class="text-center">
+    <a href="#" [ngStyle]="{'font-size':'20px','font-weight':'bold'}">Ver Mais Eventos</a>
+  </div>
+</div>
