@@ -4,9 +4,10 @@
         <div class="card-body">
             <div class="" [ngStyle]="{'margin-top':'10px'}">
                 <h5>Detalhes do Trabalho</h5>
-
+                <hr>
                 <!--<app-submeter-trabalho-form></app-submeter-trabalho-form>-->
-                <app-detalhes-trabalho [trabalho]="trabalho"></app-detalhes-trabalho>
+                <p> {{ trabalho.descricao}}  </p>
+                <!--<app-detalhes-trabalho [trabalho]="trabalho"></app-detalhes-trabalho>-->
             </div>
         </div>
     </div>
