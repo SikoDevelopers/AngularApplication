@@ -80,7 +80,7 @@ export class AutenticacaoService {
     verificarUserLogado(callback: (dado, context) => void, callbackError: (dado) => void, context){
 
       let result;
-      this.userService.logado(localStorage.getItem('token')).subscribe(
+      this.userService.logoado(localStorage.getItem('token')).subscribe(
           (resultado: Response) => {
               result = resultado;
           },

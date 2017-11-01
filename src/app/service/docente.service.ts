@@ -14,35 +14,6 @@ export class DocenteService {
 
     }
 
-    /**
-     * Metodo usado para ir buscar o docente usando o id do utilizador
-     * @param id - id do utilizador
-     * @returns {Observable<Object>} - daddos do docente retornados
-     */
-    getDocentePorId(id:number): Observable<any>{
-
-        return this.http.get('http://127.0.0.1:8000/api/docentes_user/'+id);
-
-    }
-
-    /**
-     * Metodos usado para buscar estudantes supervisionados por um determinado estudante
-     * @param id - id do docente
-     * @returns {Observable<Object>} - dados do estudante retornados
-     */
-    getSupervisonandos(id:number): Observable<any>{
-        return this.http.get('http://127.0.0.1:8000/api/docentes/'+id+'/estudantes');
-    }
-
-
-    /**
-     * Metodos usado para buscar estudantes supervisionados por um determinado estudante
-     * @param id - id do docente
-     * @returns {Observable<Object>} - dados do estudante retornados
-     */
-    getOponencias(id:number): Observable<any>{
-        return this.http.get('http://127.0.0.1:8000/api/docentes/'+4+'/oponencias');
-    }
 
     saveDocente(docente: Docente): Observable<any>{
         const headers = new HttpHeaders({'Content-Type': 'application/json'});

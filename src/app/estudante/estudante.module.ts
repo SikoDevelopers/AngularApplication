@@ -10,18 +10,13 @@ import {SelectModule} from "../select/select.module";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {FileInputComponent} from "../file-input/file-input.component";
 import {SelectSupervisorModule} from "../select-supervisor/select-supervisor.module";
-import { EstudanteComponent } from './estudante.component';
-import {EstudanteRotas} from "./estudante.routing";
-import { SubmeterTrabalhoFinalComponent } from './trabalhos-submetidos/submeter-trabalho-final/submeter-trabalho-final.component';
-import { SubmeterTrabalhoFinalFormComponent } from './trabalhos-submetidos/submeter-trabalho-final/submeter-trabalho-final-form/submeter-trabalho-final-form.component';
 @NgModule({
   imports: [
     CommonModule,
     BarraDoTopoEstModule,
     SelectModule,
     MDBBootstrapModule.forRoot(),
-      SelectSupervisorModule,
-      EstudanteRotas
+      SelectSupervisorModule
   ],
   declarations: [
     PaginaComponent,
@@ -30,9 +25,6 @@ import { SubmeterTrabalhoFinalFormComponent } from './trabalhos-submetidos/subme
     TrabalhosSubmetidosComponent,
     SubmeterTrabalhoFormComponent,
     FileInputComponent,
-    EstudanteComponent,
-    SubmeterTrabalhoFinalComponent,
-    SubmeterTrabalhoFinalFormComponent,
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   exports: [ SidenavComponent ]

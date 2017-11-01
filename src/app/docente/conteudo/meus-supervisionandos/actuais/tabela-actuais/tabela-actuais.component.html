@@ -1,35 +1,49 @@
-<!--<h1 class="text-center text-info text-uppercase" *ngIf="(estudantes.length == 0)">Nenhum Supervisionando Actual</h1>-->
 <div class="example-container">
 
-  <table class="table">
+  <mat-table #table [dataSource]="dataSource" [ngStyle]="{'min-height':'750px'}">
+    <!-- ID Column -->
+    <ng-container matColumnDef="userId">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+    </ng-container>
 
-    <!--Table head-->
-    <thead>
-    <tr class="text-black">
-      <th>Nome Completo</th>
-      <th>Tema do trabalho</th>
-      <th>Submetido em</th>
-      <th>Estado</th>
-    </tr>
-    </thead>
-    <!--Table head-->
+    <!-- Progress Column -->
+    <ng-container matColumnDef="progress">
+      <mat-header-cell *matHeaderCellDef> Progress </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
+    </ng-container>
 
-    <!--Table body-->
-    <tbody *ngFor="let estudante of estudantes">
-    <tr>
-      <th>{{estudante[0].nome}} {{estudante[0].apelido}} </th>
-      <td>{{estudante[0].nome}}</td>
-      <td>{{estudante[0].created_at | date : 'dd/MM/yyyy'}}</td>
-      <td>
-        <a [class.alert-danger]="'Nao Aprovado' == getEstado(estudante[0].is_aprovado)" class="p-1"
-           [class.alert-success]="'Aprovado' == getEstado(estudante[0].is_aprovado)">
-          {{getEstado(estudante[0].is_aprovado)}}
+    <!-- Name Column -->
+    <ng-container matColumnDef="userName">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="color">
+      <mat-header-cell *matHeaderCellDef> Color </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="operacoes">
+      <mat-header-cell *matHeaderCellDef> Detalhes </mat-header-cell>
+      <mat-cell *matCellDef="let row" >
+        <a>
+          <span><i class="fa fa-info"></i></span>
         </a>
-      </td>
-    </tr>
+      </mat-cell>
+    </ng-container>
 
 
-    </tbody>
-    <!--Table body-->
-  </table>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator
+                 [length]="exampleDatabase.data.length"
+                 [pageIndex]="0"
+                 [pageSize]="14"
+                 [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>
 </div>

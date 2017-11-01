@@ -51,12 +51,15 @@ export class TrabalhoService {
     }
 
 
+<<<<<<< HEAD
     hasJob($id: number){
         alert($id);
         return this.http.get('http://127.0.0.1:8000/api/estudante_job/'+$id);
     }
 
 
+=======
+>>>>>>> parent of 95c600c... Merge branch 'master' into hele-foco-docente
 
     getProtocolo(completo?: boolean, paginacao: number = 5): Observable<any>{
         return this.http.get('http://127.0.0.1:8000/api/apenas/protocolos');
@@ -66,11 +69,14 @@ export class TrabalhoService {
         return this.http.get('http://127.0.0.1:8000/api/apenas/trabalhos');
     }
 
+<<<<<<< HEAD
     getTrabalhosEstudante(id:number): Observable<any>{
         // return this.http.get('http://localhost:8000/api/trabalho_estudante/'+ id);
         return this.http.get('http://127.0.0.1:8000/api/trabalho_estudante/'+id);
     }
 
+=======
+>>>>>>> parent of 95c600c... Merge branch 'master' into hele-foco-docente
 
     getSupervisores(){
         return this.http.get('http://127.0.0.1:8000/supervisores');

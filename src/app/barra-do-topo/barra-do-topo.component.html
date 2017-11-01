@@ -26,7 +26,7 @@
 
     <div *ngIf="user">
       <span class="navbar-text white-text">
-        <a class="right lg-a" href="estudante/trabalhos-submetidos" >
+        <a class="right lg-a" href="#" (click)="redirecionarUser($event.preventDefault(), user)" >
           <span>{{user.email}}</span>
         </a>
       </span>

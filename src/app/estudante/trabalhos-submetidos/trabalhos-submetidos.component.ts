@@ -1,9 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import {UserService} from "../../service/user.service";
-import {TrabalhoService} from "../../service/trabalho.service";
-import {FicheirosTrabalhoService} from "../../service/ficheiros-trabalho.service";
-import {EstudanteService} from "../../service/estudante.service";
-import {FicheiroTrabalhoEstadoFicheiroService} from "../../service/ficheiro-trabalho-estado-ficheiro.service";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-trabalhos-submetidos',
@@ -12,6 +7,7 @@ import {FicheiroTrabalhoEstadoFicheiroService} from "../../service/ficheiro-trab
 })
 export class TrabalhosSubmetidosComponent implements OnInit {
 
+<<<<<<< HEAD
     ficheiros: Array<any>
     user;
     estado;
@@ -26,16 +22,14 @@ export class TrabalhosSubmetidosComponent implements OnInit {
               private estadoFicheiroService : FicheiroTrabalhoEstadoFicheiroService
 
               ) { }
+=======
+  constructor() { }
+>>>>>>> parent of 95c600c... Merge branch 'master' into hele-foco-docente
 
   ngOnInit() {
-
-      this.getUser();
-
-      // alert(this.user.id);
-      // alert('estudante'+this.estudante.id);
-      // alert('trabalho'+this.trabalho.id);
   }
 
+<<<<<<< HEAD
     getUser(){
         const token = localStorage.getItem('token');
 
@@ -129,4 +123,6 @@ export class TrabalhosSubmetidosComponent implements OnInit {
         this.modal.show();
     }
 
+=======
+>>>>>>> parent of 95c600c... Merge branch 'master' into hele-foco-docente
 }
