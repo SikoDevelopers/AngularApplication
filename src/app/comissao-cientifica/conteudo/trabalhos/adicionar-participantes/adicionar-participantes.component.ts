@@ -1,10 +1,8 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild, OnDestroy} from '@angular/core';
 import {DocenteService} from '../../../../service/docente.service';
 import {HttpErrorResponse} from '@angular/common/http';
-import {CreateNewAutocompleteGroup, NgAutocompleteComponent, SelectedAutocompleteItem} from 'ng-auto-complete';
 import {FuncaoService} from '../../../../service/funcao.service';
 import {CompleterData, CompleterService} from 'ng2-completer';
-import {lintSyntaxError} from 'tslint/lib/verify/lintError';
 
 @Component({
   selector: 'app-adicionar-participantes',

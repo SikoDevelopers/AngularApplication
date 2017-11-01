@@ -36,7 +36,6 @@ import { ListaDocentesComponent } from './conteudo/docentes/lista-docentes/lista
 import { DetalhesDocentesComponent } from './conteudo/docentes/detalhes-docentes/detalhes-docentes.component';
 import { AdicionarDocentesFormComponent } from './conteudo/docentes/adicionar-docentes-form/adicionar-docentes-form.component';
 import { AdicionarParticipantesComponent } from './conteudo/trabalhos/adicionar-participantes/adicionar-participantes.component';
-import {NgAutoCompleteModule} from 'ng-auto-complete';
 import {FormsModule} from '@angular/forms';
 import {Ng2CompleterModule} from 'ng2-completer';
 

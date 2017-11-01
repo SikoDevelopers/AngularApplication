@@ -42,40 +42,40 @@ export class TrabalhoService {
     }
 
     getParticipantes($id: number){
-        return this.http.get('http://localhost:8000/api/trabalhos/participantes/' + $id);
+        return this.http.get('http://127.0.0.1:8000/api/trabalhos/participantes/' + $id);
     }
 
 
     hasJob($id: number){
         alert($id);
-        return this.http.get('http://localhost:8000/api/estudante_job/'+$id);
+        return this.http.get('http://127.0.0.1:8000/api/estudante_job/'+$id);
     }
 
 
 
     getProtocolo(completo?: boolean, paginacao: number = 5): Observable<any>{
-        return this.http.get('http://localhost:8000/api/apenas/protocolos');
+        return this.http.get('http://127.0.0.1:8000/api/apenas/protocolos');
     }
 
     getTrabalhosApenas(): Observable<any>{
-        return this.http.get('http://localhost:8000/api/apenas/trabalhos');
+        return this.http.get('http://127.0.0.1:8000/api/apenas/trabalhos');
     }
 
     getTrabalhosEstudante(id:number): Observable<any>{
         // return this.http.get('http://localhost:8000/api/trabalho_estudante/'+ id);
-        return this.http.get('http://localhost:8000/api/trabalho_estudante/'+id);
+        return this.http.get('http://127.0.0.1:8000/api/trabalho_estudante/'+id);
     }
 
 
     getSupervisores(){
-        return this.http.get('http://localhost:8000/supervisores');
+        return this.http.get('http://127.0.0.1:8000/supervisores');
     }
 
 
 
     adicinarParticipantes(trabalho, participantes){
         const headers = new HttpHeaders({'Content-Type': 'application/json'});
-        return this.http.post('http://localhost:8000/api/trabalho/participantes', {trabalho: trabalho, participantes: participantes},{headers: headers});
+        return this.http.post('http://127.0.0.1:8000/api/trabalho/participantes', {trabalho: trabalho, participantes: participantes},{headers: headers});
     }
 }
 
