@@ -37,8 +37,14 @@ import { DetalhesDocentesComponent } from './conteudo/docentes/detalhes-docentes
 import { AdicionarDocentesFormComponent } from './conteudo/docentes/adicionar-docentes-form/adicionar-docentes-form.component';
 import { AdicionarParticipantesComponent } from './conteudo/trabalhos/adicionar-participantes/adicionar-participantes.component';
 import {NgAutoCompleteModule} from 'ng-auto-complete';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, NgModel} from '@angular/forms';
 import {Ng2CompleterModule} from 'ng2-completer';
+import { CriarEventosFormComponent } from './conteudo/eventos/criar-eventos-form/criar-eventos-form.component';
+import { ListaEventosComponent } from './conteudo/eventos/lista-eventos/lista-eventos.component';
+import { EditarEventosComponent } from './conteudo/eventos/editar-eventos/editar-eventos.component';
+import { EventoComponent } from './conteudo/eventos/evento/evento.component';
+import { DatepickerModule } from 'angular2-material-datepicker';
+import { ListaEventosDefesaComponent } from './conteudo/eventos/lista-eventos-defesa/lista-eventos-defesa.component'
 
 
 @NgModule({
@@ -53,7 +59,8 @@ import {Ng2CompleterModule} from 'ng2-completer';
       MatPaginatorModule,
       AvatarModule.forRoot(),
       FormsModule,
-      Ng2CompleterModule
+      Ng2CompleterModule,
+      DatepickerModule,
 
   ],
   declarations: [
@@ -82,6 +89,11 @@ import {Ng2CompleterModule} from 'ng2-completer';
       DetalhesDocentesComponent,
       AdicionarDocentesFormComponent,
       AdicionarParticipantesComponent,
+      CriarEventosFormComponent,
+      ListaEventosComponent,
+      EditarEventosComponent,
+      EventoComponent,
+      ListaEventosDefesaComponent,
 
   ],
 
