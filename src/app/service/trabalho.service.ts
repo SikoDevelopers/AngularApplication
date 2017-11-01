@@ -70,5 +70,15 @@ export class TrabalhoService {
     getSupervisores(){
         return this.http.get('http://localhost:8000/supervisores');
     }
+
+
+    /**
+     * Metodo usado para ir buscar um trabalho dado o id
+     * @param id - id do trabalho a retornar
+     * @returns {Observable<Object>}
+     */
+    getDetalhesTrabalho(id:number){
+        return this.http.get('http://localhost:8000/')
+    }
 }
 
