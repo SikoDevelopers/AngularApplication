@@ -28,7 +28,7 @@ import {FicheiroTrabalhoEstadoFicheiroService} from "./service/ficheiro-trabalho
 import {TemaService} from "./service/tema.service";
 import {MatAutocompleteModule, MatFormFieldControl, MatInputModule} from "@angular/material";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { DatepickerModule } from 'angular2-material-datepicker'
 
 
 @NgModule({
@@ -48,7 +48,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FormsModule,
      ComissaoCientificaModule,
       DocenteModule,
-    NgProgressModule
+    NgProgressModule,
+      Ng2CompleterModule,
+      DatepickerModule
 
 
 

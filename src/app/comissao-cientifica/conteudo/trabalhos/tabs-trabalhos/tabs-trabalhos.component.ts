@@ -12,4 +12,12 @@ export class TabsTrabalhosComponent implements OnInit {
   ngOnInit() {
   }
 
+    receberDados(evento){
+      this.entradaDados = evento;
+    }
+
+    getModal(evento){
+        this.modal = evento;
+        // console.log(evento);
+    }
 }
