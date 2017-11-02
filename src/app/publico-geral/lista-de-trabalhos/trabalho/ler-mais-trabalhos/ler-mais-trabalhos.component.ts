@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {Subscription} from "rxjs/Subscription";
+import {Subscription} from 'rxjs/Rx';
 import {TrabalhoService} from "../../../../service/trabalho.service";
 
 @Component({
@@ -12,32 +12,40 @@ export class LerMaisTrabalhosComponent implements OnInit {
 
   subscription: Subscription;
   id:number;
-  trabalho: any;
-  constructor(private _routerActived:  ActivatedRoute, private _trabalhoService: TrabalhoService) { }
+  trabalhoSeleccionado: any;
+  constructor(private _routerActived:  ActivatedRoute, private _trabalhoService: TrabalhoService) {
+  }
 
   ngOnInit() {
-      this.subscription = this._routerActived.params.subscribe(
-          (params: any) =>{
+       this._routerActived.params.subscribe(
+          params =>{
               this.id = params['id-trabalho'];
               console.log(this.id);
               this.getTrabalho(this.id);
+            //  console.log(this.trabalhoSeleccionado);
 
-          }
+          },
+           error2 => {console.log("Error"+error2)},
+           () =>{
+
+           }
       );
   }
-  ngOnDestroy(){
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy(){
+  //   this.subscription.unsubscribe();
+  // }
 
 
   getTrabalho(id:number){
       this._trabalhoService.getDetalhesTrabalho(id).subscribe(
           resultado => {
-              this.trabalho = resultado['trabalho'];
+              this.trabalhoSeleccionado = resultado['trabalho'];
+             console.log(this.trabalhoSeleccionado);
           },
           error2 => {console.log("Error"+error2)},
           () =>{
-
+                this.trabalhoSeleccionado = this.trabalhoSeleccionado;
+                console.log(this.trabalhoSeleccionado);
           }
       );
   }

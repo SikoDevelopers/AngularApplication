@@ -44,7 +44,7 @@
             <h5 class="card-title">{{ trabalho.titulo }}</h5>
             <p class="card-text" [ngStyle]="{'max-width':'300px','height':'4.0em','overflow':'hidden'}">
                 {{ trabalho.descricao }}
-            </p>
+            <!--</p>-->
             <ul class="trabalho-detathes" [ngStyle]="{'margin-lef':'0px'}">
                 <li>
                     <i class="fa fa-eye card-text" aria-hidden="true"></i>
@@ -54,7 +54,8 @@
                     <span>SAUDE MENTAL | ANALISE | INFORMATICA </span>
                 </li>
             </ul>
-            <a [routerLink]="['trabalho-detalhes', trabalho.id ]" [ngStyle]="{'font-size':'20px'}" >Ler mais</a>
+            <a [routerLink]="['trabalho-detalhes', trabalho.id]" [ngStyle]="{'font-size':'20px'}" >Ler mais</a>
+            <!--<a [routerLink]="['trabalho-detalhes', ]" [ngStyle]="{'font-size':'20px'}" >Ler mais</a>-->
         </div>
     </div>
 <!--</div>-->
