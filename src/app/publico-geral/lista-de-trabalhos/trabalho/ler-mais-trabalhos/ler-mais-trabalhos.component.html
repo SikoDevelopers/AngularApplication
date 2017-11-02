@@ -5,14 +5,14 @@
             <div class="" [ngStyle]="{'margin-top':'10px'}">
                 <h5>Detalhes do Trabalho</h5>
                 <hr>
-                <h4>id: {{ id }}</h4>
+                <!--<h4>id: {{ id }}</h4>-->
 
-                <h4 *ngIf="trabalhoSeleccionado">{{ trabalhoSeleccionado.descricao }}</h4>
+                <!--<h4 *ngIf="trabalhoSeleccionado">{{ trabalhoSeleccionado.descricao }}</h4>-->
                 <!--<h4>{{ trabalhoSeleccionado.id }}</h4>-->
                 <!--<h4>{{ trabalhoSeleccionado.descricao }}</h4>-->
                 <!--<app-submeter-trabalho-form></app-submeter-trabalho-form>-->
                 <!--<p> {{ trabalho.descricao}}  </p>-->
-                <!--<app-detalhes-trabalho [trabalho]="trabalho"></app-detalhes-trabalho>-->
+                <app-detalhes-trabalho *ngIf="trabalhoSeleccionado" [trabalho]="trabalhoSeleccionado"></app-detalhes-trabalho>
             </div>
         </div>
     </div>

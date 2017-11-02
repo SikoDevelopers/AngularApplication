@@ -20,7 +20,7 @@ export class LerMaisTrabalhosComponent implements OnInit {
        this._routerActived.params.subscribe(
           params =>{
               this.id = params['id-trabalho'];
-              console.log(this.id);
+             // console.log(this.id);
               this.getTrabalho(this.id);
             //  console.log(this.trabalhoSeleccionado);
 
@@ -40,12 +40,10 @@ export class LerMaisTrabalhosComponent implements OnInit {
       this._trabalhoService.getDetalhesTrabalho(id).subscribe(
           resultado => {
               this.trabalhoSeleccionado = resultado['trabalho'];
-             console.log(this.trabalhoSeleccionado);
           },
           error2 => {console.log("Error"+error2)},
           () =>{
-                this.trabalhoSeleccionado = this.trabalhoSeleccionado;
-                console.log(this.trabalhoSeleccionado);
+
           }
       );
   }
