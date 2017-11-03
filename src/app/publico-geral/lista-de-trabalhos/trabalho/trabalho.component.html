@@ -55,7 +55,7 @@
                 </li>
             </ul>
             <input type="hidden" value="{{ trabalho.id }}" #campoId>
-            <a [ngStyle]="{'font-size':'20px'}"  (click)="setLocalValue(campoId.value)">Ler mais</a>
+            <a [ngStyle]="{'font-size':'20px'}" href="trabalho-detalhes"  (click)="setLocalValue(campoId.value)">Ler mais</a>
             <!--<a [routerLink]="['trabalho-detalhes', ]" [ngStyle]="{'font-size':'20px'}" >Ler mais</a>-->
         </div>
     </div>

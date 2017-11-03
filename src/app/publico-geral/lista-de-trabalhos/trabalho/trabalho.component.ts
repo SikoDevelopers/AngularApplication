@@ -14,7 +14,7 @@ export class TrabalhoComponent implements OnInit {
 
   setLocalValue(valor){
     localStorage.setItem('id-trabalho',valor);
-    window.location.href = 'trabalho-detalhes';
+    //window.location.href = 'trabalho-detalhes';
   }
 
 }
