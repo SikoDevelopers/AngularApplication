@@ -80,6 +80,14 @@ export class TrabalhoService {
         const headers = new HttpHeaders({'Content-Type': 'application/json'});
         return this.http.post('http://127.0.0.1:8000/api/trabalho/participantes', {trabalho: trabalho, participantes: participantes},{headers: headers});
     }
+    /**
+     * Metodo usado para ir buscar um trabalho dado o id
+     * @param id - id do trabalho a retornar
+     * @returns {Observable<Object>}
+     */
+    getDetalhesTrabalho(id:number) : Observable<any>{
+        return this.http.get('http://localhost:8000/api/trabalho/'+id);
+    }
 
 }
 

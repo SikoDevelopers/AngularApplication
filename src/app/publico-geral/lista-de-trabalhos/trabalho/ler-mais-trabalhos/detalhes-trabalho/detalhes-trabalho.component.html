@@ -1,0 +1,39 @@
+
+<div class="row" [ngStyle]="{'padding-top':'20px'}">
+
+    <div class="col-lg-3 col-sm-12 col-md-3 container">
+        <a class="media-left waves-light">
+            <img class="img-fluid" src="../../../../assets/imagens/trabalho/trabalho-img.png" alt="Generic placeholder image">
+        </a>
+    </div>
+
+    <div class="col-lg-9 col-sm-9 col-md-9" >
+        <div class="">
+            <p class="bold-text" [ngStyle]="{'float':'right'}">{{ trabalho.created_at | date : 'dd/MM/yyyy'}}</p>
+            <h4 class="media-heading">{{ trabalho.estudante.nome + trabalho.estudante.apelido }}</h4>
+            <h5 class="media-heading bold-text">
+                {{ trabalho.titulo}}
+            </h5>
+
+            <p>
+                {{ trabalho.descricao}}
+            </p>
+
+            <p>{{ trabalho.estudante.curso.designacao }}</p>
+            <p>{{ trabalho.estudante.sessao }}</p>
+
+            <button type="button" class="btn btn-primary waves-light" mdbRippleRadius>Baixar Documento</button>
+            <button type="button" class="btn btn-primary waves-light" mdbRippleRadius>Ler Documento</button>
+            <!--<ul class="inline-ul right" [ngStyle]="{'margin-top':'20px'}">-->
+                <!--<li>-->
+                    <!--<i class="fa fa-eye" aria-hidden="true"></i>-->
+                    <!--<span>18 | </span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>SAUDE MENTAL | ANALISE | INFORMATICA </span>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+
+</div>

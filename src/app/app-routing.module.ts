@@ -9,6 +9,8 @@ import {ComissaoCientificaComponent} from "./comissao-cientifica/comissao-cienti
 import {DocenteComponent} from "./docente/docente.component";
 import {ShimmerEfectComponent} from './shimmer-efect/shimmer-efect.component';
 import {EstudanteComponent} from "./estudante/estudante.component";
+import {LerMaisTrabalhosComponent} from "./publico-geral/lista-de-trabalhos/trabalho/ler-mais-trabalhos/ler-mais-trabalhos.component";
+import {TrabalhoResolver} from "./publico-geral/lista-de-trabalhos/trabalho/ler-mais-trabalhos/TrabalhoResolver";
 
 
 const appRoutes: Routes = [
@@ -18,9 +20,12 @@ const appRoutes: Routes = [
   {path: 'estudante/:hasJob', component: EstudanteComponent},
   {path:'estudante/documentos-submetidos',component: PaginaComponent},
   {path:'docente',component:DocenteComponent},
-    {path:'comissao-cientifica',component:ComissaoCientificaComponent},
-    {path:'docente',component:DocenteComponent},
-    {path:'shemmer',component:ShimmerEfectComponent},
+  {path:'comissao-cientifica',component:ComissaoCientificaComponent},
+  {path:'docente',component:DocenteComponent},
+  {path:'shemmer',component:ShimmerEfectComponent},
+  {path:'trabalho-detalhes', component: LerMaisTrabalhosComponent,
+
+  }
 ];
 @NgModule({
   imports: [
