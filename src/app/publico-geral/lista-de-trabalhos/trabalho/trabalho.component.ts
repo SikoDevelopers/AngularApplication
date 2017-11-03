@@ -12,4 +12,9 @@ export class TrabalhoComponent implements OnInit {
   ngOnInit() {
   }
 
+  setLocalValue(valor){
+    localStorage.setItem('id-trabalho',valor);
+    window.location.href = 'trabalho-detalhes';
+  }
+
 }

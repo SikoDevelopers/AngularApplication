@@ -13,29 +13,39 @@ export class LerMaisTrabalhosComponent implements OnInit {
   subscription: Subscription;
   id:number;
   trabalhoSeleccionado: any;
-  constructor(private _routerActived:  ActivatedRoute, private _trabalhoService: TrabalhoService) {
+  constructor(private _routerActived:  ActivatedRoute,
+              private _trabalhoService: TrabalhoService) {
+      this.ngOnInit();
   }
 
+  ngOnChanges(){
+
+  }
   ngOnInit() {
-       this._routerActived.params.subscribe(
-          params =>{
-              this.id = params['id-trabalho'];
-             // console.log(this.id);
-              this.getTrabalho(this.id);
-            //  console.log(this.trabalhoSeleccionado);
-
-          },
-           error2 => {console.log("Error"+error2)},
-           () =>{
-
-           }
-      );
+      this.getIdEnviado();
   }
-  // ngOnDestroy(){
-  //   this.subscription.unsubscribe();
-  // }
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
+  }
 
-
+  getIdEnviado(){
+      this.id = parseInt(localStorage.getItem('id-trabalho'));
+      this.getTrabalho(this.id);
+      //
+      // this.subscription = this._routerActived.params.subscribe(
+      //     params =>{
+      //         this.id = params['id'];
+      //        // console.log(this.id);
+      //         this.getTrabalho(this.id);
+      //       //  console.log(this.trabalhoSeleccionado);
+      //
+      //     },
+      //      error2 => {console.log("Error"+error2)},
+      //      () =>{
+      //
+      //      }
+      // );
+  }
   getTrabalho(id:number){
       this._trabalhoService.getDetalhesTrabalho(id).subscribe(
           resultado => {
@@ -43,7 +53,7 @@ export class LerMaisTrabalhosComponent implements OnInit {
           },
           error2 => {console.log("Error"+error2)},
           () =>{
-
+             console.log(this.trabalhoSeleccionado);
           }
       );
   }
