@@ -40,7 +40,7 @@ export class TemasComponent implements OnInit {
   getUser() {
     let token = localStorage.getItem('token');
 
-    this._userService.logoado(token).subscribe(
+    this._userService.logado(token).subscribe(
         resultado => {
           this.user = resultado
         },

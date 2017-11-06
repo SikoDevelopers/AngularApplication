@@ -10,6 +10,10 @@ import { ListaDeEventosComponent } from './lista-de-eventos/lista-de-eventos.com
 import { EventoComponent } from './lista-de-eventos/evento/evento.component';
 import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import { LerMaisTrabalhosComponent } from './lista-de-trabalhos/trabalho/ler-mais-trabalhos/ler-mais-trabalhos.component';
+import {RouterModule} from "@angular/router";
+import { DetalhesTrabalhoComponent } from './lista-de-trabalhos/trabalho/ler-mais-trabalhos/detalhes-trabalho/detalhes-trabalho.component';
+import {TrabalhoResolver} from "./lista-de-trabalhos/trabalho/ler-mais-trabalhos/TrabalhoResolver";
 
 
 @NgModule({
@@ -18,17 +22,20 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
       BarraDoTopoModule,
       SelectFiltroModule,
       SliderModule,
-      NgProgressModule
+      NgProgressModule,
+      RouterModule
   ],
   declarations: [
     PaginaInicialComponent,
     ListaDeTrabalhosComponent,
     TrabalhoComponent,
     ListaDeEventosComponent,
-    EventoComponent
+    EventoComponent,
+    LerMaisTrabalhosComponent,
+    DetalhesTrabalhoComponent
 
   ],
-    providers: [{ provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
+    providers: [{ provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true },],
   exports:[ListaDeEventosComponent]
 })
 export class PublicoGeralModule { }

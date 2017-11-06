@@ -9,7 +9,7 @@ import {LoginModule} from "./publico-geral/login/login.module";
 import {SelectModule} from "./select/select.module";
 import {CursoService} from './service/curso.service';
 import {HttpClientModule} from '@angular/common/http';
-import {FormControl, FormsModule, NgControl, NgForm, NgModel} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {UserService} from './service/user.service';
 import {AutenticacaoService} from './service/autenticacao.service';
 import {ComissaoCientificaModule} from "./comissao-cientifica/comissao-cientifica.module";
@@ -22,9 +22,15 @@ import {SupervisorExternoService} from "./service/supervisor-externo.service";
 import {DocenteAreaService} from "./service/docente-area.service";
 import {DocenteService} from "./service/docente.service";
 import {NgProgressInterceptor, NgProgressModule} from 'ngx-progressbar';
+import {FuncaoService} from './service/funcao.service';
+import {Ng2CompleterModule} from 'ng2-completer';
+import {FicheirosTrabalhoService} from "./service/ficheiros-trabalho.service";
+import {EstudanteService} from "./service/estudante.service";
+import {FicheiroTrabalhoEstadoFicheiroService} from "./service/ficheiro-trabalho-estado-ficheiro.service";
 import {TemaService} from "./service/tema.service";
 import {MatAutocompleteModule, MatFormFieldControl, MatInputModule} from "@angular/material";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { DatepickerModule } from 'angular2-material-datepicker'
 
 
 @NgModule({
@@ -44,12 +50,16 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FormsModule,
      ComissaoCientificaModule,
       DocenteModule,
-    NgProgressModule
+    NgProgressModule,
 
-
+      Ng2CompleterModule,
+      // Ng2CompleterModule,
+      DatepickerModule
 
   ],
-  providers: [CursoService,
+
+  providers: [
+      CursoService,
       UserService,
       AutenticacaoService,
       TrabalhoService,
@@ -59,8 +69,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
       DocenteAreaService,
       DocenteService,
       TrabalhoService,
-    TemaService
+      FuncaoService,
+
+      FicheirosTrabalhoService,
+      EstudanteService,
+      FicheiroTrabalhoEstadoFicheiroService,
+      // TemaService
     ],
+
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
