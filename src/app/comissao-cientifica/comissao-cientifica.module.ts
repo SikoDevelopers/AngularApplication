@@ -77,6 +77,12 @@ import {Ng2CompleterModule} from 'ng2-completer';
       TabelaTrabalhosCompletoComponent,
       TabsTrabalhosComponent,
       TabelaProtocolosComponent,
+    TabelaTrabalhosApenasComponent,
+    ListaSupervisoresComponent,
+    DocentesComponent,
+    ListaDocentesComponent,
+    DetalhesDocentesComponent,
+    AdicionarDocentesFormComponent,
       TabelaTrabalhosApenasComponent,
       ListaSupervisoresComponent,
       DocentesComponent,
@@ -88,9 +94,9 @@ import {Ng2CompleterModule} from 'ng2-completer';
       EditarEventosComponent,
       EventoComponent,
 
-  ],
+],
 
-    providers: [AvatarComponent,TrabalhoService, ProcessoSubmissaoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
+providers: [AvatarComponent,TrabalhoService, ProcessoSubmissaoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
     schemas:[NO_ERRORS_SCHEMA],
     exports:[RouterModule]
 })
