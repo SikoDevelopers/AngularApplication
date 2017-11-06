@@ -30,13 +30,15 @@ import {FicheiroTrabalhoEstadoFicheiroService} from "./service/ficheiro-trabalho
 import {TemaService} from "./service/tema.service";
 import {MatAutocompleteModule, MatFormFieldControl, MatInputModule} from "@angular/material";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { DatepickerModule } from 'angular2-material-datepicker'
+import { DatepickerModule } from 'angular2-material-datepicker';
+import { DirectorDoCursoComponent } from './director-do-curso/director-do-curso.component'
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShimmerEfectComponent
+    ShimmerEfectComponent,
+    DirectorDoCursoComponent
   ],
   imports: [
     BrowserModule,
