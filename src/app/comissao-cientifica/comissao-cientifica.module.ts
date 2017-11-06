@@ -68,16 +68,16 @@ import { AdicionarDocentesFormComponent } from './conteudo/docentes/adicionar-do
       TabelaTrabalhosCompletoComponent,
       TabsTrabalhosComponent,
       TabelaProtocolosComponent,
-      TabelaTrabalhosApenasComponent,
-      ListaSupervisoresComponent,
-      DocentesComponent,
-      ListaDocentesComponent,
-      DetalhesDocentesComponent,
-      AdicionarDocentesFormComponent,
+    TabelaTrabalhosApenasComponent,
+    ListaSupervisoresComponent,
+    DocentesComponent,
+    ListaDocentesComponent,
+    DetalhesDocentesComponent,
+    AdicionarDocentesFormComponent,
 
-  ],
+],
 
-    providers: [AvatarComponent,TrabalhoService, ProcessoSubmissaoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
+providers: [AvatarComponent,TrabalhoService, ProcessoSubmissaoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
     schemas:[NO_ERRORS_SCHEMA],
     exports:[RouterModule]
 })
