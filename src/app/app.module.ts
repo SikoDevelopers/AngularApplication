@@ -9,7 +9,7 @@ import {LoginModule} from "./publico-geral/login/login.module";
 import {SelectModule} from "./select/select.module";
 import {CursoService} from './service/curso.service';
 import {HttpClientModule} from '@angular/common/http';
-import {FormControl, FormsModule, NgControl, NgForm, NgModel} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {UserService} from './service/user.service';
 import {AutenticacaoService} from './service/autenticacao.service';
 import {ComissaoCientificaModule} from "./comissao-cientifica/comissao-cientifica.module";
