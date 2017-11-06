@@ -35,6 +35,13 @@ import { DocentesComponent } from './conteudo/docentes/docentes.component';
 import { ListaDocentesComponent } from './conteudo/docentes/lista-docentes/lista-docentes.component';
 import { DetalhesDocentesComponent } from './conteudo/docentes/detalhes-docentes/detalhes-docentes.component';
 import { AdicionarDocentesFormComponent } from './conteudo/docentes/adicionar-docentes-form/adicionar-docentes-form.component';
+import {FormsModule, NgModel} from '@angular/forms';
+import { CriarEventosFormComponent } from './conteudo/eventos/criar-eventos-form/criar-eventos-form.component';
+import { ListaEventosComponent } from './conteudo/eventos/lista-eventos/lista-eventos.component';
+import { EditarEventosComponent } from './conteudo/eventos/editar-eventos/editar-eventos.component';
+import { EventoComponent } from './conteudo/eventos/evento/evento.component';
+import { DatepickerModule } from 'angular2-material-datepicker';
+import {Ng2CompleterModule} from 'ng2-completer';
 
 @NgModule({
   imports: [
@@ -46,8 +53,10 @@ import { AdicionarDocentesFormComponent } from './conteudo/docentes/adicionar-do
       MatTabsModule,
       BrowserAnimationsModule,
       MatPaginatorModule,
-      AvatarModule.forRoot()
-
+      AvatarModule.forRoot(),
+      FormsModule,
+      Ng2CompleterModule,
+      DatepickerModule,
   ],
   declarations: [
       ComissaoCientificaComponent,
@@ -74,6 +83,16 @@ import { AdicionarDocentesFormComponent } from './conteudo/docentes/adicionar-do
     ListaDocentesComponent,
     DetalhesDocentesComponent,
     AdicionarDocentesFormComponent,
+      TabelaTrabalhosApenasComponent,
+      ListaSupervisoresComponent,
+      DocentesComponent,
+      ListaDocentesComponent,
+      DetalhesDocentesComponent,
+      AdicionarDocentesFormComponent,
+      CriarEventosFormComponent,
+      ListaEventosComponent,
+      EditarEventosComponent,
+      EventoComponent,
 
 ],
 

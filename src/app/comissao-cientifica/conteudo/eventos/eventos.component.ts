@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-eventos',
@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventosComponent implements OnInit {
 
-  constructor() { }
+    @Input() modalCriarEvento: any;
 
-  ngOnInit() {
-  }
+
+    constructor() { }
+
+    ngOnInit() {
+    }
+
+
+    getModal(evento){
+        console.log(evento);
+        this.modalCriarEvento = evento;
+    }
+
+
+
+
+
 
 }
