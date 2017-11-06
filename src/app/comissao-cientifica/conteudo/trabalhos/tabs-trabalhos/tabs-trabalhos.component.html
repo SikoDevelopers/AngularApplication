@@ -1,3 +1,5 @@
+<app-trabalhos-detalhes  (output)="getModal($event)" ></app-trabalhos-detalhes>
+
 <mat-tab-group class="demo-tab-group">
 
   <mat-tab label="Tab 1">
@@ -8,7 +10,7 @@
     </ng-template>
     <div class="demo-tab-content" >
       <div class="mt-2">
-        <app-tabela-trabalhos-completo></app-tabela-trabalhos-completo>
+        <app-tabela-trabalhos-completo [modal]="modal" (saidaDados)="receberDados($event)"></app-tabela-trabalhos-completo>
       </div>
     </div>
 
@@ -23,7 +25,7 @@
     </ng-template>
     <div class="demo-tab-content">
       <div class="mt-3">
-        <app-tabela-protocolos></app-tabela-protocolos>
+        <app-tabela-protocolos [modal]="modal"></app-tabela-protocolos>
       </div>
     </div>
   </mat-tab>
@@ -36,7 +38,7 @@
     </ng-template>
     <div class="demo-tab-content">
       <div class="mt-3">
-        <app-tabela-trabalhos-apenas></app-tabela-trabalhos-apenas>
+        <app-tabela-trabalhos-apenas [modal]="modal"></app-tabela-trabalhos-apenas>
       </div>
 
     </div>

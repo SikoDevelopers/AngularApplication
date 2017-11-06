@@ -1,5 +1,4 @@
 
-
 <div mdbModal #modal="mdb-modal" class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -82,9 +81,14 @@
                 <h5>Participantes</h5>
               </div>
             </ng-template>
+
+              <div class="text-right mt-3">
+                  <button class="btn btn-primary btn-sm" (click)="adicionarParticipante()">Adicionar</button>
+              </div>
+
             <div class="demo-tab-content" *ngIf="docentes">
-                <div class="mt-5">
-                    <app-participante [docentes]="docentes"></app-participante>
+                <div>
+                    <app-participante [docentes]="docentes" [docentesAdicionais]="docentesdicionados"></app-participante>
                 </div>
 
             </div>
@@ -103,18 +107,17 @@
             </div>
           </mat-tab>
 
-
-
-
-
         </mat-tab-group>
 
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-sm waves-light" data-dismiss="modal" (click)="modal.hide()" mdbRippleRadius>Fechar</button>
-        <button type="button" class="btn btn-primary btn-sm waves-light" mdbRippleRadius>Save changes</button>
+        <button type="button" class="btn btn-secondary btn-sm waves-light" data-dismiss="modal" (click)="fecharModal($event)" mdbRippleRadius>Fechar</button>
+        <button type="button" class="btn btn-primary btn-sm waves-light" mdbRippleRadius (click)="salvarAlteracoes($event)">Salvar</button>
       </div>
     </div>
   </div>
 </div>
 </div>
+
+<app-adicionar-participantes (output)="getModalParticipantes($event)" (outputParticipante)="reabrirDialog($event)"></app-adicionar-participantes>
+

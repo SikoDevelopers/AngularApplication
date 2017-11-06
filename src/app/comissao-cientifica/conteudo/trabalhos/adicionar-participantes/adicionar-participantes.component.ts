@@ -7,7 +7,7 @@ import {CompleterData, CompleterService} from 'ng2-completer';
 @Component({
   selector: 'app-adicionar-participantes',
   templateUrl: './adicionar-participantes.component.html',
-  styleUrls: ['./adicionar-participantes.component.scss']
+
 })
 export class AdicionarParticipantesComponent implements OnInit, OnDestroy {
 
@@ -42,8 +42,6 @@ export class AdicionarParticipantesComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
     this.output.emit(this.modalParticipante);
-
-
   }
 
   salvarParticipantes(selectDocente){

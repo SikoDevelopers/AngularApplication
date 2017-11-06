@@ -10,6 +10,7 @@ export class ParticipanteComponent implements OnInit {
 
 
     @Input()docentes: any;
+    @Input() docentesAdicionais = [];
 
 
 
@@ -25,5 +26,8 @@ export class ParticipanteComponent implements OnInit {
   }
 
 
+    removerParticipante(participante) {
+        this.docentesAdicionais.splice(this.docentesAdicionais.indexOf(participante), 1);
+    }
 
 }

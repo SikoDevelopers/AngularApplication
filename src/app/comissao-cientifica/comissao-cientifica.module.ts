@@ -42,6 +42,7 @@ import { EditarEventosComponent } from './conteudo/eventos/editar-eventos/editar
 import { EventoComponent } from './conteudo/eventos/evento/evento.component';
 import { DatepickerModule } from 'angular2-material-datepicker';
 import {Ng2CompleterModule} from 'ng2-completer';
+import {AdicionarParticipantesComponent} from './conteudo/trabalhos/adicionar-participantes/adicionar-participantes.component';
 
 @NgModule({
   imports: [
@@ -77,12 +78,6 @@ import {Ng2CompleterModule} from 'ng2-completer';
       TabelaTrabalhosCompletoComponent,
       TabsTrabalhosComponent,
       TabelaProtocolosComponent,
-    TabelaTrabalhosApenasComponent,
-    ListaSupervisoresComponent,
-    DocentesComponent,
-    ListaDocentesComponent,
-    DetalhesDocentesComponent,
-    AdicionarDocentesFormComponent,
       TabelaTrabalhosApenasComponent,
       ListaSupervisoresComponent,
       DocentesComponent,
@@ -93,6 +88,7 @@ import {Ng2CompleterModule} from 'ng2-completer';
       ListaEventosComponent,
       EditarEventosComponent,
       EventoComponent,
+      AdicionarParticipantesComponent
 
 ],
 
