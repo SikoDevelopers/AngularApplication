@@ -43,6 +43,7 @@ import { EventoComponent } from './conteudo/eventos/evento/evento.component';
 import { DatepickerModule } from 'angular2-material-datepicker';
 import {Ng2CompleterModule} from 'ng2-completer';
 import {AdicionarParticipantesComponent} from './conteudo/trabalhos/adicionar-participantes/adicionar-participantes.component';
+import { DialogProtocolosComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-protocolos/dialog-protocolos/dialog-protocolos.component';
 
 @NgModule({
   imports: [
@@ -88,7 +89,8 @@ import {AdicionarParticipantesComponent} from './conteudo/trabalhos/adicionar-pa
       ListaEventosComponent,
       EditarEventosComponent,
       EventoComponent,
-      AdicionarParticipantesComponent
+      AdicionarParticipantesComponent,
+      DialogProtocolosComponent
 
 ],
 

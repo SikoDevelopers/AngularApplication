@@ -9,7 +9,9 @@ export class TabsTrabalhosComponent implements OnInit {
 
 
 
-    @Input() modal: any;
+    @Input() modalProtocolo: any;
+    @Input() modalTrabalho: any;
+    @Input() modalTodos: any;
 
     /**
      * recebe os dados retirados de cada uma das tabelas tabs
@@ -26,8 +28,19 @@ export class TabsTrabalhosComponent implements OnInit {
         this.entradaDados = evento;
     }
 
-    getModal(evento){
-         this.modal = evento;
+    getModalProtocolo(evento){
+         this.modalProtocolo = evento;
          console.log(evento);
     }
+
+    getModalTrabalho(evento){
+        this.modalProtocolo = evento;
+        console.log(evento);
+    }
+
+    getModalTodos(evento){
+        this.modalProtocolo = evento;
+        console.log(evento);
+    }
+
 }
