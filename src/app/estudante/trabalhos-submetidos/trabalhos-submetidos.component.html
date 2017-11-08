@@ -31,8 +31,8 @@
         <tr  class="hoverable" (click)="verFicheiro(file.caminho)" >
           <th scope="row">{{file.id}}</th>
           <td>{{file.caminho}}</td>
-          <td *ngIf="file.categorias_ficheiros_id==1">Protocolo</td>
-          <td *ngIf="file.categorias_ficheiros_id==2">Relatorio final</td>
+          <td *ngIf="file.categorias_ficheiros_id==2">Protocolo</td>
+          <td *ngIf="file.categorias_ficheiros_id==1">Relatorio final</td>
           <td>{{file.created_at}}</td>
           <td>{{estado}}</td>
           <td><a href="http://127.0.0.1:8000/api/display/{{file.caminho}}" target="_blank"><i class="fa fa-eye"></i></a></td>
@@ -42,6 +42,13 @@
       </table>
       <div class="row">
 
+
+        <div class="col">
+          <button   class="btn btn-secondary waves-light"  mdbRippleRadius (click)="onMostrarModal()">
+            <i class="fa fa-upload"></i>
+            Submeter protocolo
+          </button>
+      </div>
 
         <div class="col">
           <button   class="btn btn-primary waves-light" [disabled]="!(estado=='aprovado')" mdbRippleRadius (click)="onMostrarModal()">
