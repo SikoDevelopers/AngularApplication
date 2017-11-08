@@ -53,7 +53,6 @@ export class LoginFormComponent implements OnInit {
                       },
                       ()=>{
                           if (resultado) {
-                              alert('Possui trabalhos');
                               window.location.href = "estudante/trabalhos-submetidos";
                           }
                           else {
