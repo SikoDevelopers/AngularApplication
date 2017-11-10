@@ -14,6 +14,8 @@ import { EstudanteComponent } from './estudante.component';
 import {EstudanteRotas} from "./estudante.routing";
 import { SubmeterTrabalhoFinalComponent } from './trabalhos-submetidos/submeter-trabalho-final/submeter-trabalho-final.component';
 import { SubmeterTrabalhoFinalFormComponent } from './trabalhos-submetidos/submeter-trabalho-final/submeter-trabalho-final-form/submeter-trabalho-final-form.component';
+import { SubmeterProtocoloFormComponent } from './trabalhos-submetidos/submeter-protocolo/submeter-protocolo-form/submeter-protocolo-form.component';
+import {SubmeterProtocoloComponent} from "./trabalhos-submetidos/submeter-protocolo/submeter-protocolo.component";
 @NgModule({
   imports: [
     CommonModule,
@@ -33,6 +35,8 @@ import { SubmeterTrabalhoFinalFormComponent } from './trabalhos-submetidos/subme
     EstudanteComponent,
     SubmeterTrabalhoFinalComponent,
     SubmeterTrabalhoFinalFormComponent,
+      SubmeterProtocoloComponent,
+    SubmeterProtocoloFormComponent,
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   exports: [ SidenavComponent ]
