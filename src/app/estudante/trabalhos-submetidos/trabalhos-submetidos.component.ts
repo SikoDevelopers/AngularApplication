@@ -19,6 +19,7 @@ export class TrabalhosSubmetidosComponent implements OnInit {
     trabalho;
     bloquear:boolean =true;
     @Input() modal: any;
+    @Input() modalP: any;
   constructor(private userService: UserService,
               private trabalhoService: TrabalhoService,
               private ficheiroService: FicheirosTrabalhoService,
@@ -125,8 +126,17 @@ export class TrabalhosSubmetidosComponent implements OnInit {
     getModal(event){
         this.modal= event;
     }
+
+    getModalProto(event){
+        this.modalP= event;
+    }
+
+
     onMostrarModal(){
         this.modal.show();
+    }
+    onMostrarModalP(){
+        this.modalP.show();
     }
 
 }
