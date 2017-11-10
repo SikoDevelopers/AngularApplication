@@ -1,4 +1,5 @@
 <app-submeter-trabalho-final (output)="getModal($event)"></app-submeter-trabalho-final>
+<app-submeter-protocolo (output)="getModalProto($event)"></app-submeter-protocolo>
 <div [ngStyle]="{'margin-top':'10px'}">
   <h2>Documentos submetidos</h2>
   <hr>
@@ -43,17 +44,17 @@
       <div class="row">
 
 
-        <div class="col">
-          <button   class="btn btn-secondary waves-light"  mdbRippleRadius (click)="onMostrarModal()">
+        <div class="col-md-3">
+          <button   class="btn btn-secondary waves-light"  mdbRippleRadius (click)="onMostrarModalP()">
             <i class="fa fa-upload"></i>
             Submeter protocolo
           </button>
       </div>
 
-        <div class="col">
+        <div class="col-md-3">
           <button   class="btn btn-primary waves-light" [disabled]="!(estado=='aprovado')" mdbRippleRadius (click)="onMostrarModal()">
             <i class="fa fa-upload"></i>
-            Submeter relatorio final
+            Submeter relatorio
           </button>
       </div>
     </div>
