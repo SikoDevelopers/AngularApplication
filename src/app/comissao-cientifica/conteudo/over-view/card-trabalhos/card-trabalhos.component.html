@@ -8,7 +8,7 @@
         <div *ngIf="mostrarDetalhes; then trabalhoSimples else trabalhoComleto"></div>
 
         <ng-template #trabalhoSimples>
-            <app-tabela-trabalho ></app-tabela-trabalho>
+            <app-tabela-trabalho [paginacao]="5"></app-tabela-trabalho>
         </ng-template>
 
         <ng-template #trabalhoComleto>
@@ -19,7 +19,4 @@
             <a class="btn btn-primary waves-light center-block" routerLink="/comissao-cientifica/trabalhos">Ver Todos</a>
         </div>
     </div>
-
-
 </div>
-

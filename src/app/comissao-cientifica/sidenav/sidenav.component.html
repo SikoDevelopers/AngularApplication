@@ -17,10 +17,12 @@
       <i class="fa fa-user"></i>
       <span class="d-none d-md-inline">Supervisores</span>
     </a>
-    <a class="list-group-item d-inline-block collapsed" data-parent="#sidebar" routerLink="/comissao-cientifica/eventos">
-      <i class="fa fa-user"></i>
-      <span class="d-none d-md-inline">Eventos</span>
-    </a>
+    <div [routerLinkActive]="['selecionado']">
+      <a class="list-group-item d-inline-block collapsed" data-parent="#sidebar" [routerLink]="['/comissao-cientifica/eventos']">
+        <i class="fa fa-user"></i>
+        <span class="d-none d-md-inline">Eventos</span>
+      </a>
+    </div>
 
     <a class="list-group-item d-inline-block collapsed" data-parent="#sidebar" routerLink="/comissao-cientifica/estatisticas">
       <i class="fa fa-clock-o"></i>

@@ -13,20 +13,23 @@ export class TabelaTrabalhosCompletoComponent implements OnInit {
     trabalhos: Array<any>;
     @Input() modal: any;
     @Output() saidaDados = new EventEmitter();
-    @ViewChild('modalDetalhes') modalDetalhes;
+    @Input() paginacao = 5;
     trabalhoSelecionado: any;
     subcricao: any;
     docentes: any;
 
-  constructor(private trabalhosService: TrabalhoService) { }
 
-  ngOnInit() {
-    this.getTrabalhos();
-  }
+    constructor(private trabalhosService: TrabalhoService) {
+
+    }
+
+    ngOnInit() {
+        this.getTrabalhos();
+    }
 
 
     getTrabalhos(){
-        this.subcricao = this.trabalhosService.getTrabalho(true, 12).subscribe(
+        this.subcricao = this.trabalhosService.getTrabalho(true, this.paginacao).subscribe(
             (resultado: Response) =>{
                 console.log(resultado);
                 this.trabalhos = resultado['trabalhos'].data;
@@ -63,7 +66,7 @@ export class TabelaTrabalhosCompletoComponent implements OnInit {
     onClickTrabalho(trabalho){
         this.trabalhoSelecionado = trabalho;
         this.getParticipantesTrabalhos(trabalho.id);
-        this.saidaDados.emit(this.trabalhoSelecionado);
+        this.saidaDados.emit({trabalhoSelecionado: this.trabalhoSelecionado, docentes: this.docentes});
         this.modal.show();
     }
 

@@ -25,6 +25,26 @@
 </div>
 
 
+<div *ngIf="co_supervisor">
+  <div class="media mb-1 mr-5">
+    <a class="media-left waves-light">
+      <avatar [name]="co_supervisor.nome" [displayType]="'circle'" [size]="70"></avatar>
+    </a>
+
+
+    <div class="media-body ml-2">
+      <p [ngStyle]="{'float':'right', 'color': getFuncaoColor()}" class="p-3">Co-supervisor</p>
+      <h4 class="media-heading">{{co_supervisor.nome }}</h4>
+
+      <div >
+        <p>Sem area</p>
+      </div>
+
+      <hr/>
+    </div>
+  </div>
+</div>
+
 <div *ngFor="let participante of docentesAdicionais">
     <div class="media mb-1 mr-5">
       <a class="media-left waves-light">
@@ -51,4 +71,6 @@
       </div>
     </div>
 </div>
+
+
 

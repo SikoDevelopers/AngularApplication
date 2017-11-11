@@ -64,29 +64,11 @@ export class TabelaProtocolosComponent implements OnInit {
 
     onClickTrabalho(trabalho){
         this.trabalhoSelecionado = trabalho;
-        this.getParticipantesTrabalhos(trabalho.id);
         this.modal.show();
     }
 
 
-    getParticipantesTrabalhos(idTrabalho){
-        let participantes;
 
-        this.trabalhosService.getParticipantes(idTrabalho).subscribe(
-            (resultado: Response) =>{
-                console.log(resultado);
-                participantes = resultado['docentes'];
-            },
-            (erros: HttpErrorResponse) => {
-                console.error(erros);
-            },
-            () => {
-                this.docentes = participantes;
-                console.log("Requisicao completada");
-            }
-
-        );
-    }
 
     ngOnDestroy(): void {
         this.subcricao.unsubscribe();

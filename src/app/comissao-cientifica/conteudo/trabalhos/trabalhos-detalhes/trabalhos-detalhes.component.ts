@@ -17,6 +17,7 @@ export class TrabalhosDetalhesComponent implements OnInit {
     @Input() modalParticipantes: any;
     @Input() docentesdicionados = [];
 
+
   constructor(private trabalhoService: TrabalhoService) {
 
   }
@@ -158,7 +159,21 @@ export class TrabalhosDetalhesComponent implements OnInit {
           this.docentesdicionados = [];
       }
 
+    getTipoFicheiro(tipoFicheiro){
+          return tipoFicheiro == 'Protocolo' ? 'Protocolo' : 'Relatorio';
+    }
 
+      ordernar(array: Array<any>) {
+        return    array.sort(function (valor1, valor2) {
+            if (valor1.id > valor2.id) {
+                return -1;
+            }
+            if (valor1.id < valor2.id) {
+                return 1;
+            }
+            return 0;
+        });
+      }
 
 
 

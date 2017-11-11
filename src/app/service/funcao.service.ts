@@ -11,7 +11,10 @@ export class FuncaoService {
 
     getFuncao(): Observable<any>{
         return this.http.get('http://127.0.0.1:8000/api/funcoes');
+    }
 
+    getFuncaoRestrito(): Observable<any>{
+        return this.http.get('http://127.0.0.1:8000/api/funcoes/restrito');
     }
 
 
