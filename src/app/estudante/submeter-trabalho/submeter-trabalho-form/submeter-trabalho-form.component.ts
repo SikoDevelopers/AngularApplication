@@ -7,6 +7,7 @@ import {DocenteAreaService} from "../../../service/docente-area.service";
 import {forEach} from "@angular/router/src/utils/collection";
 import {Data} from "@angular/router";
 import {TrabalhoService} from "../../../service/trabalho.service";
+import { CompleterService, CompleterData } from 'ng2-completer';
 
 @Component({
   selector: 'app-submeter-trabalho-form',
@@ -26,7 +27,19 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
   docenteArea;
     titulo;
     descricao;
-     news;
+
+    protected coSupervisor: string;
+    protected captain: string;
+    protected dataService: CompleterData;
+    protected coSupervisores = [
+        { color: 'red', value: '#f00' },
+        { color: 'green', value: '#0f0' },
+        { color: 'blue', value: '#00f' },
+        { color: 'cyan', value: '#0ff' },
+        { color: 'magenta', value: '#f0f' },
+        { color: 'yellow', value: '#ff0' },
+        { color: 'black', value: '#000' }
+    ];
   constructor(
       private _areas:AreaService,
       private userService:UserService,
@@ -34,8 +47,10 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
       private docenteService: DocenteService,
       private areaService : AreaService,
       private docenteAreaService : DocenteAreaService,
-      private trabalhoService : TrabalhoService
+      private trabalhoService : TrabalhoService,
+      private completerService: CompleterService
   ) {
+
   }
 
   ngOnInit() {
@@ -81,6 +96,8 @@ getSupervisores(){
               },
               ()=>{
                   this.getDocenteArea();
+                  this.dataService = this.completerService.local(this.supervisores, 'nome', 'nome,apelido');
+
                   console.log('Supervisores carregados');
 
               }

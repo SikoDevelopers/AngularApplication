@@ -16,6 +16,9 @@ import { SubmeterTrabalhoFinalComponent } from './trabalhos-submetidos/submeter-
 import { SubmeterTrabalhoFinalFormComponent } from './trabalhos-submetidos/submeter-trabalho-final/submeter-trabalho-final-form/submeter-trabalho-final-form.component';
 import { SubmeterProtocoloFormComponent } from './trabalhos-submetidos/submeter-protocolo/submeter-protocolo-form/submeter-protocolo-form.component';
 import {SubmeterProtocoloComponent} from "./trabalhos-submetidos/submeter-protocolo/submeter-protocolo.component";
+import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
+import {Ng2CompleterModule} from "ng2-completer";
+import { CoSpervisorModalComponent } from './co-spervisor-modal/co-spervisor-modal.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -23,7 +26,8 @@ import {SubmeterProtocoloComponent} from "./trabalhos-submetidos/submeter-protoc
     SelectModule,
     MDBBootstrapModule.forRoot(),
       SelectSupervisorModule,
-      EstudanteRotas
+      EstudanteRotas,
+      Ng2CompleterModule,
   ],
   declarations: [
     PaginaComponent,
@@ -37,6 +41,8 @@ import {SubmeterProtocoloComponent} from "./trabalhos-submetidos/submeter-protoc
     SubmeterTrabalhoFinalFormComponent,
       SubmeterProtocoloComponent,
     SubmeterProtocoloFormComponent,
+    AutoCompleteComponent,
+    CoSpervisorModalComponent,
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   exports: [ SidenavComponent ]

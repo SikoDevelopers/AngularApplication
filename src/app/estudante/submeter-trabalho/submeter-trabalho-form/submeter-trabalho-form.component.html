@@ -24,6 +24,13 @@
             <app-select-supervisor [label]="label2" [opcoes]="supervisores" (eventEmmiter)="atribuirSupervisor($event)"></app-select-supervisor>
           </div>
 
+          <div class="text-left">
+            <label >Co-supervisor </label>
+            <ng2-completer [(ngModel)]="coSupervisor" [datasource]="dataService" [minSearchLength]="0"></ng2-completer>
+            <app-co-spervisor-modal></app-co-spervisor-modal>
+          </div>
+
+
           <div class="left">
             <input type="checkbox" id="checkbox">
             <label for="checkbox">Eu Confirmo que as infomacoes fornecidas sao verdadeiras</label>
