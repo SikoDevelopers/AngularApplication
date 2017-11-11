@@ -27,7 +27,7 @@
 
                   <div>
                       <a class="font-weight-bold">Data Submissao</a>
-                      <p>{{getDataSubmissao(trabalho.created_at)}}</p>
+                      <p>{{(trabalho.created_at) | date : 'dd/MM/yyyy' }}</p>
                   </div>
 
                   <div>
@@ -37,46 +37,34 @@
 
               </div>
 
-                <div class="mt-4 ">
+                <div class="mt-4 ml-5 mr-5">
                     <div>
                         <a class="font-weight-bold">Descricao</a>
-                        <p>{{trabalho.descricao}}</p>
+                        <p class="text-justify">{{trabalho.descricao}}</p>
                     </div>
                 </div>
-
-                <div class="mt-4 mb-4">
-                    <a class="font-weight-bold">Anexos</a>
-                    <div class="d-flex flex-wrap justify-content-around">
-                        <div *ngFor="let ficheiros of trabalho.ficheiros_trabalhos">
-                            <app-card-ficheiros [ficheiro]="ficheiros"></app-card-ficheiros>
-                        </div>
-                    </div>
-
-                </div>
-
-
             </div>
           </mat-tab>
 
-          <mat-tab label="Tab 2">
-            <ng-template mat-tab-label class="bg-success">
-              <div class="mt-2">
-                <i class="material-icons">content_copy</i>
-                <h5>Avaliacaoes</h5>
-              </div>
-            </ng-template>
-            <div class="demo-tab-content">
+          <!--<mat-tab label="Tab 2">-->
+            <!--<ng-template mat-tab-label class="bg-success">-->
+              <!--<div class="mt-2">-->
+                <!--<i class="material-icons">content_copy</i>-->
+                <!--<h5>Avaliacaoes</h5>-->
+              <!--</div>-->
+            <!--</ng-template>-->
+            <!--<div class="demo-tab-content">-->
 
-                Avaliadores
+                <!--Avaliadores-->
 
-            </div>
-          </mat-tab>
+            <!--</div>-->
+          <!--</mat-tab>-->
 
           <mat-tab label="Tab 3">
             <ng-template mat-tab-label class="bg-success">
               <div class="mt-2">
                 <i class="material-icons">people_outline</i>
-                <h5>Participantes</h5>
+                <h5>Juri</h5>
               </div>
             </ng-template>
 
@@ -86,7 +74,7 @@
 
             <div class="demo-tab-content" *ngIf="docentes">
                 <div>
-                    <app-participante [docentes]="docentes" [docentesAdicionais]="docentesdicionados"></app-participante>
+                    <app-participante [docentes]="docentes" [docentesAdicionais]="docentesdicionados" [co_supervisor]="trabalho.co_supervisor"></app-participante>
                 </div>
 
             </div>
@@ -100,9 +88,12 @@
               </div>
             </ng-template>
 
-            <div>
+              <div class="demo-tab-content" *ngIf="trabalho">
+                  <div *ngFor="let ficheiros of ordernar(trabalho.ficheiros_trabalhos)">
+                      <app-card-ficheiros [ficheiro]="ficheiros"></app-card-ficheiros>
+                  </div>
+              </div>
 
-            </div>
           </mat-tab>
 
         </mat-tab-group>

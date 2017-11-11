@@ -12,7 +12,7 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
   trabalhos: Array<any>;
   @Input() modal: any;
   @Output() saidaDados = new EventEmitter();
-  @ViewChild('modalDetalhes') modalDetalhes;
+  @Input() paginacao = 5;
   trabalhoSelecionado: any;
   subcricao: any;
   docentes: any;
@@ -28,7 +28,7 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
 
 
     getTrabalhos(){
-        this.subcricao = this.trabalhosService.getTrabalho(true, 5).subscribe(
+        this.subcricao = this.trabalhosService.getTrabalho(true, this.paginacao).subscribe(
             (resultado: Response) =>{
                 console.log(resultado);
                 this.trabalhos = resultado['trabalhos'].data;

@@ -13,4 +13,9 @@ export class CardFicheirosComponent implements OnInit {
   ngOnInit() {
   }
 
+
+    getTipoFicheiro(tipoFicheiro){
+      return (tipoFicheiro == 'Protocolo') ? 'Protocolo' : 'Relactorio';
+    }
+
 }

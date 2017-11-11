@@ -1,19 +1,21 @@
-<app-trabalhos-detalhes  (output)="getModal($event)" ></app-trabalhos-detalhes>
+<!--<app-trabalhos-detalhes  (output)="getModal($event)" ></app-trabalhos-detalhes>-->
+<app-dialog-protocolos  (output)="getModalProtocolo($event)" [(trabalho)] = "trabalhoSelecionado" [(docentes)]="docentes" ></app-dialog-protocolos>
+<app-trabalhos-detalhes  (output)="getModalTrabalho($event)" [(trabalho)] = "trabalhoSelecionado" [(docentes)]="docentes" ></app-trabalhos-detalhes>
+
 
 <mat-tab-group class="demo-tab-group">
 
   <mat-tab label="Tab 1">
     <ng-template mat-tab-label class="bg-success">
       <div class="mt-3" >
-        <h6 class="text-uppercase">Todos</h6>
+        <h6 class="text-uppercase">Trabalhos de Licenceatura</h6>
       </div>
     </ng-template>
     <div class="demo-tab-content" >
       <div class="mt-2">
-        <app-tabela-trabalhos-completo [modal]="modal" (saidaDados)="receberDados($event)"></app-tabela-trabalhos-completo>
+        <app-tabela-trabalhos-completo [modal]="modalTrabalho" [paginacao]="100" (saidaDados)="receberDados($event)"></app-tabela-trabalhos-completo>
       </div>
     </div>
-
   </mat-tab>
 
 
@@ -25,7 +27,7 @@
     </ng-template>
     <div class="demo-tab-content">
       <div class="mt-3">
-        <app-tabela-protocolos [modal]="modal"></app-tabela-protocolos>
+        <app-tabela-protocolos [modal]="modalProtocolo" (saidaDados)="entradaDados"></app-tabela-protocolos>
       </div>
     </div>
   </mat-tab>
@@ -33,15 +35,16 @@
   <mat-tab label="Tab 3">
     <ng-template mat-tab-label class="bg-success">
       <div class="mt-2">
-        <h6 class="text-uppercase">Trabalhos</h6>
+        <h6 class="text-uppercase">Relatorios</h6>
       </div>
     </ng-template>
     <div class="demo-tab-content">
       <div class="mt-3">
-        <app-tabela-trabalhos-apenas [modal]="modal"></app-tabela-trabalhos-apenas>
+        <app-tabela-trabalhos-apenas></app-tabela-trabalhos-apenas>
       </div>
 
     </div>
   </mat-tab>
+
 
 </mat-tab-group>
