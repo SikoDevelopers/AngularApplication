@@ -29,7 +29,8 @@ export class FileInputComponent implements OnInit {
         if (fileList.length > 0) {
             this.file1 = fileList[0];
             this.caminhoDoFile=valor;
-            alert(this.file1);
+            alert(this.file1.name);
+            alert('entramos ja definimos o value');
             this.eventEmiter.emit({file:this.file1});
         }
 
