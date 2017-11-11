@@ -13,10 +13,9 @@ export class TabsTrabalhosComponent implements OnInit {
     @Input() modalTrabalho: any;
     @Input() modalTodos: any;
 
-    /**
-     * recebe os dados retirados de cada uma das tabelas tabs
-     */
-    @Input() entradaDados: any;
+    trabalhoSelecionado: any;
+    docentes: any;
+
 
 
   constructor() { }
@@ -25,7 +24,8 @@ export class TabsTrabalhosComponent implements OnInit {
   }
 
     receberDados(evento){
-        this.entradaDados = evento;
+      this.trabalhoSelecionado = evento.trabalhoSelecionado;
+      this.docentes = evento.docentes;
     }
 
     getModalProtocolo(evento){
@@ -34,7 +34,7 @@ export class TabsTrabalhosComponent implements OnInit {
     }
 
     getModalTrabalho(evento){
-        this.modalProtocolo = evento;
+        this.modalTrabalho = evento;
         console.log(evento);
     }
 

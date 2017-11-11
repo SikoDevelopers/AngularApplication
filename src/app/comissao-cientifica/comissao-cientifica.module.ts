@@ -44,6 +44,8 @@ import { DatepickerModule } from 'angular2-material-datepicker';
 import {Ng2CompleterModule} from 'ng2-completer';
 import {AdicionarParticipantesComponent} from './conteudo/trabalhos/adicionar-participantes/adicionar-participantes.component';
 import { DialogProtocolosComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-protocolos/dialog-protocolos/dialog-protocolos.component';
+import {GrauAcademicoService} from '../service/grau-academico.service';
+import { DialogTrabalhosCompletosComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-trabalhos-completo/dialog-trabalhos-completos/dialog-trabalhos-completos.component';
 
 @NgModule({
   imports: [
@@ -90,11 +92,12 @@ import { DialogProtocolosComponent } from './conteudo/trabalhos/tabs-trabalhos/t
       EditarEventosComponent,
       EventoComponent,
       AdicionarParticipantesComponent,
-      DialogProtocolosComponent
+      DialogProtocolosComponent,
+      DialogTrabalhosCompletosComponent
 
 ],
 
-providers: [AvatarComponent,TrabalhoService, ProcessoSubmissaoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
+providers: [AvatarComponent, GrauAcademicoService, TrabalhoService, ProcessoSubmissaoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
     schemas:[NO_ERRORS_SCHEMA],
     exports:[RouterModule]
 })

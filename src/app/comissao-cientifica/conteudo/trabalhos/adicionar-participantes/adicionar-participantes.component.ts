@@ -79,10 +79,10 @@ export class AdicionarParticipantesComponent implements OnInit, OnDestroy {
 
   getFuncao(){
       let funcao = [{designacao: "teste"}];
-       this.funcaoService.getFuncao().subscribe(
+       this.funcaoService.getFuncaoRestrito().subscribe(
           (resultado: Response) => {
               funcao = resultado['funcoes'];
-              console.log(funcao);
+              console.log(resultado);
           },
           (erros: HttpErrorResponse) => {
               console.error(erros);

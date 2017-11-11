@@ -19,7 +19,7 @@ export class TrabalhosComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-      this.getTrabalhos();
+      // this.getTrabalhos();
   }
 
     getTrabalhos(){
@@ -36,8 +36,9 @@ export class TrabalhosComponent implements OnInit, OnDestroy {
         );
     }
 
+
     ngOnDestroy(): void {
-        this.subcricao.unsubscribe();
+        // this.subcricao.unsubscribe();
     }
 
 
