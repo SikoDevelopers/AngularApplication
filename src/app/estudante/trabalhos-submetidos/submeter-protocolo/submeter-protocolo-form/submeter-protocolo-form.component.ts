@@ -22,7 +22,7 @@ export class SubmeterProtocoloFormComponent implements OnInit {
 
     ) { }
 
-    file;
+    file:any;
     ficheiros: Array<any>;
     user;
     estado;
@@ -35,9 +35,10 @@ export class SubmeterProtocoloFormComponent implements OnInit {
 
 
     atribuirValor(evento){
+        alert('event emitter');
 
         this.file = evento.file;
-        alert(this.file);
+        alert(this.file.name);
     }
 
 
@@ -45,14 +46,14 @@ export class SubmeterProtocoloFormComponent implements OnInit {
 
 
         let formData= new FormData();
-        formData.append('trabalho',this.file, this.file.name);
+        formData.append('Protocolo',this.file, this.file.name);
         formData.append( 'estudante_id',''+this.estudante.id);
         formData.append('data',''+new Date());
         formData.append('timestamp',''+new Date().getTime());
 
 
 
-        this.trabalhoService.saveTrabalhoFinal(formData).subscribe(
+        this.trabalhoService.saveProtocolo(formData).subscribe(
             resultados=>{
                 console.log(resultados);
             },
