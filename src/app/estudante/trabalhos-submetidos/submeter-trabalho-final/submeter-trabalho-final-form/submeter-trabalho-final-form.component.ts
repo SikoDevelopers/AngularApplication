@@ -36,6 +36,7 @@ export class SubmeterTrabalhoFinalFormComponent implements OnInit {
 
     atribuirValor(evento){
 
+      alert('emitter');
     this.file = evento.file;
     alert(this.file);
   }
