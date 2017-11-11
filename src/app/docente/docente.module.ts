@@ -30,6 +30,7 @@ import { SubmeterTemaComponent } from './conteudo/temas/submeter-tema/submeter-t
 import { SubmeterTemaFormComponent } from './conteudo/temas/submeter-tema/submeter-tema-form/submeter-tema-form.component';
 import {SelectModule} from "./conteudo/temas/submeter-tema/submeter-tema-form/select/select.module";
 import {FormsModule} from "@angular/forms";
+import {TemaService} from "../service/tema.service";
 
 @NgModule({
   imports: [
@@ -69,6 +70,6 @@ import {FormsModule} from "@angular/forms";
 
   ],
     schemas:[NO_ERRORS_SCHEMA],
-    providers : []
+    providers : [TemaService]
 })
 export class DocenteModule { }
