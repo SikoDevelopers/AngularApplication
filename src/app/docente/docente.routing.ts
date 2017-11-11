@@ -5,6 +5,7 @@ import {EventosComponent} from "./conteudo/eventos/eventos.component";
 import { MeusSupervisionandosComponent } from './conteudo/meus-supervisionandos/meus-supervisionandos.component'
 import { TemasComponent } from './conteudo/temas/temas.component';
 import { OponenciaComponent } from './conteudo/oponencia/oponencia.component';
+import {SolicitacoesComponent} from "./conteudo/solicitacoes/solicitacoes.component";
 
 const DOCENTE_ROTAS: Routes = [
     {path: '', component: DocenteComponent,
@@ -12,7 +13,8 @@ const DOCENTE_ROTAS: Routes = [
             {path:'docente/supervisandos',component: MeusSupervisionandosComponent},
             {path:'docente/eventos',component: EventosComponent},
             {path:'docente/temas',component: TemasComponent},
-            {path:'docente/oponencia',component: OponenciaComponent}
+            {path:'docente/oponencia',component: OponenciaComponent},
+            {path:'docente/solicitacoes',component: SolicitacoesComponent}
 
         ],
 
