@@ -96,6 +96,7 @@ export class TrabalhosSubmetidosComponent implements OnInit {
                     ()=>{
                         this.ficheiros= this.trabalho.ficheiros_trabalhos;
                         console.log('files '+this.ficheiros);
+
                         this.getEstadoFicheiro(this.trabalho.id);
 
                     }
