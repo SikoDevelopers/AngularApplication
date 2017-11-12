@@ -1,39 +1,51 @@
-<button type="button" class="btn btn-primary waves-light" (click)="form.show()" mdbRippleRadius>Novo</button>
-<!--Modal: Subscription From-->
-<div mdbModal #form="mdb-modal" class="modal fade" id="modalSubscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog cascading-modal" role="document">
-    <!--Content-->
+<button type="button" class="btn btn-primary waves-light" (click)="modal.show()" mdbRippleRadius>Novo</button>
+<div mdbModal #modal="mdb-modal" class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-
-      <!--Header-->
-      <div class="modal-header light-blue darken-3 white-text">
-        <h4 class="title"><i class="fa fa-newspaper-o"></i> Registar Novo Co-supervisor</h4>
-        <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="form.hide()">
-          <span aria-hidden="true">×</span>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="demoBasic.hide()">
+        <span aria-hidden="true">×</span>
         </button>
+
       </div>
-      <!--Body-->
-      <div class="modal-body mb-0">
 
-        <div class="md-form form-sm">
-          <i class="fa fa-lock prefix"></i>
-          <input mdbActive type="text" id="nome" class="form-control">
-          <label for="nome">Nome</label>
+      <div class="modal-body">
+
+
+        <form>
+          <!--<p class="h5 text-center mb-4">Adicionar Novo Co-supervisor</p>-->
+
+          <div class="md-form">
+            <i class="fa fa-lock prefix grey-text"></i>
+            <input type="text" id="apelido" class="form-control" #apelido mdbActive>
+            <label for="apelido">Apelido</label>
+          </div>
+
+
+          <div class="md-form">
+            <i class="fa fa-envelope prefix grey-text"></i>
+            <input type="text" id="nome" class="form-control" #nome mdbActive>
+            <label for="nome">Nome</label>
+          </div>
+
+
+
+          <div class="md-form">
+            <i class="fa fa-envelope prefix grey-text"></i>
+            <div class="">
+              <ng2-completer #selectGrau (selected)="selecionarGrau($event)" [openOnFocus]="true" [datasource]="dataServiceGrau" [minSearchLength]="0" [placeholder]="'         Selecione um GrauAcademico'"></ng2-completer>
+            </div>
+          </div>
+
+
+        </form>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm waves-light" data-dismiss="modal" (click)="modal.hide()" mdbRippleRadius>cancelar</button>
+          <button type="button" class="btn btn-primary btn-sm waves-light" mdbRippleRadius (click)="salvarCoSup(nome, apelido)">Salvar</button>
         </div>
-
-        <div class="md-form form-sm">
-          <i class="fa fa-envelope prefix"></i>
-          <input mdbActive type="select" id="grauAcademico" class="form-control">
-          <label for="grauAcademico">Your email</label>
-        </div>
-
-        <div class="text-center mt-1-half">
-          <button class="btn btn-info mb-1 waves-light" mdbRippleRadius>Submit <i class="fa fa-check ml-1"></i></button>
-        </div>
-
       </div>
     </div>
-    <!--/.Content-->
   </div>
 </div>
-<!--Modal: Subscription From-->

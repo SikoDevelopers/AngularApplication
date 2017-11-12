@@ -26,8 +26,8 @@
 
           <div class="text-left">
             <label >Co-supervisor </label>
-            <ng2-completer [(ngModel)]="coSupervisor" [datasource]="dataService" [minSearchLength]="0"></ng2-completer>
-            <app-co-spervisor-modal></app-co-spervisor-modal>
+            <ng2-completer (selected)="selecionarCoSup($event)" [datasource]="dataService" [minSearchLength]="0"></ng2-completer>
+            <app-co-spervisor-modal (gravarCoSup)="gravarCoSup($event)"></app-co-spervisor-modal>
           </div>
 
 
