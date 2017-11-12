@@ -27,6 +27,10 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
   docenteArea;
     titulo;
     descricao;
+    nomeCoSup;
+    apelidoCoSup;
+    graAcademico_id;
+    control:boolean =false;
 
     protected coSupervisor: string;
     protected captain: string;
@@ -81,6 +85,13 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
           }
       );
   }
+    gravarCoSup(evento){
+        this.control = true;
+      this.graAcademico_id=evento.grauAcadmico;
+      this.nomeCoSup=evento.nome;
+      this.apelidoCoSup= evento.apelido;
+        this.control=true;
+    }
 
 getSupervisores(){
 
@@ -115,8 +126,30 @@ getArea(){
     )
 }
 
+
+    selecionarCoSup(selecionado) {
+
+        this.coSupervisor = selecionado.originalObject.id;
+        this.control=false;
+
+    }
+
 submeter(){
+
+
     let formData= new FormData();
+alert(this.control);
+    if(this.control==true){
+alert('criou se novo');
+        formData.append( 'nomeCoSup',''+this.nomeCoSup);
+        formData.append( 'apelidoCoSup',''+this.apelidoCoSup);
+        formData.append( 'grauAcademico_id',''+this.graAcademico_id);
+
+    }else{
+        alert('selec');
+        formData.append( 'coSupId',''+this.coSupervisor);
+    }
+    formData.append( 'control',''+this.control);
     formData.append('protocolo',this.file, this.file.name);
 
     formData.append( 'user',''+this.user.id);
@@ -138,7 +171,8 @@ submeter(){
         },
         ()=>{
             alert('processo completo');
-            window.location.href = "estudante/trabalhos-submetidos";
+            // window.location.href = "estudante/trabalhos-submetidos";
+            console.log('hello');
         }
     )
 
