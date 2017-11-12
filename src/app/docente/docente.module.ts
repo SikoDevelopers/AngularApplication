@@ -32,6 +32,8 @@ import {SelectModule} from "./conteudo/temas/submeter-tema/submeter-tema-form/se
 import {FormsModule} from "@angular/forms";
 import {TemaService} from "../service/tema.service";
 import {SolicitacoesComponent} from "./conteudo/solicitacoes/solicitacoes.component";
+import { ListaDeSolicitacoesComponent } from './conteudo/solicitacoes/lista-de-solicitacoes/lista-de-solicitacoes.component';
+import { SolicitacaoComponent } from './conteudo/solicitacoes/lista-de-solicitacoes/solicitacao/solicitacao.component';
 
 @NgModule({
   imports: [
@@ -67,7 +69,9 @@ import {SolicitacoesComponent} from "./conteudo/solicitacoes/solicitacoes.compon
       TabelaOponenciasComponent,
       SubmeterTemaComponent,
       SubmeterTemaFormComponent,
-      SolicitacoesComponent
+      SolicitacoesComponent,
+      ListaDeSolicitacoesComponent,
+      SolicitacaoComponent
 
   ],
     schemas:[NO_ERRORS_SCHEMA],
