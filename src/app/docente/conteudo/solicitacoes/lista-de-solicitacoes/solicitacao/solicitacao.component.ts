@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
 
 @Component({
   selector: 'app-solicitacao',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SolicitacaoComponent implements OnInit {
   cor: string = 'white';
-
+  @Input() modal: any;
   constructor() { }
 
   ngOnInit() {
@@ -16,6 +16,14 @@ export class SolicitacaoComponent implements OnInit {
 
   changeStyle($event){
     this.cor = $event.type == 'mouseover' ? '#eeeeee' : 'white';
+  }
+
+  getModal(evento) {
+    this.modal = evento;
+  }
+
+  onMostrarModal(){
+    this.modal.show();
   }
 
 }

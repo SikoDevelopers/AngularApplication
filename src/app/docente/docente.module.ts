@@ -34,6 +34,7 @@ import {TemaService} from "../service/tema.service";
 import {SolicitacoesComponent} from "./conteudo/solicitacoes/solicitacoes.component";
 import { ListaDeSolicitacoesComponent } from './conteudo/solicitacoes/lista-de-solicitacoes/lista-de-solicitacoes.component';
 import { SolicitacaoComponent } from './conteudo/solicitacoes/lista-de-solicitacoes/solicitacao/solicitacao.component';
+import { ModalResponderSolicitacaoSupervisaoComponent } from './conteudo/solicitacoes/lista-de-solicitacoes/solicitacao/modal-responder-solicitacao-supervisao/modal-responder-solicitacao-supervisao.component';
 
 @NgModule({
   imports: [
@@ -71,7 +72,8 @@ import { SolicitacaoComponent } from './conteudo/solicitacoes/lista-de-solicitac
       SubmeterTemaFormComponent,
       SolicitacoesComponent,
       ListaDeSolicitacoesComponent,
-      SolicitacaoComponent
+      SolicitacaoComponent,
+      ModalResponderSolicitacaoSupervisaoComponent
 
   ],
     schemas:[NO_ERRORS_SCHEMA],
