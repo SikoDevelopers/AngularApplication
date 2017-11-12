@@ -41,7 +41,7 @@ export class DocenteService {
      * @returns {Observable<Object>} - dados do estudante retornados
      */
     getOponencias(id:number): Observable<any>{
-        return this.http.get('http://127.0.0.1:8000/api/docentes/'+4+'/oponencias');
+        return this.http.get('http://127.0.0.1:8000/api/docentes/'+id+'/oponencias');
     }
 
     saveDocente(docente: Docente): Observable<any>{
@@ -66,6 +66,15 @@ export class DocenteService {
     getDocentesEspecificacoes(completo: boolean, paginacao: number): Observable<any>{
         return this.http.get('http://127.0.0.1:8000/api/docentes?completo='+completo + '&paginacao='+paginacao);
         // return this.http.get('http://127.0.0.1:8000/api/docentes?completo=true&paginacao=3');
+    }
+
+    /**
+     * Metodo usado para ir buscar solicitacoes de supervisao
+     * @param id
+     * @returns {Observable<Object>}
+     */
+    getSolicitacoesDeSupervisao(id: number): Observable<any>{
+        return this.http.get('http://127.0.0.1:8000/api/docentes/'+id+'/solicitacoes/supervisao');
     }
 
 }
