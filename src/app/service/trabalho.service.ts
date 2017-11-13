@@ -32,6 +32,12 @@ export class TrabalhoService {
         headers.append('Content-Type', 'Application/x-www-form-urlencoded');
         return this.http.post('http://127.0.0.1:8000/api/trabalhos_final', formData , {headers: headers});
     }
+    saveProtocolo(formData: FormData): Observable<any>{
+
+        const headers = new HttpHeaders();
+        headers.append('Content-Type', 'Application/x-www-form-urlencoded');
+        return this.http.post('http://127.0.0.1:8000/api/protocolo', formData , {headers: headers});
+    }
 
 
     updateTrabalho(id: number, trabalho: Trabalho){

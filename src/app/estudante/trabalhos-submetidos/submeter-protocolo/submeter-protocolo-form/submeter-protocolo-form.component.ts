@@ -6,54 +6,54 @@ import {EstudanteService} from "../../../../service/estudante.service";
 import {FicheiroTrabalhoEstadoFicheiroService} from "../../../../service/ficheiro-trabalho-estado-ficheiro.service";
 
 @Component({
-  selector: 'app-submeter-trabalho-final-form',
-  templateUrl: './submeter-trabalho-final-form.component.html',
-  styleUrls: ['./submeter-trabalho-final-form.component.scss']
+  selector: 'app-submeter-protocolo-form',
+  templateUrl: './submeter-protocolo-form.component.html',
+  styleUrls: ['./submeter-protocolo-form.component.scss']
 })
-export class SubmeterTrabalhoFinalFormComponent implements OnInit {
-  labelDoFileChooser:string = "Selecione o documento"
-  constructor(
-      private userService: UserService,
-      private trabalhoService: TrabalhoService,
-      private ficheiroService: FicheirosTrabalhoService,
-      private estudanteService: EstudanteService,
-      private estadoFicheiroService : FicheiroTrabalhoEstadoFicheiroService
+export class SubmeterProtocoloFormComponent implements OnInit {
+    labelDoFileChooser:string = "Selecione o documento"
+    constructor(
+        private userService: UserService,
+        private trabalhoService: TrabalhoService,
+        private ficheiroService: FicheirosTrabalhoService,
+        private estudanteService: EstudanteService,
+        private estadoFicheiroService : FicheiroTrabalhoEstadoFicheiroService
 
 
-  ) { }
+    ) { }
 
-  file;
-  ficheiros: Array<any>;
+    file:any;
+    ficheiros: Array<any>;
     user;
     estado;
     estudante;
     trabalho;
-  ngOnInit() {
-      this.getUser();
+    ngOnInit() {
+        this.getUser();
 
-  }
+    }
 
 
     atribuirValor(evento){
+        alert('event emitter');
 
-      alert('emitter');
-    this.file = evento.file;
-    alert(this.file);
-  }
+        this.file = evento.file;
+        alert(this.file.name);
+    }
 
 
     submeter(){
 
 
         let formData= new FormData();
-        formData.append('trabalho',this.file, this.file.name);
+        formData.append('Protocolo',this.file, this.file.name);
         formData.append( 'estudante_id',''+this.estudante.id);
         formData.append('data',''+new Date());
         formData.append('timestamp',''+new Date().getTime());
 
 
 
-        this.trabalhoService.saveTrabalhoFinal(formData).subscribe(
+        this.trabalhoService.saveProtocolo(formData).subscribe(
             resultados=>{
                 console.log(resultados);
             },

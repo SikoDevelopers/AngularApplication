@@ -7,6 +7,7 @@ import {DocenteAreaService} from "../../../service/docente-area.service";
 import {forEach} from "@angular/router/src/utils/collection";
 import {Data} from "@angular/router";
 import {TrabalhoService} from "../../../service/trabalho.service";
+import { CompleterService, CompleterData } from 'ng2-completer';
 
 @Component({
   selector: 'app-submeter-trabalho-form',
@@ -26,7 +27,23 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
   docenteArea;
     titulo;
     descricao;
-     news;
+    nomeCoSup;
+    apelidoCoSup;
+    graAcademico_id;
+    control:boolean =false;
+
+    protected coSupervisor: string;
+    protected captain: string;
+    protected dataService: CompleterData;
+    protected coSupervisores = [
+        { color: 'red', value: '#f00' },
+        { color: 'green', value: '#0f0' },
+        { color: 'blue', value: '#00f' },
+        { color: 'cyan', value: '#0ff' },
+        { color: 'magenta', value: '#f0f' },
+        { color: 'yellow', value: '#ff0' },
+        { color: 'black', value: '#000' }
+    ];
   constructor(
       private _areas:AreaService,
       private userService:UserService,
@@ -34,8 +51,10 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
       private docenteService: DocenteService,
       private areaService : AreaService,
       private docenteAreaService : DocenteAreaService,
-      private trabalhoService : TrabalhoService
+      private trabalhoService : TrabalhoService,
+      private completerService: CompleterService
   ) {
+
   }
 
   ngOnInit() {
@@ -66,6 +85,13 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
           }
       );
   }
+    gravarCoSup(evento){
+        this.control = true;
+      this.graAcademico_id=evento.grauAcadmico;
+      this.nomeCoSup=evento.nome;
+      this.apelidoCoSup= evento.apelido;
+        this.control=true;
+    }
 
 getSupervisores(){
 
@@ -81,6 +107,8 @@ getSupervisores(){
               },
               ()=>{
                   this.getDocenteArea();
+                  this.dataService = this.completerService.local(this.supervisores, 'nome', 'nome,apelido');
+
                   console.log('Supervisores carregados');
 
               }
@@ -98,8 +126,30 @@ getArea(){
     )
 }
 
+
+    selecionarCoSup(selecionado) {
+
+        this.coSupervisor = selecionado.originalObject.id;
+        this.control=false;
+
+    }
+
 submeter(){
+
+
     let formData= new FormData();
+alert(this.control);
+    if(this.control==true){
+alert('criou se novo');
+        formData.append( 'nomeCoSup',''+this.nomeCoSup);
+        formData.append( 'apelidoCoSup',''+this.apelidoCoSup);
+        formData.append( 'grauAcademico_id',''+this.graAcademico_id);
+
+    }else{
+        alert('selec');
+        formData.append( 'coSupId',''+this.coSupervisor);
+    }
+    formData.append( 'control',''+this.control);
     formData.append('protocolo',this.file, this.file.name);
 
     formData.append( 'user',''+this.user.id);
@@ -121,7 +171,8 @@ submeter(){
         },
         ()=>{
             alert('processo completo');
-            window.location.href = "estudante/trabalhos-submetidos";
+            // window.location.href = "estudante/trabalhos-submetidos";
+            console.log('hello');
         }
     )
 
