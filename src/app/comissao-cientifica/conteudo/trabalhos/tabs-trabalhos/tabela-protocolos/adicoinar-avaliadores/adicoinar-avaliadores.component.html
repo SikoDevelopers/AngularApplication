@@ -1,0 +1,17 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class=" col-md-6" style="margin-left: auto; margin-right: auto">
+      <div class="">
+        <!--<h4>Docentes</h4>-->
+        <ng2-completer #selectDocente (selected)="selecionarAvaliador($event)" [openOnFocus]="true" [datasource]="dataServicedocente" [minSearchLength]="0" [placeholder]="'Selecione um docente'"></ng2-completer>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center mt-2">
+  <button class="btn btn-primary" (click)="salvarAvaliadors()">Adicionar Avaliador</button>
+</div>
+

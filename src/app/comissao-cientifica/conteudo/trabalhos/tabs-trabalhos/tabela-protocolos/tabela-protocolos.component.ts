@@ -13,7 +13,9 @@ export class TabelaProtocolosComponent implements OnInit {
     @Input() modal: any;
     @Output() saidaDados = new EventEmitter();
     @ViewChild('modalDetalhes') modalDetalhes;
-    trabalhoSelecionado: any;
+    protocoloSelecionado: any;
+    avaliadorSelecionado: any;
+
     subcricao: any;
     docentes: any;
 
@@ -28,10 +30,10 @@ export class TabelaProtocolosComponent implements OnInit {
 
 
     getProtocolos(){
-        this.subcricao = this.trabalhosService.getProtocolo().subscribe(
+        this.subcricao = this.trabalhosService.getProtocolo(100).subscribe(
             (resultado: Response) =>{
                 this.protocolos = resultado['protocolos'];
-                console.log(this.protocolos[0]);
+                console.log(this.protocolos);
             },
             (erros: HttpErrorResponse) => {
                 console.error(erros);
@@ -62,13 +64,25 @@ export class TabelaProtocolosComponent implements OnInit {
     }
 
 
-    onClickTrabalho(trabalho){
-        this.trabalhoSelecionado = trabalho;
-        this.modal.show();
+    onClickTrabalho(protocolo){
+
+        let avaliacao;
+        this.trabalhosService.getAvaliacao(protocolo.id).subscribe(
+            (ressultado: Response) => {
+                avaliacao = ressultado['avaliacao'];
+            },
+            (erros: HttpErrorResponse) => {
+                console.log(erros);
+            },
+            () => {
+                this.avaliadorSelecionado = avaliacao;
+                this.protocoloSelecionado = protocolo;
+                this.saidaDados.emit({protocoloSelecionado: this.protocoloSelecionado, avaliadorSelecionado: this.avaliadorSelecionado});
+                this.modal.show();
+            }
+        );
+
     }
-
-
-
 
     ngOnDestroy(): void {
         this.subcricao.unsubscribe();

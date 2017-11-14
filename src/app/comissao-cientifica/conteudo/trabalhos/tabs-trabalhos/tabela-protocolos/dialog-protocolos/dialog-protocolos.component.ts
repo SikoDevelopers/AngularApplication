@@ -1,4 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {TrabalhoService} from '../../../../../../service/trabalho.service';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-dialog-protocolos',
@@ -10,6 +12,10 @@ export class DialogProtocolosComponent implements OnInit {
     @ViewChild('modal') modal;
     @Output() output = new EventEmitter();
     @Input() trabalho: any;
+    @Input() avaliador: any;
+    parecerFinal: boolean = false;
+    adicionar_or_select: boolean = true;
+    is_permanente_temporario: boolean = false;
 
 
     constructor() { }
@@ -19,18 +25,28 @@ export class DialogProtocolosComponent implements OnInit {
     }
 
 
-    getEstado(is_aprovado){
-        if(is_aprovado){
-            return "Aprovado";
-        }
-        else
-            return "Nao Aprovado";
+
+
+    getAvaliadorAux(){
+        return this.avaliador;
     }
 
 
-    getDataSubmissao(dataSubmissao){
-        let data = new Date(dataSubmissao);
-        return data.getDay() +" / "+data.getMonth()+ " / "+ data.getFullYear();
+
+    mostrarSelect(){
+        this.adicionar_or_select = !this.adicionar_or_select;
     }
+
+    getAvaliador(evento){
+        this.parecerFinal = evento.isAdicionado;
+        this.is_permanente_temporario = true;
+        this.avaliador = evento.avaliadorSelecionado;
+        console.log(this.avaliador);
+    }
+
+    possuiAvaliador() : boolean{
+        return this.parecerFinal || this.trabalho.avaliacoes_id != 0;
+    }
+
 
 }

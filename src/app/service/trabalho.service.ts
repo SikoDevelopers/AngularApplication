@@ -58,7 +58,7 @@ export class TrabalhoService {
 
 
 
-    getProtocolo(completo?: boolean, paginacao: number = 5): Observable<any>{
+    getProtocolo(paginacao: number = 5, completo?: boolean): Observable<any>{
         return this.http.get('http://127.0.0.1:8000/api/apenas/protocolos');
     }
 
@@ -87,6 +87,11 @@ export class TrabalhoService {
      */
     getDetalhesTrabalho(id:number) : Observable<any>{
         return this.http.get('http://localhost:8000/api/trabalho/'+id);
+    }
+
+
+    getAvaliacao(id){
+        return this.http.get('http://localhost:8000/api/ficheiros_trabalhos/'+id+'/avaliacao');
     }
 
 }
