@@ -94,8 +94,6 @@
                 <ng-template #semAvaliador>
                   <div class="ml-5 mr-5 mb-5 p-5">
 
-
-
                     <div class="text-center">
                         <div *ngIf="adicionar_or_select; then botao_adicionar else select"></div>
                       <ng-template #botao_adicionar>
@@ -115,25 +113,12 @@
 
                 <ng-template #comAvaliador>
 
-
-                  <div *ngIf="is_permanente_temporario; then temporario else permante "></div>
-
-                  <ng-template #temporario>
-                    <div class="mt-4">
-                      <app-avaliador [avaliadorAdicionais]="avaliador" (output)="getAvaliador($event)"></app-avaliador>
-                    </div>
-                  </ng-template>
-
-
-                  <ng-template #permante>
-                    <div class="mt-4">
-                      <app-avaliador [avaliador]="avaliador"></app-avaliador>
-                    </div>
-                  </ng-template>
-
+                  <div class="mt-4">
+                    <app-avaliador [avaliador]="avaliador" [ficheiroTrabalho_id]="trabalho.id" (output)="getAvaliador($event)"></app-avaliador>
+                  </div>
 
                   <div class="text-center mt-4 mb-5">
-                    <h4 class="text-success">Aguradando o <b>parecer</b> do Avaliador</h4>
+                    <h4 class="text-success">Aguradando o <b><b>parecer</b></b> do Avaliador</h4>
                   </div>
 
 

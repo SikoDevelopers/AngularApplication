@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AvatarComponent} from 'ng2-avatar';
+import {AvaliacaoService} from '../../../../../../service/avaliacao.service';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-avaliador',
@@ -8,11 +10,11 @@ import {AvatarComponent} from 'ng2-avatar';
 })
 export class AvaliadorComponent implements OnInit {
 
-    @Input() avaliadorAdicionais: any;
     @Input() avaliador: any;
+    @Input() ficheiroTrabalho_id: any;
     @Output() output = new EventEmitter();
 
-  constructor(private avatar: AvatarComponent) { }
+  constructor(private avatar: AvatarComponent, private avaliacaoService: AvaliacaoService) { }
 
   ngOnInit() {
   }
@@ -25,8 +27,20 @@ export class AvaliadorComponent implements OnInit {
 
 
     removerParticipante() {
-        this.avaliadorAdicionais = null;
-        this.output.emit({avaliadorSelecionado: this.avaliadorAdicionais, isAdicionado: false});
+
+        this.avaliacaoService.deleteAvaliacao(this.avaliador.id, {ficheiroTrabalho_id: this.ficheiroTrabalho_id}).subscribe(
+            (result)=>{
+                console.log(result['resultado']);
+            },
+            (erros)=> {
+                console.log(erros['mensagem']);
+            },
+            ()=>{
+                console.log("Terminado");
+                // this.output.emit({avaliadorSelecionado: this.avaliador, isAdicionado: false});
+            }
+
+        );
     }
 
 

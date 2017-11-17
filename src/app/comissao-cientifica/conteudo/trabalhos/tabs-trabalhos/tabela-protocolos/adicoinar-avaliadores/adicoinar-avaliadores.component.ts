@@ -18,6 +18,7 @@ export class AdicoinarAvaliadoresComponent implements OnInit {
 
     docentes: any = [];
     private avaliadorSelecionado;
+    private isEnabledButaoAdicionar: boolean = true;
 
     @Input() protocolo: any;
     avaliador = {
@@ -25,7 +26,7 @@ export class AdicoinarAvaliadoresComponent implements OnInit {
         docentes_id : 0,
         data_limite : '',
         data : '',
-        trabalhos_id : 0
+        id : 0,
     };
 
     constructor(private docentesService: DocenteService, private avaliacaoService: AvaliacaoService, private completerService: CompleterService) {
@@ -40,24 +41,23 @@ export class AdicoinarAvaliadoresComponent implements OnInit {
 
     salvarAvaliadors(){
          let dataLimite = new Date();
-         dataLimite.setDate(new Date().getDate()+15);
+         dataLimite.setDate(new Date().getDate() + 15);
         this.avaliador.fase =  "Protocolo";
         this.avaliador.docentes_id = this.avaliadorSelecionado.id;
         this.avaliador.data = this.formatarData(new Date);
         this.avaliador.data_limite = this.formatarData(dataLimite);
-        this.avaliador.trabalhos_id = this.protocolo.trabalho_id;
-        console.log(this.avaliador);
+        this.avaliador.id = this.protocolo.id;
 
-
+        let avaliacao: any;
         this.avaliacaoService.saveAvaliacao(this.avaliador).subscribe(
             (response: Response) => {
-                console.log(response);
+                avaliacao = response['avaliacao'];
             },
             (error: HttpErrorResponse) => {
                 console.log(error);
             },
             () => {
-                this.output.emit({avaliadorSelecionado: this.avaliadorSelecionado, isAdicionado: true});
+                this.output.emit({avaliadorSelecionado: avaliacao, isAdicionado: true});
             }
         );
 
@@ -98,6 +98,7 @@ export class AdicoinarAvaliadoresComponent implements OnInit {
 
 
     selecionarAvaliador(selecionado) {
+        this.isEnabledButaoAdicionar = false;
         this.avaliadorSelecionado = selecionado.originalObject;
     }
 

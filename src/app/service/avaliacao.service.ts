@@ -28,9 +28,9 @@ export class AvaliacaoService {
     }
 
 
-    deleteAvaliacao(id: number){
+    deleteAvaliacao(idAvaiacao: number, idFicheiroTrabalho){
         const headers = new HttpHeaders({'content-type': 'aplication/json'});
-        return this.http.delete('http://127.0.0.1:8000/api/avalicoes/'+id);
+        return this.http.get('http://127.0.0.1:8000/api/avalicoes/'+idAvaiacao, idFicheiroTrabalho);
     }
 
 }

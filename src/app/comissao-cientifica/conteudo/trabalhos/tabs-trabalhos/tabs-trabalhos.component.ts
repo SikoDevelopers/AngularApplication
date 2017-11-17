@@ -19,13 +19,15 @@ export class TabsTrabalhosComponent implements OnInit {
     protocoloSelecionado: any;
     docentes: any;
     avaliadorSelecionado: any;
+    parecerFinal: boolean;
 
 
 
-  constructor(private trabalhosService: TrabalhoService) { }
+  constructor() { }
 
   ngOnInit() {
   }
+
 
     receberDados(evento) {
         this.trabalhoSelecionado = evento.trabalhoSelecionado;
@@ -36,6 +38,8 @@ export class TabsTrabalhosComponent implements OnInit {
     receberDadosProtocolo(evento){
         this.protocoloSelecionado = evento.protocoloSelecionado;
         this.avaliadorSelecionado = evento.avaliadorSelecionado;
+        this.parecerFinal = evento.parecerFinal;
+        alert(this.parecerFinal);
     }
 
 

@@ -67,6 +67,7 @@ export class TabelaProtocolosComponent implements OnInit {
     onClickTrabalho(protocolo){
 
         let avaliacao;
+
         this.trabalhosService.getAvaliacao(protocolo.id).subscribe(
             (ressultado: Response) => {
                 avaliacao = ressultado['avaliacao'];
@@ -75,13 +76,18 @@ export class TabelaProtocolosComponent implements OnInit {
                 console.log(erros);
             },
             () => {
+                console.log(avaliacao);
                 this.avaliadorSelecionado = avaliacao;
                 this.protocoloSelecionado = protocolo;
-                this.saidaDados.emit({protocoloSelecionado: this.protocoloSelecionado, avaliadorSelecionado: this.avaliadorSelecionado});
+                this.saidaDados.emit({protocoloSelecionado: this.protocoloSelecionado, avaliadorSelecionado: this.avaliadorSelecionado, parecerFinal: this.getParecerFinal(this.avaliadorSelecionado)});
                 this.modal.show();
             }
         );
 
+    }
+
+    getParecerFinal(avaliacao) : boolean{
+        return !!avaliacao;
     }
 
     ngOnDestroy(): void {

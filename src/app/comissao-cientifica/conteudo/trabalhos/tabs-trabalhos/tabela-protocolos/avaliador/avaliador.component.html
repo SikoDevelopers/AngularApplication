@@ -1,29 +1,13 @@
 
-<div *ngIf="avaliadorAdicionais">
-  <div class="media mb-1 mr-5">
-    <a class="media-left waves-light">
-      <avatar [name]="avaliadorAdicionais.nome" [displayType]="'circle'" [size]="70"></avatar>
-    </a>
-    <button type="button" class="close" (click)="removerParticipante()">
-      <span aria-hidden="true">×</span>
-    </button>
-    <div class="media-body ml-2">
-      <p [ngStyle]="{'float':'right', 'color': getFuncaoColor()}" class="p-3">20 / 12 / 2017</p>
-      <h4 class="media-heading">{{avaliadorAdicionais.nome + ' '+ avaliadorAdicionais.apelido }}</h4>
-
-
-        <p>{{avaliadorAdicionais.grau_academico.designacao}}</p>
-
-      <hr/>
-    </div>
-  </div>
-</div>
-
 <div *ngIf="avaliador">
   <div class="media mb-1 mr-5">
     <a class="media-left waves-light">
       <avatar [name]="avaliador.docente.nome" [displayType]="'circle'" [size]="70"></avatar>
     </a>
+
+    <button type="button" class="close" (click)="removerParticipante()">
+      <span aria-hidden="true">×</span>
+    </button>
 
     <div class="media-body ml-2">
       <div [ngStyle]="{'float':'right'}">
