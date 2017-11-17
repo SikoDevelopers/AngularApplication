@@ -17,17 +17,18 @@
     <!--Table head-->
 
     <!--Table body-->
-    <tbody *ngFor="let protocolo of protocolos">
+
+    <tbody *ngFor="let protocolo of protocolos; let contador = index">
     <tr class="hoverable" (click)="onClickTrabalho(protocolo)" data-toggle="modal" data-target="#basicExample">
       <td>    </td>
-      <td scope="row">{{protocolo.id}}</td>
+      <td scope="row">{{contador+1}}</td>
       <td>{{protocolo.titulo}}</td>
       <td>{{protocolo.nome}}</td>
-      <td>{{getDataSubmissao(protocolo.data)}}</td>
+      <td>{{(protocolo.created_at) | date : 'dd/MM/yyyy'}}</td>
       <td>
-        <a [class.alert-danger]="'Nao Aprovado' == getEstado(protocolo.ficheiros_reprovados_id)" class="p-1"
-           [class.alert-success]="'Aprovado' == getEstado(protocolo.ficheiros_reprovados_id)">
-          {{getEstado(protocolo.ficheiros_reprovados_id)}}
+        <a [class.alert-danger]="'Reprovado' == (protocolo.estado_ficheiro)" class="p-1"
+           [class.alert-success]="'Aprovado' == getEstado(protocolo.estado_ficheiro)">
+          {{protocolo.estado_ficheiro}}
         </a>
       </td>
     </tr>
