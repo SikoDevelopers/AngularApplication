@@ -32,6 +32,12 @@ export class TrabalhoService {
         headers.append('Content-Type', 'Application/x-www-form-urlencoded');
         return this.http.post('http://127.0.0.1:8000/api/trabalhos_final', formData , {headers: headers});
     }
+    saveProtocolo(formData: FormData): Observable<any>{
+
+        const headers = new HttpHeaders();
+        headers.append('Content-Type', 'Application/x-www-form-urlencoded');
+        return this.http.post('http://127.0.0.1:8000/api/protocolo', formData , {headers: headers});
+    }
 
 
     updateTrabalho(id: number, trabalho: Trabalho){
@@ -58,7 +64,7 @@ export class TrabalhoService {
 
 
 
-    getProtocolo(completo?: boolean, paginacao: number = 5): Observable<any>{
+    getProtocolo(paginacao: number = 5, completo?: boolean): Observable<any>{
         return this.http.get('http://127.0.0.1:8000/api/apenas/protocolos');
     }
 
@@ -107,5 +113,13 @@ export class TrabalhoService {
     confirmarSupervisaoTrabalho(id: number) : Observable<any>{
         return this.http.get('http://localhost:8000/api/trabalho/'+id+'/confirmar-supervisao');
     }
+
+  
+
+    getAvaliacao(id){
+        return this.http.get('http://localhost:8000/api/ficheiros_trabalhos/'+id+'/avaliacao');
+    }
+
+
 }
 

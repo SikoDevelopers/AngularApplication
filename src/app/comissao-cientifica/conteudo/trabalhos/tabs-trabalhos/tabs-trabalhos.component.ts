@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {TrabalhoService} from '../../../../service/trabalho.service';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-tabs-trabalhos',
@@ -14,7 +16,10 @@ export class TabsTrabalhosComponent implements OnInit {
     @Input() modalTodos: any;
 
     trabalhoSelecionado: any;
+    protocoloSelecionado: any;
     docentes: any;
+    avaliadorSelecionado: any;
+    parecerFinal: boolean;
 
 
 
@@ -23,10 +28,20 @@ export class TabsTrabalhosComponent implements OnInit {
   ngOnInit() {
   }
 
-    receberDados(evento){
-      this.trabalhoSelecionado = evento.trabalhoSelecionado;
-      this.docentes = evento.docentes;
+
+    receberDados(evento) {
+        this.trabalhoSelecionado = evento.trabalhoSelecionado;
+        this.docentes = evento.docentes;
     }
+
+
+    receberDadosProtocolo(evento){
+        this.protocoloSelecionado = evento.protocoloSelecionado;
+        this.avaliadorSelecionado = evento.avaliadorSelecionado;
+        this.parecerFinal = evento.parecerFinal;
+        alert(this.parecerFinal);
+    }
+
 
     getModalProtocolo(evento){
          this.modalProtocolo = evento;

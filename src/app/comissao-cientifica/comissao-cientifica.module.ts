@@ -46,6 +46,9 @@ import {AdicionarParticipantesComponent} from './conteudo/trabalhos/adicionar-pa
 import { DialogProtocolosComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-protocolos/dialog-protocolos/dialog-protocolos.component';
 import {GrauAcademicoService} from '../service/grau-academico.service';
 import { DialogTrabalhosCompletosComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-trabalhos-completo/dialog-trabalhos-completos/dialog-trabalhos-completos.component';
+import { AdicoinarAvaliadoresComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-protocolos/adicoinar-avaliadores/adicoinar-avaliadores.component';
+import {AvaliacaoService} from '../service/avaliacao.service';
+import { AvaliadorComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-protocolos/avaliador/avaliador.component';
 
 @NgModule({
   imports: [
@@ -93,11 +96,13 @@ import { DialogTrabalhosCompletosComponent } from './conteudo/trabalhos/tabs-tra
       EventoComponent,
       AdicionarParticipantesComponent,
       DialogProtocolosComponent,
-      DialogTrabalhosCompletosComponent
+      DialogTrabalhosCompletosComponent,
+      AdicoinarAvaliadoresComponent,
+      AvaliadorComponent
 
 ],
 
-providers: [AvatarComponent, GrauAcademicoService, TrabalhoService, ProcessoSubmissaoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
+providers: [AvaliacaoService, AvatarComponent, GrauAcademicoService, TrabalhoService, ProcessoSubmissaoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
     schemas:[NO_ERRORS_SCHEMA],
     exports:[RouterModule]
 })

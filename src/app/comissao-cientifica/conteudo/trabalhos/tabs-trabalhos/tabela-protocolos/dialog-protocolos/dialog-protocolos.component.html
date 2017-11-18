@@ -21,38 +21,54 @@
               <div class="mt-4 d-flex justify-content-around">
 
                 <div>
-                  <a class="font-weight-bold">Titulo</a>
+                  <a class="font-weight-bold">Titulo do Trabalho</a>
                   <p>{{trabalho.titulo}}</p>
                 </div>
 
                 <div>
                   <a class="font-weight-bold">Data Submissao</a>
-                  <p>{{getDataSubmissao(trabalho.created_at)}}</p>
+                  <p>{{(trabalho.created_at) | date : 'dd/MM/yyyy' }}</p>
                 </div>
 
                 <div>
-                  <a class="font-weight-bold">Estado Aprovacao</a>
-                  <p>{{getEstado(trabalho.is_aprovado)}}</p>
+                  <a class="font-weight-bold">Estado do Protocolo</a>
+                  <p>{{trabalho.estado_ficheiro}}</p>
                 </div>
-
               </div>
 
-              <div class="mt-4 ">
+              <div class="mt-4 ml-5 mr-5">
                 <div>
                   <a class="font-weight-bold">Descricao</a>
-                  <p>{{trabalho.descricao}}</p>
+                  <p class="text-justify">{{trabalho.descricao}}</p>
                 </div>
               </div>
 
-              <div class="mt-4 mb-4">
-                <a class="font-weight-bold">Anexos</a>
-                <div class="d-flex flex-wrap justify-content-around">
-                  <div *ngFor="let ficheiros of trabalho.ficheiros_trabalhos">
-                    <app-card-ficheiros [ficheiro]="ficheiros"></app-card-ficheiros>
+
+                <div class="col-md-12 ml-4 mt-3 mr-5">
+                  <a class="font-weight-bold">Anexo</a>
+                  <div class="row" [ngStyle]="{'padding-top':'10px'}">
+                    <div class="col-lg-1 col-md-1 container">
+                      <a class="media-left waves-light">
+                        <img style="height: 60px" src="../../../../assets/imagens/trabalho/trabalho-img.png" alt="Generic placeholder image">
+                      </a>
+                    </div>
+
+                    <div class="col-lg-11 col-md-11" >
+                      <div>
+                        <div [ngStyle]="{'float':'left'}">
+                          <h5 class="mb-1">Procolo</h5>
+                          <h6>{{trabalho.caminho}}</h6>
+                        </div>
+                        <div class="mr-5" [ngStyle]="{'float':'right'}">
+                          <a  class="btn-sm btn btn-primary waves-light mr-1" href="#">Baixar</a>
+                          <a  class="btn-sm btn btn-primary waves-light" href="#" mdbRippleRadius>Ler</a>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
-                </div>
 
-              </div>
+                </div>
 
 
             </div>
@@ -68,23 +84,57 @@
               </div>
             </ng-template>
 
-            <div class="text-right mt-3">
-              <button class="text-center btn btn-danger">Reprovar</button>
-              <button class="text-center btn btn-success">Aprovar</button>
+
+
+            <div class="demo-tab-content">
+
+              <div *ngIf="trabalho">
+                <div *ngIf="possuiAvaliador(); then comAvaliador else semAvaliador"></div>
+
+                <ng-template #semAvaliador>
+                  <div class="ml-5 mr-5 mb-5 p-5">
+
+                    <div class="text-center">
+                        <div *ngIf="adicionar_or_select; then botao_adicionar else select"></div>
+                      <ng-template #botao_adicionar>
+                        <div class="text-center">
+                          <h3 class="text-center" [ngStyle]="{'color':'#888'}">Este Protocolo ainda nao possui um Avaliador</h3>
+                          <button class="btn btn-primary" (click)="mostrarSelect()">Adicionar Avaliador</button>
+                        </div>
+                      </ng-template>
+
+                      <ng-template #select>
+                        <app-adicoinar-avaliadores [protocolo]="trabalho" (output)="getAvaliador($event)"></app-adicoinar-avaliadores>
+                      </ng-template>
+                    </div>
+                  </div>
+
+                </ng-template>
+
+                <ng-template #comAvaliador>
+
+                  <div class="mt-4">
+                    <app-avaliador [avaliador]="avaliador" [ficheiroTrabalho_id]="trabalho.id" (output)="getAvaliador($event)"></app-avaliador>
+                  </div>
+
+                  <div class="text-center mt-4 mb-5">
+                    <h4 class="text-success">Aguradando o <b><b>parecer</b></b> do Avaliador</h4>
+                  </div>
+
+
+                  <div class="text-right mt-3">
+                    <button class="text-center btn btn-danger" [disabled]="true">Reprovar</button>
+                    <button class="text-center btn btn-success" [disabled]="true">Aprovar</button>
+                  </div>
+                </ng-template>
+
+              </div>
             </div>
           </mat-tab>
 
         </mat-tab-group>
 
-
-        <!--<div class="modal-footer">-->
-          <!--&lt;!&ndash;<button type="button" class="btn btn-secondary btn-sm waves-light" data-dismiss="modal" (click)="fecharModal($event)" mdbRippleRadius>Fechar</button>&ndash;&gt;-->
-          <!--&lt;!&ndash;<button type="button" class="btn btn-primary btn-sm waves-light" mdbRippleRadius (click)="salvarAlteracoes($event)">Salvar</button>&ndash;&gt;-->
-        <!--</div>-->
       </div>
     </div>
   </div>
 </div>
-
-<!--<app-adicionar-participantes (output)="getModalParticipantes($event)" (outputParticipante)="reabrirDialog($event)"></app-adicionar-participantes>-->
-

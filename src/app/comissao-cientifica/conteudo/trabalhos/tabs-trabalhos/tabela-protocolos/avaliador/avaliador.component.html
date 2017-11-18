@@ -1,0 +1,26 @@
+
+<div *ngIf="avaliador">
+  <div class="media mb-1 mr-5">
+    <a class="media-left waves-light">
+      <avatar [name]="avaliador.docente.nome" [displayType]="'circle'" [size]="70"></avatar>
+    </a>
+
+    <button type="button" class="close" (click)="removerParticipante()">
+      <span aria-hidden="true">×</span>
+    </button>
+
+    <div class="media-body ml-2">
+      <div [ngStyle]="{'float':'right'}">
+        <p class="m-0">Data Limite</p>
+        <p [ngStyle]="{'color': getFuncaoColor()}" class="m-0">{{avaliador.data_limite | date : 'dd/MM/yyyy'}}</p>
+      </div>
+
+      <h4 class="media-heading">{{avaliador.docente.nome + ' '+ avaliador.docente.apelido }}</h4>
+
+
+      <p>{{avaliador.docente.grau_academico.designacao}}</p>
+
+      <hr/>
+    </div>
+  </div>
+</div>
