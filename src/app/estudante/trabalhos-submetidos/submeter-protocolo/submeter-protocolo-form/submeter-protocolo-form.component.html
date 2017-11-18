@@ -1,9 +1,10 @@
 <form>
   <label>Documento</label>
-  <app-file-input [textoDaLabel]="labelDoFileChooser" (eventEmiter)="atribuirValor($event)"></app-file-input>
+  <app-file-input [textoDaLabel]="labelDoFileChooser" (eventEmiter)="atribuirValor1($event)"></app-file-input>
+
 
   <div class="text-right">
-    <a class="btn btn-primary waves-light" (click)="submeter()" mdbRippleRadius>
+    <a class="btn btn-primary waves-light" id="btn2" (click)="submeter1()" mdbRippleRadius>
       <i class="fa fa-upload"></i>
       Submeter
     </a>

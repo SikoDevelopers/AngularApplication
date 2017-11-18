@@ -97,32 +97,22 @@ export class TrabalhosSubmetidosComponent implements OnInit {
                         this.ficheiros= this.trabalho.ficheiros_trabalhos;
                         console.log('files '+this.ficheiros);
 
-                        this.getEstadoFicheiro(this.trabalho.id);
+                        this.getEstadoFicheiro();
 
                     }
                 )
             }
 
-            getEstadoFicheiro(id){
-                this.estadoFicheiroService.getEstadoFicheiro(id).subscribe(
-                    resultado=>{
-                        this.estado = resultado.estado;
-
-                    },
-                    (error)=>{
-                        console.log(error);
-                    },
-                    ()=>{
-                        console.log('state retrieved');
-
-                    }
-                )
+            getEstadoFicheiro(){
+                this.estado = this.ficheiros[this.ficheiros.length-1].estado_ficheiros[this.ficheiros[this.ficheiros.length-1].estado_ficheiros.length-1].designacao;
+            alert(this.estado);
             }
 
     verFicheiro(caminho){
                 // window.location.href="http://127.0.0.1:8000/api/display/"+caminho;
         window.open("http://127.0.0.1:8000/api/display/"+caminho,'_blank');
     }
+
 
     getModal(event){
         this.modal= event;

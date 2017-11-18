@@ -19,6 +19,7 @@ import {SubmeterProtocoloComponent} from "./trabalhos-submetidos/submeter-protoc
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import {Ng2CompleterModule} from "ng2-completer";
 import { CoSpervisorModalComponent } from './co-spervisor-modal/co-spervisor-modal.component';
+import { DetalhesFicheiroComponent } from './trabalhos-submetidos/detalhes-ficheiro/detalhes-ficheiro.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -43,6 +44,7 @@ import { CoSpervisorModalComponent } from './co-spervisor-modal/co-spervisor-mod
     SubmeterProtocoloFormComponent,
     AutoCompleteComponent,
     CoSpervisorModalComponent,
+    DetalhesFicheiroComponent,
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   exports: [ SidenavComponent ]
