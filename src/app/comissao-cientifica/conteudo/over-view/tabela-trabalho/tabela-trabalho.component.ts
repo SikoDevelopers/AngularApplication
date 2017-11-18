@@ -42,12 +42,12 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
         );
     }
 
-    getEstado(is_aprovado){
-        if(is_aprovado){
-            return "Aprovado";
+    getEstado(sup_confirm){
+        if(sup_confirm){
+            return "Confirmado";
         }
         else
-            return "Nao Aprovado";
+            return "Nao Confirmado";
     }
 
 

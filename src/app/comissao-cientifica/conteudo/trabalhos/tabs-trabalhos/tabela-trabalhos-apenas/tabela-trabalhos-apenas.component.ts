@@ -17,6 +17,7 @@ export class TabelaTrabalhosApenasComponent implements OnInit {
     trabalhoSelecionado: any;
     subcricao: any;
     docentes: any;
+    avaliadorSelecionado: any;
 
 
     constructor(private trabalhosService: TrabalhoService) {
@@ -64,10 +65,31 @@ export class TabelaTrabalhosApenasComponent implements OnInit {
 
 
     onClickTrabalho(trabalho){
-        this.trabalhoSelecionado = trabalho;
-        this.getParticipantesTrabalhos(trabalho.id);
-        this.modal.show();
+
+        let avaliacao;
+
+        this.trabalhosService.getAvaliacao(trabalho.id).subscribe(
+            (ressultado: Response) => {
+                avaliacao = ressultado['avaliacao'];
+            },
+            (erros: HttpErrorResponse) => {
+                console.log(erros);
+            },
+            () => {
+                console.log(avaliacao);
+                this.avaliadorSelecionado = avaliacao;
+                this.trabalhoSelecionado = trabalho;
+                this.saidaDados.emit({protocoloSelecionado: this.trabalhoSelecionado, avaliadorSelecionado: this.avaliadorSelecionado, parecerFinal: this.getParecerFinal(this.avaliadorSelecionado)});
+                this.modal.show();
+            }
+        );
     }
+
+
+    getParecerFinal(avaliacao) : boolean{
+        return !!avaliacao;
+    }
+
 
 
     getParticipantesTrabalhos(idTrabalho){

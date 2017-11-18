@@ -1,4 +1,4 @@
-<!--<app-trabalhos-detalhes  (output)="getModal($event)" ></app-trabalhos-detalhes>-->
+<!--<app-trabalhos-detalhes  (output)="getModal($event)" [(trabalho)] = "protocoloSelecionado" [(avaliador)]="avaliadorSelecionado" [(parecerFinal)]="parecerFinal"></app-trabalhos-detalhes>-->
 <app-dialog-protocolos  (output)="getModalProtocolo($event)" [(trabalho)] = "protocoloSelecionado" [(avaliador)]="avaliadorSelecionado" [(parecerFinal)]="parecerFinal" ></app-dialog-protocolos>
 <app-trabalhos-detalhes  (output)="getModalTrabalho($event)" [(trabalho)] = "trabalhoSelecionado" [(docentes)]="docentes" ></app-trabalhos-detalhes>
 
@@ -40,7 +40,7 @@
     </ng-template>
     <div class="demo-tab-content">
       <div class="mt-3">
-        <app-tabela-trabalhos-apenas></app-tabela-trabalhos-apenas>
+        <app-tabela-trabalhos-apenas [modal]="modalProtocolo" (saidaDados)="receberDadosProtocolo($event)"></app-tabela-trabalhos-apenas>
       </div>
 
     </div>

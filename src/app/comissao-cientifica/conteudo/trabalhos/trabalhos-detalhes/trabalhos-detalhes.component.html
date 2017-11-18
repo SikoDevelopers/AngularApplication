@@ -91,6 +91,11 @@
                   <div *ngFor="let ficheiros of ordernar(trabalho.ficheiros_trabalhos)">
                       <app-card-ficheiros [ficheiro]="ficheiros"></app-card-ficheiros>
                   </div>
+
+                  <div class="text-center m-5 p-5" *ngIf="trabalho.ficheiros_trabalhos.length <= 0">
+                      <h4 style="color: #9BA2AB">Sem historico de ficheiros submetidos</h4>
+                  </div>
+
               </div>
 
           </mat-tab>

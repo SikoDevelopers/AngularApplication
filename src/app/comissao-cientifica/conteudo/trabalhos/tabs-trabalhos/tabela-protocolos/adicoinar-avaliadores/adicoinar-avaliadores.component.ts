@@ -24,8 +24,8 @@ export class AdicoinarAvaliadoresComponent implements OnInit {
     avaliador = {
         fase : '',
         docentes_id : 0,
-        data_limite : '',
-        data : '',
+        data_limite : new Date(),
+        data: new Date() ,
         id : 0,
     };
 
@@ -44,8 +44,8 @@ export class AdicoinarAvaliadoresComponent implements OnInit {
          dataLimite.setDate(new Date().getDate() + 15);
         this.avaliador.fase =  "Protocolo";
         this.avaliador.docentes_id = this.avaliadorSelecionado.id;
-        this.avaliador.data = this.formatarData(new Date);
-        this.avaliador.data_limite = this.formatarData(dataLimite);
+        // this.avaliador.data = (new Date);
+        // this.avaliador.data_limite = (dataLimite);
         this.avaliador.id = this.protocolo.id;
 
         let avaliacao: any;
@@ -57,7 +57,7 @@ export class AdicoinarAvaliadoresComponent implements OnInit {
                 console.log(error);
             },
             () => {
-                this.output.emit({avaliadorSelecionado: avaliacao, isAdicionado: true});
+                this.output.emit({avaliadorSelecionado: avaliacao, parecerFinal: true});
             }
         );
 

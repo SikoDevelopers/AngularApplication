@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-
-
+import {FicheirosService} from '../../../../../../service/ficheiros.service';
 
 
 @Component({
@@ -21,7 +20,7 @@ export class DialogProtocolosComponent implements OnInit {
 
 
 
-    constructor() { }
+    constructor(private ficheiroService: FicheirosService) { }
 
     ngOnInit() {
         this.output.emit(this.modal);
@@ -42,14 +41,19 @@ export class DialogProtocolosComponent implements OnInit {
 
 
     getAvaliador(evento){
-        alert("Pegando Avaliador");
+        this.parecerFinal = evento.parecerFinal;
         this.adicionar_or_select = true;
         this.avaliador = evento.avaliadorSelecionado;
         console.log(this.avaliador);
     }
 
     possuiAvaliador() : boolean{
-        return this.parecerFinal || !!this.avaliador;
+        return this.parecerFinal && !!this.avaliador;
+    }
+
+
+    abrirFicheiro(evento, caminho: String){
+        this.ficheiroService.abrirFicheiro(caminho);
     }
 
 
