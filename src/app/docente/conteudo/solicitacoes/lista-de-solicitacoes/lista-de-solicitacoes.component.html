@@ -1,7 +1,3 @@
-<app-solicitacao></app-solicitacao>
 
-<app-solicitacao></app-solicitacao>
-<app-solicitacao></app-solicitacao>
-<app-solicitacao></app-solicitacao>
-<app-solicitacao></app-solicitacao>
-<app-solicitacao></app-solicitacao>
+<app-solicitacao *ngFor=" let solicitacao of solicitacoes" [solicitacao]="solicitacao"></app-solicitacao>
+

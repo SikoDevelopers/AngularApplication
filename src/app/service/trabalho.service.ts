@@ -89,5 +89,13 @@ export class TrabalhoService {
         return this.http.get('http://localhost:8000/api/trabalho/'+id);
     }
 
+    /**
+     * Metodo usado para ir buscar o protocolo e area de um trabalho dado o id
+     * @param id - id do trabalho a retornar
+     * @returns {Observable<Object>}
+     */
+    getProtocoloEAreaDoTrabalho(id:number) : Observable<any>{
+        return this.http.get('http://localhost:8000/api/trabalho/'+id+'/protocolo');
+    }
 }
 

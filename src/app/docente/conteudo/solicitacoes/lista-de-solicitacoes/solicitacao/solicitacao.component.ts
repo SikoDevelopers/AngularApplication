@@ -8,6 +8,8 @@ import { Component, OnInit , Input} from '@angular/core';
 export class SolicitacaoComponent implements OnInit {
   cor: string = 'white';
   @Input() modal: any;
+  @Input() solicitacao: any;
+  @Input() fileEArea: any;
   constructor() { }
 
   ngOnInit() {

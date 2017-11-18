@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter, Input} from '@angular/core';
+import {TrabalhoService} from "../../../../../../service/trabalho.service";
 
 @Component({
   selector: 'app-modal-responder-solicitacao-supervisao',
@@ -8,10 +9,17 @@ import { Component, OnInit, ViewChild, Output, EventEmitter} from '@angular/core
 export class ModalResponderSolicitacaoSupervisaoComponent implements OnInit {
   @ViewChild('modal') modal;
   @Output() output = new EventEmitter();
-  constructor() { }
+  @Input() solicitacao:any;
+
+ // sol = solicitacao;
+
+  constructor(private _trabalhoService:TrabalhoService) { }
 
   ngOnInit() {
     this.output.emit(this.modal);
+    //this.getAreaEFicheiroDoTrabalho(solicitacao)
   }
+
+
 
 }

@@ -1,4 +1,4 @@
-<app-modal-responder-solicitacao-supervisao (output)="getModal($event)"></app-modal-responder-solicitacao-supervisao>
+<app-modal-responder-solicitacao-supervisao [solicitacao]="solicitacao"  (output)="getModal($event)"></app-modal-responder-solicitacao-supervisao>
 
 <a>
   <div [style.background-color]="cor" (mouseover)="changeStyle($event)" (mouseout)="changeStyle($event)" (click)="onMostrarModal()">
@@ -6,9 +6,11 @@
 
     <div style="margin-left: 10px; padding: 10px">
       <h5 style="float: left;font-weight: bold; margin-right: 5px">Solicitacao de Supervisao de trabalho</h5>
-      <h5 >10 minutos atras</h5>
+      <h5>{{ solicitacao[0].created_at | date : 'dd/MM/yyyy'}}</h5>
       <p>
-        <a style="font-weight: bold">Alfredo Sebastiao</a> Adicionou-te como supervisor do trabalho com o tema: prototipo de um sistema para candidatura de
+        <a style="font-weight: bold">{{ solicitacao[0].estudante.nome}} {{ solicitacao[0].estudante.nome}}</a>
+        Adicionou-te como supervisor do trabalho com o tema:
+        {{ solicitacao[0].titulo}}
       </p>
     </div>
   </div>
