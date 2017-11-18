@@ -164,6 +164,7 @@ export class TrabalhosDetalhesComponent implements OnInit {
     }
 
       ordernar(array: Array<any>) {
+        array.length
         return    array.sort(function (valor1, valor2) {
             if (valor1.id > valor2.id) {
                 return -1;

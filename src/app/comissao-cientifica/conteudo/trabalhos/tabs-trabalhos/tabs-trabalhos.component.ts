@@ -39,12 +39,12 @@ export class TabsTrabalhosComponent implements OnInit {
         this.protocoloSelecionado = evento.protocoloSelecionado;
         this.avaliadorSelecionado = evento.avaliadorSelecionado;
         this.parecerFinal = evento.parecerFinal;
-        alert(this.parecerFinal);
     }
 
 
     getModalProtocolo(evento){
          this.modalProtocolo = evento;
+         this.getModalTrabalho(evento);
          console.log(evento);
     }
 

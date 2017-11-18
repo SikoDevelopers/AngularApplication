@@ -14,12 +14,10 @@ export class AvaliacaoService {
 
     }
 
-
     saveAvaliacao(avaliacao): Observable<any>{
         const headers = new HttpHeaders({'Content-Type': 'application/json'});
         return this.http.post('http://127.0.0.1:8000/api/avalicoes', avaliacao , {headers: headers})
     }
-
 
     updateAvaliacao(id: number, avaliacao){
         const headers = new HttpHeaders({'Content-type': 'aplication/json'});
@@ -27,10 +25,9 @@ export class AvaliacaoService {
 
     }
 
-
     deleteAvaliacao(idAvaiacao: number, idFicheiroTrabalho){
-        const headers = new HttpHeaders({'content-type': 'aplication/json'});
-        return this.http.get('http://127.0.0.1:8000/api/avalicoes/'+idAvaiacao, idFicheiroTrabalho);
+        const headers = new HttpHeaders({'Content-Type': 'application/json'});
+        return this.http.put('http://127.0.0.1:8000/api/avalicoes/deletar/'+idAvaiacao, idFicheiroTrabalho, {headers: headers});
     }
 
 }

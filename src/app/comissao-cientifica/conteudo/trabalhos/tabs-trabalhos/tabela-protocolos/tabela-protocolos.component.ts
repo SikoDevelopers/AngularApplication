@@ -44,6 +44,7 @@ export class TabelaProtocolosComponent implements OnInit {
         );
     }
 
+
     getEstado(is_aprovado){
         if(is_aprovado){
             return "Aprovado";

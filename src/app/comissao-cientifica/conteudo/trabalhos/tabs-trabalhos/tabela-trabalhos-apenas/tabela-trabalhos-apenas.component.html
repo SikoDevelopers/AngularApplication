@@ -18,10 +18,10 @@
     <!--Table head-->
 
     <!--Table body-->
-    <tbody *ngFor="let trabalho of trabalhos">
+    <tbody *ngFor="let trabalho of trabalhos; let contador = index">
     <tr class="hoverable" (click)="onClickTrabalho(trabalho)" data-toggle="modal" data-target="#basicExample">
       <td>    </td>
-      <td scope="row">{{trabalho.id}}</td>
+      <td scope="row">{{contador+1}}</td>
       <td>{{trabalho.titulo}}</td>
       <td>{{trabalho.nome}}</td>
       <td>{{getDataSubmissao(trabalho.data)}}</td>

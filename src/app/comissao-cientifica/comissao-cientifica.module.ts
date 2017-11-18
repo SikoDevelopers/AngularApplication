@@ -49,6 +49,7 @@ import { DialogTrabalhosCompletosComponent } from './conteudo/trabalhos/tabs-tra
 import { AdicoinarAvaliadoresComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-protocolos/adicoinar-avaliadores/adicoinar-avaliadores.component';
 import {AvaliacaoService} from '../service/avaliacao.service';
 import { AvaliadorComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-protocolos/avaliador/avaliador.component';
+import {FicheirosService} from '../service/ficheiros.service';
 
 @NgModule({
   imports: [
@@ -102,7 +103,7 @@ import { AvaliadorComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-p
 
 ],
 
-providers: [AvaliacaoService, AvatarComponent, GrauAcademicoService, TrabalhoService, ProcessoSubmissaoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
+providers: [FicheirosService, AvaliacaoService, AvatarComponent, GrauAcademicoService, TrabalhoService, ProcessoSubmissaoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
     schemas:[NO_ERRORS_SCHEMA],
     exports:[RouterModule]
 })

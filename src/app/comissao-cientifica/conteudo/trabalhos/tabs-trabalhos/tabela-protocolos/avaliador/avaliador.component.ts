@@ -30,14 +30,17 @@ export class AvaliadorComponent implements OnInit {
 
         this.avaliacaoService.deleteAvaliacao(this.avaliador.id, {ficheiroTrabalho_id: this.ficheiroTrabalho_id}).subscribe(
             (result)=>{
-                console.log(result['resultado']);
+                if(result['resultado'])
+                    this.avaliador = null;
+                else
+                    alert('Nao foi possivel remover o Avaliador');
             },
             (erros)=> {
                 console.log(erros['mensagem']);
             },
             ()=>{
                 console.log("Terminado");
-                // this.output.emit({avaliadorSelecionado: this.avaliador, isAdicionado: false});
+                this.output.emit({avaliadorSelecionado: this.avaliador, parecerFinal: false});
             }
 
         );
