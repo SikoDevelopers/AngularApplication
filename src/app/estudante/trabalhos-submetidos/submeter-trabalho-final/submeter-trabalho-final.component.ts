@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Output,EventEmitter } from '@angular/core';
+import {Component, OnInit, ViewChild, Output, EventEmitter, Input} from '@angular/core';
 
 @Component({
   selector: 'app-submeter-trabalho-final',
@@ -8,6 +8,7 @@ import { Component, OnInit, ViewChild, Output,EventEmitter } from '@angular/core
 export class SubmeterTrabalhoFinalComponent implements OnInit {
   @ViewChild('modal') modal;
   @Output() output = new EventEmitter();
+  @Input() estado;
   constructor() {
 
   }

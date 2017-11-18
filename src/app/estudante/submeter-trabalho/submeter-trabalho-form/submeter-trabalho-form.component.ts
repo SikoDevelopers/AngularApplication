@@ -171,8 +171,8 @@ alert('criou se novo');
         },
         ()=>{
             alert('processo completo');
-            // window.location.href = "estudante/trabalhos-submetidos";
-            console.log('hello');
+             window.location.href = "estudante/trabalhos-submetidos";
+
         }
     )
 

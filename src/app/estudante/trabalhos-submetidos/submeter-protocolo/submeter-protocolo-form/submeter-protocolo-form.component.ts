@@ -34,7 +34,7 @@ export class SubmeterProtocoloFormComponent implements OnInit {
     }
 
 
-    atribuirValor(evento){
+    atribuirValor1(evento){
         alert('event emitter');
 
         this.file = evento.file;
@@ -42,7 +42,7 @@ export class SubmeterProtocoloFormComponent implements OnInit {
     }
 
 
-    submeter(){
+    submeter1(){
 
 
         let formData= new FormData();

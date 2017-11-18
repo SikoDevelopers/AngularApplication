@@ -1,5 +1,5 @@
-<app-submeter-trabalho-final (output)="getModal($event)"></app-submeter-trabalho-final>
-<app-submeter-protocolo (output)="getModalProto($event)"></app-submeter-protocolo>
+<!--<app-submeter-protocolo (output)="getModalProto($event)"></app-submeter-protocolo>-->
+
 <div [ngStyle]="{'margin-top':'10px'}">
   <h2>Documentos submetidos</h2>
   <hr>
@@ -34,7 +34,7 @@
           <td>{{file.caminho}}</td>
           <td>{{file.categoria_ficheiro.designacao}}</td>
           <td>{{file.created_at}}</td>
-          <td>{{estado}} </td>
+          <td>{{file.estado_ficheiros[file.estado_ficheiros.length-1].designacao}} </td>
           <td><a href="http://127.0.0.1:8000/api/display/{{file.caminho}}" target="_blank"><i class="fa fa-eye"></i></a></td>
 
         </tr>
@@ -43,15 +43,15 @@
       <div class="row">
 
 
-        <div class="col-md-3">
-          <button   class="btn btn-secondary waves-light"  [disabled]="!(estado=='Trabalho por Retiticar')"   mdbRippleRadius (click)="onMostrarModalP()">
+        <div class="col-md-3" *ngIf="estado=='Trabalho por Retiticar'">
+          <button   class="btn btn-secondary waves-light"   mdbRippleRadius (click)="onMostrarModal()">
             <i class="fa fa-upload"></i>
             Submeter protocolo
           </button>
       </div>
 
-        <div class="col-md-3">
-          <button   class="btn btn-primary waves-light" [disabled]="!(estado=='Aprovado')" mdbRippleRadius (click)="onMostrarModal()">
+        <div class="col-md-3" *ngIf="estado=='Aprovado'">
+          <button   class="btn btn-primary waves-light"   mdbRippleRadius (click)="onMostrarModal()">
             <i class="fa fa-upload"></i>
             Submeter relatorio
           </button>
@@ -62,3 +62,4 @@
 </div>
   </div>
 </div>
+<app-submeter-trabalho-final [estado]="estado" (output)="getModal($event)"></app-submeter-trabalho-final>

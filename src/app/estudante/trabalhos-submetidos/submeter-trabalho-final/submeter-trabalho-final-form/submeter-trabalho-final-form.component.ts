@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from "../../../../service/user.service";
 import {TrabalhoService} from "../../../../service/trabalho.service";
 import {FicheirosTrabalhoService} from "../../../../service/ficheiros-trabalho.service";
 import {EstudanteService} from "../../../../service/estudante.service";
 import {FicheiroTrabalhoEstadoFicheiroService} from "../../../../service/ficheiro-trabalho-estado-ficheiro.service";
+import {until} from "selenium-webdriver";
+import elementIsSelected = until.elementIsSelected;
 
 @Component({
   selector: 'app-submeter-trabalho-final-form',
@@ -25,7 +27,7 @@ export class SubmeterTrabalhoFinalFormComponent implements OnInit {
   file;
   ficheiros: Array<any>;
     user;
-    estado;
+    @Input() estado;
     estudante;
     trabalho;
   ngOnInit() {
@@ -43,9 +45,20 @@ export class SubmeterTrabalhoFinalFormComponent implements OnInit {
 
 
     submeter(){
+        alert(this.estado);
+
 
 
         let formData= new FormData();
+
+        if(this.estado=='Trabalho por Retiticar'){
+            alert('trabalho por re');
+            formData.append('tipoFile','protocolo');
+        }else if(this.estado=='Aprovado'){
+            formData.append('tipoFile','relatorio');
+
+        }
+
         formData.append('trabalho',this.file, this.file.name);
         formData.append( 'estudante_id',''+this.estudante.id);
         formData.append('data',''+new Date());
@@ -62,7 +75,7 @@ export class SubmeterTrabalhoFinalFormComponent implements OnInit {
             },
             ()=>{
                 alert('processo completo');
-                window.location.href = "estudante/trabalhos-submetidos";
+                // window.location.href = "estudante/trabalhos-submetidos";
             }
         )
 
