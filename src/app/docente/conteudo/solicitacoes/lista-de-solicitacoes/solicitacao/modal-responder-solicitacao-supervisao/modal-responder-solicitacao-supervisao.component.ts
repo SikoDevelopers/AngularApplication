@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, Output, EventEmitter, Input} from '@angular/core';
 import {TrabalhoService} from "../../../../../../service/trabalho.service";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-modal-responder-solicitacao-supervisao',
@@ -20,6 +21,17 @@ export class ModalResponderSolicitacaoSupervisaoComponent implements OnInit {
     //this.getAreaEFicheiroDoTrabalho(solicitacao)
   }
 
+
+  onConfirmarSupervisao(id){
+    this._trabalhoService.confirmarSupervisaoTrabalho(id).subscribe(
+        resultado => {
+          alert("Confirmado com sucesso!");
+          this.modal.hide();
+          window.location.href = '/docente/solicitacoes';
+        }
+    );
+
+  }
 
 
 }
