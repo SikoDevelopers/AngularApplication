@@ -95,10 +95,31 @@ export class TrabalhoService {
         return this.http.get('http://localhost:8000/api/trabalho/'+id);
     }
 
+    /**
+     * Metodo usado para ir buscar o protocolo e area de um trabalho dado o id
+     * @param id - id do trabalho a retornar
+     * @returns {Observable<Object>}
+     */
+    getProtocoloEAreaDoTrabalho(id:number) : Observable<any>{
+        return this.http.get('http://localhost:8000/api/trabalho/'+id+'/protocolo');
+    }
+
+
+    /**
+     * Metodo usado para confirmar supervisao de trabalho
+     * @param id
+     * @returns {Observable<Object>}
+     */
+    confirmarSupervisaoTrabalho(id: number) : Observable<any>{
+        return this.http.get('http://localhost:8000/api/trabalho/'+id+'/confirmar-supervisao');
+    }
+
+  
 
     getAvaliacao(id){
         return this.http.get('http://localhost:8000/api/ficheiros_trabalhos/'+id+'/avaliacao');
     }
+
 
 }
 

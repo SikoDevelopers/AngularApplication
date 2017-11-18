@@ -12,7 +12,7 @@ import {
 } from "@angular/material";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ActuaisComponent } from './conteudo/meus-supervisionandos/actuais/actuais.component';
-import { SolicitacoesComponent } from './conteudo/meus-supervisionandos/solicitacoes/solicitacoes.component';
+
 import { SupervisionadosComponent } from './conteudo/meus-supervisionandos/supervisionados/supervisionados.component';
 import { TabelaActuaisComponent } from './conteudo/meus-supervisionandos/actuais/tabela-actuais/tabela-actuais.component';
 import { OponenciaComponent } from './conteudo/oponencia/oponencia.component';
@@ -31,6 +31,11 @@ import { SubmeterTemaFormComponent } from './conteudo/temas/submeter-tema/submet
 import {SelectModule} from "./conteudo/temas/submeter-tema/submeter-tema-form/select/select.module";
 import {FormsModule} from "@angular/forms";
 import {TemaService} from "../service/tema.service";
+import {SolicitacoesComponent} from "./conteudo/solicitacoes/solicitacoes.component";
+import { ListaDeSolicitacoesComponent } from './conteudo/solicitacoes/lista-de-solicitacoes/lista-de-solicitacoes.component';
+import { SolicitacaoComponent } from './conteudo/solicitacoes/lista-de-solicitacoes/solicitacao/solicitacao.component';
+import { ModalResponderSolicitacaoSupervisaoComponent } from './conteudo/solicitacoes/lista-de-solicitacoes/solicitacao/modal-responder-solicitacao-supervisao/modal-responder-solicitacao-supervisao.component';
+import { SolicitacoesDetalhesComponent } from './conteudo/solicitacoes/lista-de-solicitacoes/solicitacao/modal-responder-solicitacao-supervisao/solicitacoes-detalhes/solicitacoes-detalhes.component';
 
 @NgModule({
   imports: [
@@ -55,7 +60,6 @@ import {TemaService} from "../service/tema.service";
       ConteudoComponent,
       MeusSupervisionandosComponent,
       ActuaisComponent,
-      SolicitacoesComponent,
       SupervisionadosComponent,
       TabelaActuaisComponent,
       OponenciaComponent,
@@ -66,7 +70,12 @@ import {TemaService} from "../service/tema.service";
       ListaOponenciaComponent,
       TabelaOponenciasComponent,
       SubmeterTemaComponent,
-      SubmeterTemaFormComponent
+      SubmeterTemaFormComponent,
+      SolicitacoesComponent,
+      ListaDeSolicitacoesComponent,
+      SolicitacaoComponent,
+      ModalResponderSolicitacaoSupervisaoComponent,
+      SolicitacoesDetalhesComponent
 
   ],
     schemas:[NO_ERRORS_SCHEMA],
