@@ -36,6 +36,7 @@ import { ListaDeSolicitacoesComponent } from './conteudo/solicitacoes/lista-de-s
 import { SolicitacaoComponent } from './conteudo/solicitacoes/lista-de-solicitacoes/solicitacao/solicitacao.component';
 import { ModalResponderSolicitacaoSupervisaoComponent } from './conteudo/solicitacoes/lista-de-solicitacoes/solicitacao/modal-responder-solicitacao-supervisao/modal-responder-solicitacao-supervisao.component';
 import { SolicitacoesDetalhesComponent } from './conteudo/solicitacoes/lista-de-solicitacoes/solicitacao/modal-responder-solicitacao-supervisao/solicitacoes-detalhes/solicitacoes-detalhes.component';
+import { TabSolicitacoesComponent } from './conteudo/solicitacoes/tab-solicitacoes/tab-solicitacoes.component';
 
 @NgModule({
   imports: [
@@ -75,7 +76,8 @@ import { SolicitacoesDetalhesComponent } from './conteudo/solicitacoes/lista-de-
       ListaDeSolicitacoesComponent,
       SolicitacaoComponent,
       ModalResponderSolicitacaoSupervisaoComponent,
-      SolicitacoesDetalhesComponent
+      SolicitacoesDetalhesComponent,
+      TabSolicitacoesComponent
 
   ],
     schemas:[NO_ERRORS_SCHEMA],
