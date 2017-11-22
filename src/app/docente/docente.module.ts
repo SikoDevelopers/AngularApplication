@@ -37,6 +37,10 @@ import { SolicitacaoComponent } from './conteudo/solicitacoes/lista-de-solicitac
 import { ModalResponderSolicitacaoSupervisaoComponent } from './conteudo/solicitacoes/lista-de-solicitacoes/solicitacao/modal-responder-solicitacao-supervisao/modal-responder-solicitacao-supervisao.component';
 import { SolicitacoesDetalhesComponent } from './conteudo/solicitacoes/lista-de-solicitacoes/solicitacao/modal-responder-solicitacao-supervisao/solicitacoes-detalhes/solicitacoes-detalhes.component';
 import { TabSolicitacoesComponent } from './conteudo/solicitacoes/tab-solicitacoes/tab-solicitacoes.component';
+import { ListaDeSolicitacoesAvaliacaoComponent } from './conteudo/solicitacoes/lista-de-solicitacoes-avaliacao/lista-de-solicitacoes-avaliacao.component';
+import { ListaDeSolicitacoesOponenciaComponent } from './conteudo/solicitacoes/lista-de-solicitacoes-oponencia/lista-de-solicitacoes-oponencia.component';
+import { SolicitacaoOponenciaComponent } from './conteudo/solicitacoes/lista-de-solicitacoes-oponencia/solicitacao-oponencia/solicitacao-oponencia.component';
+import { SolicitacaoAvaliacaoComponent } from './conteudo/solicitacoes/lista-de-solicitacoes-avaliacao/solicitacao-avaliacao/solicitacao-avaliacao.component';
 
 @NgModule({
   imports: [
@@ -77,7 +81,11 @@ import { TabSolicitacoesComponent } from './conteudo/solicitacoes/tab-solicitaco
       SolicitacaoComponent,
       ModalResponderSolicitacaoSupervisaoComponent,
       SolicitacoesDetalhesComponent,
-      TabSolicitacoesComponent
+      TabSolicitacoesComponent,
+      ListaDeSolicitacoesAvaliacaoComponent,
+      ListaDeSolicitacoesOponenciaComponent,
+      SolicitacaoOponenciaComponent,
+      SolicitacaoAvaliacaoComponent
 
   ],
     schemas:[NO_ERRORS_SCHEMA],
