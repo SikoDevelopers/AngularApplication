@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-detalhes-ficheiro',
@@ -8,8 +8,13 @@ import {Component, Input, OnInit} from '@angular/core';
 export class DetalhesFicheiroComponent implements OnInit {
 
   constructor() { }
-    @Input() avalicao: any;
+    @Input() avaliacao: any;
+    @ViewChild('modal') modal;
+    @Output() output = new EventEmitter();
+
   ngOnInit() {
+      this.output.emit(this.modal);
+
   }
 
 }

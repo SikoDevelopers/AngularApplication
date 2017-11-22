@@ -31,19 +31,12 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
     apelidoCoSup;
     graAcademico_id;
     control:boolean =false;
+    checkboxValue:boolean=true;
 
     protected coSupervisor: string;
     protected captain: string;
     protected dataService: CompleterData;
-    protected coSupervisores = [
-        { color: 'red', value: '#f00' },
-        { color: 'green', value: '#0f0' },
-        { color: 'blue', value: '#00f' },
-        { color: 'cyan', value: '#0ff' },
-        { color: 'magenta', value: '#f0f' },
-        { color: 'yellow', value: '#ff0' },
-        { color: 'black', value: '#000' }
-    ];
+    protected coSupervisores = [];
   constructor(
       private _areas:AreaService,
       private userService:UserService,
@@ -64,6 +57,17 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
       this.getArea();
 
 
+  }
+
+  onCheckChange(){
+     if(this.checkboxValue){
+         this.checkboxValue=false;
+         alert(this.checkboxValue);
+     }else{
+
+         this.checkboxValue=true;
+         alert(this.checkboxValue);
+     }
   }
 
     setAreaId(evento){
@@ -133,6 +137,12 @@ getArea(){
         this.control=false;
 
     }
+    selecionarSup(selecionado) {
+
+        this.coSupervisor = selecionado.originalObject.id;
+        this.control=false;
+
+    }
 
 submeter(){
 
@@ -160,11 +170,14 @@ alert('criou se novo');
     formData.append('data',''+new Date());
     formData.append('timestamp',''+new Date().getTime());
 
+    alert('processo completo0');
 
 
     this.trabalhoService.saveTrabalho(formData).subscribe(
         resultados=>{
             console.log(resultados);
+            alert('processo completo1');
+
         },
         error2 => {
             console.log(error2);
@@ -184,12 +197,12 @@ alert('criou se novo');
       this.file = evento.file;
     }
 
-
-    atribuirSupervisor(evento){
-
-        this.supervisor_id = evento.supervisor_id;
-        this.getDocenteArea();
-    }
+    //
+    // atribuirSupervisor(evento){
+    //
+    //     this.supervisor_id = evento.supervisor_id;
+    //     this.getDocenteArea();
+    // }
 
 
 
