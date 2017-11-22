@@ -41,7 +41,7 @@
 
 
           <div class="text-right">
-            <button class="btn btn-primary waves-light" (click)="submeter()"  [disabled]="checkboxValue" mdbRippleRadius>
+            <button class="btn btn-primary waves-light" (click)="submeter($event.preventDefault())"  [disabled]="checkboxValue" mdbRippleRadius>
               <i class="fa fa-upload"></i>
               Submeter
             </button>

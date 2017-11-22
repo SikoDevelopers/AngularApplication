@@ -32,6 +32,7 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
     graAcademico_id;
     control:boolean =false;
     checkboxValue:boolean=true;
+    hasJob=false;
 
     protected coSupervisor: string;
     protected captain: string;
@@ -55,7 +56,6 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
     this.getUser();
     this.getSupervisores();
       this.getArea();
-
 
   }
 
@@ -82,8 +82,7 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
           resultado=>{
               this.user = resultado;
           },
-          error2 => {
-          },
+          error2 => {       },
           ()=>{
             console.log('user retrivied');
           }
@@ -144,51 +143,100 @@ getArea(){
 
     }
 
-submeter(){
+    hasTrabalho(id){
+    let trabalho;
+        this.trabalhoService.getTrabalhosEstudante(id).subscribe(
+            resul=>{
+
+                alert('Qunatidade d jobs '+resul['trabalho'].length);
+                if (resul['trabalho'].length>1){
+                    trabalho = resul['trabalho'].last();
+
+                    alert('pegamos varios trabalahos');
+                    if(trabalho.is_aprovado==1){
+                        this.hasJob=true;
+                        alert('pegamos trabalho activo');
+                    }
+                }else if(resul['trabalho'].length==1){
+                    trabalho = resul['trabalho'];
+                    alert('pegamos 1 trabalho');
+                    if(trabalho.is_aprovado==1){
+                        this.hasJob=true;
+                        alert('pegamos 1 trabalho activo');
+                    }
+                }
 
 
-    let formData= new FormData();
-alert(this.control);
-    if(this.control==true){
-alert('criou se novo');
-        formData.append( 'nomeCoSup',''+this.nomeCoSup);
-        formData.append( 'apelidoCoSup',''+this.apelidoCoSup);
-        formData.append( 'grauAcademico_id',''+this.graAcademico_id);
+
+
+
+
+            },
+            (error)=>{
+                console.log(error);
+            },
+            ()=>{
+
+
+            }
+        )
+
+    }
+
+submeter(evento){
+
+    alert(this.user.id);
+    this.hasTrabalho(this.user.id);
+
+    if(this.hasJob){
+        alert('Nao pode submeter um novo trabalho, O estudante tem um processo em andamento');
 
     }else{
-        alert('selec');
-        formData.append( 'coSupId',''+this.coSupervisor);
-    }
-    formData.append( 'control',''+this.control);
-    formData.append('protocolo',this.file, this.file.name);
-
-    formData.append( 'user',''+this.user.id);
-    formData.append('supervisor',''+this.supervisor_id);
-    formData.append( 'area',''+this.area_id);
-    formData.append('titulo',''+this.titulo);
-    formData.append('descricao',''+this.descricao);
-    formData.append('data',''+new Date());
-    formData.append('timestamp',''+new Date().getTime());
-
-    alert('processo completo0');
 
 
-    this.trabalhoService.saveTrabalho(formData).subscribe(
-        resultados=>{
-            console.log(resultados);
-            alert('processo completo1');
+        let formData= new FormData();
+        alert(this.control);
+        if(this.control==true){
+            alert('criou se novo');
+            formData.append( 'nomeCoSup',''+this.nomeCoSup);
+            formData.append( 'apelidoCoSup',''+this.apelidoCoSup);
+            formData.append( 'grauAcademico_id',''+this.graAcademico_id);
 
-        },
-        error2 => {
-            console.log(error2);
-        },
-        ()=>{
-            alert('processo completo');
-             window.location.href = "estudante/trabalhos-submetidos";
-
+        }else{
+            alert('selec');
+            formData.append( 'coSupId',''+this.coSupervisor);
         }
-    )
+        formData.append( 'control',''+this.control);
+        formData.append('protocolo',this.file, this.file.name);
 
+        formData.append( 'user',''+this.user.id);
+        formData.append('supervisor',''+this.supervisor_id);
+        formData.append( 'area',''+this.area_id);
+        formData.append('titulo',''+this.titulo);
+        formData.append('descricao',''+this.descricao);
+        formData.append('data',''+new Date());
+        formData.append('timestamp',''+new Date().getTime());
+
+
+
+
+        this.trabalhoService.saveTrabalho(formData).subscribe(
+            resultados=>{
+                console.log(resultados);
+
+
+            },
+            error2 => {
+                console.log(error2);
+            },
+            ()=>{
+                alert('processo completo');
+                window.location.href = "estudante/trabalhos-submetidos";
+
+            }
+        )
+
+    }
 
 }
 
