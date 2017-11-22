@@ -29,21 +29,17 @@ export class TrabalhosDetalhesComponent implements OnInit {
 
 
 
-    getEstado(is_aprovado){
-      if(is_aprovado){
-            return "Aprovado";
+    getEstado(sup_confirm){
+      if(sup_confirm){
+            return "Confirmado";
         }
         else
-            return "Nao Aprovado";
+            return "Nao Confirmado";
     }
 
-
-    getDataSubmissao(dataSubmissao){
-        let data = new Date(dataSubmissao);
-        return data.getDay() +" / "+data.getMonth()+ " / "+ data.getFullYear();
-    }
 
     adicionarParticipante() {
+        console.log(this.trabalho.sup_confirm);
         this.modal.hide();
 
         this.modalParticipantes.show();
@@ -68,18 +64,18 @@ export class TrabalhosDetalhesComponent implements OnInit {
      }
  
      salvarAlteracoes() {
-         // console.log("Devem ser adicionados os seguintes docentes");
-         // console.log(this.docentesdicionados);
-         // console.log("Para este trabalho");
-         // console.log(this.trabalho);
 
-         if (this.verificarDuplicacoes() && this.verificarElementosDuplicados(this.docentesdicionados))
-             if (this.verificarFuncoesDuplicadas(this.docentes, this.docentesdicionados))
-                 this.salvarParticipantes();
+         console.log(this.trabalho);
+        if(this.docentesdicionados.length > 0)
+             if (this.verificarDuplicacoes() && this.verificarElementosDuplicados(this.docentesdicionados))
+                 if (this.verificarFuncoesDuplicadas(this.docentes, this.docentesdicionados))
+                     this.salvarParticipantes();
+                 else
+                     alert('Existem participantes com a mesma funcao');
              else
-                 alert('Existem participantes com a mesma funcao');
+                 alert('Existem docentes duplicados');
          else
-             alert('Existem docentes duplicados');
+             this.modal.hide();
 
      }
 

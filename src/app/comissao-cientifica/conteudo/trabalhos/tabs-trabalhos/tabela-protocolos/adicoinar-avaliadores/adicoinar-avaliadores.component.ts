@@ -13,7 +13,6 @@ import {AvaliacaoService} from '../../../../../../service/avaliacao.service';
 export class AdicoinarAvaliadoresComponent implements OnInit {
 
     @Output() output = new EventEmitter();
-
     protected dataServicedocente: CompleterData;
 
     docentes: any = [];
@@ -49,7 +48,7 @@ export class AdicoinarAvaliadoresComponent implements OnInit {
         this.avaliador.id = this.protocolo.id;
 
         let avaliacao: any;
-        this.avaliacaoService.saveAvaliacao(this.avaliador).subscribe(
+        this.avaliacaoService.saveAvaliacao(this.avaliador, this.avaliadorSelecionado, this.protocolo).subscribe(
             (response: Response) => {
                 avaliacao = response['avaliacao'];
             },
@@ -57,7 +56,7 @@ export class AdicoinarAvaliadoresComponent implements OnInit {
                 console.log(error);
             },
             () => {
-                this.output.emit({avaliadorSelecionado: avaliacao, parecerFinal: true});
+                // this.output.emit({avaliadorSelecionado: avaliacao, parecerFinal: true});
             }
         );
 

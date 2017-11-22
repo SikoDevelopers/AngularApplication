@@ -31,8 +31,8 @@
                   </div>
 
                   <div>
-                      <a class="font-weight-bold">Estado Aprovacao</a>
-                      <p>{{getEstado(trabalho.is_aprovado)}}</p>
+                      <a class="font-weight-bold">Supervisão</a>
+                      <p>{{getEstado(trabalho.sup_confirm)}}</p>
                   </div>
               </div>
 
@@ -67,16 +67,19 @@
               </div>
             </ng-template>
 
-              <div class="text-right mt-3">
-                  <button class="btn btn-primary btn-sm" (click)="adicionarParticipante()">Adicionar</button>
-              </div>
+              <div *ngIf="trabalho">
 
-            <div class="demo-tab-content" *ngIf="docentes">
-                <div>
-                    <app-participante [docentes]="docentes" [docentesAdicionais]="docentesdicionados" [co_supervisor]="trabalho.co_supervisor"></app-participante>
+                  <div class="text-right mt-3" >
+                      <button class="btn btn-primary btn-sm" [disabled]="trabalho.sup_confirm != 1" (click)="adicionarParticipante()">Adicionar</button>
+                  </div>
+
+                <div class="demo-tab-content" *ngIf="docentes">
+                    <div>
+                        <app-participante [docentes]="docentes" [docentesAdicionais]="docentesdicionados" [co_supervisor]="trabalho.co_supervisor"></app-participante>
+                    </div>
+
                 </div>
-
-            </div>
+              </div>
           </mat-tab>
 
           <mat-tab label="Tab 4">
