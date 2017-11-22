@@ -1,5 +1,5 @@
 <!--<app-submeter-protocolo (output)="getModalProto($event)"></app-submeter-protocolo>-->
-
+<app-detalhes-ficheiro  (output)="getModalAvaliacao($event)"  [(avaliavao)] = "avaliacaoTrabalho"></app-detalhes-ficheiro>
 <div [ngStyle]="{'margin-top':'10px'}">
   <h2>Documentos submetidos</h2>
   <hr>
@@ -29,7 +29,7 @@
         </tr>
         </thead>
         <tbody *ngFor="let file of ficheiros">
-        <tr  class="hoverable" (click)="verFicheiro(file.caminho)" >
+        <tr  class="hoverable" (click)="onClickFile(file)"  >
           <th scope="row">{{file.id}}</th>
           <td>{{file.caminho}}</td>
           <td>{{file.categoria_ficheiro.designacao}}</td>
@@ -54,6 +54,13 @@
           <button   class="btn btn-primary waves-light"   mdbRippleRadius (click)="onMostrarModal()">
             <i class="fa fa-upload"></i>
             Submeter relatorio
+          </button>
+      </div>
+
+        <div class="col-md-3" *ngIf="estado=='Por Publicar'">
+          <button   class="btn btn-primary waves-light"   mdbRippleRadius (click)="onMostrarModal()">
+            <i class="fa fa-upload"></i>
+            Submeter relatorio pdf
           </button>
       </div>
     </div>

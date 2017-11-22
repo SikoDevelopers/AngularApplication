@@ -38,9 +38,9 @@ export class SubmeterTrabalhoFinalFormComponent implements OnInit {
 
     atribuirValor(evento){
 
-      alert('emitter');
+      alert('ficheiro carregado');
     this.file = evento.file;
-    alert(this.file);
+
   }
 
 
@@ -56,6 +56,9 @@ export class SubmeterTrabalhoFinalFormComponent implements OnInit {
             formData.append('tipoFile','protocolo');
         }else if(this.estado=='Aprovado'){
             formData.append('tipoFile','relatorio');
+
+        }else if(this.estado=='Por Publicar'){
+            formData.append('tipoFile','relatoioPDF');
 
         }
 
@@ -74,8 +77,8 @@ export class SubmeterTrabalhoFinalFormComponent implements OnInit {
                 console.log(error2);
             },
             ()=>{
-                alert('processo completo');
-                // window.location.href = "estudante/trabalhos-submetidos";
+
+                window.location.href = "estudante/trabalhos-submetidos";
             }
         )
 

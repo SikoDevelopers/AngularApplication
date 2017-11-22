@@ -31,19 +31,13 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
     apelidoCoSup;
     graAcademico_id;
     control:boolean =false;
+    checkboxValue:boolean=true;
+    hasJob=false;
 
     protected coSupervisor: string;
     protected captain: string;
     protected dataService: CompleterData;
-    protected coSupervisores = [
-        { color: 'red', value: '#f00' },
-        { color: 'green', value: '#0f0' },
-        { color: 'blue', value: '#00f' },
-        { color: 'cyan', value: '#0ff' },
-        { color: 'magenta', value: '#f0f' },
-        { color: 'yellow', value: '#ff0' },
-        { color: 'black', value: '#000' }
-    ];
+    protected coSupervisores = [];
   constructor(
       private _areas:AreaService,
       private userService:UserService,
@@ -63,7 +57,17 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
     this.getSupervisores();
       this.getArea();
 
+  }
 
+  onCheckChange(){
+     if(this.checkboxValue){
+         this.checkboxValue=false;
+         alert(this.checkboxValue);
+     }else{
+
+         this.checkboxValue=true;
+         alert(this.checkboxValue);
+     }
   }
 
     setAreaId(evento){
@@ -78,8 +82,7 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
           resultado=>{
               this.user = resultado;
           },
-          error2 => {
-          },
+          error2 => {       },
           ()=>{
             console.log('user retrivied');
           }
@@ -133,49 +136,107 @@ getArea(){
         this.control=false;
 
     }
+    selecionarSup(selecionado) {
 
-submeter(){
+        this.coSupervisor = selecionado.originalObject.id;
+        this.control=false;
+
+    }
+
+    hasTrabalho(id){
+    let trabalho;
+        this.trabalhoService.getTrabalhosEstudante(id).subscribe(
+            resul=>{
+
+                alert('Qunatidade d jobs '+resul['trabalho'].length);
+                if (resul['trabalho'].length>1){
+                    trabalho = resul['trabalho'].last();
+
+                    alert('pegamos varios trabalahos');
+                    if(trabalho.is_aprovado==1){
+                        this.hasJob=true;
+                        alert('pegamos trabalho activo');
+                    }
+                }else if(resul['trabalho'].length==1){
+                    trabalho = resul['trabalho'];
+                    alert('pegamos 1 trabalho');
+                    if(trabalho.is_aprovado==1){
+                        this.hasJob=true;
+                        alert('pegamos 1 trabalho activo');
+                    }
+                }
 
 
-    let formData= new FormData();
-alert(this.control);
-    if(this.control==true){
-alert('criou se novo');
-        formData.append( 'nomeCoSup',''+this.nomeCoSup);
-        formData.append( 'apelidoCoSup',''+this.apelidoCoSup);
-        formData.append( 'grauAcademico_id',''+this.graAcademico_id);
+
+
+
+
+            },
+            (error)=>{
+                console.log(error);
+            },
+            ()=>{
+
+
+            }
+        )
+
+    }
+
+submeter(evento){
+
+    alert(this.user.id);
+    this.hasTrabalho(this.user.id);
+
+    if(this.hasJob){
+        alert('Nao pode submeter um novo trabalho, O estudante tem um processo em andamento');
 
     }else{
-        alert('selec');
-        formData.append( 'coSupId',''+this.coSupervisor);
-    }
-    formData.append( 'control',''+this.control);
-    formData.append('protocolo',this.file, this.file.name);
-
-    formData.append( 'user',''+this.user.id);
-    formData.append('supervisor',''+this.supervisor_id);
-    formData.append( 'area',''+this.area_id);
-    formData.append('titulo',''+this.titulo);
-    formData.append('descricao',''+this.descricao);
-    formData.append('data',''+new Date());
-    formData.append('timestamp',''+new Date().getTime());
 
 
+        let formData= new FormData();
+        alert(this.control);
+        if(this.control==true){
+            alert('criou se novo');
+            formData.append( 'nomeCoSup',''+this.nomeCoSup);
+            formData.append( 'apelidoCoSup',''+this.apelidoCoSup);
+            formData.append( 'grauAcademico_id',''+this.graAcademico_id);
 
-    this.trabalhoService.saveTrabalho(formData).subscribe(
-        resultados=>{
-            console.log(resultados);
-        },
-        error2 => {
-            console.log(error2);
-        },
-        ()=>{
-            alert('processo completo');
-             window.location.href = "estudante/trabalhos-submetidos";
-
+        }else{
+            alert('selec');
+            formData.append( 'coSupId',''+this.coSupervisor);
         }
-    )
+        formData.append( 'control',''+this.control);
+        formData.append('protocolo',this.file, this.file.name);
 
+        formData.append( 'user',''+this.user.id);
+        formData.append('supervisor',''+this.supervisor_id);
+        formData.append( 'area',''+this.area_id);
+        formData.append('titulo',''+this.titulo);
+        formData.append('descricao',''+this.descricao);
+        formData.append('data',''+new Date());
+        formData.append('timestamp',''+new Date().getTime());
+
+
+
+
+        this.trabalhoService.saveTrabalho(formData).subscribe(
+            resultados=>{
+                console.log(resultados);
+
+
+            },
+            error2 => {
+                console.log(error2);
+            },
+            ()=>{
+                alert('processo completo');
+                window.location.href = "estudante/trabalhos-submetidos";
+
+            }
+        )
+
+    }
 
 }
 
@@ -184,12 +245,12 @@ alert('criou se novo');
       this.file = evento.file;
     }
 
-
-    atribuirSupervisor(evento){
-
-        this.supervisor_id = evento.supervisor_id;
-        this.getDocenteArea();
-    }
+    //
+    // atribuirSupervisor(evento){
+    //
+    //     this.supervisor_id = evento.supervisor_id;
+    //     this.getDocenteArea();
+    // }
 
 
 
