@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input} from '@angular/core';
 
 @Component({
   selector: 'app-solicitacao-avaliacao',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./solicitacao-avaliacao.component.scss']
 })
 export class SolicitacaoAvaliacaoComponent implements OnInit {
-
+  @Input() solicitacao: any;
+  cor: string = 'white';
   constructor() { }
 
   ngOnInit() {
   }
 
+  changeStyle($event){
+    this.cor = $event.type == 'mouseover' ? '#eeeeee' : 'white';
+  }
 }

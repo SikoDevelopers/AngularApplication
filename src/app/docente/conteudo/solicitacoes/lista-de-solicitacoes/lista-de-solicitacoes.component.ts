@@ -13,7 +13,7 @@ export class ListaDeSolicitacoesComponent implements OnInit {
   user: any;
   docente: any;
   solicitacoes: any;
-    fileEArea: any;
+  fileEArea: any;
   constructor(private _docenteService: DocenteService,
               private _userService: UserService,
               private _trabalhoService: TrabalhoService

@@ -1,3 +1,17 @@
-<p>
-  solicitacao-avaliacao works!
-</p>
+<a *ngIf="solicitacao">
+  <div [style.background-color]="cor" (mouseover)="changeStyle($event)" (mouseout)="changeStyle($event)" (click)="onMostrarModal()">
+    <div class="pull-left bg-info" [ngStyle]="{'border-left':'solid 5px #f00','position':'absolute','height':'100%','margin-right':'10px'}"></div>
+
+    <div style="margin-left: 10px; padding: 10px">
+      <h5 style="float: left;font-weight: bold; margin-right: 5px">Solicitacao de Supervisao de trabalho</h5>
+      <h5>{{ solicitacao[0].created_at | date : 'dd/MM/yyyy'}}</h5>
+      <p>
+        <a style="font-weight: bold">{{ solicitacao[0].estudante.nome}} {{ solicitacao[0].estudante.nome}}</a>
+        Adicionou-te como supervisor do trabalho com o tema:
+        {{ solicitacao[0].titulo}}
+      </p>
+    </div>
+  </div>
+</a>
+
+
