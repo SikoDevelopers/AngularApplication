@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./barra-do-topo.component.css']
 })
 export class BarraDoTopoComponent implements OnInit {
-  nomeDaApp : string = "SikoSSP";
+  nomeDaApp : string = "CC-DMI";
   rota: string;
 
   @Input() user: any;

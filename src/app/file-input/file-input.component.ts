@@ -7,7 +7,7 @@ import {Component, Input, ElementRef, OnInit, ViewChild, Output, EventEmitter} f
 })
 export class FileInputComponent implements OnInit {
   @Input() textoDaLabel;
-  caminhoDoFile: any = "jjjj";
+  caminhoDoFile: any ;
     file1: any;
   constructor() { }
 
@@ -28,9 +28,7 @@ export class FileInputComponent implements OnInit {
         const fileList: FileList = event.target.files;
         if (fileList.length > 0) {
             this.file1 = fileList[0];
-            this.caminhoDoFile= "aaaaa";
-            alert(this.file1.name);
-            alert('entramos ja definimos o value');
+            this.caminhoDoFile= this.file1.name;
             this.eventEmiter.emit({file:this.file1});
         }
 
