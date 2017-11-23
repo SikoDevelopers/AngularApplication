@@ -21,9 +21,9 @@ const appRoutes: Routes = [
   {path:'comissao-cientifica',component:ComissaoCientificaComponent, canActivate: [AuthGuardService]},
   {path:'docente',component:DocenteComponent, canActivate: [AuthGuardService]},
   {path:'shemmer',component:ShimmerEfectComponent},
-  {path:'trabalho-detalhes', component: LerMaisTrabalhosComponent, canActivate: [AuthGuardService]},
-    { path: '**', redirectTo: '' }
+  {path:'trabalho-detalhes', component: LerMaisTrabalhosComponent},
 ];
+
 
 @NgModule({
   imports: [
@@ -33,3 +33,5 @@ const appRoutes: Routes = [
   exports:[RouterModule]
 })
 export class AppRoutingModule { }
+
+
