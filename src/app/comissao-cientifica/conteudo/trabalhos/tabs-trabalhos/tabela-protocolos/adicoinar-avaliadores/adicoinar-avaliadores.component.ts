@@ -51,12 +51,15 @@ export class AdicoinarAvaliadoresComponent implements OnInit {
         this.avaliacaoService.saveAvaliacao(this.avaliador, this.avaliadorSelecionado, this.protocolo).subscribe(
             (response: Response) => {
                 avaliacao = response['avaliacao'];
+
+
+
             },
             (error: HttpErrorResponse) => {
                 console.log(error);
             },
             () => {
-                // this.output.emit({avaliadorSelecionado: avaliacao, parecerFinal: true});
+                this.output.emit({avaliadorSelecionado: avaliacao, parecerFinal: true});
             }
         );
 
