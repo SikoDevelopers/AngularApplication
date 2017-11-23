@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./barra-do-topo-est.component.scss']
 })
 export class BarraDoTopoEstComponent implements OnInit {
-  nomeDaApp: String = "SikoSSP";
+  nomeDaApp: String = "CC-DMI";
   constructor() { }
 
   ngOnInit() {
