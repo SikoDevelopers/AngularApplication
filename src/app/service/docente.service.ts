@@ -69,9 +69,9 @@ export class DocenteService {
     }
 
     /**
-     * Metodo usado para ir buscar solicitacoes de supervisao
-     * @param id
-     * @returns {Observable<Object>}
+     * Metodo usado para ir buscar solicitacoes de supervisao de um docente dado o id
+     * @param id - id do docente
+     * @returns {Observable<Object>} dados sobre as solicitacoes
      */
     getSolicitacoesDeSupervisao(id: number): Observable<any>{
         return this.http.get('http://127.0.0.1:8000/api/docentes/'+id+'/solicitacoes/supervisao');

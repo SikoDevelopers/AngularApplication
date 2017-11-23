@@ -11,8 +11,8 @@
       <th>#</th>
       <th>Tema</th>
       <th>Estudante</th>
-      <th>Data Submissao</th>
-      <th>Estado</th>
+      <th>Data Submissão</th>
+      <th>Supervisão</th>
     </tr>
     </thead>
     <!--Table head-->
@@ -24,11 +24,11 @@
       <td scope="row">{{trabalho.id}}</td>
       <td>{{trabalho.titulo}}</td>
       <td>{{trabalho.estudante.nome}}</td>
-      <td>{{getDataSubmissao(trabalho.created_at)}}</td>
+      <td>{{(trabalho.created_at | date : 'dd/MM/yyyy')}}</td>
       <td>
-          <a [class.alert-danger]="'Nao Aprovado' == getEstado(trabalho.is_aprovado)" class="p-1"
-              [class.alert-success]="'Aprovado' == getEstado(trabalho.is_aprovado)">
-              {{getEstado(trabalho.is_aprovado)}}
+          <a [class.alert-danger]="'Nao Confirmado' == getEstado(trabalho.sup_confirm)" class="p-1"
+              [class.alert-success]="'Confirmado' == getEstado(trabalho.sup_confirm)">
+              {{getEstado(trabalho.sup_confirm)}}
           </a>
       </td>
     </tr>

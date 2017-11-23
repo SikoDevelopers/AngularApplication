@@ -19,7 +19,9 @@ export class TrabalhosSubmetidosComponent implements OnInit {
     trabalho;
     bloquear:boolean =true;
     @Input() modal: any;
+    @Input() modalAvalicao: any;
     @Input() modalP: any;
+    avaliacaoTrabalho;
   constructor(private userService: UserService,
               private trabalhoService: TrabalhoService,
               private ficheiroService: FicheirosTrabalhoService,
@@ -36,6 +38,12 @@ export class TrabalhosSubmetidosComponent implements OnInit {
       // alert('estudante'+this.estudante.id);
       // alert('trabalho'+this.trabalho.id);
   }
+    onClickFile(file){
+        alert(file.avaliacao);
+
+        this.avaliacaoTrabalho = file.avaliacao;
+        this.modalAvalicao.show();
+    }
 
     getUser(){
         const token = localStorage.getItem('token');
@@ -122,6 +130,11 @@ export class TrabalhosSubmetidosComponent implements OnInit {
         this.modalP= event;
     }
 
+
+    getModalAvaliacao(evento){
+        this.modalAvalicao = evento;
+        console.log(evento);
+    }
 
     onMostrarModal(){
         this.modal.show();

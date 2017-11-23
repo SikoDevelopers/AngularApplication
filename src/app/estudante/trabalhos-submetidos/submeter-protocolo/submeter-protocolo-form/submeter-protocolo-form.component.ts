@@ -38,7 +38,7 @@ export class SubmeterProtocoloFormComponent implements OnInit {
         alert('event emitter');
 
         this.file = evento.file;
-        alert(this.file.name);
+
     }
 
 
