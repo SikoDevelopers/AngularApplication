@@ -14,9 +14,9 @@ export class AvaliacaoService {
 
     }
 
-    saveAvaliacao(avaliacao): Observable<any>{
+    saveAvaliacao(avaliacao, avaliadorSelecionado, protocolo): Observable<any>{
         const headers = new HttpHeaders({'Content-Type': 'application/json'});
-        return this.http.post('http://127.0.0.1:8000/api/avalicoes', avaliacao , {headers: headers})
+        return this.http.post('http://127.0.0.1:8000/api/avalicoes', {avaliacao, avaliadorSelecionado, protocolo} , {headers: headers})
     }
 
     updateAvaliacao(id: number, avaliacao){

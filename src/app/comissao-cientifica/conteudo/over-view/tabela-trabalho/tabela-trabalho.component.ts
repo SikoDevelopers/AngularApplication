@@ -43,10 +43,8 @@ export class TabelaTrabalhoComponent implements OnInit, OnDestroy {
     }
 
     getEstado(sup_confirm){
-        if(sup_confirm){
+        if(sup_confirm == 1)
             return "Confirmado";
-        }
-        else
             return "Nao Confirmado";
     }
 
