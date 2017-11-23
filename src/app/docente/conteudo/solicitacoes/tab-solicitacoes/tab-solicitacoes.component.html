@@ -1,3 +1,21 @@
-<p>
-  tab-solicitacoes works!
-</p>
+<div class="row">
+  <mat-tab-group  [ngStyle]="{'width':'100%'}">
+    <mat-tab label="Supervisao">
+      <div class="col-lg-12">
+        <app-lista-de-solicitacoes class="col-md-6"></app-lista-de-solicitacoes>
+      </div>
+    </mat-tab>
+    <mat-tab label="Avaliacao">
+      <div class="col-lg-12">
+        <app-lista-de-solicitacoes-avaliacao class="col-md-6"></app-lista-de-solicitacoes-avaliacao>
+        <!--<app-solicitacoes></app-solicitacoes>-->
+      </div>
+    </mat-tab>
+    <mat-tab label="Oponencia">
+      <div class="col-lg-12">
+        <app-lista-de-solicitacoes-oponencia class="col-md-6"></app-lista-de-solicitacoes-oponencia>
+        <!--<app-solicitacoes></app-solicitacoes>-->
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
