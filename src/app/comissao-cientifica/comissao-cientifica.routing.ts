@@ -10,6 +10,7 @@ import { RouterModule, Routes} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {ComissaoCientificaComponent} from './comissao-cientifica.component';
 import {DocentesComponent} from './conteudo/docentes/docentes.component';
+import {AuthGuardService} from '../service/auth-guard.service';
 
 const COMISSAO_ROTAS: Routes = [
     {path: '', component: ComissaoCientificaComponent,

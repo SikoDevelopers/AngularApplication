@@ -21,15 +21,17 @@ export class BarraDoTopoComponent implements OnInit {
 
 
 
-    redirecionarUser(evento, user){
+    redirecionarUser(user, evento){
+
         if(user.estudante){
             window.location.href = 'estudante/submeter-trabalho';
         }
         if(user.docente){
             window.location.href = 'docente/supervisandos';
         }
-        if(user.director_curso){
-            window.location.href = 'director-curso';
+        if(user.tipo_user){
+            if(user.tipo_user.designacao == 'Comissao Cientifica')
+            window.location.href = 'comissao-cientifica/over-view';
         }
         if(user.funcionario){
             window.location.href = 'comissao-cientifica/over-view';

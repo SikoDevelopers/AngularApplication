@@ -10,7 +10,6 @@ import {HttpErrorResponse} from '@angular/common/http';
 export class TabsTrabalhosComponent implements OnInit {
 
 
-
     @Input() modalProtocolo: any;
     @Input() modalTrabalho: any;
     @Input() modalTodos: any;

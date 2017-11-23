@@ -13,6 +13,7 @@ export class ComissaoCientificaComponent implements OnInit {
   isPorcessoCriado: boolean;
 
   constructor(private processoSubmissaoService: ProcessoSubmissaoService) {
+
     this.isPorcessoCriado = true;
   }
 

@@ -35,6 +35,7 @@ export class LoginFormComponent implements OnInit {
           this.loginNegado = 'sucesso';
           this.mensagemSucesso = "Credenciais validas! Aguarde...";
 
+          console.log(dados);
           if(dados) {
 
               if (dados['user']['docente'] != null)
@@ -64,8 +65,11 @@ export class LoginFormComponent implements OnInit {
 
               }
 
-              if (dados['user']['director_curso'] != null)
-                  alert("Sera direcionado para Director de Curso");
+              if (dados['user']['tipo_user'] != null){
+                  if(dados['user']['tipo_user']['designacao'] == 'Comissao Cientifica')
+                      window.location.href = 'comissao-cientifica/over-view';
+              }
+
 
               if (dados['user']['funcionario'] != null)
                   alert("Sera direcionado para Funcionario");
