@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import {DocenteService} from "../../../../service/docente.service";
 import {UserService} from "../../../../service/user.service";
-import {TrabalhoService} from "../../../../service/trabalho.service";
 
 @Component({
-  selector: 'app-lista-de-solicitacoes',
-  templateUrl: './lista-de-solicitacoes.component.html',
-  styleUrls: ['./lista-de-solicitacoes.component.scss']
+  selector: 'app-lista-de-solicitacoes-avaliacao',
+  templateUrl: './lista-de-solicitacoes-avaliacao.component.html',
+  styleUrls: ['./lista-de-solicitacoes-avaliacao.component.scss']
 })
-export class ListaDeSolicitacoesComponent implements OnInit {
+export class ListaDeSolicitacoesAvaliacaoComponent implements OnInit {
 
   user: any;
   docente: any;
   solicitacoes: any;
-  fileEArea: any;
+
   constructor(private _docenteService: DocenteService,
-              private _userService: UserService,
-              private _trabalhoService: TrabalhoService
-  ) { }
+              private _userService: UserService,) { }
 
   ngOnInit() {
+
     this.getUser();
   }
+
+
 
   getUser() {
     let token = localStorage.getItem('token');
@@ -33,7 +33,7 @@ export class ListaDeSolicitacoesComponent implements OnInit {
         error2 => {
         },
         () => {
-            //console.log(this.user.id);
+          //console.log(this.user.id);
           this.getDocente(this.user.id);
         }
     );
@@ -49,21 +49,21 @@ export class ListaDeSolicitacoesComponent implements OnInit {
           console.log("Error ao carregar Docente " + error2)
         },
         () => {
-            this.getSolicitacoes(this.docente.id);
+          this.getSolicitacoes(this.docente.id);
         }
     );
   }
 
   getSolicitacoes(id:number){
-      this._docenteService.getSolicitacoesDeSupervisao(id).subscribe(
-          resultado => {
-              this.solicitacoes = resultado['solicitacoes'];
-          },
-          error2 => {console.log("Ocorreu um error"+ error2)},
-          () => {
-            //  this.getAreaEFicheiroDoTrabalho(this.solicitacoes.id);
-          }
-      );
+    this._docenteService.getSolicitacoesDeAvaliacao(id).subscribe(
+        resultado => {
+          this.solicitacoes = resultado['solicitacoes'];
+        },
+        error2 => {console.log("Ocorreu um error"+ error2)},
+        () => {
+          //  this.getAreaEFicheiroDoTrabalho(this.solicitacoes.id);
+        }
+    );
   }
 
 }
