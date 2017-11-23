@@ -62,11 +62,11 @@ export class SubmeterTrabalhoFormComponent implements OnInit {
   onCheckChange(){
      if(this.checkboxValue){
          this.checkboxValue=false;
-         alert(this.checkboxValue);
+         // alert(this.checkboxValue);
      }else{
 
          this.checkboxValue=true;
-         alert(this.checkboxValue);
+         // alert(this.checkboxValue);
      }
   }
 
@@ -148,21 +148,21 @@ getArea(){
         this.trabalhoService.getTrabalhosEstudante(id).subscribe(
             resul=>{
 
-                alert('Qunatidade d jobs '+resul['trabalho'].length);
+                // alert('Qunatidade d jobs '+resul['trabalho'].length);
                 if (resul['trabalho'].length>1){
                     trabalho = resul['trabalho'].last();
 
-                    alert('pegamos varios trabalahos');
+                    // alert('pegamos varios trabalahos');
                     if(trabalho.is_aprovado==1){
                         this.hasJob=true;
-                        alert('pegamos trabalho activo');
+                        // alert('pegamos trabalho activo');
                     }
                 }else if(resul['trabalho'].length==1){
                     trabalho = resul['trabalho'];
-                    alert('pegamos 1 trabalho');
+                    // alert('pegamos 1 trabalho');
                     if(trabalho.is_aprovado==1){
                         this.hasJob=true;
-                        alert('pegamos 1 trabalho activo');
+                        // alert('pegamos 1 trabalho activo');
                     }
                 }
 
@@ -185,7 +185,7 @@ getArea(){
 
 submeter(evento){
 
-    alert(this.user.id);
+    // alert(this.user.id);
     this.hasTrabalho(this.user.id);
 
     if(this.hasJob){
@@ -195,7 +195,7 @@ submeter(evento){
 
 
         let formData= new FormData();
-        alert(this.control);
+        // alert(this.control);
         if(this.control==true){
             alert('criou se novo');
             formData.append( 'nomeCoSup',''+this.nomeCoSup);
@@ -203,7 +203,7 @@ submeter(evento){
             formData.append( 'grauAcademico_id',''+this.graAcademico_id);
 
         }else{
-            alert('selec');
+            // alert('selec');
             formData.append( 'coSupId',''+this.coSupervisor);
         }
         formData.append( 'control',''+this.control);
@@ -265,7 +265,7 @@ submeter(evento){
                 ("erro "+error2);
             },
             ()=>{
-                alert(" docente area "+this.docenteArea);
+                // alert(" docente area "+this.docenteArea);
             }
         )
 

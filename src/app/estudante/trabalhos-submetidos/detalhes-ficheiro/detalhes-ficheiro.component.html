@@ -20,13 +20,10 @@
 
               <div class="mt-4 d-flex justify-content-around">
 
-                <div>
-                  <h5>Comentarios</h5>
-                  <!--<p>{{avaliacao.parecer_final}}</p>-->
-                </div>
-                <div>
-                  <h5>Resultado</h5>
-                  <!--<p>{{avaliacao.parecer_final}}</p>-->
+                <div *ngIf="avaliacao">
+                  <h5>Detalhes Do Resultado</h5>
+                  <span>Comentarios</span>
+                  <p>{{avaliacao.id}}</p>
                 </div>
 
 
