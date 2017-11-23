@@ -41,6 +41,7 @@ import { ListaDeSolicitacoesAvaliacaoComponent } from './conteudo/solicitacoes/l
 import { ListaDeSolicitacoesOponenciaComponent } from './conteudo/solicitacoes/lista-de-solicitacoes-oponencia/lista-de-solicitacoes-oponencia.component';
 import { SolicitacaoOponenciaComponent } from './conteudo/solicitacoes/lista-de-solicitacoes-oponencia/solicitacao-oponencia/solicitacao-oponencia.component';
 import { SolicitacaoAvaliacaoComponent } from './conteudo/solicitacoes/lista-de-solicitacoes-avaliacao/solicitacao-avaliacao/solicitacao-avaliacao.component';
+import { SolicitacaoAvaliacaoDetalhesComponent } from './conteudo/solicitacoes/lista-de-solicitacoes-avaliacao/solicitacao-avaliacao/solicitacao-avaliacao-detalhes/solicitacao-avaliacao-detalhes.component';
 
 @NgModule({
   imports: [
@@ -85,7 +86,8 @@ import { SolicitacaoAvaliacaoComponent } from './conteudo/solicitacoes/lista-de-
       ListaDeSolicitacoesAvaliacaoComponent,
       ListaDeSolicitacoesOponenciaComponent,
       SolicitacaoOponenciaComponent,
-      SolicitacaoAvaliacaoComponent
+      SolicitacaoAvaliacaoComponent,
+      SolicitacaoAvaliacaoDetalhesComponent
 
   ],
     schemas:[NO_ERRORS_SCHEMA],

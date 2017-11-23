@@ -16,4 +16,9 @@ export class SolicitacaoAvaliacaoComponent implements OnInit {
   changeStyle($event){
     this.cor = $event.type == 'mouseover' ? '#eeeeee' : 'white';
   }
+
+  onSolicitacaoClick(solicitacao){
+    alert("click");
+    localStorage.setItem('solicitacao',solicitacao);
+  }
 }
