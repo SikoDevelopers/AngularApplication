@@ -39,9 +39,10 @@ export class TrabalhosSubmetidosComponent implements OnInit {
       // alert('trabalho'+this.trabalho.id);
   }
     onClickFile(file){
-        alert(file.avaliacao);
+
 
         this.avaliacaoTrabalho = file.avaliacao;
+        // alert(this.avaliacaoTrabalho.parecer);
         this.modalAvalicao.show();
     }
 

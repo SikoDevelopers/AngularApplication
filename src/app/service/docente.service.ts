@@ -77,4 +77,12 @@ export class DocenteService {
         return this.http.get('http://127.0.0.1:8000/api/docentes/'+id+'/solicitacoes/supervisao');
     }
 
+    /**
+     * Metodo usado para ir buscar solicitacoes de supervisao
+     * @param id
+     * @returns {Observable<Object>}
+     */
+    getSolicitacoesDeAvaliacao(id: number): Observable<any>{
+        return this.http.get('http://127.0.0.1:8000/api/docentes/'+id+'/solicitacoes/avaliacao');
+    }
 }

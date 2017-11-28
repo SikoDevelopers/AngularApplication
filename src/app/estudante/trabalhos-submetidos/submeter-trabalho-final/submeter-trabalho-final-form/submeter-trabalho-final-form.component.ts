@@ -45,14 +45,14 @@ export class SubmeterTrabalhoFinalFormComponent implements OnInit {
 
 
     submeter(){
-        alert(this.estado);
+        // alert(this.estado);
 
 
 
         let formData= new FormData();
 
         if(this.estado=='Trabalho por Retiticar'){
-            alert('trabalho por re');
+            // alert('trabalho por re');
             formData.append('tipoFile','protocolo');
         }else if(this.estado=='Aprovado'){
             formData.append('tipoFile','relatorio');

@@ -1,5 +1,4 @@
 <!--<app-submeter-protocolo (output)="getModalProto($event)"></app-submeter-protocolo>-->
-<app-detalhes-ficheiro  (output)="getModalAvaliacao($event)"  [(avaliavao)] = "avaliacaoTrabalho"></app-detalhes-ficheiro>
 <div [ngStyle]="{'margin-top':'10px'}">
   <h2>Documentos submetidos</h2>
   <hr>
@@ -70,3 +69,4 @@
   </div>
 </div>
 <app-submeter-trabalho-final [estado]="estado" (output)="getModal($event)"></app-submeter-trabalho-final>
+<app-detalhes-ficheiro  (output)="getModalAvaliacao($event)"  [(avaliavao)] = "avaliacaoTrabalho"></app-detalhes-ficheiro>
