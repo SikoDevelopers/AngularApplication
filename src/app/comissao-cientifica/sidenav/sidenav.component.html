@@ -1,11 +1,11 @@
 
 <div class="col-md-2 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
   <div class="list-group border-0 text-center text-md-left">
-    <a routerLink="/comissao-cientifica/over-view" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+    <a class="list-group-item d-inline-block collapsed" data-parent="#sidebar" [routerLink]="['/comissao-cientifica/over-view']">
       <i class="fa fa-home"></i>
       <span class="d-none d-md-inline">Pagina inicial</span>
     </a>
-    <a class="list-group-item d-inline-block collapsed" data-parent="#sidebar" routerLink="/comissao-cientifica/trabalhos">
+    <a class="list-group-item d-inline-block collapsed" data-parent="#sidebar" [routerLink]="['/comissao-cientifica/trabalhos']">
       <i class="fa fa-file-word-o"></i>
       <span class="d-none d-md-inline">Trabalhos</span>
     </a>

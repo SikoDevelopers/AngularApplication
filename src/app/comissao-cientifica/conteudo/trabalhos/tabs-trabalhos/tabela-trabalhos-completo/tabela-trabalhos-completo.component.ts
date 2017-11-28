@@ -43,14 +43,6 @@ export class TabelaTrabalhosCompletoComponent implements OnInit {
         );
     }
 
-    getEstado(is_aprovado){
-        if(is_aprovado){
-            return "Aprovado";
-        }
-        else
-            return "Nao Aprovado";
-    }
-
 
     getDataSubmissao(dataSubmissao){
         let data = new Date(dataSubmissao);
@@ -94,5 +86,11 @@ export class TabelaTrabalhosCompletoComponent implements OnInit {
         this.subcricao.unsubscribe();
     }
 
+
+    getEstado(sup_confirm){
+        if(sup_confirm == 1)
+            return "Confirmado";
+        return "Nao Confirmado";
+    }
 
 }

@@ -31,6 +31,9 @@ import {TemaService} from "./service/tema.service";
 import {MatAutocompleteModule, MatFormFieldControl, MatInputModule} from "@angular/material";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { DatepickerModule } from 'angular2-material-datepicker'
+import {AuthService} from './service/auth.service';
+import {AuthGuardService} from './service/auth-guard.service';
+import {JWT_OPTIONS, JwtHelperService} from '@auth0/angular-jwt';
 
 
 @NgModule({
@@ -70,11 +73,13 @@ import { DatepickerModule } from 'angular2-material-datepicker'
       DocenteService,
       TrabalhoService,
       FuncaoService,
-
       FicheirosTrabalhoService,
       EstudanteService,
       FicheiroTrabalhoEstadoFicheiroService,
-      // TemaService
+      JwtHelperService,
+      AuthService,
+      AuthGuardService,
+      {provide: JWT_OPTIONS, useValue: {}},
     ],
 
   bootstrap: [AppComponent],

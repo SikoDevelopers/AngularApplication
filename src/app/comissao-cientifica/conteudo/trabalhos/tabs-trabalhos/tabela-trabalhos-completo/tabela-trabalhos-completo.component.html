@@ -18,15 +18,15 @@
 
     <!--Table body-->
     <tbody *ngFor="let trabalho of trabalhos">
-    <tr class="hoverable" (click)="onClickTrabalho(trabalho)" data-toggle="modal" data-target="#basicExample">
+    <tr (click)="onClickTrabalho(trabalho)" data-toggle="modal" data-target="#basicExample">
       <td>    </td>
       <td scope="row">{{trabalho.id}}</td>
       <td>{{trabalho.titulo}}</td>
       <td>{{trabalho.estudante.nome}}</td>
       <td>{{getDataSubmissao(trabalho.created_at)}}</td>
       <td>
-        <a [class.alert-danger]="'Nao Aprovado' == getEstado(trabalho.is_aprovado)" class="p-1"
-           [class.alert-success]="'Aprovado' == getEstado(trabalho.is_aprovado)">
+        <a [class.alert-danger]="'Nao Confirmado' == getEstado(trabalho.sup_confirm)" class="p-1"
+           [class.alert-success]="'Confirmado' == getEstado(trabalho.sup_confirm)">
           {{getEstado(trabalho.is_aprovado)}}
         </a>
       </td>

@@ -50,6 +50,7 @@ import { AdicoinarAvaliadoresComponent } from './conteudo/trabalhos/tabs-trabalh
 import {AvaliacaoService} from '../service/avaliacao.service';
 import { AvaliadorComponent } from './conteudo/trabalhos/tabs-trabalhos/tabela-protocolos/avaliador/avaliador.component';
 import {FicheirosService} from '../service/ficheiros.service';
+import {AuthGuardService} from '../service/auth-guard.service';
 
 @NgModule({
   imports: [
@@ -103,7 +104,7 @@ import {FicheirosService} from '../service/ficheiros.service';
 
 ],
 
-providers: [FicheirosService, AvaliacaoService, AvatarComponent, GrauAcademicoService, TrabalhoService, ProcessoSubmissaoService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
+providers: [FicheirosService, AvaliacaoService, AvatarComponent, GrauAcademicoService, TrabalhoService, ProcessoSubmissaoService, AuthGuardService, { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }],
     schemas:[NO_ERRORS_SCHEMA],
     exports:[RouterModule]
 })

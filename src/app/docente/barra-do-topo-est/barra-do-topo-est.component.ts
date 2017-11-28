@@ -14,7 +14,7 @@ export class BarraDoTopoEstComponent implements OnInit {
 
 
 
-    terminarSessao(){
+    terminarSessao(evento){
         localStorage.setItem('isLoggedin', 'false');
         localStorage.removeItem('token');
         window.location.href = "login";
