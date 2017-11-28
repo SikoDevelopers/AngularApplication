@@ -19,7 +19,7 @@
 
     <!--Table body-->
     <tbody *ngFor="let trabalho of trabalhos">
-    <tr class="hoverable" (click)="onClickTrabalho(trabalho)" data-toggle="modal" data-target="#basicExample">
+    <tr  (click)="onClickTrabalho(trabalho)" data-toggle="modal" data-target="#basicExample">
       <td>    </td>
       <td scope="row">{{trabalho.id}}</td>
       <td>{{trabalho.titulo}}</td>

@@ -18,7 +18,7 @@
 
     <!--Table body-->
     <tbody *ngFor="let protocolo of protocolos">
-    <tr class="hoverable" (click)="onClickTrabalho(protocolo)" data-toggle="modal" data-target="#basicExample">
+    <tr  (click)="onClickTrabalho(protocolo)" data-toggle="modal" data-target="#basicExample">
       <td>    </td>
       <td scope="row">{{protocolo.id}}</td>
       <td>{{protocolo.titulo}}</td>
