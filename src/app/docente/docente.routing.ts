@@ -6,15 +6,16 @@ import { MeusSupervisionandosComponent } from './conteudo/meus-supervisionandos/
 import { TemasComponent } from './conteudo/temas/temas.component';
 import { OponenciaComponent } from './conteudo/oponencia/oponencia.component';
 import {SolicitacoesComponent} from "./conteudo/solicitacoes/solicitacoes.component";
+import {AuthGuardService} from '../service/auth-guard.service';
 
 const DOCENTE_ROTAS: Routes = [
     {path: '', component: DocenteComponent,
         children: [
-            {path:'docente/supervisandos',component: MeusSupervisionandosComponent},
-            {path:'docente/eventos',component: EventosComponent},
-            {path:'docente/temas',component: TemasComponent},
-            {path:'docente/oponencia',component: OponenciaComponent},
-            {path:'docente/solicitacoes',component: SolicitacoesComponent }
+            {path:'docente/supervisandos',component: MeusSupervisionandosComponent, canActivate: [AuthGuardService]},
+            {path:'docente/eventos',component: EventosComponent, canActivate: [AuthGuardService]},
+            {path:'docente/temas',component: TemasComponent, canActivate: [AuthGuardService]},
+            {path:'docente/oponencia',component: OponenciaComponent, canActivate: [AuthGuardService]},
+            {path:'docente/solicitacoes',component: SolicitacoesComponent, canActivate: [AuthGuardService] }
 
         ],
 

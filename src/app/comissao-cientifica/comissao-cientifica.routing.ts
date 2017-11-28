@@ -15,12 +15,12 @@ import {AuthGuardService} from '../service/auth-guard.service';
 const COMISSAO_ROTAS: Routes = [
     {path: '', component: ComissaoCientificaComponent,
         children: [
-            {path:'comissao-cientifica/over-view', component:OverViewComponent},
-            {path:'comissao-cientifica/trabalhos',component:TrabalhosComponent},
-            {path:'comissao-cientifica/supervisores',component:SupervisoresComponent},
-            {path:'comissao-cientifica/eventos',component:EventosComponent},
-            {path:'comissao-cientifica/estatisticas',component:EstatisticasComponent},
-            {path:'comissao-cientifica/docentes',component:DocentesComponent},
+            {path:'comissao-cientifica/over-view', component:OverViewComponent, canActivate: [AuthGuardService]},
+            {path:'comissao-cientifica/trabalhos',component:TrabalhosComponent, canActivate: [AuthGuardService]},
+            {path:'comissao-cientifica/supervisores',component:SupervisoresComponent, canActivate: [AuthGuardService]},
+            {path:'comissao-cientifica/eventos',component:EventosComponent, canActivate: [AuthGuardService]},
+            {path:'comissao-cientifica/estatisticas',component:EstatisticasComponent, canActivate: [AuthGuardService]},
+            {path:'comissao-cientifica/docentes',component:DocentesComponent, canActivate: [AuthGuardService]},
         ],
     },
 
