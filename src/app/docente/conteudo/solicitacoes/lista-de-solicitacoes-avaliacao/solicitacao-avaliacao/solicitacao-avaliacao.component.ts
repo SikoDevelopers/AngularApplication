@@ -18,7 +18,6 @@ export class SolicitacaoAvaliacaoComponent implements OnInit {
   }
 
   onSolicitacaoClick(solicitacao){
-    alert("click");
-    localStorage.setItem('solicitacao',solicitacao);
+    localStorage.setItem('solicitacao', solicitacao);
   }
 }

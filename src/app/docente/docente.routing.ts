@@ -17,7 +17,7 @@ const DOCENTE_ROTAS: Routes = [
             {path:'docente/eventos',component: EventosComponent, canActivate: [AuthGuardService]},
             {path:'docente/temas',component: TemasComponent, canActivate: [AuthGuardService]},
             {path:'docente/oponencia',component: OponenciaComponent, canActivate: [AuthGuardService]},
-            {path:'docente/solicitacoes',component: SolicitacoesComponent, canActivate: [AuthGuardService] }
+            {path:'docente/solicitacoes',component: SolicitacoesComponent, canActivate: [AuthGuardService] },
             {path:'docente/solicitacoes/avaliacao-detalhes',component: SolicitacaoAvaliacaoDetalhesComponent },
 
         ],
